@@ -99,7 +99,7 @@ namespace DoAn1
             }
             finally
             {
-                p.DisConnect();
+                p.DisConnect(); 
             }
             return null;
         }
