@@ -10,7 +10,7 @@
     <PackageArchitecture>x64</PackageArchitecture>
     <PackageIdentityName>c38fb8d7-80b9-44b1-b6b1-e34f4ba7b350</PackageIdentityName>
     <PackageIdentityPublisher>CN=Dung</PackageIdentityPublisher>
-    <IntermediateOutputPath>C:\Users\Admin\Desktop\DoAn1\DoAn1\obj\x64\Debug\</IntermediateOutputPath>
+    <IntermediateOutputPath>C:\Users\Admin\source\repos\LTUDQL1\milestone01\DoAn1\DoAn1\obj\x64\Debug\</IntermediateOutputPath>
     <RemoteDeploymentType>
     </RemoteDeploymentType>
     <PackageRegistrationPath>
@@ -18,7 +18,7 @@
     <RemoveNonLayoutFiles>true</RemoveNonLayoutFiles>
     <DeployOptionalPackages>false</DeployOptionalPackages>
     <WindowsSdkPath>C:\Program Files %28x86%29\Windows Kits\10\</WindowsSdkPath>
-    <LayoutDir>C:\Users\Admin\Desktop\DoAn1\DoAn1\bin\x64\Debug\AppX</LayoutDir>
+    <LayoutDir>C:\Users\Admin\source\repos\LTUDQL1\milestone01\DoAn1\DoAn1\bin\x64\Debug\AppX</LayoutDir>
     <RegisteredManifestChecksum>8EA01DD11E5266BE06334CBC94A3FCE3651E9C243AB84D9B4396A3C9C5D09CA3</RegisteredManifestChecksum>
     <RegisteredPackageMoniker>c38fb8d7-80b9-44b1-b6b1-e34f4ba7b350_1.0.0.0_x64__8sy2xtqkfamxc</RegisteredPackageMoniker>
     <RegisteredUserModeAppID>c38fb8d7-80b9-44b1-b6b1-e34f4ba7b350_8sy2xtqkfamxc!App</RegisteredUserModeAppID>
@@ -27,16 +27,16 @@
     <RegisteredVersion>1.0.0.0</RegisteredVersion>
   </PropertyGroup>
   <ItemGroup>
-    <AppXManifest Include="C:\Users\Admin\Desktop\DoAn1\DoAn1\bin\x64\Debug\Core\AppxManifest.xml">
+    <AppXManifest Include="C:\Users\Admin\source\repos\LTUDQL1\milestone01\DoAn1\DoAn1\bin\x64\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2020-11-24T09:33:38.647</Modified>
+      <Modified>2020-11-25T16:15:31.735</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
-    <AppxPackagedFile Include="C:\Users\Admin\Desktop\DoAn1\DoAn1\bin\x64\Debug\DoAn1.exe">
+    <AppxPackagedFile Include="C:\Users\Admin\source\repos\LTUDQL1\milestone01\DoAn1\DoAn1\bin\x64\Debug\DoAn1.exe">
       <PackagePath>entrypoint\DoAn1.exe</PackagePath>
-      <Modified>2020-11-24T09:33:35.756</Modified>
+      <Modified>2020-11-25T16:15:28.301</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Admin\.nuget\packages\colorcode.core\2.0.6\lib\netstandard1.4\ColorCode.Core.dll">
       <PackagePath>ColorCode.Core.dll</PackagePath>
@@ -106,75 +106,75 @@
       <PackagePath>Microsoft.Toolkit.Uwp.UI.Controls\Microsoft.Toolkit.Uwp.UI.Controls.xr.xml</PackagePath>
       <Modified>2020-08-12T15:07:10.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Admin\Desktop\DoAn1\DoAn1\anh\1.jpg">
+    <AppxPackagedFile Include="C:\Users\Admin\source\repos\LTUDQL1\milestone01\DoAn1\DoAn1\anh\1.jpg">
       <PackagePath>anh\1.jpg</PackagePath>
       <Modified>2020-11-11T18:20:06.420</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Admin\Desktop\DoAn1\DoAn1\Properties\Default.rd.xml">
+    <AppxPackagedFile Include="C:\Users\Admin\source\repos\LTUDQL1\milestone01\DoAn1\DoAn1\Properties\Default.rd.xml">
       <PackagePath>Properties\Default.rd.xml</PackagePath>
       <Modified>2020-11-11T17:41:01.307</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Admin\Desktop\DoAn1\DoAn1\Assets\LockScreenLogo.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\Admin\source\repos\LTUDQL1\milestone01\DoAn1\DoAn1\Assets\LockScreenLogo.scale-200.png">
       <PackagePath>Assets\LockScreenLogo.scale-200.png</PackagePath>
       <Modified>2020-10-11T13:01:24.892</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Admin\Desktop\DoAn1\DoAn1\Assets\SplashScreen.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\Admin\source\repos\LTUDQL1\milestone01\DoAn1\DoAn1\Assets\SplashScreen.scale-200.png">
       <PackagePath>Assets\SplashScreen.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2020-10-11T13:01:24.907</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Admin\Desktop\DoAn1\DoAn1\Assets\Square150x150Logo.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\Admin\source\repos\LTUDQL1\milestone01\DoAn1\DoAn1\Assets\Square150x150Logo.scale-200.png">
       <PackagePath>Assets\Square150x150Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2020-10-11T13:01:24.911</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Admin\Desktop\DoAn1\DoAn1\Assets\Square44x44Logo.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\Admin\source\repos\LTUDQL1\milestone01\DoAn1\DoAn1\Assets\Square44x44Logo.scale-200.png">
       <PackagePath>Assets\Square44x44Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2020-10-11T13:01:24.913</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Admin\Desktop\DoAn1\DoAn1\Assets\Square44x44Logo.targetsize-24_altform-unplated.png">
+    <AppxPackagedFile Include="C:\Users\Admin\source\repos\LTUDQL1\milestone01\DoAn1\DoAn1\Assets\Square44x44Logo.targetsize-24_altform-unplated.png">
       <PackagePath>Assets\Square44x44Logo.targetsize-24_altform-unplated.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2020-10-11T13:01:24.915</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Admin\Desktop\DoAn1\DoAn1\Assets\StoreLogo.png">
+    <AppxPackagedFile Include="C:\Users\Admin\source\repos\LTUDQL1\milestone01\DoAn1\DoAn1\Assets\StoreLogo.png">
       <PackagePath>Assets\StoreLogo.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2020-10-11T13:01:24.917</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Admin\Desktop\DoAn1\DoAn1\Assets\Wide310x150Logo.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\Admin\source\repos\LTUDQL1\milestone01\DoAn1\DoAn1\Assets\Wide310x150Logo.scale-200.png">
       <PackagePath>Assets\Wide310x150Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2020-10-11T13:01:24.918</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Admin\Desktop\DoAn1\DoAn1\bin\x64\Debug\DoAn1.xr.xml">
+    <AppxPackagedFile Include="C:\Users\Admin\source\repos\LTUDQL1\milestone01\DoAn1\DoAn1\bin\x64\Debug\DoAn1.xr.xml">
       <PackagePath>DoAn1.xr.xml</PackagePath>
-      <Modified>2020-11-24T09:33:35.450</Modified>
+      <Modified>2020-11-25T14:10:05.988</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Admin\Desktop\DoAn1\DoAn1\bin\x64\Debug\App.xbf">
+    <AppxPackagedFile Include="C:\Users\Admin\source\repos\LTUDQL1\milestone01\DoAn1\DoAn1\bin\x64\Debug\App.xbf">
       <PackagePath>App.xbf</PackagePath>
-      <Modified>2020-11-24T07:42:34.288</Modified>
+      <Modified>2020-11-25T16:15:27.947</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Admin\Desktop\DoAn1\DoAn1\bin\x64\Debug\LoginPage.xbf">
+    <AppxPackagedFile Include="C:\Users\Admin\source\repos\LTUDQL1\milestone01\DoAn1\DoAn1\bin\x64\Debug\LoginPage.xbf">
       <PackagePath>LoginPage.xbf</PackagePath>
-      <Modified>2020-11-24T07:42:34.288</Modified>
+      <Modified>2020-11-25T16:15:27.948</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Admin\Desktop\DoAn1\DoAn1\bin\x64\Debug\MainPage.xbf">
+    <AppxPackagedFile Include="C:\Users\Admin\source\repos\LTUDQL1\milestone01\DoAn1\DoAn1\bin\x64\Debug\MainPage.xbf">
       <PackagePath>MainPage.xbf</PackagePath>
-      <Modified>2020-11-24T09:33:35.477</Modified>
+      <Modified>2020-11-25T16:15:27.949</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\UnionMetadata\10.0.18362.0\Windows.winmd">
       <PackagePath>WinMetadata\Windows.winmd</PackagePath>
       <Modified>2019-03-18T10:33:42.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Admin\Desktop\DoAn1\DoAn1\bin\x64\Debug\resources.pri">
+    <AppxPackagedFile Include="C:\Users\Admin\source\repos\LTUDQL1\milestone01\DoAn1\DoAn1\bin\x64\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2020-11-24T08:24:41.909</Modified>
+      <Modified>2020-11-25T15:29:22.613</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Admin\Desktop\DoAn1\DoAn1\bin\x64\Debug\Core\DoAn1.exe">
+    <AppxPackagedFile Include="C:\Users\Admin\source\repos\LTUDQL1\milestone01\DoAn1\DoAn1\bin\x64\Debug\Core\DoAn1.exe">
       <PackagePath>DoAn1.exe</PackagePath>
-      <Modified>2020-11-24T09:33:38.638</Modified>
+      <Modified>2020-11-25T16:15:31.722</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

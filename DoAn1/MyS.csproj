@@ -133,6 +133,8 @@
     <Compile Include="Model\Purchase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Provider\Provider.cs" />
+    <Compile Include="Provider\QueryForSQLServer.cs" />
+    <Compile Include="RelativeToAsolutePathConverter.cs" />
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">

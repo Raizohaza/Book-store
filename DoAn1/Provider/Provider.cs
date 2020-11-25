@@ -8,14 +8,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DoAn1
+namespace DoAn1.Provider
 {
     class Provider
     {
         string ConnectionString { get; set; }
-        Provider(string str)
+        public Provider(string str)
         {
             ConnectionString = str;
+        }
+        public Provider()
+        {
+            ConnectionString = @"Data Source=admin;Initial Catalog=MyStore;Integrated Security=True";
         }
         SqlConnection Connection { get; set; }
         public void Connect()
@@ -79,29 +83,6 @@ namespace DoAn1
                 throw ex;
             }
         }
-        public static DataTable GetProducts(string ConnectionString)
-        {
-            //const string GetProductsQuery = "sp_GetProducts";
-            const string GetProductsQuery = "select * from Product join Category on Product.catid = Category.id";
-            DataTable dt = null;
-            Provider p = new Provider(ConnectionString);
-
-            var products = new ObservableCollection<Product>();
-            try
-            {
-                p.Connect();
-                dt = p.ExcecuteQuery(CommandType.Text, GetProductsQuery);
-                return dt;
-            }
-            catch (Exception eSql)
-            {
-                Debug.WriteLine("Exception: " + eSql.Message);
-            }
-            finally
-            {
-                p.DisConnect(); 
-            }
-            return null;
-        }
+        
     }
 }
