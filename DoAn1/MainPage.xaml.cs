@@ -55,8 +55,9 @@ namespace DoAn1
 
                 products.Add(product);
             }
-            products[11].Image = "be1abedd-c60c-409b-ac31-38d62f696a68";
-            provider::QueryForSQLServer.UpdateProduct(products[11]);
+            var cat = new Category() { Id=8, Name = "ThinkPad" };
+            //provider::QueryForSQLServer.DeleteCategory(7);
+            provider::QueryForSQLServer.UpdateCategory(cat);
             test_data.ItemsSource = products;
         }
 

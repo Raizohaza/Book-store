@@ -16,7 +16,7 @@ namespace DoAn1
             if (relative.Contains(":\\"))
                 return relative;
             var folder = AppDomain.CurrentDomain.BaseDirectory;
-            var absolute = $"{folder}image\\{relative}.jpg";
+            var absolute = $"{folder}image\\{relative}";
             return absolute;
 
 
