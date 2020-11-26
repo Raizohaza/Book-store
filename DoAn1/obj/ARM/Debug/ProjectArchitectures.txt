@@ -1,1 +1,1 @@
-C:\Users\Admin\Desktop\DoAn1\DoAn1\MyS.csproj;arm
+C:\Users\RT30102019\Source\Repos\DoAn1\DoAn1\MyS.csproj;arm

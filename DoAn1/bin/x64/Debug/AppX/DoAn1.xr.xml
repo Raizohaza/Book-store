@@ -49,6 +49,12 @@
       <RootProperty Name="HorizontalAlignment" />
     </RootType>
     <RootType FullName="DoAn1.LoginPage" />
+    <RootType FullName="Windows.UI.Xaml.Controls.Button">
+      <RootProperty Name="Content" />
+      <RootProperty Name="HorizontalAlignment" />
+      <RootProperty Name="VerticalAlignment" />
+      <RootEvent Name="Click" />
+    </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.NavigationView">
       <RootProperty Name="Height" />
       <RootProperty Name="Width" />

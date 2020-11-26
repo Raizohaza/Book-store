@@ -13,6 +13,9 @@
 
     <Grid  Height="988" Width="1500">
         <StackPanel Width="1500" Orientation="Horizontal">
+            <Button x:Name="ImportButton" Content="Import" Click="ImportButton_Click" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <Button x:Name="ImportButton2" Content="Import" Click="ImportButton2_Click" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+
             <muxc:NavigationView x:Name="Menu" Height="988" Width="200">
                 <muxc:NavigationView.MenuItems>
                     <muxc:NavigationViewItem Icon="Home" Content="Trang Chủ" Tag="Trang Chủ"/>

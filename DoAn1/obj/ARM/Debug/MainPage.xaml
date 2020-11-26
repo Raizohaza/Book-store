@@ -1,0 +1,46 @@
+﻿<Page
+    x:Class="DoAn1.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:DoAn1"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+    xmlns:muxc="using:Windows.UI.Xaml.Controls"
+    xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+
+    <Grid  Height="988" Width="1500">
+        <StackPanel Width="1500" Orientation="Horizontal">
+            <muxc:NavigationView x:ConnectionId='2' x:Name="Menu" Height="988" Width="200">
+                <muxc:NavigationView.MenuItems>
+                    <muxc:NavigationViewItem Icon="Home" Content="Trang Chủ" Tag="Trang Chủ"/>
+                    <muxc:NavigationViewItem Icon="Account" Content="Trang Cá Nhân" Tag="Trang Cá Nhân" />
+                    <muxc:NavigationViewItem Icon="Favorite" Content="Yêu Thích" Tag="Yêu Thích" />
+                    <muxc:NavigationViewItem Icon="Shop" Content="Túi" Tag="Túi" />
+                </muxc:NavigationView.MenuItems>
+                <Frame x:ConnectionId='6' x:Name="contentFrame" Margin="0,0,146,0"/>
+            </muxc:NavigationView>
+
+            <ListView x:ConnectionId='3' x:Name="test_data" Background="White" Height="5000" Width="1000">
+                <Button x:ConnectionId='4' x:Name="button" Content="Import"                            HorizontalAlignment="Center" VerticalAlignment="Center"/>
+
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel >
+
+                            <StackPanel Orientation="Horizontal" Width="200">
+                                <TextBlock Text="{Binding Id}" FontSize="12"  TextWrapping="Wrap"/>
+                                <TextBlock Text="{Binding Name}" FontSize="12" TextWrapping="Wrap"/>
+                            </StackPanel>
+                            <TextBlock Text="{Binding Image}" FontSize="12"  TextWrapping="Wrap"/>
+
+                        </StackPanel>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackPanel>
+    </Grid>
+</Page>
+

@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
-    <Machine>ADMIN</Machine>
-    <WindowsUser>Admin</WindowsUser>
+    <Machine>DESKTOP-F8PIA3B</Machine>
+    <WindowsUser>RT30102019</WindowsUser>
     <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
     <TargetOsVersion>10.0</TargetOsVersion>
     <TargetOsDescription>Windows 10.0</TargetOsDescription>
@@ -10,7 +10,7 @@
     <PackageArchitecture>x64</PackageArchitecture>
     <PackageIdentityName>c38fb8d7-80b9-44b1-b6b1-e34f4ba7b350</PackageIdentityName>
     <PackageIdentityPublisher>CN=Dung</PackageIdentityPublisher>
-    <IntermediateOutputPath>C:\Users\Admin\Desktop\DoAn1\DoAn1\obj\x64\Debug\</IntermediateOutputPath>
+    <IntermediateOutputPath>C:\Users\RT30102019\source\repos\DoAn1\DoAn1\obj\x64\Debug\</IntermediateOutputPath>
     <RemoteDeploymentType>
     </RemoteDeploymentType>
     <PackageRegistrationPath>
@@ -18,8 +18,8 @@
     <RemoveNonLayoutFiles>true</RemoveNonLayoutFiles>
     <DeployOptionalPackages>false</DeployOptionalPackages>
     <WindowsSdkPath>C:\Program Files %28x86%29\Windows Kits\10\</WindowsSdkPath>
-    <LayoutDir>C:\Users\Admin\Desktop\DoAn1\DoAn1\bin\x64\Debug\AppX</LayoutDir>
-    <RegisteredManifestChecksum>8EA01DD11E5266BE06334CBC94A3FCE3651E9C243AB84D9B4396A3C9C5D09CA3</RegisteredManifestChecksum>
+    <LayoutDir>C:\Users\RT30102019\source\repos\DoAn1\DoAn1\bin\x64\Debug\AppX</LayoutDir>
+    <RegisteredManifestChecksum>3AF08E6F9F4626EDC4C86CCFCB057CE4495A7D77066E4E534E01E955FCF17314</RegisteredManifestChecksum>
     <RegisteredPackageMoniker>c38fb8d7-80b9-44b1-b6b1-e34f4ba7b350_1.0.0.0_x64__8sy2xtqkfamxc</RegisteredPackageMoniker>
     <RegisteredUserModeAppID>c38fb8d7-80b9-44b1-b6b1-e34f4ba7b350_8sy2xtqkfamxc!App</RegisteredUserModeAppID>
     <RegisteredPackageID>c38fb8d7-80b9-44b1-b6b1-e34f4ba7b350</RegisteredPackageID>
@@ -27,58 +27,58 @@
     <RegisteredVersion>1.0.0.0</RegisteredVersion>
   </PropertyGroup>
   <ItemGroup>
-    <AppXManifest Include="C:\Users\Admin\Desktop\DoAn1\DoAn1\bin\x64\Debug\Core\AppxManifest.xml">
+    <AppXManifest Include="C:\Users\RT30102019\source\repos\DoAn1\DoAn1\bin\x64\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2020-11-24T09:33:38.647</Modified>
+      <Modified>2020-11-26T11:45:44.282</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
-    <AppxPackagedFile Include="C:\Users\Admin\Desktop\DoAn1\DoAn1\bin\x64\Debug\DoAn1.exe">
+    <AppxPackagedFile Include="C:\Users\RT30102019\source\repos\DoAn1\DoAn1\bin\x64\Debug\DoAn1.exe">
       <PackagePath>entrypoint\DoAn1.exe</PackagePath>
-      <Modified>2020-11-24T09:33:35.756</Modified>
+      <Modified>2020-11-26T11:45:41.501</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Admin\.nuget\packages\colorcode.core\2.0.6\lib\netstandard1.4\ColorCode.Core.dll">
+    <AppxPackagedFile Include="C:\Users\RT30102019\.nuget\packages\colorcode.core\2.0.6\lib\netstandard1.4\ColorCode.Core.dll">
       <PackagePath>ColorCode.Core.dll</PackagePath>
       <Modified>2018-10-05T16:30:08.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Admin\.nuget\packages\colorcode.uwp\2.0.6\lib\uap10.0\ColorCode.UWP.dll">
+    <AppxPackagedFile Include="C:\Users\RT30102019\.nuget\packages\colorcode.uwp\2.0.6\lib\uap10.0\ColorCode.UWP.dll">
       <PackagePath>ColorCode.UWP.dll</PackagePath>
       <Modified>2018-10-05T16:30:16.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Admin\.nuget\packages\microsoft.toolkit\6.1.1\lib\netstandard2.0\Microsoft.Toolkit.dll">
+    <AppxPackagedFile Include="C:\Users\RT30102019\.nuget\packages\microsoft.toolkit\6.1.1\lib\netstandard2.0\Microsoft.Toolkit.dll">
       <PackagePath>Microsoft.Toolkit.dll</PackagePath>
       <Modified>2020-08-12T15:29:22.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Admin\.nuget\packages\microsoft.toolkit.parsers\6.1.1\lib\netstandard2.0\Microsoft.Toolkit.Parsers.dll">
+    <AppxPackagedFile Include="C:\Users\RT30102019\.nuget\packages\microsoft.toolkit.parsers\6.1.1\lib\netstandard2.0\Microsoft.Toolkit.Parsers.dll">
       <PackagePath>Microsoft.Toolkit.Parsers.dll</PackagePath>
       <Modified>2020-08-12T15:29:28.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Admin\.nuget\packages\microsoft.toolkit.uwp\6.1.1\lib\uap10.0.16299\Microsoft.Toolkit.Uwp.dll">
+    <AppxPackagedFile Include="C:\Users\RT30102019\.nuget\packages\microsoft.toolkit.uwp\6.1.1\lib\uap10.0.16299\Microsoft.Toolkit.Uwp.dll">
       <PackagePath>Microsoft.Toolkit.Uwp.dll</PackagePath>
       <Modified>2020-08-12T15:29:36.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Admin\.nuget\packages\microsoft.toolkit.uwp.ui\6.1.1\lib\uap10.0.16299\Microsoft.Toolkit.Uwp.UI.dll">
+    <AppxPackagedFile Include="C:\Users\RT30102019\.nuget\packages\microsoft.toolkit.uwp.ui\6.1.1\lib\uap10.0.16299\Microsoft.Toolkit.Uwp.UI.dll">
       <PackagePath>Microsoft.Toolkit.Uwp.UI.dll</PackagePath>
       <Modified>2020-08-12T15:30:04.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Admin\.nuget\packages\microsoft.toolkit.uwp.ui.animations\6.1.1\lib\uap10.0.16299\Microsoft.Toolkit.Uwp.UI.Animations.dll">
+    <AppxPackagedFile Include="C:\Users\RT30102019\.nuget\packages\microsoft.toolkit.uwp.ui.animations\6.1.1\lib\uap10.0.16299\Microsoft.Toolkit.Uwp.UI.Animations.dll">
       <PackagePath>Microsoft.Toolkit.Uwp.UI.Animations.dll</PackagePath>
       <Modified>2020-08-12T15:30:06.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Admin\.nuget\packages\microsoft.toolkit.uwp.ui.controls\6.1.1\lib\uap10.0.16299\Microsoft.Toolkit.Uwp.UI.Controls.dll">
+    <AppxPackagedFile Include="C:\Users\RT30102019\.nuget\packages\microsoft.toolkit.uwp.ui.controls\6.1.1\lib\uap10.0.16299\Microsoft.Toolkit.Uwp.UI.Controls.dll">
       <PackagePath>Microsoft.Toolkit.Uwp.UI.Controls.dll</PackagePath>
       <Modified>2020-08-12T15:30:10.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Admin\.nuget\packages\microsoft.xaml.behaviors.uwp.managed\2.0.1\lib\uap10.0\Microsoft.Xaml.Interactions.dll">
+    <AppxPackagedFile Include="C:\Users\RT30102019\.nuget\packages\microsoft.xaml.behaviors.uwp.managed\2.0.1\lib\uap10.0\Microsoft.Xaml.Interactions.dll">
       <PackagePath>Microsoft.Xaml.Interactions.dll</PackagePath>
       <Modified>2019-04-26T18:06:58.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Admin\.nuget\packages\microsoft.xaml.behaviors.uwp.managed\2.0.1\lib\uap10.0\Microsoft.Xaml.Interactivity.dll">
+    <AppxPackagedFile Include="C:\Users\RT30102019\.nuget\packages\microsoft.xaml.behaviors.uwp.managed\2.0.1\lib\uap10.0\Microsoft.Xaml.Interactivity.dll">
       <PackagePath>Microsoft.Xaml.Interactivity.dll</PackagePath>
       <Modified>2019-04-26T18:06:08.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Admin\.nuget\packages\newtonsoft.json\10.0.3\lib\netstandard1.3\Newtonsoft.Json.dll">
+    <AppxPackagedFile Include="C:\Users\RT30102019\.nuget\packages\newtonsoft.json\10.0.3\lib\netstandard1.3\Newtonsoft.Json.dll">
       <PackagePath>Newtonsoft.Json.dll</PackagePath>
       <Modified>2017-06-18T06:57:10.000</Modified>
     </AppxPackagedFile>
@@ -86,15 +86,23 @@
       <PackagePath>System.Runtime.dll</PackagePath>
       <Modified>2020-02-27T12:17:32.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Admin\.nuget\packages\system.runtime.compilerservices.unsafe\4.5.3\lib\netstandard2.0\System.Runtime.CompilerServices.Unsafe.dll">
+    <AppxPackagedFile Include="C:\Users\RT30102019\.nuget\packages\syncfusion.licensing\18.3.0.51\lib\uap10.0\Syncfusion.Licensing.dll">
+      <PackagePath>Syncfusion.Licensing.dll</PackagePath>
+      <Modified>2020-11-23T01:55:18.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\RT30102019\.nuget\packages\syncfusion.xlsio.uwp\18.3.0.51\lib\uap10.0\Syncfusion.XlsIO.UWP.dll">
+      <PackagePath>Syncfusion.XlsIO.UWP.dll</PackagePath>
+      <Modified>2020-11-23T02:23:48.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\RT30102019\.nuget\packages\system.runtime.compilerservices.unsafe\4.5.3\lib\netstandard2.0\System.Runtime.CompilerServices.Unsafe.dll">
       <PackagePath>System.Runtime.CompilerServices.Unsafe.dll</PackagePath>
       <Modified>2020-02-19T03:05:16.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Admin\.nuget\packages\win2d.uwp\1.25.0\runtimes\win10-x64\native\Microsoft.Graphics.Canvas.dll">
+    <AppxPackagedFile Include="C:\Users\RT30102019\.nuget\packages\win2d.uwp\1.25.0\runtimes\win10-x64\native\Microsoft.Graphics.Canvas.dll">
       <PackagePath>Microsoft.Graphics.Canvas.dll</PackagePath>
       <Modified>2020-04-02T12:46:32.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Admin\.nuget\packages\win2d.uwp\1.25.0\lib\uap10.0\Microsoft.Graphics.Canvas.winmd">
+    <AppxPackagedFile Include="C:\Users\RT30102019\.nuget\packages\win2d.uwp\1.25.0\lib\uap10.0\Microsoft.Graphics.Canvas.winmd">
       <PackagePath>Microsoft.Graphics.Canvas.winmd</PackagePath>
       <Modified>2020-04-02T12:44:36.000</Modified>
     </AppxPackagedFile>
@@ -102,79 +110,79 @@
       <PackagePath>Microsoft.UI.Xaml.Markup.winmd</PackagePath>
       <Modified>2019-03-18T11:36:56.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Admin\.nuget\packages\microsoft.toolkit.uwp.ui.controls\6.1.1\lib\uap10.0.16299\Microsoft.Toolkit.Uwp.UI.Controls\Microsoft.Toolkit.Uwp.UI.Controls.xr.xml">
+    <AppxPackagedFile Include="C:\Users\RT30102019\.nuget\packages\microsoft.toolkit.uwp.ui.controls\6.1.1\lib\uap10.0.16299\Microsoft.Toolkit.Uwp.UI.Controls\Microsoft.Toolkit.Uwp.UI.Controls.xr.xml">
       <PackagePath>Microsoft.Toolkit.Uwp.UI.Controls\Microsoft.Toolkit.Uwp.UI.Controls.xr.xml</PackagePath>
       <Modified>2020-08-12T15:07:10.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Admin\Desktop\DoAn1\DoAn1\anh\1.jpg">
+    <AppxPackagedFile Include="C:\Users\RT30102019\source\repos\DoAn1\DoAn1\anh\1.jpg">
       <PackagePath>anh\1.jpg</PackagePath>
-      <Modified>2020-11-11T18:20:06.420</Modified>
+      <Modified>2020-11-24T09:59:08.220</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Admin\Desktop\DoAn1\DoAn1\Properties\Default.rd.xml">
+    <AppxPackagedFile Include="C:\Users\RT30102019\source\repos\DoAn1\DoAn1\Properties\Default.rd.xml">
       <PackagePath>Properties\Default.rd.xml</PackagePath>
-      <Modified>2020-11-11T17:41:01.307</Modified>
+      <Modified>2020-11-24T09:59:08.214</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Admin\Desktop\DoAn1\DoAn1\Assets\LockScreenLogo.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\RT30102019\source\repos\DoAn1\DoAn1\Assets\LockScreenLogo.scale-200.png">
       <PackagePath>Assets\LockScreenLogo.scale-200.png</PackagePath>
-      <Modified>2020-10-11T13:01:24.892</Modified>
+      <Modified>2020-11-24T09:59:08.200</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Admin\Desktop\DoAn1\DoAn1\Assets\SplashScreen.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\RT30102019\source\repos\DoAn1\DoAn1\Assets\SplashScreen.scale-200.png">
       <PackagePath>Assets\SplashScreen.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2020-10-11T13:01:24.907</Modified>
+      <Modified>2020-11-24T09:59:08.201</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Admin\Desktop\DoAn1\DoAn1\Assets\Square150x150Logo.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\RT30102019\source\repos\DoAn1\DoAn1\Assets\Square150x150Logo.scale-200.png">
       <PackagePath>Assets\Square150x150Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2020-10-11T13:01:24.911</Modified>
+      <Modified>2020-11-24T09:59:08.202</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Admin\Desktop\DoAn1\DoAn1\Assets\Square44x44Logo.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\RT30102019\source\repos\DoAn1\DoAn1\Assets\Square44x44Logo.scale-200.png">
       <PackagePath>Assets\Square44x44Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2020-10-11T13:01:24.913</Modified>
+      <Modified>2020-11-24T09:59:08.203</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Admin\Desktop\DoAn1\DoAn1\Assets\Square44x44Logo.targetsize-24_altform-unplated.png">
+    <AppxPackagedFile Include="C:\Users\RT30102019\source\repos\DoAn1\DoAn1\Assets\Square44x44Logo.targetsize-24_altform-unplated.png">
       <PackagePath>Assets\Square44x44Logo.targetsize-24_altform-unplated.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2020-10-11T13:01:24.915</Modified>
+      <Modified>2020-11-24T09:59:08.203</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Admin\Desktop\DoAn1\DoAn1\Assets\StoreLogo.png">
+    <AppxPackagedFile Include="C:\Users\RT30102019\source\repos\DoAn1\DoAn1\Assets\StoreLogo.png">
       <PackagePath>Assets\StoreLogo.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2020-10-11T13:01:24.917</Modified>
+      <Modified>2020-11-24T09:59:08.204</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Admin\Desktop\DoAn1\DoAn1\Assets\Wide310x150Logo.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\RT30102019\source\repos\DoAn1\DoAn1\Assets\Wide310x150Logo.scale-200.png">
       <PackagePath>Assets\Wide310x150Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2020-10-11T13:01:24.918</Modified>
+      <Modified>2020-11-24T09:59:08.205</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Admin\Desktop\DoAn1\DoAn1\bin\x64\Debug\DoAn1.xr.xml">
+    <AppxPackagedFile Include="C:\Users\RT30102019\source\repos\DoAn1\DoAn1\bin\x64\Debug\DoAn1.xr.xml">
       <PackagePath>DoAn1.xr.xml</PackagePath>
-      <Modified>2020-11-24T09:33:35.450</Modified>
+      <Modified>2020-11-25T07:41:42.349</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Admin\Desktop\DoAn1\DoAn1\bin\x64\Debug\App.xbf">
+    <AppxPackagedFile Include="C:\Users\RT30102019\source\repos\DoAn1\DoAn1\bin\x64\Debug\App.xbf">
       <PackagePath>App.xbf</PackagePath>
-      <Modified>2020-11-24T07:42:34.288</Modified>
+      <Modified>2020-11-26T11:45:41.190</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Admin\Desktop\DoAn1\DoAn1\bin\x64\Debug\LoginPage.xbf">
+    <AppxPackagedFile Include="C:\Users\RT30102019\source\repos\DoAn1\DoAn1\bin\x64\Debug\LoginPage.xbf">
       <PackagePath>LoginPage.xbf</PackagePath>
-      <Modified>2020-11-24T07:42:34.288</Modified>
+      <Modified>2020-11-26T11:45:41.190</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Admin\Desktop\DoAn1\DoAn1\bin\x64\Debug\MainPage.xbf">
+    <AppxPackagedFile Include="C:\Users\RT30102019\source\repos\DoAn1\DoAn1\bin\x64\Debug\MainPage.xbf">
       <PackagePath>MainPage.xbf</PackagePath>
-      <Modified>2020-11-24T09:33:35.477</Modified>
+      <Modified>2020-11-26T11:45:41.190</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\UnionMetadata\10.0.18362.0\Windows.winmd">
       <PackagePath>WinMetadata\Windows.winmd</PackagePath>
       <Modified>2019-03-18T10:33:42.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Admin\Desktop\DoAn1\DoAn1\bin\x64\Debug\resources.pri">
+    <AppxPackagedFile Include="C:\Users\RT30102019\source\repos\DoAn1\DoAn1\bin\x64\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2020-11-24T08:24:41.909</Modified>
+      <Modified>2020-11-25T04:56:20.860</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Admin\Desktop\DoAn1\DoAn1\bin\x64\Debug\Core\DoAn1.exe">
+    <AppxPackagedFile Include="C:\Users\RT30102019\source\repos\DoAn1\DoAn1\bin\x64\Debug\Core\DoAn1.exe">
       <PackagePath>DoAn1.exe</PackagePath>
-      <Modified>2020-11-24T09:33:38.638</Modified>
+      <Modified>2020-11-26T11:45:44.259</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>
