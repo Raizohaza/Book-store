@@ -19,7 +19,15 @@ namespace DoAn1.Provider
         }
         public Provider()
         {
-            ConnectionString = @"Data Source=admin;Initial Catalog=MyStore;Integrated Security=True";
+            var strComputerName = Environment.MachineName.ToString();
+            if (strComputerName=="ADMIN")
+            {
+                ConnectionString = @"Data Source=admin;Initial Catalog=MyStore;Integrated Security=True";
+            }
+            else
+            {
+                ConnectionString = $"Data Source={strComputerName}\\SQLEXPRESS;Initial Catalog=MyStore;Integrated Security=True";
+            }
         }
         SqlConnection Connection { get; set; }
         public void Connect()
