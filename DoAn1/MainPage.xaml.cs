@@ -40,42 +40,7 @@ namespace DoAn1
            
         }
 
-      
-        private void Menu_ItemInvoked(NavigationView sender, NavigationViewItemInvokedEventArgs args)
-        {
-            if (args.IsSettingsInvoked)
-            {
-                ContentFrame.Navigate(typeof(PageSettings));
-            }
-            else
-            {
-                // find NavigationViewItem with Content that equals InvokedItem
-                var item = sender.MenuItems.OfType<NavigationViewItem>().First(x => (string)x.Content == (string)args.InvokedItem);
-                NavView_Navigate(item as NavigationViewItem);
-            }
-        }
 
-        private void NavView_Navigate(NavigationViewItem item)
-        {
-            switch (item.Tag)
-            {
-                case "iconHome":
-                    ContentFrame.Navigate(typeof(PageHome));
-                    break;
-
-                case "iconAdd":
-                    ContentFrame.Navigate(typeof(PageAdd));
-                    break;
-
-                case "iconFav":
-                    ContentFrame.Navigate(typeof(PageFav));
-                    break;
-
-                case "iconBag":
-                    ContentFrame.Navigate(typeof(PageBuy));
-                    break;            
-            }
-        }
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
@@ -84,7 +49,10 @@ namespace DoAn1
 
         private void Menu_Loaded(object sender, RoutedEventArgs e)
         {
-            ContentFrame.Navigate(typeof(PageHome));
+            // ERROR HEREE 
+
+
+            //CF.Navigate(typeof(PageHome));
         }
 
         private void Menu_SelectionChanged(NavigationView sender, NavigationViewSelectionChangedEventArgs args)
@@ -100,16 +68,16 @@ namespace DoAn1
                 switch(item.Tag.ToString())
                 {
                     case "iconHome":
-                        ContentFrame.Navigate(typeof(PageHome));
+                        CF.Navigate(typeof(PageHome));
                         break;
                     case "iconAdd":
-                        ContentFrame.Navigate(typeof(PageAdd));
+                        CF.Navigate(typeof(PageAdd));
                         break;
                     case "iconFav":
-                        ContentFrame.Navigate(typeof(PageFav));
+                        CF.Navigate(typeof(PageFav));
                         break;
                     case "iconBag":
-                        ContentFrame.Navigate(typeof(PageBuy));
+                        CF.Navigate(typeof(PageBuy));
                         break;
                 }    
 

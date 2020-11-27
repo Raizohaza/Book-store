@@ -23,32 +23,17 @@
     <RootType FullName="Windows.UI.Xaml.Controls.Grid">
       <RootProperty Name="Height" />
       <RootProperty Name="Width" />
-      <RootProperty Name="RowDefinitions" />
-      <RootProperty Name="ColumnDefinitions" />
       <RootProperty Name="Children" />
+      <RootProperty Name="ColumnDefinitions" />
+      <RootProperty Name="RowDefinitions" />
+      <RootMethod Name="GetColumn" />
+      <RootMethod Name="SetColumn" />
       <RootMethod Name="GetRow" />
       <RootMethod Name="SetRow" />
       <RootMethod Name="GetColumnSpan" />
       <RootMethod Name="SetColumnSpan" />
-      <RootMethod Name="GetColumn" />
-      <RootMethod Name="SetColumn" />
-    </RootType>
-    <RootType FullName="Windows.UI.Xaml.Controls.RowDefinition">
-      <RootProperty Name="Height" />
-    </RootType>
-    <RootType FullName="Windows.UI.Xaml.Controls.ColumnDefinition">
-      <RootProperty Name="Width" />
-    </RootType>
-    <RootType FullName="Windows.UI.Xaml.Controls.StackPanel">
-      <RootProperty Name="Name" />
-      <RootProperty Name="Width" />
-      <RootProperty Name="Height" />
-      <RootProperty Name="Orientation" />
-      <RootProperty Name="Children" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.NavigationView">
-      <RootProperty Name="Height" />
-      <RootProperty Name="Width" />
       <RootProperty Name="PaneDisplayMode" />
       <RootProperty Name="VerticalAlignment" />
       <RootProperty Name="MenuItems" />
@@ -56,7 +41,6 @@
       <RootProperty Name="Content" />
       <RootEvent Name="SelectionChanged" />
       <RootEvent Name="Loaded" />
-      <RootEvent Name="ItemInvoked" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.NavigationViewItem">
       <RootProperty Name="Icon" />
@@ -74,12 +58,17 @@
       <RootProperty Name="Height" />
       <RootProperty Name="PlaceholderText" />
     </RootType>
-    <RootType FullName="Windows.UI.Xaml.Controls.Frame">
-      <RootProperty Name="ContentTransitions" />
+    <RootType FullName="Windows.UI.Xaml.Controls.ScrollViewer">
+      <RootProperty Name="Content" />
     </RootType>
-    <RootType FullName="Windows.UI.Xaml.Media.Animation.TransitionCollection" />
-    <RootType FullName="Windows.UI.Xaml.Media.Animation.NavigationThemeTransition" />
+    <RootType FullName="Windows.UI.Xaml.Controls.Frame" />
     <RootType FullName="DoAn1.MainPage" />
+    <RootType FullName="Windows.UI.Xaml.Controls.ColumnDefinition">
+      <RootProperty Name="Width" />
+    </RootType>
+    <RootType FullName="Windows.UI.Xaml.Controls.RowDefinition">
+      <RootProperty Name="Height" />
+    </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.TextBlock">
       <RootProperty Name="Text" />
       <RootProperty Name="FontSize" />
@@ -119,6 +108,13 @@
     <RootType FullName="Microsoft.Xaml.DirectUI.ProxyTypes.StaticResourceExtension" />
     <RootType FullName="DoAn1.PageAdd" />
     <RootType FullName="DoAn1.PageBuy" />
+    <RootType FullName="Windows.UI.Xaml.Controls.StackPanel">
+      <RootProperty Name="Height" />
+      <RootProperty Name="Width" />
+      <RootProperty Name="Children" />
+      <RootProperty Name="Orientation" />
+      <RootProperty Name="Name" />
+    </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.ListView">
       <RootProperty Name="Background" />
       <RootProperty Name="Height" />
