@@ -8,41 +8,45 @@
     xmlns:muxc="using:Windows.UI.Xaml.Controls"
     xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
     mc:Ignorable="d"
-    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Height="800" Width="1100">
     <Page.Resources>
         <local:RelativeToAsolutePathConverter x:Key="pathConverter"/>
     </Page.Resources>
+    
 
-    <Grid  Height="988" Width="1500">
-        <StackPanel Width="1500" Orientation="Horizontal">
-            <muxc:NavigationView x:Name="Menu" Height="988" Width="200">
+    <Grid Height="800" Width="1100">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"></RowDefinition>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="13*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
+        <StackPanel Name="stack_Menu" Width="1100" Height="50" Orientation="Vertical" Grid.Row="0" Grid.ColumnSpan="2">
+            <muxc:NavigationView x:Name="Menu" Height="50" Width="1100" PaneDisplayMode="Top" VerticalAlignment="Top" SelectionChanged="Menu_SelectionChanged" Loaded="Menu_Loaded" ItemInvoked="Menu_ItemInvoked" BackRequested="Menu_BackRequested">
                 <muxc:NavigationView.MenuItems>
-                    <muxc:NavigationViewItem Icon="Home" Content="Trang Chủ" Tag="Trang Chủ"/>
-                    <muxc:NavigationViewItem Icon="Account" Content="Trang Cá Nhân" Tag="Trang Cá Nhân" />
-                    <muxc:NavigationViewItem Icon="Favorite" Content="Yêu Thích" Tag="Yêu Thích" />
-                    <muxc:NavigationViewItem Icon="Shop" Content="Túi" Tag="Túi" />
+                    <muxc:NavigationViewItem Icon="Home" Content="Trang Chủ" Tag="iconHome" />
+                    <muxc:NavigationViewItemSeparator/>
+                    <muxc:NavigationViewItem Icon="Add" Content="Thêm Truyện" Tag="iconAdd" />
+                    <muxc:NavigationViewItem Icon="Favorite" Content="Yêu Thích" Tag="iconFav"/>
+                    <muxc:NavigationViewItem Icon="Shop" Content="Túi" Tag="iconBag" />
                 </muxc:NavigationView.MenuItems>
-                <Frame x:Name="contentFrame" Margin="0,0,146,0"/>
-            </muxc:NavigationView>
+                <muxc:NavigationView.AutoSuggestBox>
+                    <AutoSuggestBox x:Name="NavViewSearchBox" FontSize="20" QueryIcon="Find" Width="200" Height="32" PlaceholderText="Search"/>
+                </muxc:NavigationView.AutoSuggestBox>
+                <ScrollViewer>
+                    <Frame x:Name="ContentFrame" Padding="12,0,12,24" IsTabStop="True"/>
 
-            <ListView x:Name="test_data" Background="White" Height="5000" Width="1000">
-                <ListView.ItemsPanel>
-                    <ItemsPanelTemplate>
-                        <controls:WrapPanel/>
-                    </ItemsPanelTemplate>
-                </ListView.ItemsPanel>
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <StackPanel >
-                            <Image Source="{Binding Image, Converter={StaticResource pathConverter}}"  Height="80"></Image>
-                            <StackPanel Orientation="Horizontal" Width="200">
-                                <TextBlock Text="{Binding Id}" FontSize="12"  TextWrapping="Wrap"/>
-                                <TextBlock Text="{Binding Name}" FontSize="12" TextWrapping="Wrap"/>
-                            </StackPanel>
-                        </StackPanel>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
+                </ScrollViewer>
+            </muxc:NavigationView>
+        </StackPanel>
+
+        <StackPanel Name="stack_database" Height="650" Width="1100" Grid.Row="2" Grid.ColumnSpan="2">
+            <ListView x:Name="test_data" Background="White" Height="650" Width="1100">                <ListView.ItemsPanel>                    <ItemsPanelTemplate>                        <controls:WrapPanel/>                    </ItemsPanelTemplate>                </ListView.ItemsPanel>                <ListView.ItemTemplate>                    <DataTemplate>                        <StackPanel >                            <Image Source="{Binding Image, Converter={StaticResource pathConverter}}"  Height="80"></Image>                            <StackPanel Orientation="Horizontal" Width="200">                                <TextBlock Text="{Binding Id}" FontSize="12"  TextWrapping="Wrap"/>                                <TextBlock Text="{Binding Name}" FontSize="12" TextWrapping="Wrap"/>                            </StackPanel>                        </StackPanel>                    </DataTemplate>                </ListView.ItemTemplate>            </ListView>
+            
+
         </StackPanel>
     </Grid>
 </Page>

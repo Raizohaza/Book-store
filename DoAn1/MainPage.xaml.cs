@@ -61,7 +61,147 @@ namespace DoAn1
             test_data.ItemsSource = products;
         }
 
+        private readonly List<(string Tag, Type Page)> _pages = new List<(string Tag, Type Page)>
+        {
+            ("iconHome", typeof(MainPage)),
+            ("iconFav", typeof(PageFav)),
+            ("iconAdd", typeof(PageAdd)),
+            ("iconBag", typeof(PageBuy)),
+        };
+
+        private void Menu_Loaded(object sender, RoutedEventArgs e)
+        {
+            Menu.MenuItems.Add(new NavigationViewItemSeparator());
+            Menu.MenuItems.Add(new NavigationViewItem
+            {
+                Content = "My content",
+                Icon = new SymbolIcon((Symbol)0xF1AD),
+                Tag = "content"
+            });
+            _pages.Add(("content", typeof(PageContent)));          
+            
+            ContentFrame.Navigated += On_Navigated;
+
+           
+            Menu.SelectedItem = Menu.MenuItems[0];
+            
+            NavView_Navigate("iconHome", new Windows.UI.Xaml.Media.Animation.EntranceNavigationTransitionInfo());
+
+            var goBack = new KeyboardAccelerator { Key = Windows.System.VirtualKey.GoBack };
+            goBack.Invoked += BackInvoked;
+            this.KeyboardAccelerators.Add(goBack);
+
+           
+            var altLeft = new KeyboardAccelerator
+            {
+                Key = Windows.System.VirtualKey.Left,
+                Modifiers = Windows.System.VirtualKeyModifiers.Menu
+            };
+            altLeft.Invoked += BackInvoked;
+            this.KeyboardAccelerators.Add(altLeft);
+        }
+
+        private void Menu_ItemInvoked(NavigationView sender, NavigationViewItemInvokedEventArgs args)
+        {
+            if (args.IsSettingsInvoked == true)
+            {
+                NavView_Navigate("settings", args.RecommendedNavigationTransitionInfo);
+            }
+            else if (args.InvokedItemContainer != null)
+            {
+                var navItemTag = args.InvokedItemContainer.Tag.ToString();
+                NavView_Navigate(navItemTag, args.RecommendedNavigationTransitionInfo);
+            }
+        }
+
+        private void Menu_BackRequested(NavigationView sender, NavigationViewBackRequestedEventArgs args)
+        {
+            On_BackRequested();
+        }
+
+        private void Menu_SelectionChanged(NavigationView sender, NavigationViewSelectionChangedEventArgs args)
+        {
+            if (args.IsSettingsSelected == true)
+            {
+                NavView_Navigate("settings", args.RecommendedNavigationTransitionInfo);
+            }
+            else if (args.SelectedItemContainer != null)
+            {
+                var navItemTag = args.SelectedItemContainer.Tag.ToString();
+                NavView_Navigate(navItemTag, args.RecommendedNavigationTransitionInfo);
+            }
+        }
+
+        private void NavView_Navigate(
+        string navItemTag,
+        Windows.UI.Xaml.Media.Animation.NavigationTransitionInfo transitionInfo)
+        {
+            Type _page = null;
+            if (navItemTag == "settings")
+            {
+                _page = typeof(PageSettings);
+            }
+            else
+            {
+                var item = _pages.FirstOrDefault(p => p.Tag.Equals(navItemTag));
+                _page = item.Page;
+            }
+            // Get the page type before navigation so you can prevent duplicate
+            // entries in the backstack.
+            var preNavPageType = ContentFrame.CurrentSourcePageType;
+
+            // Only navigate if the selected page isn't currently loaded.
+            if (!(_page is null) && !Type.Equals(preNavPageType, _page))
+            {
+                ContentFrame.Navigate(_page, null, transitionInfo);
+            }
+        }
+
+        private void BackInvoked(KeyboardAccelerator sender,
+                         KeyboardAcceleratorInvokedEventArgs args)
+        {
+            On_BackRequested();
+            args.Handled = true;
+        }
+
+        private bool On_BackRequested()
+        {
+            if (!ContentFrame.CanGoBack)
+                return false;
+
+            // Don't go back if the nav pane is overlayed.
+            if (Menu.IsPaneOpen &&
+                (Menu.DisplayMode == NavigationViewDisplayMode.Compact ||
+                 Menu.DisplayMode == NavigationViewDisplayMode.Minimal))
+                return false;
+
+            ContentFrame.GoBack();
+            return true;
+        }
 
 
+
+        private void On_Navigated(object sender, NavigationEventArgs e)
+        {
+            Menu.IsBackEnabled = ContentFrame.CanGoBack;
+
+            if (ContentFrame.SourcePageType == typeof(PageSettings))
+            {
+                // SettingsItem is not part of NavView.MenuItems, and doesn't have a Tag.
+                Menu.SelectedItem = (NavigationViewItem)Menu.SettingsItem;
+                Menu.Header = "Settings";
+            }
+            else if (ContentFrame.SourcePageType != null)
+            {
+                var item = _pages.FirstOrDefault(p => p.Page == e.SourcePageType);
+
+                Menu.SelectedItem = Menu.MenuItems
+                    .OfType<NavigationViewItem>()
+                    .First(n => n.Tag.Equals(item.Tag));
+
+                Menu.Header =
+                    ((NavigationViewItem)Menu.SelectedItem)?.Content?.ToString();
+            }
+        }
     }
 }
