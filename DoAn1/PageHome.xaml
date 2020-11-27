@@ -1,5 +1,5 @@
 ﻿<Page
-    x:Class="DoAn1.PageFav"
+    x:Class="DoAn1.PageHome"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:DoAn1"
@@ -8,12 +8,11 @@
     mc:Ignorable="d"
     xmlns:muxc="using:Windows.UI.Xaml.Controls"
     xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
-     Height="750" Width="1100"
-    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Height="750" Width="1100">
 
     <Grid>
-        <StackPanel Height="750" Width="1100" Grid.Row="2" Grid.ColumnSpan="2">
-            <ListView x:ConnectionId='2' x:Name="dtbFav" Background="White" Height="750" Width="1100">
+        <StackPanel Name="stack_database" Height="750" Width="1100" Grid.Row="2" Grid.ColumnSpan="2">
+            <ListView x:Name="test_data" Background="White" Height="750" Width="1100">
                 <ListView.ItemsPanel>
                     <ItemsPanelTemplate>
                         <controls:WrapPanel/>
@@ -34,4 +33,3 @@
         </StackPanel>
     </Grid>
 </Page>
-

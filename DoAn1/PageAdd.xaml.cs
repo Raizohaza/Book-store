@@ -26,5 +26,30 @@ namespace DoAn1
         {
             this.InitializeComponent();
         }
+
+        private void addTen_Truyen_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void addNoiDung_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void addGia_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void addTacGia_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void btnDone_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

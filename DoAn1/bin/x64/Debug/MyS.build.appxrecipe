@@ -127,11 +127,11 @@
     <AppxPackagedFile Include="C:\Db\DoAn1\bin\x64\Debug\PageBuy.xbf">
       <PackagePath>PageBuy.xbf</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Db\DoAn1\bin\x64\Debug\PageContent.xbf">
-      <PackagePath>PageContent.xbf</PackagePath>
-    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Db\DoAn1\bin\x64\Debug\PageFav.xbf">
       <PackagePath>PageFav.xbf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Db\DoAn1\bin\x64\Debug\PageHome.xbf">
+      <PackagePath>PageHome.xbf</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Db\DoAn1\bin\x64\Debug\PageSettings.xbf">
       <PackagePath>PageSettings.xbf</PackagePath>
