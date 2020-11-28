@@ -10,22 +10,22 @@
     <PackageArchitecture>x64</PackageArchitecture>
     <PackageIdentityName>c38fb8d7-80b9-44b1-b6b1-e34f4ba7b350</PackageIdentityName>
     <PackageIdentityPublisher>CN=Dung</PackageIdentityPublisher>
-    <IntermediateOutputPath>C:\Users\Admin\source\repos\LTUDQL1\milestone01\DoAn1\DoAn1\obj\x64\Debug\</IntermediateOutputPath>
+    <IntermediateOutputPath>C:\Users\Admin\Desktop\Db\DoAn1\obj\x64\Debug\</IntermediateOutputPath>
     <RemoteDeploymentType></RemoteDeploymentType>
     <PackageRegistrationPath></PackageRegistrationPath>
     <RemoveNonLayoutFiles>true</RemoveNonLayoutFiles>
     <DeployOptionalPackages>false</DeployOptionalPackages>
     <WindowsSdkPath>C:\Program Files %28x86%29\Windows Kits\10\</WindowsSdkPath>
-    <LayoutDir>C:\Users\Admin\source\repos\LTUDQL1\milestone01\DoAn1\DoAn1\bin\x64\Debug\AppX</LayoutDir>
+    <LayoutDir>C:\Users\Admin\Desktop\Db\DoAn1\bin\x64\Debug\AppX</LayoutDir>
   </PropertyGroup>
   <ItemGroup>
-    <AppXManifest Include="C:\Users\Admin\source\repos\LTUDQL1\milestone01\DoAn1\DoAn1\bin\x64\Debug\Core\AppxManifest.xml">
+    <AppXManifest Include="C:\Users\Admin\Desktop\Db\DoAn1\bin\x64\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
-    <AppxPackagedFile Include="C:\Users\Admin\source\repos\LTUDQL1\milestone01\DoAn1\DoAn1\bin\x64\Debug\DoAn1.exe">
+    <AppxPackagedFile Include="C:\Users\Admin\Desktop\Db\DoAn1\bin\x64\Debug\DoAn1.exe">
       <PackagePath>entrypoint\DoAn1.exe</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Admin\.nuget\packages\colorcode.core\2.0.6\lib\netstandard1.4\ColorCode.Core.dll">
@@ -79,58 +79,70 @@
     <AppxPackagedFile Include="C:\Users\Admin\.nuget\packages\microsoft.toolkit.uwp.ui.controls\6.1.1\lib\uap10.0.16299\Microsoft.Toolkit.Uwp.UI.Controls\Microsoft.Toolkit.Uwp.UI.Controls.xr.xml">
       <PackagePath>Microsoft.Toolkit.Uwp.UI.Controls\Microsoft.Toolkit.Uwp.UI.Controls.xr.xml</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Admin\source\repos\LTUDQL1\milestone01\DoAn1\DoAn1\anh\1.jpg">
+    <AppxPackagedFile Include="C:\Users\Admin\Desktop\Db\DoAn1\anh\1.jpg">
       <PackagePath>anh\1.jpg</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Admin\source\repos\LTUDQL1\milestone01\DoAn1\DoAn1\Properties\Default.rd.xml">
+    <AppxPackagedFile Include="C:\Users\Admin\Desktop\Db\DoAn1\Properties\Default.rd.xml">
       <PackagePath>Properties\Default.rd.xml</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Admin\source\repos\LTUDQL1\milestone01\DoAn1\DoAn1\Assets\LockScreenLogo.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\Admin\Desktop\Db\DoAn1\Assets\LockScreenLogo.scale-200.png">
       <PackagePath>Assets\LockScreenLogo.scale-200.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Admin\source\repos\LTUDQL1\milestone01\DoAn1\DoAn1\Assets\SplashScreen.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\Admin\Desktop\Db\DoAn1\Assets\SplashScreen.scale-200.png">
       <PackagePath>Assets\SplashScreen.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Admin\source\repos\LTUDQL1\milestone01\DoAn1\DoAn1\Assets\Square150x150Logo.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\Admin\Desktop\Db\DoAn1\Assets\Square150x150Logo.scale-200.png">
       <PackagePath>Assets\Square150x150Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Admin\source\repos\LTUDQL1\milestone01\DoAn1\DoAn1\Assets\Square44x44Logo.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\Admin\Desktop\Db\DoAn1\Assets\Square44x44Logo.scale-200.png">
       <PackagePath>Assets\Square44x44Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Admin\source\repos\LTUDQL1\milestone01\DoAn1\DoAn1\Assets\Square44x44Logo.targetsize-24_altform-unplated.png">
+    <AppxPackagedFile Include="C:\Users\Admin\Desktop\Db\DoAn1\Assets\Square44x44Logo.targetsize-24_altform-unplated.png">
       <PackagePath>Assets\Square44x44Logo.targetsize-24_altform-unplated.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Admin\source\repos\LTUDQL1\milestone01\DoAn1\DoAn1\Assets\StoreLogo.png">
+    <AppxPackagedFile Include="C:\Users\Admin\Desktop\Db\DoAn1\Assets\StoreLogo.png">
       <PackagePath>Assets\StoreLogo.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Admin\source\repos\LTUDQL1\milestone01\DoAn1\DoAn1\Assets\Wide310x150Logo.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\Admin\Desktop\Db\DoAn1\Assets\Wide310x150Logo.scale-200.png">
       <PackagePath>Assets\Wide310x150Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Admin\source\repos\LTUDQL1\milestone01\DoAn1\DoAn1\bin\x64\Debug\DoAn1.xr.xml">
+    <AppxPackagedFile Include="C:\Users\Admin\Desktop\Db\DoAn1\bin\x64\Debug\DoAn1.xr.xml">
       <PackagePath>DoAn1.xr.xml</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Admin\source\repos\LTUDQL1\milestone01\DoAn1\DoAn1\bin\x64\Debug\App.xbf">
+    <AppxPackagedFile Include="C:\Users\Admin\Desktop\Db\DoAn1\bin\x64\Debug\App.xbf">
       <PackagePath>App.xbf</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Admin\source\repos\LTUDQL1\milestone01\DoAn1\DoAn1\bin\x64\Debug\LoginPage.xbf">
-      <PackagePath>LoginPage.xbf</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Admin\source\repos\LTUDQL1\milestone01\DoAn1\DoAn1\bin\x64\Debug\MainPage.xbf">
+    <AppxPackagedFile Include="C:\Users\Admin\Desktop\Db\DoAn1\bin\x64\Debug\MainPage.xbf">
       <PackagePath>MainPage.xbf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Admin\Desktop\Db\DoAn1\bin\x64\Debug\PageAdd.xbf">
+      <PackagePath>PageAdd.xbf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Admin\Desktop\Db\DoAn1\bin\x64\Debug\PageBuy.xbf">
+      <PackagePath>PageBuy.xbf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Admin\Desktop\Db\DoAn1\bin\x64\Debug\PageFav.xbf">
+      <PackagePath>PageFav.xbf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Admin\Desktop\Db\DoAn1\bin\x64\Debug\PageHome.xbf">
+      <PackagePath>PageHome.xbf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Admin\Desktop\Db\DoAn1\bin\x64\Debug\PageSettings.xbf">
+      <PackagePath>PageSettings.xbf</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\UnionMetadata\10.0.18362.0\Windows.winmd">
       <PackagePath>WinMetadata\Windows.winmd</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Admin\source\repos\LTUDQL1\milestone01\DoAn1\DoAn1\bin\x64\Debug\resources.pri">
+    <AppxPackagedFile Include="C:\Users\Admin\Desktop\Db\DoAn1\bin\x64\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Admin\source\repos\LTUDQL1\milestone01\DoAn1\DoAn1\bin\x64\Debug\Core\DoAn1.exe">
+    <AppxPackagedFile Include="C:\Users\Admin\Desktop\Db\DoAn1\bin\x64\Debug\Core\DoAn1.exe">
       <PackagePath>DoAn1.exe</PackagePath>
     </AppxPackagedFile>
   </ItemGroup>

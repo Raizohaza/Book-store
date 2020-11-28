@@ -1,1 +1,1 @@
-C:\Users\Admin\source\repos\LTUDQL1\milestone01\DoAn1\DoAn1\MyS.csproj;x64
+C:\Users\Admin\Desktop\Db\DoAn1\MyS.csproj;x64

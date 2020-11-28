@@ -37,31 +37,51 @@ namespace DoAn1
         {
             this.InitializeComponent();
 
-            DataTable data = null;
-            var products = new ObservableCollection<Product>();
-            
-            data = provider::QueryForSQLServer.GetProducts();
-            foreach (DataRow row in data.Rows)
-            {
-                var product = new Product();
-                product.Id = (int)row.ItemArray[0];
-                product.CatId = (int)row.ItemArray[1];
-                product.SKU = (string)row.ItemArray[2];
-                product.Name = (string)row.ItemArray[3];
-                product.Price = (Decimal)row.ItemArray[4];
-                product.Quantity = (int)row.ItemArray[5];
-                product.Description = (string)row.ItemArray[6];
-                product.Image = (string)row.ItemArray[7];
-
-                products.Add(product);
-            }
-            var cat = new Category() { Id=8, Name = "ThinkPad" };
-            //provider::QueryForSQLServer.DeleteCategory(7);
-            provider::QueryForSQLServer.UpdateCategory(cat);
-            test_data.ItemsSource = products;
+           
         }
 
 
 
+        private void Page_Loaded(object sender, RoutedEventArgs e)
+        {
+            
+        }
+
+        private void Menu_Loaded(object sender, RoutedEventArgs e)
+        {
+            // ERROR HEREE 
+
+
+            //CF.Navigate(typeof(PageHome));
+        }
+
+        private void Menu_SelectionChanged(NavigationView sender, NavigationViewSelectionChangedEventArgs args)
+        {
+            // dau tien check setting cho app
+            if (args.IsSettingsSelected == true)
+            {
+                // neu co setting gi cho app thi code o day
+            }   
+            else
+            {
+                NavigationViewItem item = args.SelectedItem as NavigationViewItem;
+                switch(item.Tag.ToString())
+                {
+                    case "iconHome":
+                        CF.Navigate(typeof(PageHome));
+                        break;
+                    case "iconAdd":
+                        CF.Navigate(typeof(PageAdd));
+                        break;
+                    case "iconFav":
+                        CF.Navigate(typeof(PageFav));
+                        break;
+                    case "iconBag":
+                        CF.Navigate(typeof(PageBuy));
+                        break;
+                }    
+
+            }    
+        }
     }
 }

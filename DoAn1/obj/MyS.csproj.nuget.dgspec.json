@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Admin\\source\\repos\\LTUDQL1\\milestone01\\DoAn1\\DoAn1\\MyS.csproj": {}
+    "C:\\Users\\Admin\\Desktop\\Db\\DoAn1\\MyS.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Admin\\source\\repos\\LTUDQL1\\milestone01\\DoAn1\\DoAn1\\MyS.csproj": {
+    "C:\\Users\\Admin\\Desktop\\Db\\DoAn1\\MyS.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Admin\\source\\repos\\LTUDQL1\\milestone01\\DoAn1\\DoAn1\\MyS.csproj",
+        "projectUniqueName": "C:\\Users\\Admin\\Desktop\\Db\\DoAn1\\MyS.csproj",
         "projectName": "MyS",
-        "projectPath": "C:\\Users\\Admin\\source\\repos\\LTUDQL1\\milestone01\\DoAn1\\DoAn1\\MyS.csproj",
+        "projectPath": "C:\\Users\\Admin\\Desktop\\Db\\DoAn1\\MyS.csproj",
         "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Admin\\source\\repos\\LTUDQL1\\milestone01\\DoAn1\\DoAn1\\obj\\",
+        "outputPath": "C:\\Users\\Admin\\Desktop\\Db\\DoAn1\\obj\\",
         "projectStyle": "PackageReference",
         "skipContentFileWrite": true,
         "fallbackFolders": [
