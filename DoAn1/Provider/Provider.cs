@@ -20,13 +20,13 @@ namespace DoAn1.Provider
         public Provider()
         {
             var strComputerName = Environment.MachineName.ToString();
-            if (strComputerName=="ADMIN")
+            if (strComputerName.Contains("\\SQLEXPRESS"))
             {
-                ConnectionString = @"Data Source=admin;Initial Catalog=MyStore;Integrated Security=True";
+                ConnectionString = $"Data Source={strComputerName}\\SQLEXPRESS;Initial Catalog=MyStore;Integrated Security=True";
             }
             else
             {
-                ConnectionString = $"Data Source={strComputerName}\\SQLEXPRESS;Initial Catalog=MyStore;Integrated Security=True";
+                ConnectionString = $"Data Source={strComputerName};Initial Catalog=MyStore;Integrated Security=True";
             }
         }
         SqlConnection Connection { get; set; }

@@ -27,7 +27,7 @@
             <muxc:NavigationView.AutoSuggestBox>
                 <AutoSuggestBox x:Name="NavViewSearchBox" FontSize="20" QueryIcon="Find" Width="200" Height="32" PlaceholderText="Search"/>
             </muxc:NavigationView.AutoSuggestBox>
-            <ScrollViewer>
+            <ScrollViewer Height="600">
                 <Frame x:Name="CF"/>
             </ScrollViewer>
 
