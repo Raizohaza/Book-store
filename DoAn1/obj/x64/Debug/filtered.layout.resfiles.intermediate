@@ -1,3 +1,4 @@
+WinMetadata\Windows.winmd
 anh\1.jpg
 Assets\LockScreenLogo.scale-200.png
 Assets\SplashScreen.scale-200.png
@@ -15,4 +16,3 @@ PageFav.xbf
 PageHome.xbf
 PageSettings.xbf
 Properties\Default.rd.xml
-WinMetadata\Windows.winmd

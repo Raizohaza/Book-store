@@ -1,1 +1,1 @@
-C:\Db\DoAn1\MyS.csproj;x64
+C:\Users\Admin\Desktop\Db\DoAn1\MyS.csproj;x64

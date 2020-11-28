@@ -10,8 +10,13 @@
     xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Height="750" Width="1100">
 
+    <Page.Resources>
+        <local:RelativeToAsolutePathConverter x:Key="pathConverter"/>
+    </Page.Resources>
+
     <Grid>
         <StackPanel x:ConnectionId='2' Name="stack_database" Height="750" Width="1100" Grid.Row="2" Grid.ColumnSpan="2">
+            
             <ListView x:ConnectionId='3' x:Name="test_data" Background="White" Height="750" Width="1100">
                 <ListView.ItemsPanel>
                     <ItemsPanelTemplate>

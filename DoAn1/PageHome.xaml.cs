@@ -47,9 +47,9 @@ namespace DoAn1
 
                 products.Add(product);
             }
-            var cat = new Category() { Id = 8, Name = "ThinkPad" };
+            //var cat = new Category() { Id = 8, Name = "ThinkPad" };
             //provider::QueryForSQLServer.DeleteCategory(7);
-            provider::QueryForSQLServer.UpdateCategory(cat);
+            //provider::QueryForSQLServer.UpdateCategory(cat);
             test_data.ItemsSource = products;
         }
     }
