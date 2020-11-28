@@ -496,6 +496,27 @@
           "build/runtime.win10-x86.Microsoft.Net.UWPCoreRuntimeSdk.targets": {}
         }
       },
+      "Syncfusion.Licensing/18.3.0.51": {
+        "type": "package",
+        "compile": {
+          "lib/uap10.0/Syncfusion.Licensing.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/Syncfusion.Licensing.dll": {}
+        }
+      },
+      "Syncfusion.XlsIO.UWP/18.3.0.51": {
+        "type": "package",
+        "dependencies": {
+          "Syncfusion.Licensing": "18.3.0.51"
+        },
+        "compile": {
+          "lib/uap10.0/Syncfusion.XlsIO.UWP.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/Syncfusion.XlsIO.UWP.dll": {}
+        }
+      },
       "System.Collections/4.3.0": {
         "type": "package",
         "dependencies": {
@@ -2003,6 +2024,27 @@
         },
         "runtime": {
           "runtimes/win/lib/netcore50/System.Private.Uri.dll": {}
+        }
+      },
+      "Syncfusion.Licensing/18.3.0.51": {
+        "type": "package",
+        "compile": {
+          "lib/uap10.0/Syncfusion.Licensing.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/Syncfusion.Licensing.dll": {}
+        }
+      },
+      "Syncfusion.XlsIO.UWP/18.3.0.51": {
+        "type": "package",
+        "dependencies": {
+          "Syncfusion.Licensing": "18.3.0.51"
+        },
+        "compile": {
+          "lib/uap10.0/Syncfusion.XlsIO.UWP.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/Syncfusion.XlsIO.UWP.dll": {}
         }
       },
       "System.Buffers/4.3.0": {
@@ -3546,6 +3588,27 @@
           "runtimes/aot/lib/netcore50/System.Private.Uri.dll": {}
         }
       },
+      "Syncfusion.Licensing/18.3.0.51": {
+        "type": "package",
+        "compile": {
+          "lib/uap10.0/Syncfusion.Licensing.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/Syncfusion.Licensing.dll": {}
+        }
+      },
+      "Syncfusion.XlsIO.UWP/18.3.0.51": {
+        "type": "package",
+        "dependencies": {
+          "Syncfusion.Licensing": "18.3.0.51"
+        },
+        "compile": {
+          "lib/uap10.0/Syncfusion.XlsIO.UWP.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/Syncfusion.XlsIO.UWP.dll": {}
+        }
+      },
       "System.Buffers/4.3.0": {
         "type": "package",
         "compile": {
@@ -5087,6 +5150,27 @@
           "runtimes/aot/lib/netcore50/System.Private.Uri.dll": {}
         }
       },
+      "Syncfusion.Licensing/18.3.0.51": {
+        "type": "package",
+        "compile": {
+          "lib/uap10.0/Syncfusion.Licensing.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/Syncfusion.Licensing.dll": {}
+        }
+      },
+      "Syncfusion.XlsIO.UWP/18.3.0.51": {
+        "type": "package",
+        "dependencies": {
+          "Syncfusion.Licensing": "18.3.0.51"
+        },
+        "compile": {
+          "lib/uap10.0/Syncfusion.XlsIO.UWP.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/Syncfusion.XlsIO.UWP.dll": {}
+        }
+      },
       "System.Buffers/4.3.0": {
         "type": "package",
         "compile": {
@@ -6595,6 +6679,27 @@
         },
         "runtime": {
           "runtimes/win/lib/netcore50/System.Private.Uri.dll": {}
+        }
+      },
+      "Syncfusion.Licensing/18.3.0.51": {
+        "type": "package",
+        "compile": {
+          "lib/uap10.0/Syncfusion.Licensing.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/Syncfusion.Licensing.dll": {}
+        }
+      },
+      "Syncfusion.XlsIO.UWP/18.3.0.51": {
+        "type": "package",
+        "dependencies": {
+          "Syncfusion.Licensing": "18.3.0.51"
+        },
+        "compile": {
+          "lib/uap10.0/Syncfusion.XlsIO.UWP.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/Syncfusion.XlsIO.UWP.dll": {}
         }
       },
       "System.Buffers/4.3.0": {
@@ -8138,6 +8243,27 @@
           "runtimes/aot/lib/netcore50/System.Private.Uri.dll": {}
         }
       },
+      "Syncfusion.Licensing/18.3.0.51": {
+        "type": "package",
+        "compile": {
+          "lib/uap10.0/Syncfusion.Licensing.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/Syncfusion.Licensing.dll": {}
+        }
+      },
+      "Syncfusion.XlsIO.UWP/18.3.0.51": {
+        "type": "package",
+        "dependencies": {
+          "Syncfusion.Licensing": "18.3.0.51"
+        },
+        "compile": {
+          "lib/uap10.0/Syncfusion.XlsIO.UWP.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/Syncfusion.XlsIO.UWP.dll": {}
+        }
+      },
       "System.Buffers/4.3.0": {
         "type": "package",
         "compile": {
@@ -9646,6 +9772,27 @@
         },
         "runtime": {
           "runtimes/win/lib/netcore50/System.Private.Uri.dll": {}
+        }
+      },
+      "Syncfusion.Licensing/18.3.0.51": {
+        "type": "package",
+        "compile": {
+          "lib/uap10.0/Syncfusion.Licensing.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/Syncfusion.Licensing.dll": {}
+        }
+      },
+      "Syncfusion.XlsIO.UWP/18.3.0.51": {
+        "type": "package",
+        "dependencies": {
+          "Syncfusion.Licensing": "18.3.0.51"
+        },
+        "compile": {
+          "lib/uap10.0/Syncfusion.XlsIO.UWP.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/Syncfusion.XlsIO.UWP.dll": {}
         }
       },
       "System.Buffers/4.3.0": {
@@ -11187,6 +11334,27 @@
         },
         "runtime": {
           "runtimes/aot/lib/netcore50/System.Private.Uri.dll": {}
+        }
+      },
+      "Syncfusion.Licensing/18.3.0.51": {
+        "type": "package",
+        "compile": {
+          "lib/uap10.0/Syncfusion.Licensing.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/Syncfusion.Licensing.dll": {}
+        }
+      },
+      "Syncfusion.XlsIO.UWP/18.3.0.51": {
+        "type": "package",
+        "dependencies": {
+          "Syncfusion.Licensing": "18.3.0.51"
+        },
+        "compile": {
+          "lib/uap10.0/Syncfusion.XlsIO.UWP.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/Syncfusion.XlsIO.UWP.dll": {}
         }
       },
       "System.Buffers/4.3.0": {
@@ -17286,6 +17454,50 @@
         "runtimes/win/lib/netstandard1.0/System.Private.Uri.dll"
       ]
     },
+    "Syncfusion.Licensing/18.3.0.51": {
+      "sha512": "xIhu/6qkkofite0GEgjROcVRuERdxEQfIIFudYCXtKrWHceHolLHdUBJ/Y3PixmTAbSEKLko9FYCqLs6+/l8Jg==",
+      "type": "package",
+      "path": "syncfusion.licensing/18.3.0.51",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/MonoAndroid10.0/Syncfusion.Licensing.dll",
+        "lib/MonoAndroid90/Syncfusion.Licensing.dll",
+        "lib/Xamarin.Mac/Syncfusion.Licensing.dll",
+        "lib/Xamarin.iOS10/Syncfusion.Licensing.dll",
+        "lib/net20/Syncfusion.Licensing.dll",
+        "lib/net35/Syncfusion.Licensing.dll",
+        "lib/net40/Syncfusion.Licensing.dll",
+        "lib/net45/Syncfusion.Licensing.dll",
+        "lib/net451/Syncfusion.Licensing.dll",
+        "lib/net46/Syncfusion.Licensing.dll",
+        "lib/netcoreapp3.1/Syncfusion.Licensing.dll",
+        "lib/netcoreapp5.0/Syncfusion.Licensing.dll",
+        "lib/netstandard1.0/Syncfusion.Licensing.dll",
+        "lib/netstandard1.2/Syncfusion.Licensing.dll",
+        "lib/netstandard1.4/Syncfusion.Licensing.dll",
+        "lib/netstandard2.0/Syncfusion.Licensing.dll",
+        "lib/portable-win+net45+wp80+win81+wpa81/Syncfusion.Licensing.dll",
+        "lib/uap10.0/Syncfusion.Licensing.dll",
+        "syncfusion.licensing.18.3.0.51.nupkg.sha512",
+        "syncfusion.licensing.nuspec"
+      ]
+    },
+    "Syncfusion.XlsIO.UWP/18.3.0.51": {
+      "sha512": "1joN/aLddBJJcthgf65ZpLYi0k2RXUJh/7LlYeoUy4uIh9M2ypT2bQ/XSxj/yKxw2quoUy4bjdgZyLOZJzmB2w==",
+      "type": "package",
+      "path": "syncfusion.xlsio.uwp/18.3.0.51",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/uap10.0/Syncfusion.XlsIO.UWP.dll",
+        "lib/uap10.0/Syncfusion.XlsIO.UWP.pri",
+        "lib/uap10.0/Syncfusion.XlsIO.UWP.xml",
+        "lib/uap10.0/Syncfusion.XlsIO.UWP/Syncfusion.XlsIO.UWP.XML",
+        "syncfusion.xlsio.uwp.18.3.0.51.nupkg.sha512",
+        "syncfusion.xlsio.uwp.nuspec"
+      ]
+    },
     "System.Buffers/4.3.0": {
       "sha512": "ratu44uTIHgeBeI0dE8DWvmXVBSo4u7ozRZZHOMmK/JPpYyo0dAfgSiHlpiObMQ5lEtEyIXA40sKRYg5J6A8uQ==",
       "type": "package",
@@ -19733,7 +19945,8 @@
     "UAP,Version=v10.0.17763": [
       "Microsoft.NETCore.UniversalWindowsPlatform >= 6.2.10",
       "Microsoft.Toolkit.Uwp.UI.Controls >= 6.1.1",
-      "Microsoft.Win32.Registry >= 5.0.0"
+      "Microsoft.Win32.Registry >= 5.0.0",
+      "Syncfusion.XlsIO.UWP >= 18.3.0.51"
     ]
   },
   "packageFolders": {
@@ -19783,6 +19996,10 @@
           "Microsoft.Win32.Registry": {
             "target": "Package",
             "version": "[5.0.0, )"
+          },
+          "Syncfusion.XlsIO.UWP": {
+            "target": "Package",
+            "version": "[18.3.0.51, )"
           }
         },
         "imports": [

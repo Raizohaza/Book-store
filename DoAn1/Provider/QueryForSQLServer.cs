@@ -119,17 +119,36 @@ namespace DoAn1.Provider
             }
             return null;
         }
-        public static void InsertCategory(Category product)
+       
+        public static int InsertCategory(Category product)
         {
             const string Query = "insert into Category(Name) " +
                 "values(@name)";
             Provider p = new Provider();
+            int id = -1;
             try
             {
+                DataTable dt;
                 p.Connect();
-                p.ExcecuteQuery(CommandType.Text, Query,
+                dt = p.ExcecuteQuery(CommandType.Text, "select * from Category where cast(name as nvarchar(50))= @name",
                     new SqlParameter { ParameterName = "@name", Value = product.Name }
                     );
+                if(dt.Rows.Count !=0)
+                    id = (int)dt.Rows[0].ItemArray[0];
+                if(id == -1)
+                {
+                    p.ExcecuteQuery(CommandType.Text, Query,
+                        new SqlParameter { ParameterName = "@name", Value = product.Name }
+                        );
+                    dt = p.ExcecuteQuery(CommandType.Text, "select * from Category where cast(name as nvarchar(50))= @name",
+                    new SqlParameter { ParameterName = "@name", Value = product.Name }
+                    );
+                    if (dt.Rows.Count != 0)
+                        id = (int)dt.Rows[0].ItemArray[0];
+                }   
+                    
+                
+                return id;
             }
             catch (Exception eSql)
             {
@@ -139,6 +158,7 @@ namespace DoAn1.Provider
             {
                 p.DisConnect();
             }
+            return 0;
         }
         public static void DeleteCategory(int id)
         {

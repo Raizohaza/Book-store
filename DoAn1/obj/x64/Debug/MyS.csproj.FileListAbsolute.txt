@@ -401,3 +401,6 @@ C:\Users\Admin\Desktop\DoAn1\DoAn1\obj\x64\Debug\UpdateUserControl.xaml
 C:\Users\Admin\Desktop\DoAn1\DoAn1\obj\x64\Debug\UpdateUserControl.xbf
 C:\Users\Admin\Desktop\DoAn1\DoAn1\bin\x64\Debug\Microsoft.Win32.Registry.dll
 C:\Users\Admin\Desktop\DoAn1\DoAn1\obj\x64\Debug\FxResources.Microsoft.Win32.Registry.SR.resw
+C:\Users\Admin\Desktop\DoAn1\DoAn1\bin\x64\Debug\Syncfusion.Licensing.dll
+C:\Users\Admin\Desktop\DoAn1\DoAn1\bin\x64\Debug\Syncfusion.XlsIO.UWP.dll
+C:\Users\Admin\Desktop\DoAn1\DoAn1\obj\x64\Debug\Syncfusion.XlsIO.UWP.pri.xml
