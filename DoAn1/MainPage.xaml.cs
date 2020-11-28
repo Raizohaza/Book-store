@@ -33,11 +33,11 @@ namespace DoAn1
         //     @"Data Source=YourServerName\YourInstanceName;Initial Catalog=DatabaseName; User Id=XXXXX; Password=XXXXX";
 
         //public string ConnectionString { get => connectionString; set => connectionString = value; }
+        public static Frame CFrame { get; set; } 
         public MainPage()
         {
             this.InitializeComponent();
-
-           
+            CF.Navigate(typeof(PageHome));
         }
 
 
@@ -65,7 +65,8 @@ namespace DoAn1
             else
             {
                 NavigationViewItem item = args.SelectedItem as NavigationViewItem;
-                switch(item.Tag.ToString())
+
+                switch (item.Tag.ToString())
                 {
                     case "iconHome":
                         CF.Navigate(typeof(PageHome));
@@ -80,8 +81,9 @@ namespace DoAn1
                         CF.Navigate(typeof(PageBuy));
                         break;
                 }    
-
             }    
         }
+
+        
     }
 }

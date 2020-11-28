@@ -24,16 +24,16 @@
             <RowDefinition Height="0.5*"/>
         </Grid.RowDefinitions>
         <NavigationViewItem Icon="Add" Tag="btnAdd" Height="400" Width="400" HorizontalAlignment="Right" Grid.Column="1" />
-        
-        <TextBlock Text="Thêm Truyện" FontSize="50" FontWeight="Medium" Style="{StaticResource InkToolbarFlyoutItemContentTextStyle}" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Column="0" Grid.Row="1"/>
+
+        <TextBlock Text="Add" FontSize="50" FontWeight="Medium" Style="{StaticResource InkToolbarFlyoutItemContentTextStyle}" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Column="0" Grid.Row="1"/>
         <TextBlock Text="Tên truyện" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="20" FontWeight="Medium" FontStyle="Italic" Grid.Column="0" Grid.Row="2"/>
-        <TextBox x:Name="addTen_Truyen" Text="Tên Truyện" TextChanged="addTen_Truyen_TextChanged" Style="{StaticResource AutoSuggestBoxTextBoxStyle}" Height="35" Width="450" Grid.Column="0" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+        <TextBox x:Name="addTen_Truyen" Text="{Binding Name,Mode=TwoWay}" Style="{StaticResource AutoSuggestBoxTextBoxStyle}" Height="35" Width="450" Grid.Column="0" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Top"/>
         <TextBlock Text="Nội dung" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="20" FontWeight="Medium" FontStyle="Italic" Grid.Column="0" Grid.Row="3"/>
-        <TextBox x:Name="addNoiDung" Text="Nội dung" TextChanged="addNoiDung_TextChanged" Style="{StaticResource AutoSuggestBoxTextBoxStyle}" Height="120" Width="450" Grid.Column="0" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+        <TextBox x:Name="addNoiDung" Text="{Binding Description,Mode=TwoWay}" Style="{StaticResource AutoSuggestBoxTextBoxStyle}" Height="120" Width="450" Grid.Column="0" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Top"/>
         <TextBlock Text="Giá bán" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="20" FontWeight="Medium" FontStyle="Italic" Grid.Column="0" Grid.Row="4"/>
-        <TextBox x:Name="addGia" Text="Giá bán" TextChanged="addGia_TextChanged" Style="{StaticResource AutoSuggestBoxTextBoxStyle}" Height="35" Width="450" Grid.Column="0" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+        <TextBox x:Name="addGia" Text="Giá bán" Style="{StaticResource AutoSuggestBoxTextBoxStyle}" Height="35" Width="450" Grid.Column="0" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Top"/>
         <TextBlock Text="Tác giả" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="20" FontWeight="Medium" FontStyle="Italic" Grid.Column="0" Grid.Row="5"/>
-        <TextBox x:Name="addTacGia" Text="Tác giả" TextChanged="addTacGia_TextChanged" Style="{StaticResource AutoSuggestBoxTextBoxStyle}" Height="35" Width="450" Grid.Column="0" Grid.Row="5" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+        <TextBox x:Name="addTacGia" Text="Tác giả" Style="{StaticResource AutoSuggestBoxTextBoxStyle}" Height="35" Width="450" Grid.Column="0" Grid.Row="5" HorizontalAlignment="Center" VerticalAlignment="Top"/>
 
         <Border BorderBrush="Aqua" BorderThickness="0" Height="40" Width="200" Grid.Row="5" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" >
             <Button x:Name="btnDone" Background="Snow" Content="Done" Style="{StaticResource ButtonRevealStyle}" Height="50" Width="200" Click="btnDone_Click"/>

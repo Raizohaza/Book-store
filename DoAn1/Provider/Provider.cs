@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Data;
@@ -7,6 +8,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+
 
 namespace DoAn1.Provider
 {
@@ -17,16 +19,36 @@ namespace DoAn1.Provider
         {
             ConnectionString = str;
         }
+        private ObservableCollection<string> GetDataSources()
+        {
+            string ServerName = Environment.MachineName;
+            RegistryView registryView = Environment.Is64BitOperatingSystem ? RegistryView.Registry64 : RegistryView.Registry32;
+            using (RegistryKey hklm = RegistryKey.OpenBaseKey(RegistryHive.LocalMachine, registryView))
+            {
+                var str = new ObservableCollection<string>();
+                RegistryKey instanceKey = hklm.OpenSubKey(@"SOFTWARE\Microsoft\Microsoft SQL Server\Instance Names\SQL", false);
+                if (instanceKey != null)
+                {
+                    foreach (var instanceName in instanceKey.GetValueNames())
+                    {
+                        string link = (ServerName + "\\" + instanceName);
+                        str.Add(link);
+                    }
+                }
+                return str;
+            }
+        }
         public Provider()
         {
-            var strComputerName = Environment.MachineName.ToString();
-            if (strComputerName.Contains("\\SQLEXPRESS"))
+            var strComputerName = GetDataSources();
+            if (strComputerName[0].Contains("\\MSSQLSERVER"))
             {
-                ConnectionString = $"Data Source={strComputerName}\\SQLEXPRESS;Initial Catalog=MyStore;Integrated Security=True";
+                string ServerName = Environment.MachineName;
+                ConnectionString = $"Data Source={ServerName};Initial Catalog=MyStore;Integrated Security=True";
             }
             else
             {
-                ConnectionString = $"Data Source={strComputerName};Initial Catalog=MyStore;Integrated Security=True";
+                ConnectionString = $"Data Source={strComputerName[0]};Initial Catalog=MyStore;Integrated Security=True";
             }
         }
         SqlConnection Connection { get; set; }

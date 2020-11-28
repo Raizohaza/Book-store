@@ -26,6 +26,7 @@ namespace DoAn1
     /// </summary>
     public sealed partial class PageHome : Page
     {
+        
         public PageHome()
         {
             this.InitializeComponent();
@@ -52,5 +53,70 @@ namespace DoAn1
             //provider::QueryForSQLServer.UpdateCategory(cat);
             test_data.ItemsSource = products;
         }
+        public void Refresh()
+        {
+            DataTable data = null;
+            var products = new ObservableCollection<Product>();
+
+            data = provider::QueryForSQLServer.GetProducts();
+            foreach (DataRow row in data.Rows)
+            {
+                var product = new Product();
+                product.Id = (int)row.ItemArray[0];
+                product.CatId = (int)row.ItemArray[1];
+                product.SKU = (string)row.ItemArray[2];
+                product.Name = (string)row.ItemArray[3];
+                product.Price = (Decimal)row.ItemArray[4];
+                product.Quantity = (int)row.ItemArray[5];
+                product.Description = (string)row.ItemArray[6];
+                product.Image = (string)row.ItemArray[7];
+
+                products.Add(product);
+            }
+            //var cat = new Category() { Id = 8, Name = "ThinkPad" };
+            //provider::QueryForSQLServer.DeleteCategory(7);
+            //provider::QueryForSQLServer.UpdateCategory(cat);
+            test_data.ItemsSource = products;
+        }
+
+        //lay product tu rightapped
+        private FrameworkElement originalSource;
+        private void test_data_RightTapped(object sender, RightTappedRoutedEventArgs e)
+        {
+            originalSource = (FrameworkElement)e.OriginalSource;
+
+        }
+        private void Edit_Click(object sender, RoutedEventArgs e)
+        {
+            var item = originalSource.DataContext as Product;
+
+            var screen = new UpdateUserControl(item);
+            screen.Handler += GetProductFromUC;
+            GridHome.Children.Add(screen);
+            
+        }
+        private void Remove_Click(object sender, RoutedEventArgs e)
+        {
+            var item = originalSource.DataContext as Product;
+            provider::QueryForSQLServer.DeleteProduct(item.Id);
+
+        }
+
+        private void test_data_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var item = test_data.SelectedItem as Product;
+            var index = test_data.SelectedIndex;
+            var screen = new DetailsUserControl(item);
+            screen.Handler += GetProductFromUC;
+            GridHome.Children.Add(screen);
+            //this.Visibility = Visibility.Collapsed;
+        }
+
+        private void GetProductFromUC(Product product)
+        {
+            provider::QueryForSQLServer.UpdateProduct(product);
+            Refresh();
+        }
+        
     }
 }

@@ -14,15 +14,25 @@
         <local:RelativeToAsolutePathConverter x:Key="pathConverter"/>
     </Page.Resources>
 
-    <Grid>
+    <Grid x:Name="GridHome">
         <StackPanel Name="stack_database" Height="750" Width="1100" Grid.Row="2" Grid.ColumnSpan="2">
             
-            <ListView x:Name="test_data" Background="White" Height="750" Width="1100">
+            <ListView x:Name="test_data" Background="White" Height="750" Width="1100" RightTapped="test_data_RightTapped" SelectionChanged="test_data_SelectionChanged">
                 <ListView.ItemsPanel>
                     <ItemsPanelTemplate>
                         <controls:WrapPanel/>
                     </ItemsPanelTemplate>
                 </ListView.ItemsPanel>
+
+                <ListView.ContextFlyout>
+                    <MenuFlyout x:Name="allContactsMenuFlyout">
+                        <MenuFlyout.Items>
+                            <MenuFlyoutItem x:Name="Edit"  Text="Edit" Click="Edit_Click"/>
+                            <MenuFlyoutItem x:Name="Remove" Text="Remove"    Click="Remove_Click" />
+                        </MenuFlyout.Items>
+                    </MenuFlyout>
+                </ListView.ContextFlyout>
+                
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <StackPanel >
