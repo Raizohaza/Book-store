@@ -1,0 +1,56 @@
+﻿<Page
+    x:Class="DoAn1.PageHome"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:DoAn1"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    xmlns:muxc="using:Windows.UI.Xaml.Controls"
+    xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Height="750" Width="1100">
+
+    <Page.Resources>
+        <local:RelativeToAsolutePathConverter x:Key="pathConverter"/>
+    </Page.Resources>
+
+    <Grid x:ConnectionId='2' x:Name="GridHome">
+        <StackPanel>
+        <muxc:ComboBox x:ConnectionId='3' x:Name="cbbListType" PlaceholderText="                Thể loại" HorizontalAlignment="Left" Width="200"                                                 VerticalAlignment="Top">
+            <muxc:ComboBoxItem Content="Văn Học" Tag="VanHoc"/>
+            <muxc:ComboBoxItem Content="Manga" Tag="Manga"/>
+            <muxc:ComboBoxItem Content="Thiếu nhi" Tag="ThieuNhi"/>
+            <muxc:ComboBoxItem Content="Hentai" Tag="Hentai"/>
+        </muxc:ComboBox>
+        <ListView x:ConnectionId='4' x:Name="test_data" Background="White" Height="750" Width="1100"                                                                                  >
+                <ListView.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <controls:WrapPanel/>
+                    </ItemsPanelTemplate>
+                </ListView.ItemsPanel>
+
+                <ListView.ContextFlyout>
+                    <MenuFlyout x:ConnectionId='5' x:Name="allContactsMenuFlyout">
+                        <MenuFlyout.Items>
+                            <MenuFlyoutItem x:ConnectionId='6' x:Name="Edit"  Text="Edit"                   />
+                            <MenuFlyoutItem x:ConnectionId='7' x:Name="Remove" Text="Remove"                         />
+                        </MenuFlyout.Items>
+                    </MenuFlyout>
+                </ListView.ContextFlyout>
+                
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel >
+                            <Image Source="{Binding Image, Converter={StaticResource pathConverter}}"  Height="80"></Image>
+                            <StackPanel Orientation="Horizontal" Width="200">
+                                <TextBlock Text="{Binding Id}" FontSize="12"  TextWrapping="Wrap"/>
+                                <TextBlock Text="{Binding Name}" FontSize="12" TextWrapping="Wrap"/>
+                            </StackPanel>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackPanel>
+    </Grid>
+</Page>
+
