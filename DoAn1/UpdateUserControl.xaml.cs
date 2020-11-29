@@ -66,5 +66,9 @@ namespace DoAn1
         {
             this.Visibility = Visibility.Collapsed;
         }
+        private void btnAddImg_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
