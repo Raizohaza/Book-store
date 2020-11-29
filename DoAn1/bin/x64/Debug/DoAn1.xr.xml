@@ -7,9 +7,9 @@
     <RootPropertyPathName Name="Name" />
     <RootPropertyPathName Name="Id" />
     <RootPropertyPathName Name="Image" />
-    <RootPropertyPathName Name="SoLuong" />
-    <RootPropertyPathName Name="TacGia" />
-    <RootPropertyPathName Name="Gia" />
+    <RootPropertyPathName Name="Quantity" />
+    <RootPropertyPathName Name="Author" />
+    <RootPropertyPathName Name="Price" />
     <RootPropertyPathName Name="Description" />
   </Roots.PropertyPathNames>
   <Roots.RootTypes>
