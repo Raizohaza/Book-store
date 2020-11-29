@@ -37,7 +37,7 @@ namespace DoAn1
                 Quantity = 0,
                 CatId = 1,
                 Image = "x",
-                SKU = "x"             
+                Author = "x"             
             };
             this.DataContext = Product;
         }

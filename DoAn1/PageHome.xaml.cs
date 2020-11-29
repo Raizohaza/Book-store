@@ -42,12 +42,12 @@ namespace DoAn1
                 var product = new Product();
                 product.Id = (int)row.ItemArray[0];
                 product.CatId = (int)row.ItemArray[1];
-                product.SKU = (string)row.ItemArray[2];
-                product.Name = (string)row.ItemArray[3];
-                product.Price = (Decimal)row.ItemArray[4];
-                product.Quantity = (int)row.ItemArray[5];
-                product.Description = (string)row.ItemArray[6];
-                product.Image = (string)row.ItemArray[7];
+                product.Name = (string)row.ItemArray[2];
+                product.Price = (Decimal)row.ItemArray[3];
+                product.Quantity = (int)row.ItemArray[4];
+                product.Description = (string)row.ItemArray[5];
+                product.Image = (string)row.ItemArray[6];
+                product.Author = (string)row.ItemArray[7];
 
                 products.Add(product);
             }
@@ -67,7 +67,7 @@ namespace DoAn1
                 var product = new Product();
                 product.Id = (int)row.ItemArray[0];
                 product.CatId = (int)row.ItemArray[1];
-                product.SKU = (string)row.ItemArray[2];
+                product.Author = (string)row.ItemArray[2];
                 product.Name = (string)row.ItemArray[3];
                 product.Price = (Decimal)row.ItemArray[4];
                 product.Quantity = (int)row.ItemArray[5];
@@ -171,7 +171,7 @@ namespace DoAn1
 
                 while (cell.Value != null && !cell.IsBlank)
                 {
-                    var sku = tab.Range[$"C{row}"].Text;
+                    var author = tab.Range[$"C{row}"].Text;
                     var name = tab.Range[$"D{row}"].Text;
                     var price = Convert.ToDecimal(tab.Range[$"E{row}"].Number);
                     var quantity = (int)(tab.Range[$"F{row}"].Number);
@@ -180,7 +180,7 @@ namespace DoAn1
 
                     var product = new Product()
                     {
-                        SKU = sku,
+                        Author = author,
                         Name = name,
                         CatId = category.Id,
                         Price = price,
@@ -192,7 +192,7 @@ namespace DoAn1
                     category.Products.Add(product);
 
 
-                    Debug.WriteLine($"{sku}{name}{price}{quantity}{description}");
+                    Debug.WriteLine($"{author}{name}{price}{quantity}{description}");
 
                     // Đi qua dòng kế
                     row++;

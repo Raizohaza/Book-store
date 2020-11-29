@@ -22,15 +22,16 @@ namespace DoAn1
     
         public int Id { get; set; }
         public Nullable<int> CatId { get; set; }
-        public string SKU { get; set; }
         public string Name { get; set; }
         public Nullable<decimal> Price { get; set; }
         public Nullable<int> Quantity { get; set; }
         public string Description { get; set; }
         public string Image { get; set; }
+        public string Author { get; set; }
     
         public virtual Category Category { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<OrderDetail> OrderDetails { get; set; }
+        public virtual Product_Images Product_Images { get; set; }
     }
 }

@@ -40,8 +40,8 @@ namespace DoAn1.Provider
 
         public static DataTable InsertProduct(Product product)
         {
-            const string Query = "insert into Product(CatId,SKU,Name,Price,Quantity,Description,Image) " +
-                "values(@catid,@sku,@name,@price,@quantity,@des,@image)";
+            const string Query = "insert into Product(CatId,Author,Name,Price,Quantity,Description,Image) " +
+                "values(@catid,@Author,@name,@price,@quantity,@des,@image)";
             DataTable dt = null;
             Provider p = new Provider();
             var products = new ObservableCollection<Product>();
@@ -50,7 +50,7 @@ namespace DoAn1.Provider
                 p.Connect();
                 dt = p.ExcecuteQuery(CommandType.Text, Query,
                     new SqlParameter { ParameterName = "@catid", Value = product.CatId },
-                    new SqlParameter { ParameterName = "@sku", Value = product.SKU },
+                    new SqlParameter { ParameterName = "@Author", Value = product.Author },
                     new SqlParameter { ParameterName = "@name", Value = product.Name },
                     new SqlParameter { ParameterName = "@price", Value = product.Price },
                     new SqlParameter { ParameterName = "@quantity", Value = product.Quantity },
@@ -97,8 +97,8 @@ namespace DoAn1.Provider
         public static DataTable UpdateProduct(Product product)
         {
             string Query = "update Product " +
-                "set CatId = "+ product.CatId + ",SKU = '"+ product.SKU + "',Name = '" + product.Name + 
-                "',Price = " + product.Price + ",Quantity=" + product.Quantity + ",Description='" + product.Description + "',Image='be1abedd-c60c-409b-ac31-38d62f696a68' " +
+                "set CatId = "+ product.CatId + ",Author = '" + product.Author + "',Name = '" + product.Name + 
+                "',Price = " + product.Price + ",Quantity=" + product.Quantity + ",Description='" + product.Description + "',Image='" + product.Image+ "' " +
                 "where Id = " + product.Id ;
             DataTable dt = null;
             Provider p = new Provider();

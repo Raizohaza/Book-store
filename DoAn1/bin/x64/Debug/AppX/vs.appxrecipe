@@ -30,13 +30,13 @@
     <AppXManifest Include="C:\Users\Admin\Desktop\DoAn1\DoAn1\bin\x64\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2020-11-28T19:04:57.957</Modified>
+      <Modified>2020-11-29T09:45:32.640</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\Admin\Desktop\DoAn1\DoAn1\bin\x64\Debug\DoAn1.exe">
       <PackagePath>entrypoint\DoAn1.exe</PackagePath>
-      <Modified>2020-11-28T19:04:55.205</Modified>
+      <Modified>2020-11-29T09:45:28.302</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Admin\.nuget\packages\colorcode.core\2.0.6\lib\netstandard1.4\ColorCode.Core.dll">
       <PackagePath>ColorCode.Core.dll</PackagePath>
@@ -166,39 +166,39 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Admin\Desktop\DoAn1\DoAn1\bin\x64\Debug\App.xbf">
       <PackagePath>App.xbf</PackagePath>
-      <Modified>2020-11-28T19:04:54.924</Modified>
+      <Modified>2020-11-29T09:45:27.878</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Admin\Desktop\DoAn1\DoAn1\bin\x64\Debug\DetailsUserControl.xbf">
       <PackagePath>DetailsUserControl.xbf</PackagePath>
-      <Modified>2020-11-28T19:04:54.925</Modified>
+      <Modified>2020-11-29T09:45:27.878</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Admin\Desktop\DoAn1\DoAn1\bin\x64\Debug\MainPage.xbf">
       <PackagePath>MainPage.xbf</PackagePath>
-      <Modified>2020-11-28T19:04:54.925</Modified>
+      <Modified>2020-11-29T09:45:27.879</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Admin\Desktop\DoAn1\DoAn1\bin\x64\Debug\PageAdd.xbf">
       <PackagePath>PageAdd.xbf</PackagePath>
-      <Modified>2020-11-28T19:04:54.925</Modified>
+      <Modified>2020-11-29T09:45:27.879</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Admin\Desktop\DoAn1\DoAn1\bin\x64\Debug\PageBuy.xbf">
       <PackagePath>PageBuy.xbf</PackagePath>
-      <Modified>2020-11-28T19:04:54.925</Modified>
+      <Modified>2020-11-29T09:45:27.879</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Admin\Desktop\DoAn1\DoAn1\bin\x64\Debug\PageFav.xbf">
       <PackagePath>PageFav.xbf</PackagePath>
-      <Modified>2020-11-28T19:04:54.925</Modified>
+      <Modified>2020-11-29T09:45:27.879</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Admin\Desktop\DoAn1\DoAn1\bin\x64\Debug\PageHome.xbf">
       <PackagePath>PageHome.xbf</PackagePath>
-      <Modified>2020-11-28T19:04:54.926</Modified>
+      <Modified>2020-11-29T09:45:27.880</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Admin\Desktop\DoAn1\DoAn1\bin\x64\Debug\PageSettings.xbf">
       <PackagePath>PageSettings.xbf</PackagePath>
-      <Modified>2020-11-28T19:04:54.926</Modified>
+      <Modified>2020-11-29T09:45:27.880</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Admin\Desktop\DoAn1\DoAn1\bin\x64\Debug\UpdateUserControl.xbf">
       <PackagePath>UpdateUserControl.xbf</PackagePath>
-      <Modified>2020-11-28T19:04:54.926</Modified>
+      <Modified>2020-11-29T09:45:27.880</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\UnionMetadata\10.0.18362.0\Windows.winmd">
       <PackagePath>WinMetadata\Windows.winmd</PackagePath>
@@ -206,11 +206,11 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Admin\Desktop\DoAn1\DoAn1\bin\x64\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2020-11-28T18:32:42.660</Modified>
+      <Modified>2020-11-29T09:01:03.491</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Admin\Desktop\DoAn1\DoAn1\bin\x64\Debug\Core\DoAn1.exe">
       <PackagePath>DoAn1.exe</PackagePath>
-      <Modified>2020-11-28T19:04:57.949</Modified>
+      <Modified>2020-11-29T09:45:32.615</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>
