@@ -19,7 +19,8 @@ namespace DoAn1
         {
             this.OrderDetails = new HashSet<OrderDetail>();
         }
-    
+
+        public static object Instance { get; internal set; }
         public int Id { get; set; }
         public Nullable<int> CatId { get; set; }
         public string Name { get; set; }
@@ -34,4 +35,6 @@ namespace DoAn1
         public virtual ICollection<OrderDetail> OrderDetails { get; set; }
         public virtual Product_Images Product_Images { get; set; }
     }
+
+    
 }

@@ -16,7 +16,7 @@
 
     <Grid x:Name="GridHome">
         <StackPanel>
-        <muxc:ComboBox x:Name="cbbListType" PlaceholderText="                Thể loại" HorizontalAlignment="Left" Width="200" SelectionChanged="cbbListType_SelectionChanged" VerticalAlignment="Top">
+        <muxc:ComboBox x:Name="cbbListType" PlaceholderText="Thể loại" HorizontalAlignment="Left" Width="100" SelectionChanged="cbbListType_SelectionChanged" VerticalAlignment="Top">
             <muxc:ComboBoxItem Content="Văn Học" Tag="VanHoc"/>
             <muxc:ComboBoxItem Content="Manga" Tag="Manga"/>
             <muxc:ComboBoxItem Content="Thiếu nhi" Tag="ThieuNhi"/>

@@ -25,7 +25,8 @@
                 <muxc:NavigationViewItem Icon="Shop" Content="Túi" Tag="iconBag" />
             </muxc:NavigationView.MenuItems>
             <muxc:NavigationView.AutoSuggestBox>
-                <AutoSuggestBox x:Name="NavViewSearchBox" FontSize="20" QueryIcon="Find" Width="200" Height="32" PlaceholderText="Search"/>
+                
+                <AutoSuggestBox x:Name="SearchBox" FontSize="20" QueryIcon="Find" Width="200" Height="32" PlaceholderText="Search" TextChanged="NavViewSearchBox_TextChanged"/>
             </muxc:NavigationView.AutoSuggestBox>
             <ScrollViewer Height="600">
                 <Frame x:Name="CF"/>
