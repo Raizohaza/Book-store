@@ -208,5 +208,9 @@ namespace DoAn1
             excelEngine.Dispose();
         }
 
+        private void cbbListType_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            // code khi chuyển thể loại here
+        }
     }
 }

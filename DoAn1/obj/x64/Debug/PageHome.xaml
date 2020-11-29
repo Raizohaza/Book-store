@@ -15,9 +15,13 @@
     </Page.Resources>
 
     <Grid x:ConnectionId='2' x:Name="GridHome">
-        <StackPanel x:ConnectionId='3' Name="stack_database" Height="750" Width="1100" Grid.Row="2" Grid.ColumnSpan="2">
-            <Button x:ConnectionId='4' Width="80" Height="30"                            HorizontalAlignment="Center"/>
-            <ListView x:ConnectionId='5' x:Name="test_data" Background="White" Height="750" Width="1100"                                                                                  >
+        <muxc:ComboBox x:ConnectionId='3' x:Name="cbbListType" PlaceholderText="                Thể loại" HorizontalAlignment="Left" Width="200"                                                 VerticalAlignment="Top">
+            <muxc:ComboBoxItem Content="Văn Học" Tag="VanHoc"/>
+            <muxc:ComboBoxItem Content="Manga" Tag="Manga"/>
+            <muxc:ComboBoxItem Content="Thiếu nhi" Tag="ThieuNhi"/>
+            <muxc:ComboBoxItem Content="Hentai" Tag="Hentai"/>
+        </muxc:ComboBox>
+        <ListView x:ConnectionId='4' x:Name="test_data" Background="White" Height="750" Width="1100"                                                                                  >
                 <ListView.ItemsPanel>
                     <ItemsPanelTemplate>
                         <controls:WrapPanel/>
@@ -25,10 +29,10 @@
                 </ListView.ItemsPanel>
 
                 <ListView.ContextFlyout>
-                    <MenuFlyout x:ConnectionId='6' x:Name="allContactsMenuFlyout">
+                    <MenuFlyout x:ConnectionId='5' x:Name="allContactsMenuFlyout">
                         <MenuFlyout.Items>
-                            <MenuFlyoutItem x:ConnectionId='7' x:Name="Edit"  Text="Edit"                   />
-                            <MenuFlyoutItem x:ConnectionId='8' x:Name="Remove" Text="Remove"                         />
+                            <MenuFlyoutItem x:ConnectionId='6' x:Name="Edit"  Text="Edit"                   />
+                            <MenuFlyoutItem x:ConnectionId='7' x:Name="Remove" Text="Remove"                         />
                         </MenuFlyout.Items>
                     </MenuFlyout>
                 </ListView.ContextFlyout>
@@ -45,7 +49,6 @@
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
-        </StackPanel>
     </Grid>
 </Page>
 

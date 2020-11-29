@@ -84,6 +84,9 @@ namespace DoAn1
             }    
         }
 
-        
+        private void NavViewSearchBox_TextChanged(AutoSuggestBox sender, AutoSuggestBoxTextChangedEventArgs args)
+        {
+            // code tim kiem here
+        }
     }
 }

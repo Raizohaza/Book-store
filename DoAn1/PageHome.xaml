@@ -15,9 +15,13 @@
     </Page.Resources>
 
     <Grid x:Name="GridHome">
-        <StackPanel Name="stack_database" Height="750" Width="1100" Grid.Row="2" Grid.ColumnSpan="2">
-            <Button Width="80" Height="30" Click="ImportButton_Click" HorizontalAlignment="Center"/>
-            <ListView x:Name="test_data" Background="White" Height="750" Width="1100" RightTapped="test_data_RightTapped" SelectionChanged="test_data_SelectionChanged">
+        <muxc:ComboBox x:Name="cbbListType" PlaceholderText="                Thể loại" HorizontalAlignment="Left" Width="200" SelectionChanged="cbbListType_SelectionChanged" VerticalAlignment="Top">
+            <muxc:ComboBoxItem Content="Văn Học" Tag="VanHoc"/>
+            <muxc:ComboBoxItem Content="Manga" Tag="Manga"/>
+            <muxc:ComboBoxItem Content="Thiếu nhi" Tag="ThieuNhi"/>
+            <muxc:ComboBoxItem Content="Hentai" Tag="Hentai"/>
+        </muxc:ComboBox>
+        <ListView x:Name="test_data" Background="White" Height="750" Width="1100" RightTapped="test_data_RightTapped" SelectionChanged="test_data_SelectionChanged">
                 <ListView.ItemsPanel>
                     <ItemsPanelTemplate>
                         <controls:WrapPanel/>
@@ -45,6 +49,5 @@
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
-        </StackPanel>
     </Grid>
 </Page>
