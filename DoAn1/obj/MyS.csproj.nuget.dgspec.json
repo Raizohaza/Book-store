@@ -1,30 +1,31 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Admin\\Desktop\\DoAn1\\DoAn1\\MyS.csproj": {}
+    "C:\\Users\\ngoc\\Source\\Repos\\DoAn1\\DoAn1\\MyS.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Admin\\Desktop\\DoAn1\\DoAn1\\MyS.csproj": {
+    "C:\\Users\\ngoc\\Source\\Repos\\DoAn1\\DoAn1\\MyS.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Admin\\Desktop\\DoAn1\\DoAn1\\MyS.csproj",
+        "projectUniqueName": "C:\\Users\\ngoc\\Source\\Repos\\DoAn1\\DoAn1\\MyS.csproj",
         "projectName": "MyS",
-        "projectPath": "C:\\Users\\Admin\\Desktop\\DoAn1\\DoAn1\\MyS.csproj",
-        "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Admin\\Desktop\\DoAn1\\DoAn1\\obj\\",
+        "projectPath": "C:\\Users\\ngoc\\Source\\Repos\\DoAn1\\DoAn1\\MyS.csproj",
+        "packagesPath": "C:\\Users\\ngoc\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\ngoc\\Source\\Repos\\DoAn1\\DoAn1\\obj\\",
         "projectStyle": "PackageReference",
         "skipContentFileWrite": true,
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft SDKs\\UWPNuGetPackages\\"
         ],
         "configFilePaths": [
-          "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\ngoc\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "uap10.0.17763"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -38,7 +39,7 @@
           "dependencies": {
             "Microsoft.NETCore.UniversalWindowsPlatform": {
               "target": "Package",
-              "version": "[6.2.10, )"
+              "version": "[6.2.11, )"
             },
             "Microsoft.Toolkit.Uwp.UI.Controls": {
               "target": "Package",
