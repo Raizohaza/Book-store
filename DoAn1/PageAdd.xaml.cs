@@ -31,6 +31,8 @@ namespace DoAn1
     public sealed partial class PageAdd : Page
     {
         Product Product { get; set; }
+        public delegate void Save(Product productRef);
+        public event Save Handler;
         public PageAdd()
         {
             this.InitializeComponent();
@@ -154,7 +156,32 @@ namespace DoAn1
                 }
                 list.Add(category);
 
+                var messageDialog = new MessageDialog("Import", "Confirm");
 
+                messageDialog.Commands.Add(new UICommand("Yes")
+                {
+                    Id = 0
+                });
+                messageDialog.Commands.Add(new UICommand("No")
+                {
+                    Id = 1
+                });
+                messageDialog.DefaultCommandIndex = 0;
+                messageDialog.CancelCommandIndex = 1;
+
+                var result = await messageDialog.ShowAsync();
+                if ((int)result.Id == 0)
+                {
+                    var item = Product;
+                    Handler?.Invoke(Product);
+                    this.Visibility = Visibility.Collapsed;
+                }
+                else
+                {
+                    this.Visibility = Visibility.Collapsed;
+                }
+
+                this.Visibility = Visibility.Collapsed;
             }
             var tes = list;
 
