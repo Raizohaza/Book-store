@@ -46,6 +46,13 @@
         <TextBlock Text="Số lượng" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="20" FontWeight="Medium" FontStyle="Italic" Grid.Column="1" Grid.Row="4"/>
         
         <TextBox x:Name="addSoLuong" Text="{Binding Quantity,Mode=TwoWay}"  Style="{Binding}" Height="35" Width="133" Grid.Column="1" Grid.Row="4" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="92,0,0,0" />
-        
+
+        <ListView x:Name="lvAddImg" Grid.Column="2" Grid.Row="2" Grid.RowSpan="4" Height="325" Width="330" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0,13,0,0">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Image Source="{Binding}" Width="50" Height="50" />
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
     </Grid>
 </Page>

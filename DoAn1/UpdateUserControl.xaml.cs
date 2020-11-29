@@ -34,7 +34,7 @@ namespace DoAn1
 
         private async void btnDone_Click(object sender, RoutedEventArgs e)
         {
-            var messageDialog = new MessageDialog("Add new produt", "Confirm");
+            var messageDialog = new MessageDialog("Uppdate", "Confirm");
 
             messageDialog.Commands.Add(new UICommand("Yes")
             {
