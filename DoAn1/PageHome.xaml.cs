@@ -29,10 +29,8 @@ namespace DoAn1
     /// </summary>
     public sealed partial class PageHome : Page
     {
-        
-        public PageHome()
+        public ObservableCollection<Product> GetProductFromDb(int catId = 0)
         {
-            this.InitializeComponent();
             DataTable data = null;
             var products = new ObservableCollection<Product>();
 
@@ -51,31 +49,35 @@ namespace DoAn1
 
                 products.Add(product);
             }
-
-            test_data.ItemsSource = products;
-        }
-        public void Refresh()
-        {
-            DataTable data = null;
-            var products = new ObservableCollection<Product>();
-
-            data = provider::QueryForSQLServer.GetProducts();
-            foreach (DataRow row in data.Rows)
+            if (catId !=0)
             {
-                var product = new Product();
-                product.Id = (int)row.ItemArray[0];
-                product.CatId = (int)row.ItemArray[1];
-                product.Author = (string)row.ItemArray[2];
-                product.Name = (string)row.ItemArray[3];
-                product.Price = (Decimal)row.ItemArray[4];
-                product.Quantity = (int)row.ItemArray[5];
-                product.Description = (string)row.ItemArray[6];
-                product.Image = (string)row.ItemArray[7];
-
-                products.Add(product);
+                var productFillered = from product in products
+                                      where product.CatId == catId
+                                      select product;
+                products = new ObservableCollection<Product>(productFillered);
             }
             
-            test_data.ItemsSource = products;
+            return products;
+        }
+        public PageHome()
+        {
+            this.InitializeComponent();
+            var categoriesList = new ObservableCollection<Category>();
+            DataTable q = provider::QueryForSQLServer.GetCategory();
+            foreach (DataRow row in q.Rows)
+            {
+                var category = new Category { Id = (int)row.ItemArray[0], Name = (string)row.ItemArray[1] };
+                categoriesList.Add(category);
+            }
+            
+            test_data.ItemsSource = GetProductFromDb();
+            cbbListType.ItemsSource = categoriesList;
+        }
+
+        
+        public void Refresh()
+        {
+            test_data.ItemsSource = GetProductFromDb(1);
         }
 
         //lay product tu rightapped
@@ -207,6 +209,12 @@ namespace DoAn1
         private void cbbListType_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             // code khi chuyển thể loại here
+            var test = sender as ComboBox;
+            Category category1 =(Category) test.SelectedItem;
+      
+
+            test_data.ItemsSource = GetProductFromDb(category1.Id);
         }
+
     }
 }

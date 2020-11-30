@@ -148,7 +148,31 @@ namespace DoAn1.Provider
             }
             return null;
         }
-       
+
+        public static DataTable GetCategory()
+        {
+            const string GetProductsQuery = "select * from Category ";
+            DataTable dt = null;
+
+            Provider p = new Provider();
+            var products = new ObservableCollection<Product>();
+            try
+            {
+                p.Connect();
+                dt = p.ExcecuteQuery(CommandType.Text, GetProductsQuery);
+                return dt;
+            }
+            catch (Exception eSql)
+            {
+                Debug.WriteLine("Exception: " + eSql.Message);
+            }
+            finally
+            {
+                p.DisConnect();
+            }
+            return null;
+        }
+
         public static int InsertCategory(Category product)
         {
             const string Query = "insert into Category(Name) " +

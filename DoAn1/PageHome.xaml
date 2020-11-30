@@ -16,13 +16,14 @@
 
     <Grid x:Name="GridHome">
         <StackPanel>
-        <muxc:ComboBox x:Name="cbbListType" PlaceholderText="Thể loại" HorizontalAlignment="Left" Width="100" SelectionChanged="cbbListType_SelectionChanged" VerticalAlignment="Top">
-            <muxc:ComboBoxItem Content="Văn Học" Tag="VanHoc"/>
-            <muxc:ComboBoxItem Content="Manga" Tag="Manga"/>
-            <muxc:ComboBoxItem Content="Thiếu nhi" Tag="ThieuNhi"/>
-            <muxc:ComboBoxItem Content="Hentai" Tag="Hentai"/>
-        </muxc:ComboBox>
-        <ListView x:Name="test_data" Background="White" Height="750" Width="1100" RightTapped="test_data_RightTapped" SelectionChanged="test_data_SelectionChanged">
+            <muxc:ComboBox x:Name="cbbListType" PlaceholderText="Thể loại" HorizontalAlignment="Left" Width="100" SelectionChanged="cbbListType_SelectionChanged" VerticalAlignment="Top">
+                <muxc:ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <muxc:ComboBoxItem Content="{Binding Name}" Tag="{Binding Name}"></muxc:ComboBoxItem>
+                    </DataTemplate>
+                </muxc:ComboBox.ItemTemplate>
+            </muxc:ComboBox>
+            <ListView x:Name="test_data" Background="White" Height="750" Width="1100" RightTapped="test_data_RightTapped" SelectionChanged="test_data_SelectionChanged">
                 <ListView.ItemsPanel>
                     <ItemsPanelTemplate>
                         <controls:WrapPanel/>
@@ -37,7 +38,7 @@
                         </MenuFlyout.Items>
                     </MenuFlyout>
                 </ListView.ContextFlyout>
-                
+
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <StackPanel >
