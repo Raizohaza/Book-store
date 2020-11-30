@@ -43,8 +43,8 @@ namespace DoAn1
                 Price = 0,
                 Quantity = 0,
                 CatId = 1,
-                Image = "x",
-                Author = "x"             
+                Image = "default.jpg",
+                Author = "Chưa cập nhật"             
             };
             this.DataContext = Product;
         }

@@ -26,25 +26,32 @@ namespace DoAn1
 
         public DetailsUserControl(Product product)
         {
-            this.InitializeComponent();
-            this.DataContext = product;
-
-            List<Product_Images> img = new List<Product_Images>();
-            DataTable images =  provider::QueryForSQLServer.GetProducts_Image(product.Id);
-            
-            foreach (DataRow item in images.Rows)
+            if (product !=null)
             {
-                var Product_Images = new Product_Images()
-                {
-                    id = (int)item.ItemArray[0],
-                    ProductId = (int)item.ItemArray[1],
-                    Name = (string)item.ItemArray[2]
-                };
-                img.Add(Product_Images);
-            }
+                this.InitializeComponent();
+                this.DataContext = product;
 
-            lvManyImg.ItemsSource = img;
-            Handler?.Invoke(product);
+                List<Product_Images> img = new List<Product_Images>();
+                DataTable images = provider::QueryForSQLServer.GetProducts_Image(product.Id);
+
+                foreach (DataRow item in images.Rows)
+                {
+                    var Product_Images = new Product_Images()
+                    {
+                        id = (int)item.ItemArray[0],
+                        ProductId = (int)item.ItemArray[1],
+                        Name = (string)item.ItemArray[2]
+                    };
+                    img.Add(Product_Images);
+                }
+
+                lvManyImg.ItemsSource = img;
+                Handler?.Invoke(product);
+            }
+            else
+            {
+                this.Visibility = Visibility.Collapsed;
+            }
         }
 
         private void Back_Click(object sender, RoutedEventArgs e)

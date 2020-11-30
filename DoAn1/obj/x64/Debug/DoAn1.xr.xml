@@ -68,11 +68,11 @@
       <RootProperty Name="Margin" />
       <RootProperty Name="ItemsPanel" />
       <RootProperty Name="ItemTemplate" />
+      <RootProperty Name="Background" />
       <RootProperty Name="Width" />
+      <RootProperty Name="ContextFlyout" />
       <RootProperty Name="VerticalAlignment" />
       <RootProperty Name="HorizontalAlignment" />
-      <RootProperty Name="Background" />
-      <RootProperty Name="ContextFlyout" />
       <RootEvent Name="RightTapped" />
       <RootEvent Name="SelectionChanged" />
     </RootType>
