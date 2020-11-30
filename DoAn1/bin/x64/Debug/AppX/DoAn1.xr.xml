@@ -4,13 +4,13 @@
     <RootInterface FullName="Windows.UI.Xaml.Data.IValueConverter" />
   </Roots.Interfaces>
   <Roots.PropertyPathNames>
+    <RootPropertyPathName Name="Description" />
     <RootPropertyPathName Name="Name" />
     <RootPropertyPathName Name="Id" />
     <RootPropertyPathName Name="Image" />
     <RootPropertyPathName Name="Quantity" />
     <RootPropertyPathName Name="Author" />
     <RootPropertyPathName Name="Price" />
-    <RootPropertyPathName Name="Description" />
   </Roots.PropertyPathNames>
   <Roots.RootTypes>
     <RootType FullName="Windows.UI.Xaml.Application" />
@@ -38,34 +38,50 @@
       <RootMethod Name="GetRowSpan" />
       <RootMethod Name="SetRowSpan" />
     </RootType>
+    <RootType FullName="Windows.UI.Xaml.Controls.Button">
+      <RootProperty Name="Content" />
+      <RootProperty Name="Background" />
+      <RootProperty Name="Height" />
+      <RootProperty Name="Width" />
+      <RootProperty Name="VerticalAlignment" />
+      <RootProperty Name="HorizontalAlignment" />
+      <RootProperty Name="Margin" />
+      <RootEvent Name="Click" />
+    </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.Image">
       <RootProperty Name="Source" />
       <RootProperty Name="Width" />
       <RootProperty Name="Height" />
+      <RootProperty Name="VerticalAlignment" />
+      <RootProperty Name="HorizontalAlignment" />
+      <RootProperty Name="Margin" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.StackPanel">
       <RootProperty Name="Orientation" />
       <RootProperty Name="Width" />
+      <RootProperty Name="Margin" />
       <RootProperty Name="Children" />
       <RootProperty Name="Height" />
     </RootType>
-    <RootType FullName="Windows.UI.Xaml.Controls.Button">
-      <RootProperty Name="Content" />
+    <RootType FullName="Windows.UI.Xaml.Controls.ListView">
       <RootProperty Name="Height" />
+      <RootProperty Name="Margin" />
+      <RootProperty Name="ItemsPanel" />
+      <RootProperty Name="ItemTemplate" />
       <RootProperty Name="Width" />
-      <RootProperty Name="Background" />
       <RootProperty Name="VerticalAlignment" />
       <RootProperty Name="HorizontalAlignment" />
-      <RootProperty Name="FontWeight" />
-      <RootProperty Name="FontSize" />
-      <RootProperty Name="Margin" />
-      <RootProperty Name="Style" />
-      <RootEvent Name="Click" />
+      <RootProperty Name="Background" />
+      <RootProperty Name="ContextFlyout" />
+      <RootEvent Name="RightTapped" />
+      <RootEvent Name="SelectionChanged" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.TextBlock">
       <RootProperty Name="Text" />
-      <RootProperty Name="FontSize" />
+      <RootProperty Name="Margin" />
+      <RootProperty Name="MaxWidth" />
       <RootProperty Name="TextWrapping" />
+      <RootProperty Name="FontSize" />
       <RootProperty Name="FontWeight" />
       <RootProperty Name="Style" />
       <RootProperty Name="VerticalAlignment" />
@@ -75,6 +91,13 @@
     <RootType FullName="Windows.UI.Xaml.Data.Binding">
       <RootProperty Name="Converter" />
       <RootProperty Name="Mode" />
+    </RootType>
+    <RootType FullName="Windows.UI.Xaml.Controls.ItemsPanelTemplate">
+      <RootProperty Name="Template" />
+    </RootType>
+    <RootType FullName="Microsoft.Toolkit.Uwp.UI.Controls.WrapPanel" />
+    <RootType FullName="Windows.UI.Xaml.DataTemplate">
+      <RootProperty Name="Template" />
     </RootType>
     <RootType FullName="Microsoft.Xaml.DirectUI.ProxyTypes.StaticResourceExtension" />
     <RootType FullName="DoAn1.DetailsUserControl" />
@@ -100,9 +123,6 @@
       <RootProperty Name="Icon" />
       <RootProperty Name="Content" />
       <RootProperty Name="Tag" />
-      <RootProperty Name="Height" />
-      <RootProperty Name="Width" />
-      <RootProperty Name="HorizontalAlignment" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.NavigationViewItemSeparator" />
     <RootType FullName="Windows.UI.Xaml.Controls.AutoSuggestBox">
@@ -111,6 +131,7 @@
       <RootProperty Name="Width" />
       <RootProperty Name="Height" />
       <RootProperty Name="PlaceholderText" />
+      <RootEvent Name="TextChanged" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.ScrollViewer">
       <RootProperty Name="Height" />
@@ -135,23 +156,6 @@
     </RootType>
     <RootType FullName="DoAn1.PageAdd" />
     <RootType FullName="DoAn1.PageBuy" />
-    <RootType FullName="Windows.UI.Xaml.Controls.ListView">
-      <RootProperty Name="Background" />
-      <RootProperty Name="Height" />
-      <RootProperty Name="Width" />
-      <RootProperty Name="ItemsPanel" />
-      <RootProperty Name="ItemTemplate" />
-      <RootProperty Name="ContextFlyout" />
-      <RootEvent Name="RightTapped" />
-      <RootEvent Name="SelectionChanged" />
-    </RootType>
-    <RootType FullName="Windows.UI.Xaml.Controls.ItemsPanelTemplate">
-      <RootProperty Name="Template" />
-    </RootType>
-    <RootType FullName="Microsoft.Toolkit.Uwp.UI.Controls.WrapPanel" />
-    <RootType FullName="Windows.UI.Xaml.DataTemplate">
-      <RootProperty Name="Template" />
-    </RootType>
     <RootType FullName="DoAn1.PageFav" />
     <RootType FullName="Windows.UI.Xaml.Controls.ComboBox">
       <RootProperty Name="PlaceholderText" />
@@ -174,15 +178,6 @@
     </RootType>
     <RootType FullName="DoAn1.PageHome" />
     <RootType FullName="DoAn1.PageSettings" />
-    <RootType FullName="Windows.UI.Xaml.Controls.Border">
-      <RootProperty Name="BorderBrush" />
-      <RootProperty Name="BorderThickness" />
-      <RootProperty Name="Height" />
-      <RootProperty Name="Width" />
-      <RootProperty Name="VerticalAlignment" />
-      <RootProperty Name="HorizontalAlignment" />
-      <RootProperty Name="Child" />
-    </RootType>
     <RootType FullName="DoAn1.UpdateUserControl" />
   </Roots.RootTypes>
 </Roots>

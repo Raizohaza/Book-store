@@ -16,7 +16,7 @@
 
     <Grid x:ConnectionId='2' x:Name="GridHome">
         <StackPanel>
-        <muxc:ComboBox x:ConnectionId='3' x:Name="cbbListType" PlaceholderText="                Thể loại" HorizontalAlignment="Left" Width="200"                                                 VerticalAlignment="Top">
+        <muxc:ComboBox x:ConnectionId='3' x:Name="cbbListType" PlaceholderText="Thể loại" HorizontalAlignment="Left" Width="100"                                                 VerticalAlignment="Top">
             <muxc:ComboBoxItem Content="Văn Học" Tag="VanHoc"/>
             <muxc:ComboBoxItem Content="Manga" Tag="Manga"/>
             <muxc:ComboBoxItem Content="Thiếu nhi" Tag="ThieuNhi"/>

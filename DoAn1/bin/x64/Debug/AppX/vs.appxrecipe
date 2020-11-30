@@ -30,13 +30,13 @@
     <AppXManifest Include="C:\Users\Admin\Desktop\DoAn1\DoAn1\bin\x64\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2020-11-29T14:37:38.700</Modified>
+      <Modified>2020-11-30T06:34:00.511</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\Admin\Desktop\DoAn1\DoAn1\bin\x64\Debug\DoAn1.exe">
       <PackagePath>entrypoint\DoAn1.exe</PackagePath>
-      <Modified>2020-11-29T14:37:35.425</Modified>
+      <Modified>2020-11-30T06:33:57.597</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Admin\.nuget\packages\colorcode.core\2.0.6\lib\netstandard1.4\ColorCode.Core.dll">
       <PackagePath>ColorCode.Core.dll</PackagePath>
@@ -162,43 +162,43 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Admin\Desktop\DoAn1\DoAn1\bin\x64\Debug\DoAn1.xr.xml">
       <PackagePath>DoAn1.xr.xml</PackagePath>
-      <Modified>2020-11-29T14:36:01.952</Modified>
+      <Modified>2020-11-30T06:16:07.428</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Admin\Desktop\DoAn1\DoAn1\bin\x64\Debug\App.xbf">
       <PackagePath>App.xbf</PackagePath>
-      <Modified>2020-11-29T14:37:35.072</Modified>
+      <Modified>2020-11-30T06:33:57.279</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Admin\Desktop\DoAn1\DoAn1\bin\x64\Debug\DetailsUserControl.xbf">
       <PackagePath>DetailsUserControl.xbf</PackagePath>
-      <Modified>2020-11-29T14:37:35.072</Modified>
+      <Modified>2020-11-30T06:33:57.280</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Admin\Desktop\DoAn1\DoAn1\bin\x64\Debug\MainPage.xbf">
       <PackagePath>MainPage.xbf</PackagePath>
-      <Modified>2020-11-29T14:37:35.072</Modified>
+      <Modified>2020-11-30T06:33:57.280</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Admin\Desktop\DoAn1\DoAn1\bin\x64\Debug\PageAdd.xbf">
       <PackagePath>PageAdd.xbf</PackagePath>
-      <Modified>2020-11-29T14:37:35.072</Modified>
+      <Modified>2020-11-30T06:33:57.280</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Admin\Desktop\DoAn1\DoAn1\bin\x64\Debug\PageBuy.xbf">
       <PackagePath>PageBuy.xbf</PackagePath>
-      <Modified>2020-11-29T14:37:35.073</Modified>
+      <Modified>2020-11-30T06:33:57.281</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Admin\Desktop\DoAn1\DoAn1\bin\x64\Debug\PageFav.xbf">
       <PackagePath>PageFav.xbf</PackagePath>
-      <Modified>2020-11-29T14:37:35.073</Modified>
+      <Modified>2020-11-30T06:33:57.281</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Admin\Desktop\DoAn1\DoAn1\bin\x64\Debug\PageHome.xbf">
       <PackagePath>PageHome.xbf</PackagePath>
-      <Modified>2020-11-29T14:37:35.073</Modified>
+      <Modified>2020-11-30T06:33:57.281</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Admin\Desktop\DoAn1\DoAn1\bin\x64\Debug\PageSettings.xbf">
       <PackagePath>PageSettings.xbf</PackagePath>
-      <Modified>2020-11-29T14:37:35.073</Modified>
+      <Modified>2020-11-30T06:33:57.281</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Admin\Desktop\DoAn1\DoAn1\bin\x64\Debug\UpdateUserControl.xbf">
       <PackagePath>UpdateUserControl.xbf</PackagePath>
-      <Modified>2020-11-29T14:37:35.073</Modified>
+      <Modified>2020-11-30T06:33:57.281</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\UnionMetadata\10.0.18362.0\Windows.winmd">
       <PackagePath>WinMetadata\Windows.winmd</PackagePath>
@@ -206,11 +206,11 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Admin\Desktop\DoAn1\DoAn1\bin\x64\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2020-11-29T12:46:42.571</Modified>
+      <Modified>2020-11-29T16:34:53.994</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Admin\Desktop\DoAn1\DoAn1\bin\x64\Debug\Core\DoAn1.exe">
       <PackagePath>DoAn1.exe</PackagePath>
-      <Modified>2020-11-29T14:37:38.692</Modified>
+      <Modified>2020-11-30T06:34:00.502</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

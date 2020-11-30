@@ -38,25 +38,19 @@ namespace DoAn1.Provider
             return null;
         }
 
-        public static DataTable InsertProduct(Product product)
+        public static DataTable GetProductsByImage(string image)
         {
-            const string Query = "insert into Product(CatId,Author,Name,Price,Quantity,Description,Image) " +
-                "values(@catid,@Author,@name,@price,@quantity,@des,@image)";
+            //const string GetProductsQuery = "sp_GetProducts";
+            const string GetProductsQuery = "select id from Product where cast(Image as nvarchar) = @image";
             DataTable dt = null;
+
             Provider p = new Provider();
             var products = new ObservableCollection<Product>();
             try
             {
                 p.Connect();
-                dt = p.ExcecuteQuery(CommandType.Text, Query,
-                    new SqlParameter { ParameterName = "@catid", Value = product.CatId },
-                    new SqlParameter { ParameterName = "@Author", Value = product.Author },
-                    new SqlParameter { ParameterName = "@name", Value = product.Name },
-                    new SqlParameter { ParameterName = "@price", Value = product.Price },
-                    new SqlParameter { ParameterName = "@quantity", Value = product.Quantity },
-                    new SqlParameter { ParameterName = "@des", Value = product.Description },
-                    new SqlParameter { ParameterName = "@image", Value = product.Image }
-                    );
+                dt = p.ExcecuteQuery(CommandType.Text, GetProductsQuery,
+                    new SqlParameter { ParameterName = "@image", Value = image });
                 return dt;
             }
             catch (Exception eSql)
@@ -68,6 +62,41 @@ namespace DoAn1.Provider
                 p.DisConnect();
             }
             return null;
+        }
+
+        public static int InsertProduct(Product product)
+        {
+            const string Query = "insert into Product(CatId,Author,Name,Price,Quantity,Description,Image) " +
+                "values(@catid,@Author,@name,@price,@quantity,@des,@image)";
+            DataTable dt = null;
+            int id = 0;
+            Provider p = new Provider();
+            var products = new ObservableCollection<Product>();
+            try
+            {
+                p.Connect();
+                p.ExcecuteQuery(CommandType.Text, Query,
+                    new SqlParameter { ParameterName = "@catid", Value = product.CatId },
+                    new SqlParameter { ParameterName = "@Author", Value = product.Author },
+                    new SqlParameter { ParameterName = "@name", Value = product.Name },
+                    new SqlParameter { ParameterName = "@price", Value = product.Price },
+                    new SqlParameter { ParameterName = "@quantity", Value = product.Quantity },
+                    new SqlParameter { ParameterName = "@des", Value = product.Description },
+                    new SqlParameter { ParameterName = "@image", Value = product.Image }
+                    );
+                dt = p.ExcecuteQuery(CommandType.Text, "select  @@IDENTITY");
+                id = (int)dt.Rows[0].ItemArray[0];
+                return id;
+            }
+            catch (Exception eSql)
+            {
+                Debug.WriteLine("Exception: " + eSql.Message);
+            }
+            finally
+            {
+                p.DisConnect();
+            }
+            return id;
         }
         public static DataTable DeleteProduct(int id)
         {
@@ -199,6 +228,62 @@ namespace DoAn1.Provider
             {
                 p.DisConnect();
             }
+        }
+
+        public static DataTable GetProducts_Image(int id)
+        {
+            const string GetProductsQuery = "select * from Product_Images where Productid = @id";
+            DataTable dt = null;
+
+            Provider p = new Provider();
+            var products = new ObservableCollection<Product>();
+            try
+            {
+                p.Connect();
+                dt = p.ExcecuteQuery(CommandType.Text, GetProductsQuery,
+                    new SqlParameter { ParameterName = "@id", Value = id });
+                return dt;
+            }
+            catch (Exception eSql)
+            {
+                Debug.WriteLine("Exception: " + eSql.Message);
+            }
+            finally
+            {
+                p.DisConnect();
+            }
+            return null;
+        }
+
+        public static int InsertProduct_Image(Product_Images product_Images)
+        {
+            const string Query = "insert into Product_Images(ProductId,Name) values(@ProductId,@Name)";
+            Provider p = new Provider();
+            int id = -1;
+            try
+            {
+                DataTable dt;
+                p.Connect();
+
+                p.ExcecuteQuery(CommandType.Text, Query,
+                    new SqlParameter { ParameterName = "@ProductId", Value = product_Images.ProductId },
+                    new SqlParameter { ParameterName = "@Name", Value = product_Images.Name }
+                    );
+                dt = p.ExcecuteQuery(CommandType.Text, "select  @@IDENTITY");
+                //id = (int)dt.Rows[0].ItemArray[0];
+
+
+                return id;
+            }
+            catch (Exception eSql)
+            {
+                Debug.WriteLine("Exception: " + eSql.Message);
+            }
+            finally
+            {
+                p.DisConnect();
+            }
+            return 0;
         }
     }
 }
