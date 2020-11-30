@@ -84,7 +84,7 @@ namespace DoAn1.Provider
                     new SqlParameter { ParameterName = "@des", Value = product.Description },
                     new SqlParameter { ParameterName = "@image", Value = product.Image }
                     );
-                dt = p.ExcecuteQuery(CommandType.Text, "select  @@IDENTITY");
+                dt = p.ExcecuteQuery(CommandType.Text, "select  cast(@@IDENTITY as int)");
                 id = (int)dt.Rows[0].ItemArray[0];
                 return id;
             }
@@ -173,6 +173,31 @@ namespace DoAn1.Provider
             return null;
         }
 
+        public static DataTable GetCategoryByName(string name)
+        {
+            const string GetProductsQuery = "select * from Category where cast(name as nvarchar(50))= @name";
+            DataTable dt = null;
+
+            Provider p = new Provider();
+            var products = new ObservableCollection<Product>();
+            try
+            {
+                p.Connect();
+                dt = p.ExcecuteQuery(CommandType.Text, GetProductsQuery,
+                    new SqlParameter { ParameterName = "@name", Value = name });
+                return dt;
+            }
+            catch (Exception eSql)
+            {
+                Debug.WriteLine("Exception: " + eSql.Message);
+            }
+            finally
+            {
+                p.DisConnect();
+            }
+            return null;
+        }
+
         public static int InsertCategory(Category product)
         {
             const string Query = "insert into Category(Name) " +
@@ -213,15 +238,15 @@ namespace DoAn1.Provider
             }
             return 0;
         }
-        public static void DeleteCategory(int id)
+        public static void DeleteCategory(string name)
         {
-            const string Query = "delete Category where id = @id";
+            const string Query = "delete Category where cast(name as nvarchar(50)) = @name";
             Provider p = new Provider();
             try
             {
                 p.Connect();
                 p.ExcecuteQuery(CommandType.Text, Query,
-                    new SqlParameter { ParameterName = "@id", Value = id }
+                    new SqlParameter { ParameterName = "@name", Value = name }
                     );
             }
             catch (Exception eSql)

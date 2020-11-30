@@ -16,14 +16,26 @@
 
     <Grid x:ConnectionId='2' x:Name="GridHome">
         <StackPanel>
-            <muxc:ComboBox x:ConnectionId='3' x:Name="cbbListType" PlaceholderText="Thể loại" HorizontalAlignment="Left" Width="100"                                                 VerticalAlignment="Top">
-                <muxc:ComboBox.ItemTemplate>
-                    <DataTemplate>
-                        <muxc:ComboBoxItem Content="{Binding Name}" Tag="{Binding Name}"></muxc:ComboBoxItem>
-                    </DataTemplate>
-                </muxc:ComboBox.ItemTemplate>
-            </muxc:ComboBox>
-            <ListView x:ConnectionId='4' x:Name="test_data" Background="White" Height="750" Width="1100"                                                                                  >
+            <StackPanel Orientation="Horizontal">
+                <muxc:ComboBox x:ConnectionId='8' x:Name="cbbListType" PlaceholderText="Thể loại" HorizontalAlignment="Left" ItemsSource="{Binding Category}"                                       Width="100"                                                 VerticalAlignment="Top">
+                <muxc:ComboBox.ContextFlyout>
+                    <MenuFlyout x:ConnectionId='10' x:Name="cbbCF">
+                        <MenuFlyout.Items>
+                            <MenuFlyoutItem x:ConnectionId='11' x:Name="cbbEdit"  Text="Edit"                      />
+                            <MenuFlyoutItem x:ConnectionId='12' x:Name="cbbRemove" Text="Remove"                            />
+                        </MenuFlyout.Items>
+                    </MenuFlyout>
+                </muxc:ComboBox.ContextFlyout>
+                    <muxc:ComboBox.ItemTemplate>
+                        <DataTemplate>
+                            <muxc:TextBlock Text="{Binding Name}" Tag="{Binding Name}"></muxc:TextBlock>
+                        </DataTemplate>
+                    </muxc:ComboBox.ItemTemplate>
+
+                </muxc:ComboBox>
+            <muxc:Button x:ConnectionId='9' Name="addCat" Content="+"                     />
+            </StackPanel>
+            <ListView x:ConnectionId='3' x:Name="test_data" Background="White" Height="750" Width="1100"                                                                                  >
                 <ListView.ItemsPanel>
                     <ItemsPanelTemplate>
                         <controls:WrapPanel/>
@@ -31,10 +43,10 @@
                 </ListView.ItemsPanel>
 
                 <ListView.ContextFlyout>
-                    <MenuFlyout x:ConnectionId='5' x:Name="allContactsMenuFlyout">
+                    <MenuFlyout x:ConnectionId='4' x:Name="allContactsMenuFlyout">
                         <MenuFlyout.Items>
-                            <MenuFlyoutItem x:ConnectionId='6' x:Name="Edit"  Text="Edit"                   />
-                            <MenuFlyoutItem x:ConnectionId='7' x:Name="Remove" Text="Remove"                         />
+                            <MenuFlyoutItem x:ConnectionId='5' x:Name="Edit"  Text="Edit"                   />
+                            <MenuFlyoutItem x:ConnectionId='6' x:Name="Remove" Text="Remove"                         />
                         </MenuFlyout.Items>
                     </MenuFlyout>
                 </ListView.ContextFlyout>

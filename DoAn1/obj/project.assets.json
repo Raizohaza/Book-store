@@ -344,6 +344,18 @@
           "lib/uap10.0.16299/Microsoft.Toolkit.Uwp.UI.Controls.dll": {}
         }
       },
+      "Microsoft.UI.Xaml/2.4.3": {
+        "type": "package",
+        "compile": {
+          "lib/uap10.0/Microsoft.UI.Xaml.winmd": {}
+        },
+        "runtime": {
+          "lib/uap10.0/Microsoft.UI.Xaml.winmd": {}
+        },
+        "build": {
+          "buildTransitive/Microsoft.UI.Xaml.props": {}
+        }
+      },
       "Microsoft.Win32.Registry/5.0.0": {
         "type": "package",
         "dependencies": {
@@ -525,7 +537,7 @@
           "System.Runtime": "4.3.0"
         },
         "compile": {
-          "ref/netcore50/_._": {}
+          "ref/netcore50/System.Collections.dll": {}
         },
         "runtime": {
           "lib/win8/_._": {}
@@ -681,7 +693,7 @@
           "System.Runtime.Extensions": "4.3.0"
         },
         "compile": {
-          "ref/netcore50/_._": {}
+          "ref/netcore50/System.Linq.dll": {}
         },
         "runtime": {
           "lib/netcore50/System.Linq.dll": {}
@@ -1522,6 +1534,18 @@
           "lib/uap10.0.16299/Microsoft.Toolkit.Uwp.UI.Controls.dll": {}
         }
       },
+      "Microsoft.UI.Xaml/2.4.3": {
+        "type": "package",
+        "compile": {
+          "lib/uap10.0/Microsoft.UI.Xaml.winmd": {}
+        },
+        "runtime": {
+          "lib/uap10.0/Microsoft.UI.Xaml.winmd": {}
+        },
+        "build": {
+          "buildTransitive/Microsoft.UI.Xaml.props": {}
+        }
+      },
       "Microsoft.Win32.Registry/5.0.0": {
         "type": "package",
         "dependencies": {
@@ -2065,7 +2089,7 @@
           "runtime.any.System.Collections": "4.3.0"
         },
         "compile": {
-          "ref/netcore50/_._": {}
+          "ref/netcore50/System.Collections.dll": {}
         },
         "runtime": {
           "lib/win8/_._": {}
@@ -2213,7 +2237,7 @@
           "System.Runtime.Extensions": "4.3.0"
         },
         "compile": {
-          "ref/netcore50/_._": {}
+          "ref/netcore50/System.Linq.dll": {}
         },
         "runtime": {
           "lib/netcore50/System.Linq.dll": {}
@@ -3053,6 +3077,18 @@
           "lib/uap10.0.16299/Microsoft.Toolkit.Uwp.UI.Controls.dll": {}
         }
       },
+      "Microsoft.UI.Xaml/2.4.3": {
+        "type": "package",
+        "compile": {
+          "lib/uap10.0/Microsoft.UI.Xaml.winmd": {}
+        },
+        "runtime": {
+          "lib/uap10.0/Microsoft.UI.Xaml.winmd": {}
+        },
+        "build": {
+          "buildTransitive/Microsoft.UI.Xaml.props": {}
+        }
+      },
       "Microsoft.Win32.Registry/5.0.0": {
         "type": "package",
         "dependencies": {
@@ -3627,7 +3663,7 @@
           "runtime.aot.System.Collections": "4.3.0"
         },
         "compile": {
-          "ref/netcore50/_._": {}
+          "ref/netcore50/System.Collections.dll": {}
         },
         "runtime": {
           "lib/win8/_._": {}
@@ -3675,7 +3711,7 @@
           "runtime.win.System.Diagnostics.Debug": "4.3.0"
         },
         "compile": {
-          "ref/netcore50/_._": {}
+          "ref/netcore50/System.Diagnostics.Debug.dll": {}
         },
         "runtime": {
           "lib/win8/_._": {}
@@ -3775,7 +3811,7 @@
           "System.Runtime.Extensions": "4.3.0"
         },
         "compile": {
-          "ref/netcore50/_._": {}
+          "ref/netcore50/System.Linq.dll": {}
         },
         "runtime": {
           "lib/netcore50/System.Linq.dll": {}
@@ -3953,7 +3989,7 @@
           "runtime.aot.System.Resources.ResourceManager": "4.3.0"
         },
         "compile": {
-          "ref/netcore50/_._": {}
+          "ref/netcore50/System.Resources.ResourceManager.dll": {}
         },
         "runtime": {
           "lib/win8/_._": {}
@@ -3991,7 +4027,7 @@
           "runtime.win.System.Runtime.Extensions": "4.3.0"
         },
         "compile": {
-          "ref/netcore50/_._": {}
+          "ref/netcore50/System.Runtime.Extensions.dll": {}
         },
         "runtime": {
           "lib/win8/_._": {}
@@ -4615,6 +4651,18 @@
           "lib/uap10.0.16299/Microsoft.Toolkit.Uwp.UI.Controls.dll": {}
         }
       },
+      "Microsoft.UI.Xaml/2.4.3": {
+        "type": "package",
+        "compile": {
+          "lib/uap10.0/Microsoft.UI.Xaml.winmd": {}
+        },
+        "runtime": {
+          "lib/uap10.0/Microsoft.UI.Xaml.winmd": {}
+        },
+        "build": {
+          "buildTransitive/Microsoft.UI.Xaml.props": {}
+        }
+      },
       "Microsoft.Win32.Registry/5.0.0": {
         "type": "package",
         "dependencies": {
@@ -5189,7 +5237,7 @@
           "runtime.aot.System.Collections": "4.3.0"
         },
         "compile": {
-          "ref/netcore50/_._": {}
+          "ref/netcore50/System.Collections.dll": {}
         },
         "runtime": {
           "lib/win8/_._": {}
@@ -5237,7 +5285,7 @@
           "runtime.win.System.Diagnostics.Debug": "4.3.0"
         },
         "compile": {
-          "ref/netcore50/_._": {}
+          "ref/netcore50/System.Diagnostics.Debug.dll": {}
         },
         "runtime": {
           "lib/win8/_._": {}
@@ -5337,7 +5385,7 @@
           "System.Runtime.Extensions": "4.3.0"
         },
         "compile": {
-          "ref/netcore50/_._": {}
+          "ref/netcore50/System.Linq.dll": {}
         },
         "runtime": {
           "lib/netcore50/System.Linq.dll": {}
@@ -5515,7 +5563,7 @@
           "runtime.aot.System.Resources.ResourceManager": "4.3.0"
         },
         "compile": {
-          "ref/netcore50/_._": {}
+          "ref/netcore50/System.Resources.ResourceManager.dll": {}
         },
         "runtime": {
           "lib/win8/_._": {}
@@ -5553,7 +5601,7 @@
           "runtime.win.System.Runtime.Extensions": "4.3.0"
         },
         "compile": {
-          "ref/netcore50/_._": {}
+          "ref/netcore50/System.Runtime.Extensions.dll": {}
         },
         "runtime": {
           "lib/win8/_._": {}
@@ -6177,6 +6225,18 @@
           "lib/uap10.0.16299/Microsoft.Toolkit.Uwp.UI.Controls.dll": {}
         }
       },
+      "Microsoft.UI.Xaml/2.4.3": {
+        "type": "package",
+        "compile": {
+          "lib/uap10.0/Microsoft.UI.Xaml.winmd": {}
+        },
+        "runtime": {
+          "lib/uap10.0/Microsoft.UI.Xaml.winmd": {}
+        },
+        "build": {
+          "buildTransitive/Microsoft.UI.Xaml.props": {}
+        }
+      },
       "Microsoft.Win32.Registry/5.0.0": {
         "type": "package",
         "dependencies": {
@@ -6720,7 +6780,7 @@
           "runtime.any.System.Collections": "4.3.0"
         },
         "compile": {
-          "ref/netcore50/_._": {}
+          "ref/netcore50/System.Collections.dll": {}
         },
         "runtime": {
           "lib/win8/_._": {}
@@ -6868,7 +6928,7 @@
           "System.Runtime.Extensions": "4.3.0"
         },
         "compile": {
-          "ref/netcore50/_._": {}
+          "ref/netcore50/System.Linq.dll": {}
         },
         "runtime": {
           "lib/netcore50/System.Linq.dll": {}
@@ -7708,6 +7768,18 @@
           "lib/uap10.0.16299/Microsoft.Toolkit.Uwp.UI.Controls.dll": {}
         }
       },
+      "Microsoft.UI.Xaml/2.4.3": {
+        "type": "package",
+        "compile": {
+          "lib/uap10.0/Microsoft.UI.Xaml.winmd": {}
+        },
+        "runtime": {
+          "lib/uap10.0/Microsoft.UI.Xaml.winmd": {}
+        },
+        "build": {
+          "buildTransitive/Microsoft.UI.Xaml.props": {}
+        }
+      },
       "Microsoft.Win32.Registry/5.0.0": {
         "type": "package",
         "dependencies": {
@@ -8282,7 +8354,7 @@
           "runtime.aot.System.Collections": "4.3.0"
         },
         "compile": {
-          "ref/netcore50/_._": {}
+          "ref/netcore50/System.Collections.dll": {}
         },
         "runtime": {
           "lib/win8/_._": {}
@@ -8330,7 +8402,7 @@
           "runtime.win.System.Diagnostics.Debug": "4.3.0"
         },
         "compile": {
-          "ref/netcore50/_._": {}
+          "ref/netcore50/System.Diagnostics.Debug.dll": {}
         },
         "runtime": {
           "lib/win8/_._": {}
@@ -8430,7 +8502,7 @@
           "System.Runtime.Extensions": "4.3.0"
         },
         "compile": {
-          "ref/netcore50/_._": {}
+          "ref/netcore50/System.Linq.dll": {}
         },
         "runtime": {
           "lib/netcore50/System.Linq.dll": {}
@@ -8608,7 +8680,7 @@
           "runtime.aot.System.Resources.ResourceManager": "4.3.0"
         },
         "compile": {
-          "ref/netcore50/_._": {}
+          "ref/netcore50/System.Resources.ResourceManager.dll": {}
         },
         "runtime": {
           "lib/win8/_._": {}
@@ -8646,7 +8718,7 @@
           "runtime.win.System.Runtime.Extensions": "4.3.0"
         },
         "compile": {
-          "ref/netcore50/_._": {}
+          "ref/netcore50/System.Runtime.Extensions.dll": {}
         },
         "runtime": {
           "lib/win8/_._": {}
@@ -9270,6 +9342,18 @@
           "lib/uap10.0.16299/Microsoft.Toolkit.Uwp.UI.Controls.dll": {}
         }
       },
+      "Microsoft.UI.Xaml/2.4.3": {
+        "type": "package",
+        "compile": {
+          "lib/uap10.0/Microsoft.UI.Xaml.winmd": {}
+        },
+        "runtime": {
+          "lib/uap10.0/Microsoft.UI.Xaml.winmd": {}
+        },
+        "build": {
+          "buildTransitive/Microsoft.UI.Xaml.props": {}
+        }
+      },
       "Microsoft.Win32.Registry/5.0.0": {
         "type": "package",
         "dependencies": {
@@ -9813,7 +9897,7 @@
           "runtime.any.System.Collections": "4.3.0"
         },
         "compile": {
-          "ref/netcore50/_._": {}
+          "ref/netcore50/System.Collections.dll": {}
         },
         "runtime": {
           "lib/win8/_._": {}
@@ -9961,7 +10045,7 @@
           "System.Runtime.Extensions": "4.3.0"
         },
         "compile": {
-          "ref/netcore50/_._": {}
+          "ref/netcore50/System.Linq.dll": {}
         },
         "runtime": {
           "lib/netcore50/System.Linq.dll": {}
@@ -10801,6 +10885,18 @@
           "lib/uap10.0.16299/Microsoft.Toolkit.Uwp.UI.Controls.dll": {}
         }
       },
+      "Microsoft.UI.Xaml/2.4.3": {
+        "type": "package",
+        "compile": {
+          "lib/uap10.0/Microsoft.UI.Xaml.winmd": {}
+        },
+        "runtime": {
+          "lib/uap10.0/Microsoft.UI.Xaml.winmd": {}
+        },
+        "build": {
+          "buildTransitive/Microsoft.UI.Xaml.props": {}
+        }
+      },
       "Microsoft.Win32.Registry/5.0.0": {
         "type": "package",
         "dependencies": {
@@ -11375,7 +11471,7 @@
           "runtime.aot.System.Collections": "4.3.0"
         },
         "compile": {
-          "ref/netcore50/_._": {}
+          "ref/netcore50/System.Collections.dll": {}
         },
         "runtime": {
           "lib/win8/_._": {}
@@ -11423,7 +11519,7 @@
           "runtime.win.System.Diagnostics.Debug": "4.3.0"
         },
         "compile": {
-          "ref/netcore50/_._": {}
+          "ref/netcore50/System.Diagnostics.Debug.dll": {}
         },
         "runtime": {
           "lib/win8/_._": {}
@@ -11523,7 +11619,7 @@
           "System.Runtime.Extensions": "4.3.0"
         },
         "compile": {
-          "ref/netcore50/_._": {}
+          "ref/netcore50/System.Linq.dll": {}
         },
         "runtime": {
           "lib/netcore50/System.Linq.dll": {}
@@ -11701,7 +11797,7 @@
           "runtime.aot.System.Resources.ResourceManager": "4.3.0"
         },
         "compile": {
-          "ref/netcore50/_._": {}
+          "ref/netcore50/System.Resources.ResourceManager.dll": {}
         },
         "runtime": {
           "lib/win8/_._": {}
@@ -11739,7 +11835,7 @@
           "runtime.win.System.Runtime.Extensions": "4.3.0"
         },
         "compile": {
-          "ref/netcore50/_._": {}
+          "ref/netcore50/System.Runtime.Extensions.dll": {}
         },
         "runtime": {
           "lib/win8/_._": {}
@@ -12636,6 +12732,37 @@
         "lib/uap10.0.16299/Microsoft.Toolkit.Uwp.UI.Controls/TokenizingTextBox/TokenizingTextBoxItem.Token.xaml",
         "microsoft.toolkit.uwp.ui.controls.6.1.1.nupkg.sha512",
         "microsoft.toolkit.uwp.ui.controls.nuspec",
+        "tools/VisualStudioToolsManifest.xml"
+      ]
+    },
+    "Microsoft.UI.Xaml/2.4.3": {
+      "sha512": "jGFY1bLlAQn88d5377Gis6CyeitbPzaYZpOKdPsgFztzccetElmSB9/2JUVtOFUeZcCjOpKSgFkKPFlMbgBwvg==",
+      "type": "package",
+      "path": "microsoft.ui.xaml/2.4.3",
+      "hasTools": true,
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "build/Common.targets",
+        "build/Microsoft.UI.Xaml.props",
+        "build/MicrosoftUIXamlVersion.props",
+        "build/native/Microsoft.UI.Xaml.targets",
+        "buildTransitive/Common.targets",
+        "buildTransitive/Microsoft.UI.Xaml.props",
+        "buildTransitive/MicrosoftUIXamlVersion.props",
+        "lib/uap10.0/Design/Microsoft.UI.Xaml.Design.dll",
+        "lib/uap10.0/Microsoft.UI.Xaml.pri",
+        "lib/uap10.0/Microsoft.UI.Xaml.winmd",
+        "lib/uap10.0/Microsoft.UI.Xaml.xml",
+        "lib/uap10.0/Microsoft.UI.Xaml/Themes/Generic.xaml",
+        "license.txt",
+        "microsoft.ui.xaml.2.4.3.nupkg.sha512",
+        "microsoft.ui.xaml.nuspec",
+        "readme.txt",
+        "tools/AppX/arm/Release/Microsoft.UI.Xaml.2.4.appx",
+        "tools/AppX/arm64/Release/Microsoft.UI.Xaml.2.4.appx",
+        "tools/AppX/x64/Release/Microsoft.UI.Xaml.2.4.appx",
+        "tools/AppX/x86/Release/Microsoft.UI.Xaml.2.4.appx",
         "tools/VisualStudioToolsManifest.xml"
       ]
     },
@@ -19945,8 +20072,10 @@
     "UAP,Version=v10.0.17763": [
       "Microsoft.NETCore.UniversalWindowsPlatform >= 6.2.10",
       "Microsoft.Toolkit.Uwp.UI.Controls >= 6.1.1",
+      "Microsoft.UI.Xaml >= 2.4.3",
       "Microsoft.Win32.Registry >= 5.0.0",
-      "Syncfusion.XlsIO.UWP >= 18.3.0.51"
+      "Syncfusion.XlsIO.UWP >= 18.3.0.51",
+      "System.Linq >= 4.3.0"
     ]
   },
   "packageFolders": {
@@ -19993,6 +20122,10 @@
             "target": "Package",
             "version": "[6.1.1, )"
           },
+          "Microsoft.UI.Xaml": {
+            "target": "Package",
+            "version": "[2.4.3, )"
+          },
           "Microsoft.Win32.Registry": {
             "target": "Package",
             "version": "[5.0.0, )"
@@ -20000,6 +20133,10 @@
           "Syncfusion.XlsIO.UWP": {
             "target": "Package",
             "version": "[18.3.0.51, )"
+          },
+          "System.Linq": {
+            "target": "Package",
+            "version": "[4.3.0, )"
           }
         },
         "imports": [

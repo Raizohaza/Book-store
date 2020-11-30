@@ -44,6 +44,10 @@
               "target": "Package",
               "version": "[6.1.1, )"
             },
+            "Microsoft.UI.Xaml": {
+              "target": "Package",
+              "version": "[2.4.3, )"
+            },
             "Microsoft.Win32.Registry": {
               "target": "Package",
               "version": "[5.0.0, )"
@@ -51,6 +55,10 @@
             "Syncfusion.XlsIO.UWP": {
               "target": "Package",
               "version": "[18.3.0.51, )"
+            },
+            "System.Linq": {
+              "target": "Package",
+              "version": "[4.3.0, )"
             }
           },
           "imports": [

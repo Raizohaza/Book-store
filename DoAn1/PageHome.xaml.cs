@@ -11,12 +11,14 @@ using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.Storage;
 using Windows.Storage.Pickers;
+using Windows.UI.Core;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
 using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
+using Windows.UI.Xaml.Media.Animation;
 using Windows.UI.Xaml.Navigation;
 using provider = DoAn1.Provider;
 
@@ -59,7 +61,58 @@ namespace DoAn1
             
             return products;
         }
+        public static ObservableCollection<Category> GetCategoriesFromDb()
+        {
+            var categoriesList = new ObservableCollection<Category>();
+            DataTable q = provider::QueryForSQLServer.GetCategory();
+            foreach (DataRow row in q.Rows)
+            {
+                var category = new Category { Id = (int)row.ItemArray[0], Name = (string)row.ItemArray[1] };
+                categoriesList.Add(category);
+            }
+            return categoriesList;
+        }
         public PageHome()
+        {
+            this.InitializeComponent();
+            var categoriesList = GetCategoriesFromDb();
+            
+            test_data.ItemsSource = GetProductFromDb();
+            cbbListType.ItemsSource = categoriesList;
+        }
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            if (e.Parameter as ObservableCollection<Product> != null)
+            {
+                var products = new ObservableCollection<Product>();
+                products = (e.Parameter as ObservableCollection<Product>);
+                searchFillter(products);
+                base.OnNavigatedTo(e);
+
+                var backStack = Frame.BackStack;
+                SystemNavigationManager manager = SystemNavigationManager.GetForCurrentView();
+                manager.BackRequested += DetailPage_BackRequested;
+                manager.AppViewBackButtonVisibility = AppViewBackButtonVisibility.Visible;
+            }
+        }
+        protected override void OnNavigatedFrom(NavigationEventArgs args)
+        {
+            base.OnNavigatedFrom(args);
+ 
+            SystemNavigationManager manager = SystemNavigationManager.GetForCurrentView();
+            manager.BackRequested -= DetailPage_BackRequested;
+            manager.AppViewBackButtonVisibility = AppViewBackButtonVisibility.Collapsed;
+        }
+ 
+        private void DetailPage_BackRequested(object sender, BackRequestedEventArgs e)
+        {
+            // Mark event as handled.
+            e.Handled = true;
+ 
+            // Use the "drill out" animation when navigating to the master page.
+            Frame.GoBack(new DrillInNavigationTransitionInfo());
+        }
+        public void searchFillter(ObservableCollection<Product> products)
         {
             this.InitializeComponent();
             var categoriesList = new ObservableCollection<Category>();
@@ -69,15 +122,17 @@ namespace DoAn1
                 var category = new Category { Id = (int)row.ItemArray[0], Name = (string)row.ItemArray[1] };
                 categoriesList.Add(category);
             }
-            
-            test_data.ItemsSource = GetProductFromDb();
+
+            test_data.ItemsSource = products;
             cbbListType.ItemsSource = categoriesList;
         }
 
-        
         public void Refresh()
         {
-            test_data.ItemsSource = GetProductFromDb(1);
+            cbbListType.SelectedIndex = -1;
+            var categoriesList = GetCategoriesFromDb();
+            cbbListType.ItemsSource = categoriesList;
+            test_data.ItemsSource = GetProductFromDb();
         }
 
         //lay product tu rightapped
@@ -119,102 +174,98 @@ namespace DoAn1
             Refresh();
         }
 
-        private async void ImportButton_Click(object sender, RoutedEventArgs e)
-        {
-            ExcelEngine excelEngine = new ExcelEngine();
-
-            IApplication application = excelEngine.Excel;
-
-            //Instantiates the File Picker.
-
-
-
-            FileOpenPicker openPicker = new FileOpenPicker();
-            openPicker.SuggestedStartLocation = PickerLocationId.Desktop;
-            openPicker.FileTypeFilter.Add(".xlsx");
-            openPicker.FileTypeFilter.Add(".xls");
-            StorageFile openFile = await openPicker.PickSingleFileAsync();
-
-            //Opens the workbook. 
-            IWorkbook workbook = await application.Workbooks.OpenAsync(openFile);
-
-            //Access first worksheet from the workbook.
-            var tabs = workbook.Worksheets;
-
-            //Set Text in cell A3.
-
-
-            //Sets workbook version.
-            workbook.Version = ExcelVersion.Excel2016;
-
-            //Initializes FileSavePicker.
-            FileSavePicker savePicker = new FileSavePicker();
-
-            List<Category> list = new List<Category>();
-
-            foreach (var tab in tabs)
-            {
-                Debug.WriteLine(tab.Name);
-                var row = 3;
-                var category = new Category()
-                {
-                    Name = tab.Name
-                };
-                category.Id = provider::QueryForSQLServer.InsertCategory(category);
-
-                //db.Categories.Add(category);
-                //db.SaveChanges();
-                tab.UsedRangeIncludesFormatting = false;
-                var cell = tab.Range[$"C3"];
-
-                while (cell.Value != null && !cell.IsBlank)
-                {
-                    var author = tab.Range[$"C{row}"].Text;
-                    var name = tab.Range[$"D{row}"].Text;
-                    var price = Convert.ToDecimal(tab.Range[$"E{row}"].Number);
-                    var quantity = (int)(tab.Range[$"F{row}"].Number);
-                    var description = tab.Range[$"G{row}"].Text;
-                    var image = tab.Range[$"H{row}"].Text;
-
-                    var product = new Product()
-                    {
-                        Author = author,
-                        Name = name,
-                        CatId = category.Id,
-                        Price = price,
-                        Quantity = quantity,
-                        Description = description,
-                        Image = image
-                    };
-
-                    category.Products.Add(product);
-
-
-                    Debug.WriteLine($"{author}{name}{price}{quantity}{description}");
-
-                    // Đi qua dòng kế
-                    row++;
-                    cell = tab.Range[$"C{row}"];
-                }
-                list.Add(category);
-
-
-            }
-            var tes = list;
-
-            workbook.Close();
-            excelEngine.Dispose();
-        }
 
         private void cbbListType_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             // code khi chuyển thể loại here
             var test = sender as ComboBox;
-            Category category1 =(Category) test.SelectedItem;
-      
+            if (test.SelectedIndex !=-1)
+            {
+                Category category1 = (Category)test.SelectedItem;
 
-            test_data.ItemsSource = GetProductFromDb(category1.Id);
+
+                test_data.ItemsSource = GetProductFromDb(category1.Id);
+            }
+            
         }
 
+        private async void cbbEdit_Click(object sender, RoutedEventArgs e)
+        {
+            var item = originalSource.DataContext as Category;
+            DataTable dt = provider::QueryForSQLServer.GetCategoryByName(item.Name);
+            int id = (int)dt.Rows[0].ItemArray[0];
+            TextBox input = new TextBox()
+            {
+                Height = (double)App.Current.Resources["TextControlThemeMinHeight"],
+                PlaceholderText = "Display Text"
+            };
+            ContentDialog dialog = new ContentDialog()
+            {
+                Title = "Change Category's Name",
+                MaxWidth = this.ActualWidth,
+                PrimaryButtonText = "OK",
+                SecondaryButtonText = "Cancel",
+                Content = input
+            };
+            ContentDialogResult result = await dialog.ShowAsync();
+            if (result == ContentDialogResult.Primary)
+            {
+                input = (TextBox)dialog.Content;
+                if (input.Text != "")
+                {
+                    var cat = new Category() { Id=item.Id, Name = input.Text };
+                    provider::QueryForSQLServer.UpdateCategory(cat);
+                    await new Windows.UI.Popups.MessageDialog("Updated!").ShowAsync();
+                    Refresh();
+                }
+                else
+                    await new Windows.UI.Popups.MessageDialog("Nothing Change!").ShowAsync();
+            }
+        }
+        private void cbbListType_RightTapped(object sender, RightTappedRoutedEventArgs e)
+        {
+            originalSource = (FrameworkElement)e.OriginalSource;
+        }
+
+        private void cbbRemove_Click(object sender, RoutedEventArgs e)
+        {
+            var item = originalSource.DataContext as Category;
+            provider::QueryForSQLServer.DeleteCategory(item.Name);
+            //reset cat
+            
+            Refresh();
+        }
+
+        private async void addCat_Click(object sender, RoutedEventArgs e)
+        {
+            TextBox input = new TextBox()
+            {
+                Height = (double)App.Current.Resources["TextControlThemeMinHeight"],
+                PlaceholderText = "Display Text"
+            };
+            ContentDialog dialog = new ContentDialog()
+            {
+                Title = "Change Category's Name",
+                MaxWidth = this.ActualWidth,
+                PrimaryButtonText = "OK",
+                SecondaryButtonText = "Cancel",
+                Content = input
+            };
+            ContentDialogResult result = await dialog.ShowAsync();
+            if (result == ContentDialogResult.Primary)
+            {
+                input = (TextBox)dialog.Content;
+                if (input.Text != "")
+                {
+                    var cat = new Category() { Name = input.Text };
+                    provider::QueryForSQLServer.InsertCategory(cat);
+                    await new Windows.UI.Popups.MessageDialog("Success!").ShowAsync();
+                    Refresh();
+                }
+                else
+                    await new Windows.UI.Popups.MessageDialog("Noting change!").ShowAsync();
+
+            }
+        }
     }
 }

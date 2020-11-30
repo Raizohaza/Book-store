@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "ybv7CqrmEF2wsXMmR+cHhCPvOnKjHhGMbm0xSAAg0je1pIdrxwCT0bLAG4MkdruC4rjlqa+AVoM+ojsPgwTlVw==",
+  "dgSpecHash": "sJubA5uUOQEko+W77277bSoE7bcKzU4n0Uj2gH/miLOmNNzmtT09gXEiDjXG6ruyMAz1YU12TfjVPP1wmBvbiQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\Admin\\Desktop\\DoAn1\\DoAn1\\MyS.csproj",
   "expectedPackageFiles": [
@@ -18,6 +18,7 @@
     "C:\\Users\\Admin\\.nuget\\packages\\microsoft.toolkit.uwp.ui\\6.1.1\\microsoft.toolkit.uwp.ui.6.1.1.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\microsoft.toolkit.uwp.ui.animations\\6.1.1\\microsoft.toolkit.uwp.ui.animations.6.1.1.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\microsoft.toolkit.uwp.ui.controls\\6.1.1\\microsoft.toolkit.uwp.ui.controls.6.1.1.nupkg.sha512",
+    "C:\\Users\\Admin\\.nuget\\packages\\microsoft.ui.xaml\\2.4.3\\microsoft.ui.xaml.2.4.3.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\microsoft.win32.registry\\5.0.0\\microsoft.win32.registry.5.0.0.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\microsoft.xaml.behaviors.uwp.managed\\2.0.1\\microsoft.xaml.behaviors.uwp.managed.2.0.1.nupkg.sha512",
     "C:\\Program Files (x86)\\Microsoft SDKs\\UWPNuGetPackages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512",

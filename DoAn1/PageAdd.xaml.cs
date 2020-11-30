@@ -29,8 +29,7 @@ namespace DoAn1
     public sealed partial class PageAdd : Page
     {
         Product Product { get; set; }
-        public delegate void Save(Product productRef);
-        public event Save Handler;
+
         public PageAdd()
         {
             this.InitializeComponent();
@@ -44,9 +43,14 @@ namespace DoAn1
                 Quantity = 0,
                 CatId = 1,
                 Image = "default.jpg",
-                Author = "Chưa cập nhật"             
+                Author = "Chưa cập nhật",
+                
+                
             };
+            Product.Product_Images = new List<Product_Images>();
             this.DataContext = Product;
+            var categoriesList = PageHome.GetCategoriesFromDb();
+            cbbListType.ItemsSource = categoriesList;
         }
 
         private async void ImportButton_Click(object sender, RoutedEventArgs e)
@@ -193,7 +197,13 @@ namespace DoAn1
             var result = await messageDialog.ShowAsync();
             if ((int)result.Id == 0)
             {
-                provider::QueryForSQLServer.InsertProduct(Product);
+                var productid = provider::QueryForSQLServer.InsertProduct(Product);
+                foreach (var item in Product.Product_Images)
+                {
+                    item.ProductId = productid;
+                    provider::QueryForSQLServer.InsertProduct_Image(item);
+
+                }
                 this.Visibility = Visibility.Collapsed;
             }
             else
@@ -202,7 +212,7 @@ namespace DoAn1
             }
         }
 
-        private async void btnAddImg_Click(object sender, RoutedEventArgs e)
+        private async void Import_Detail_Images_Click(object sender, RoutedEventArgs e)
         {
             ExcelEngine excelEngine = new ExcelEngine();
 
@@ -302,6 +312,55 @@ namespace DoAn1
             
         }
 
-        
+        private async void btnAddImg_Click(object sender, RoutedEventArgs e)
+        {
+            FileOpenPicker openPicker = new FileOpenPicker();
+            openPicker.SuggestedStartLocation = PickerLocationId.Desktop;
+            openPicker.FileTypeFilter.Add(".jpg");
+            openPicker.FileTypeFilter.Add(".png");
+            //FileData 
+            StorageFile openFile = await openPicker.PickSingleFileAsync();
+            if (openFile != null)
+            {
+                var test = new Product { Image = openFile.Path };
+                Product.Image = openFile.Path;
+                this.DataContext = Product;
+                avatarImg.DataContext = test;
+            }
+            
+        }
+
+        private async void btnAddProducImgs_Click(object sender, RoutedEventArgs e)
+        {
+            FileOpenPicker openPicker = new FileOpenPicker();
+            openPicker.SuggestedStartLocation = PickerLocationId.Desktop;
+            openPicker.FileTypeFilter.Add(".jpg");
+            openPicker.FileTypeFilter.Add(".png");
+            //FileData 
+            var openFile = await openPicker.PickMultipleFilesAsync();
+            var test = new List<Product_Images>();
+
+            if (openFile != null)
+            {
+                foreach (var item in openFile)
+                {
+                    var Product_Images = new Product_Images()
+                    {
+                        Name = item.Path
+                    };
+                    Product.Product_Images.Add(Product_Images);
+                }
+                lvManyImg.ItemsSource = Product.Product_Images;
+
+
+            }
+        }
+
+        private void cbbListType_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var cbb = sender as ComboBox;
+            var pd = cbb.SelectedItem as Category;
+            Product.CatId = pd.Id;
+        }
     }
 }

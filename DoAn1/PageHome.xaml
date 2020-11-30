@@ -16,13 +16,25 @@
 
     <Grid x:Name="GridHome">
         <StackPanel>
-            <muxc:ComboBox x:Name="cbbListType" PlaceholderText="Thể loại" HorizontalAlignment="Left" Width="100" SelectionChanged="cbbListType_SelectionChanged" VerticalAlignment="Top">
-                <muxc:ComboBox.ItemTemplate>
-                    <DataTemplate>
-                        <muxc:ComboBoxItem Content="{Binding Name}" Tag="{Binding Name}"></muxc:ComboBoxItem>
-                    </DataTemplate>
-                </muxc:ComboBox.ItemTemplate>
-            </muxc:ComboBox>
+            <StackPanel Orientation="Horizontal">
+                <muxc:ComboBox x:Name="cbbListType" PlaceholderText="Thể loại" HorizontalAlignment="Left" ItemsSource="{Binding Category}" RightTapped="cbbListType_RightTapped" Width="100" SelectionChanged="cbbListType_SelectionChanged" VerticalAlignment="Top">
+                <muxc:ComboBox.ContextFlyout>
+                    <MenuFlyout x:Name="cbbCF">
+                        <MenuFlyout.Items>
+                            <MenuFlyoutItem x:Name="cbbEdit"  Text="Edit" Click="cbbEdit_Click"/>
+                            <MenuFlyoutItem x:Name="cbbRemove" Text="Remove"    Click="cbbRemove_Click" />
+                        </MenuFlyout.Items>
+                    </MenuFlyout>
+                </muxc:ComboBox.ContextFlyout>
+                    <muxc:ComboBox.ItemTemplate>
+                        <DataTemplate>
+                            <muxc:TextBlock Text="{Binding Name}" Tag="{Binding Name}"></muxc:TextBlock>
+                        </DataTemplate>
+                    </muxc:ComboBox.ItemTemplate>
+
+                </muxc:ComboBox>
+            <muxc:Button Name="addCat" Content="+" Click="addCat_Click"/>
+            </StackPanel>
             <ListView x:Name="test_data" Background="White" Height="750" Width="1100" RightTapped="test_data_RightTapped" SelectionChanged="test_data_SelectionChanged">
                 <ListView.ItemsPanel>
                     <ItemsPanelTemplate>

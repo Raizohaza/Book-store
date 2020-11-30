@@ -8,15 +8,15 @@
     xmlns:muxc="using:Windows.UI.Xaml.Controls"
     xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
     mc:Ignorable="d"
-    Loaded="Page_Loaded"
-    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Height="800" Width="1100">
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Height="800" Width="1100"
+    NavigationCacheMode="Enabled">
     <Page.Resources>
         <local:RelativeToAsolutePathConverter x:Key="pathConverter"/>
     </Page.Resources>
 
 
     <Grid Height="800" Width="1100">
-        <muxc:NavigationView x:Name="Menu" PaneDisplayMode="Top" VerticalAlignment="Top" SelectionChanged="Menu_SelectionChanged" Loaded="Menu_Loaded">
+        <muxc:NavigationView x:Name="Menu" PaneDisplayMode="Top" VerticalAlignment="Top" IsBackButtonVisible="Collapsed" SelectionChanged="Menu_SelectionChanged" Loaded="Menu_Loaded">
             <muxc:NavigationView.MenuItems>
                 <muxc:NavigationViewItem Icon="Home" Content="Trang Chủ" Tag="iconHome" />
                 <muxc:NavigationViewItemSeparator/>
@@ -26,7 +26,7 @@
             </muxc:NavigationView.MenuItems>
             <muxc:NavigationView.AutoSuggestBox>
                 
-                <AutoSuggestBox x:Name="SearchBox" FontSize="20" QueryIcon="Find" Width="200" Height="32" PlaceholderText="Search" TextChanged="NavViewSearchBox_TextChanged"/>
+                <AutoSuggestBox x:Name="SearchBox" FontSize="20" QueryIcon="Find" Width="200" Height="32" PlaceholderText="Search" TextChanged="NavViewSearchBox_TextChanged" QuerySubmitted="SearchBox_QuerySubmitted"/>
             </muxc:NavigationView.AutoSuggestBox>
             <ScrollViewer Height="600">
                 <Frame x:Name="CF"/>
