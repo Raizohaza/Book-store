@@ -39,17 +39,6 @@
       <RootMethod Name="GetRowSpan" />
       <RootMethod Name="SetRowSpan" />
     </RootType>
-    <RootType FullName="Windows.UI.Xaml.Controls.Button">
-      <RootProperty Name="Content" />
-      <RootProperty Name="Background" />
-      <RootProperty Name="Height" />
-      <RootProperty Name="Width" />
-      <RootProperty Name="VerticalAlignment" />
-      <RootProperty Name="HorizontalAlignment" />
-      <RootProperty Name="Name" />
-      <RootProperty Name="Margin" />
-      <RootEvent Name="Click" />
-    </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.Image">
       <RootProperty Name="Source" />
       <RootProperty Name="Width" />
@@ -74,8 +63,6 @@
       <RootProperty Name="Background" />
       <RootProperty Name="Width" />
       <RootProperty Name="ContextFlyout" />
-      <RootProperty Name="VerticalAlignment" />
-      <RootProperty Name="HorizontalAlignment" />
       <RootEvent Name="RightTapped" />
       <RootEvent Name="SelectionChanged" />
     </RootType>
@@ -137,6 +124,7 @@
       <RootProperty Name="Height" />
       <RootProperty Name="PlaceholderText" />
       <RootEvent Name="TextChanged" />
+      <RootEvent Name="SuggestionChosen" />
       <RootEvent Name="QuerySubmitted" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.ScrollViewer">
@@ -171,6 +159,17 @@
       <RootProperty Name="ContextFlyout" />
       <RootEvent Name="SelectionChanged" />
       <RootEvent Name="RightTapped" />
+    </RootType>
+    <RootType FullName="Windows.UI.Xaml.Controls.Button">
+      <RootProperty Name="Background" />
+      <RootProperty Name="Content" />
+      <RootProperty Name="Height" />
+      <RootProperty Name="Width" />
+      <RootProperty Name="VerticalAlignment" />
+      <RootProperty Name="HorizontalAlignment" />
+      <RootProperty Name="Name" />
+      <RootProperty Name="Margin" />
+      <RootEvent Name="Click" />
     </RootType>
     <RootType FullName="DoAn1.PageAdd" />
     <RootType FullName="DoAn1.PageBuy" />

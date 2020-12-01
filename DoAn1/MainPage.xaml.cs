@@ -17,6 +17,7 @@ using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using provider = DoAn1.Provider;
 using muxcs = Microsoft.UI.Xaml.Controls;
+using Windows.UI.Xaml.Media.Animation;
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 
 namespace DoAn1
@@ -61,14 +62,14 @@ namespace DoAn1
                 switch (item.Tag.ToString())
                 {
                     case "iconHome":
-                        CF.Navigate(typeof(PageHome));
+                        CF.Navigate(typeof(PageHome),null, new EntranceNavigationTransitionInfo());
                         break;
                     case "iconAdd":
-                        CF.Navigate(typeof(PageAdd));
+                        CF.Navigate(typeof(PageAdd), null, new DrillInNavigationTransitionInfo());
                         //CF.Navigated += On_Navigated;
                         break;
                     case "iconFav":
-                        CF.Navigate(typeof(PageFav));
+                        CF.Navigate(typeof(PageFav),null,new SuppressNavigationTransitionInfo());
                         break;
                     case "iconBag":
                         CF.Navigate(typeof(PageBuy));
@@ -79,7 +80,32 @@ namespace DoAn1
 
         private void NavViewSearchBox_TextChanged(AutoSuggestBox sender, AutoSuggestBoxTextChangedEventArgs args)
         {
-            // code tim kiem here
+            // Only get results when it was a user typing,
+            // otherwise assume the value got filled in by TextMemberPath
+            // or the handler for SuggestionChosen.
+            if (args.Reason == AutoSuggestionBoxTextChangeReason.UserInput)
+            {
+                //Set the ItemsSource to be your filtered dataset
+                var products = GetProductFromDb();
+                var txtOrig = (sender as AutoSuggestBox).Text;
+                string upper = txtOrig.ToUpper();
+                var empFiltered = from Emp in products
+                                  let ename = Emp.Name.ToUpper()
+                                  where
+                                   ename.StartsWith(upper)
+                                   || ename.StartsWith(upper)
+                                   || ename.Contains(txtOrig.ToUpper())
+                                  select Emp;
+                var tmp = new List<string>();
+                products = new ObservableCollection<Product>(empFiltered);
+
+                foreach (var item in products)
+                {
+                    tmp.Add(item.Name);
+                }
+                //sender.ItemsSource = dataset;
+                sender.ItemsSource = tmp;
+            }
         }
         public ObservableCollection<Product> GetProductFromDb(int catId = 0)
         {
@@ -113,8 +139,36 @@ namespace DoAn1
         }
         private void SearchBox_QuerySubmitted(AutoSuggestBox sender, AutoSuggestBoxQuerySubmittedEventArgs args)
         {
+            if (args.ChosenSuggestion != null)
+            {
+                // User selected an item from the suggestion list, take an action on it here.
+
+            }
+            else
+            {
+                // Use args.QueryText to determine what to do.
+                var products = GetProductFromDb();
+                var txtOrig = (sender as AutoSuggestBox).Text;
+                string upper = txtOrig.ToUpper();
+                var empFiltered = from Emp in products
+                                  let ename = Emp.Name.ToUpper()
+                                  where
+                                   ename.StartsWith(upper)
+                                   || ename.StartsWith(upper)
+                                   || ename.Contains(txtOrig.ToUpper())
+                                  select Emp;
+                var tmp = empFiltered.ToList();
+                products = new ObservableCollection<Product>(empFiltered);
+                CF.Navigate(typeof(PageHome), products);
+                SearchBox.Text = "";
+            }
+
+        }
+
+        private void SearchBox_SuggestionChosen(AutoSuggestBox sender, AutoSuggestBoxSuggestionChosenEventArgs args)
+        {
+            var txtOrig = args.SelectedItem.ToString();
             var products = GetProductFromDb();
-            var txtOrig = (sender as AutoSuggestBox).Text;
             string upper = txtOrig.ToUpper();
             var empFiltered = from Emp in products
                               let ename = Emp.Name.ToUpper()
@@ -126,8 +180,7 @@ namespace DoAn1
             var tmp = empFiltered.ToList();
             products = new ObservableCollection<Product>(empFiltered);
             CF.Navigate(typeof(PageHome), products);
+            SearchBox.Text = "";
         }
-
-        
     }
 }

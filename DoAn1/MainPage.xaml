@@ -26,7 +26,7 @@
             </muxc:NavigationView.MenuItems>
             <muxc:NavigationView.AutoSuggestBox>
                 
-                <AutoSuggestBox x:Name="SearchBox" FontSize="20" QueryIcon="Find" Width="200" Height="32" PlaceholderText="Search" TextChanged="NavViewSearchBox_TextChanged" QuerySubmitted="SearchBox_QuerySubmitted"/>
+                <AutoSuggestBox x:Name="SearchBox" FontSize="20" QueryIcon="Find" Width="200" Height="32" PlaceholderText="Search" TextChanged="NavViewSearchBox_TextChanged" SuggestionChosen="SearchBox_SuggestionChosen" QuerySubmitted="SearchBox_QuerySubmitted"/>
             </muxc:NavigationView.AutoSuggestBox>
             <ScrollViewer Height="600">
                 <Frame x:Name="CF"/>

@@ -55,10 +55,6 @@
             "Syncfusion.XlsIO.UWP": {
               "target": "Package",
               "version": "[18.3.0.51, )"
-            },
-            "System.Linq": {
-              "target": "Package",
-              "version": "[4.3.0, )"
             }
           },
           "imports": [

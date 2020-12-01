@@ -48,7 +48,7 @@ namespace DoAn1
                 product.Description = (string)row.ItemArray[5];
                 product.Image = (string)row.ItemArray[6];
                 product.Author = (string)row.ItemArray[7];
-
+                product.Product_Images = new List<Product_Images>();
                 products.Add(product);
             }
             if (catId !=0)
@@ -80,6 +80,7 @@ namespace DoAn1
             test_data.ItemsSource = GetProductFromDb();
             cbbListType.ItemsSource = categoriesList;
         }
+        #region//back
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             if (e.Parameter as ObservableCollection<Product> != null)
@@ -112,6 +113,7 @@ namespace DoAn1
             // Use the "drill out" animation when navigating to the master page.
             Frame.GoBack(new DrillInNavigationTransitionInfo());
         }
+        #endregion
         public void searchFillter(ObservableCollection<Product> products)
         {
             this.InitializeComponent();
@@ -163,14 +165,12 @@ namespace DoAn1
             var item = test_data.SelectedItem as Product;
             var index = test_data.SelectedIndex;
             var screen = new DetailsUserControl(item);
-            screen.Handler += GetProductFromUC;
             GridHome.Children.Add(screen);
             //this.Visibility = Visibility.Collapsed;
         }
 
         private void GetProductFromUC(Product product)
-        {
-            provider::QueryForSQLServer.UpdateProduct(product);
+        {        
             Refresh();
         }
 

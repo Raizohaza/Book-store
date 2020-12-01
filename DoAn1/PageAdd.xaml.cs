@@ -197,18 +197,24 @@ namespace DoAn1
             var result = await messageDialog.ShowAsync();
             if ((int)result.Id == 0)
             {
+                Product.Price = Decimal.Parse(addGia.Text);
+                Product.Quantity = int.Parse(addSoLuong.Text);
                 var productid = provider::QueryForSQLServer.InsertProduct(Product);
+                int id = 1;
                 foreach (var item in Product.Product_Images)
                 {
+                    item.id = id;
                     item.ProductId = productid;
                     provider::QueryForSQLServer.InsertProduct_Image(item);
-
+                    id++;
                 }
                 this.Visibility = Visibility.Collapsed;
+                Frame.GoBack();
             }
             else
             {
                 this.Visibility = Visibility.Collapsed;
+                Frame.GoBack();
             }
         }
 
@@ -291,14 +297,25 @@ namespace DoAn1
                 var result = await messageDialog.ShowAsync();
                 if ((int)result.Id == 0)
                 {
+                    var i = provider::QueryForSQLServer.GetProducts_ImageMaxId(list[0].ProductId) + 1;
+                    var preProduct = list[0].ProductId;
                     foreach (var img in list)
                     {
+                        if (img.ProductId != preProduct)
+                        {
+                            i = provider::QueryForSQLServer.GetProducts_ImageMaxId(img.ProductId) + 1;
+                        }
+                        img.id = i;
+                        preProduct = img.ProductId;
                         provider::QueryForSQLServer.InsertProduct_Image(img);
+                        Debug.WriteLine(img.id + img.Name + img.ProductId);
+                        i++;
                     }
                     var messageDialog2 = new MessageDialog("Success", "Confirm");
                     await messageDialog2.ShowAsync();
                     this.Visibility = Visibility.Collapsed;
                 }
+
                 else
                 {
                     this.Visibility = Visibility.Collapsed;

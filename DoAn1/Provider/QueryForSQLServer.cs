@@ -126,8 +126,8 @@ namespace DoAn1.Provider
         public static DataTable UpdateProduct(Product product)
         {
             string Query = "update Product " +
-                "set CatId = "+ product.CatId + ",Author = '" + product.Author + "',Name = '" + product.Name + 
-                "',Price = " + product.Price + ",Quantity=" + product.Quantity + ",Description='" + product.Description + "',Image='" + product.Image+ "' " +
+                "set CatId = "+ product.CatId + ",Author = N'" + product.Author + "',Name = N'" + product.Name + 
+                "',Price = " + product.Price + ",Quantity=" + product.Quantity + ",Description=N'" + product.Description + "',Image='" + product.Image+ "' " +
                 "where Id = " + product.Id ;
             DataTable dt = null;
             Provider p = new Provider();
@@ -261,7 +261,7 @@ namespace DoAn1.Provider
         public static void UpdateCategory(Category Category)
         {
             string Query = "update Category " +
-                "set Name = '" + Category.Name+"' where id = "+ Category.Id ;
+                "set Name = N'" + Category.Name+"' where id = "+ Category.Id ;
              
             Provider p = new Provider();
             try
@@ -304,9 +304,38 @@ namespace DoAn1.Provider
             return null;
         }
 
+        public static int GetProducts_ImageMaxId(int id)
+        {
+            const string GetProductsQuery = "select IsNULL(max(id),-2) from Product_Images where ProductId = @id";
+            DataTable dt = null;
+            int index;
+            Provider p = new Provider();
+            try
+            {
+                p.Connect();
+                dt = p.ExcecuteQuery(CommandType.Text, GetProductsQuery,
+                    new SqlParameter { ParameterName = "@id", Value = id });
+                if ((int)dt.Rows[0].ItemArray[0] == -2)
+                {
+                    return 0;
+                }
+                index = (int) dt.Rows[0][0];
+                return index;
+            }
+            catch (Exception eSql)
+            {
+                Debug.WriteLine("Exception: " + eSql.Message);
+            }
+            finally
+            {
+                p.DisConnect();
+            }
+            return 0;
+        }
+
         public static int InsertProduct_Image(Product_Images product_Images)
         {
-            const string Query = "insert into Product_Images(ProductId,Name) values(@ProductId,@Name)";
+            const string Query = "insert into Product_Images(Id,ProductId,Name) values(@Id,@ProductId,@Name)";
             Provider p = new Provider();
             int id = -1;
             try
@@ -315,6 +344,7 @@ namespace DoAn1.Provider
                 p.Connect();
 
                 p.ExcecuteQuery(CommandType.Text, Query,
+                    new SqlParameter { ParameterName = "@Id", Value = product_Images.id },
                     new SqlParameter { ParameterName = "@ProductId", Value = product_Images.ProductId },
                     new SqlParameter { ParameterName = "@Name", Value = product_Images.Name }
                     );
@@ -333,6 +363,30 @@ namespace DoAn1.Provider
                 p.DisConnect();
             }
             return 0;
+        }
+
+        public static void DeleteProduct_Image(int id)
+        {
+            const string Query = "delete Product_Images where ProductId = @id";
+            Provider p = new Provider();
+            try
+            {
+                DataTable dt;
+                p.Connect();
+
+                p.ExcecuteQuery(CommandType.Text, Query,
+                    new SqlParameter { ParameterName = "@id", Value = id }
+                    );
+            }
+            catch (Exception eSql)
+            {
+                Debug.WriteLine("Exception: " + eSql.Message);
+            }
+            finally
+            {
+                p.DisConnect();
+            }
+            return ;
         }
     }
 }

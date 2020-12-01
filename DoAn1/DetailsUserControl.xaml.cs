@@ -6,6 +6,7 @@ using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.UI.Core;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -21,9 +22,6 @@ namespace DoAn1
 {
     public sealed partial class DetailsUserControl : UserControl
     {
-        public delegate void Save(Product productRef);
-        public event Save Handler;
-
         public DetailsUserControl(Product product)
         {
             if (product !=null)
@@ -46,7 +44,11 @@ namespace DoAn1
                 }
 
                 lvManyImg.ItemsSource = img;
-                Handler?.Invoke(product);
+
+                //back
+                SystemNavigationManager manager = SystemNavigationManager.GetForCurrentView();
+                manager.BackRequested += DetailPage_BackRequested;
+                manager.AppViewBackButtonVisibility = AppViewBackButtonVisibility.Visible;
             }
             else
             {
@@ -54,9 +56,20 @@ namespace DoAn1
             }
         }
 
-        private void Back_Click(object sender, RoutedEventArgs e)
+        #region//back
+
+
+        private void DetailPage_BackRequested(object sender, BackRequestedEventArgs e)
         {
+            // Mark event as handled.
+            e.Handled = true;
+            SystemNavigationManager manager = SystemNavigationManager.GetForCurrentView();
+            manager.BackRequested -= DetailPage_BackRequested;
+            manager.AppViewBackButtonVisibility = AppViewBackButtonVisibility.Collapsed;
+
+            // Use the "drill out" animation when navigating to the master page.
             this.Visibility = Visibility.Collapsed;
         }
+        #endregion
     }
 }
