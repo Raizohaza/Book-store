@@ -13,13 +13,19 @@
         <local:RelativeToAsolutePathConverter x:Key="pathConverter"/>
     </UserControl.Resources>
 
-    <Grid x:Name="DetailUC" Background="AliceBlue" >
-        <Image Source="{Binding Image, Converter={StaticResource pathConverter}}"  Width="300" Height="300" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="10,75,0,0"></Image>
-        <StackPanel Orientation="Horizontal" Width="300" Margin="10,403,790,226">
-            <TextBlock Text="{Binding Id}" FontSize="40"  TextWrapping="Wrap"/>
-            <TextBlock Text="{Binding Name}" FontSize="40" TextWrapping="Wrap" MaxWidth="200"/>
+    <Grid x:Name="DetailUC" Background="White" >
+        <Image Source="{Binding Image, Converter={StaticResource pathConverter}}"  Width="300" Height="300" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="34,33,0,0"></Image>
+
+
+        <StackPanel x:Name="stackInfo" Margin="360,33,102,418">
+                        <TextBlock Text="{Binding tenTruyen}" FontSize="20" FontWeight="Medium" HorizontalAlignment="Left" VerticalAlignment="Center" HorizontalTextAlignment="Center" TextWrapping="Wrap" MaxWidth="200"/>
+                        <TextBlock x:Name="tPrice" Text="{Binding giaTien}" FontSize="16" HorizontalAlignment="Left" FontStyle="Italic"/>
+                        <TextBlock x:Name="tQuantity" Text="{Binding soLuong}" FontSize="16" HorizontalAlignment="Left"/>
+                        <TextBlock x:Name="tAuthor" Text="{Binding tacGia}" FontSize="16" HorizontalAlignment="Left"/>
         </StackPanel>
-        <ListView x:Name="lvManyImg" Height="300" Margin="400,75,219,375">
+   
+        
+        <ListView x:Name="lvManyImg" Margin="497,411,31,10">
             <ListView.ItemsPanel>
                 <ItemsPanelTemplate>
                     <controls:WrapPanel/>
@@ -28,12 +34,14 @@
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <StackPanel >
-                        <Image Source="{Binding Name, Converter={StaticResource pathConverter}}"  Height="80"></Image>
+                        <Image Source="{Binding Product_Images, Converter={StaticResource pathConverter}}"  Height="50" Width="50"></Image>
                     </StackPanel>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
 
-        <TextBlock x:Name="tblDescrip" Text="{Binding Description}" Margin="400,403,219,168" MaxWidth="450" TextWrapping="Wrap"/>
+        <TextBlock x:Name="tblDescrip" Text="{Binding Description}" Margin="34,411,635,10" MaxWidth="450" TextWrapping="Wrap"/>
+        <TextBlock x:Name="tblDescrip_Copy" Text="Nội dung:" FontSize="16" FontWeight="Medium" Margin="34,365,871,358" MaxWidth="450" TextWrapping="Wrap"/>
+        <TextBlock x:Name="tblDescrip_Copy1" Text="Ảnh minh họa:" FontSize="16" FontWeight="Medium" Margin="497,365,408,354" MaxWidth="450" TextWrapping="Wrap"/>
     </Grid>
 </UserControl>

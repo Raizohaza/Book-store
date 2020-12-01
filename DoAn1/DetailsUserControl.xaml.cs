@@ -27,10 +27,17 @@ namespace DoAn1
             if (product !=null)
             {
                 this.InitializeComponent();
-                this.DataContext = product;
+                this.DataContext = product;             
 
                 List<Product_Images> img = new List<Product_Images>();
                 DataTable images = provider::QueryForSQLServer.GetProducts_Image(product.Id);
+
+              
+                var tenTruyen = product.Name;
+                var giaTien = "Giá: " + product.Price;
+                var tacGia = "Tác giả: " + product.Author;
+                var soLuong = "Số lượng: " + product.Quantity;
+                
 
                 foreach (DataRow item in images.Rows)
                 {

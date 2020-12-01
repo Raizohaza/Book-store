@@ -28,7 +28,7 @@
                 </muxc:ComboBox.ContextFlyout>
                     <muxc:ComboBox.ItemTemplate>
                         <DataTemplate>
-                            <muxc:TextBlock Text="{Binding Name}" Tag="{Binding Name}"></muxc:TextBlock>
+                            <muxc:TextBlock Text="{Binding Name}" Tag="{Binding Name}" VerticalAlignment="Center" HorizontalAlignment="Center"></muxc:TextBlock>
                         </DataTemplate>
                     </muxc:ComboBox.ItemTemplate>
 
@@ -53,12 +53,11 @@
 
                 <ListView.ItemTemplate>
                     <DataTemplate>
-                        <StackPanel >
-                            <Image Source="{Binding Image, Converter={StaticResource pathConverter}}"  Height="80"></Image>
-                            <StackPanel Orientation="Horizontal" Width="200">
-                                <TextBlock Text="{Binding Id}" FontSize="12"  TextWrapping="Wrap"/>
-                                <TextBlock Text="{Binding Name}" FontSize="12" TextWrapping="Wrap"/>
-                            </StackPanel>
+                        <StackPanel Width="150" Height="150">
+                            <Image Source="{Binding Image, Converter={StaticResource pathConverter}}" VerticalAlignment="Center" HorizontalAlignment="Center"  Height="80" Width="50"></Image>
+                            
+                            <TextBlock Text="{Binding Name}" FontSize="10" TextWrapping="Wrap"  HorizontalTextAlignment="Center" VerticalAlignment="Bottom"  HorizontalAlignment="Center"/>
+                            
                         </StackPanel>
                     </DataTemplate>
                 </ListView.ItemTemplate>

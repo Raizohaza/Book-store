@@ -5,13 +5,18 @@
   </Roots.Interfaces>
   <Roots.PropertyPathNames>
     <RootPropertyPathName Name="Description" />
-    <RootPropertyPathName Name="Name" />
-    <RootPropertyPathName Name="Id" />
+    <RootPropertyPathName Name="Product_Images" />
+    <RootPropertyPathName Name="tacGia" />
+    <RootPropertyPathName Name="soLuong" />
+    <RootPropertyPathName Name="giaTien" />
+    <RootPropertyPathName Name="tenTruyen" />
     <RootPropertyPathName Name="Image" />
+    <RootPropertyPathName Name="Name" />
     <RootPropertyPathName Name="Quantity" />
     <RootPropertyPathName Name="Category" />
     <RootPropertyPathName Name="Author" />
     <RootPropertyPathName Name="Price" />
+    <RootPropertyPathName Name="Id" />
   </Roots.PropertyPathNames>
   <Roots.RootTypes>
     <RootType FullName="Windows.UI.Xaml.Application" />
@@ -49,17 +54,17 @@
       <RootProperty Name="Name" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.StackPanel">
-      <RootProperty Name="Orientation" />
-      <RootProperty Name="Width" />
       <RootProperty Name="Margin" />
       <RootProperty Name="Children" />
       <RootProperty Name="Height" />
+      <RootProperty Name="Width" />
+      <RootProperty Name="Orientation" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.ListView">
-      <RootProperty Name="Height" />
       <RootProperty Name="Margin" />
       <RootProperty Name="ItemsPanel" />
       <RootProperty Name="ItemTemplate" />
+      <RootProperty Name="Height" />
       <RootProperty Name="Background" />
       <RootProperty Name="Width" />
       <RootProperty Name="ContextFlyout" />
@@ -73,10 +78,11 @@
       <RootProperty Name="TextWrapping" />
       <RootProperty Name="FontSize" />
       <RootProperty Name="FontWeight" />
-      <RootProperty Name="Style" />
-      <RootProperty Name="VerticalAlignment" />
       <RootProperty Name="HorizontalAlignment" />
+      <RootProperty Name="VerticalAlignment" />
+      <RootProperty Name="HorizontalTextAlignment" />
       <RootProperty Name="FontStyle" />
+      <RootProperty Name="Style" />
       <RootProperty Name="Tag" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Data.Binding">
