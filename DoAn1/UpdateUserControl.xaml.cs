@@ -122,7 +122,7 @@ namespace DoAn1
 
         private async void btnDone_Click(object sender, RoutedEventArgs e)
         {
-            var messageDialog = new MessageDialog("Uppdate", "Confirm");
+            var messageDialog = new MessageDialog("Save your change ???");
 
             messageDialog.Commands.Add(new UICommand("Yes")
             {
@@ -153,6 +153,10 @@ namespace DoAn1
                     id++;
                 }
                 Handler?.Invoke(Product);
+                //e.Handled = true;
+                //SystemNavigationManager manager = SystemNavigationManager.GetForCurrentView();
+                //manager.BackRequested -= DetailPage_BackRequested;
+                //manager.AppViewBackButtonVisibility = AppViewBackButtonVisibility.Collapsed;
                 this.Visibility = Visibility.Collapsed;
             }
             else

@@ -16,7 +16,7 @@
 
     <Grid x:Name="GridHome">
         <StackPanel>
-            <StackPanel Orientation="Horizontal">
+            <StackPanel Orientation="Horizontal" Width="1096">
                 <muxc:ComboBox x:Name="cbbListType" PlaceholderText="Thể loại" HorizontalAlignment="Left" ItemsSource="{Binding Category}" RightTapped="cbbListType_RightTapped" Width="100" SelectionChanged="cbbListType_SelectionChanged" VerticalAlignment="Top">
                 <muxc:ComboBox.ContextFlyout>
                     <MenuFlyout x:Name="cbbCF">
@@ -33,9 +33,9 @@
                     </muxc:ComboBox.ItemTemplate>
 
                 </muxc:ComboBox>
-            <muxc:Button Name="addCat" Content="+" Click="addCat_Click"/>
+            <muxc:Button Name="addCat" Content="+" Click="addCat_Click" Width="28"/>
             </StackPanel>
-            <ListView x:Name="test_data" Background="White" Height="750" Width="1100" RightTapped="test_data_RightTapped" SelectionChanged="test_data_SelectionChanged">
+            <ListView x:Name="test_data" Background="White" Height="716" Width="1100" RightTapped="test_data_RightTapped" SelectionChanged="test_data_SelectionChanged">
                 <ListView.ItemsPanel>
                     <ItemsPanelTemplate>
                         <controls:WrapPanel/>
@@ -44,20 +44,18 @@
 
                 <ListView.ContextFlyout>
                     <MenuFlyout x:Name="allContactsMenuFlyout">
-                        <MenuFlyout.Items>
-                            <MenuFlyoutItem x:Name="Edit"  Text="Edit" Click="Edit_Click"/>
-                            <MenuFlyoutItem x:Name="Remove" Text="Remove"    Click="Remove_Click" />
-                        </MenuFlyout.Items>
+                        <MenuFlyoutItem x:Name="Edit"  Text="Edit" Click="Edit_Click"/>
+                        <MenuFlyoutItem x:Name="Remove" Text="Remove"    Click="Remove_Click" />
                     </MenuFlyout>
                 </ListView.ContextFlyout>
 
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <StackPanel Width="150" Height="150">
-                            <Image Source="{Binding Image, Converter={StaticResource pathConverter}}" VerticalAlignment="Center" HorizontalAlignment="Center"  Height="80" Width="50"></Image>
-                            
+                            <Image Source="{Binding Image, Converter={StaticResource pathConverter}}" VerticalAlignment="Center" HorizontalAlignment="Center"  Height="80" Width="50"/>
+
                             <TextBlock Text="{Binding Name}" FontSize="10" TextWrapping="Wrap"  HorizontalTextAlignment="Center" VerticalAlignment="Bottom"  HorizontalAlignment="Center"/>
-                            
+
                         </StackPanel>
                     </DataTemplate>
                 </ListView.ItemTemplate>

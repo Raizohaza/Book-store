@@ -34,15 +34,15 @@
         <TextBlock Text="Update" FontSize="50" FontWeight="Medium" Style="{StaticResource InkToolbarFlyoutItemContentTextStyle}" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2" Margin="141,0,0,0"/>
         <TextBlock Text="Tên truyện" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="20" FontWeight="Medium" FontStyle="Italic" Grid.Column="0" Grid.Row="2"/>
         <TextBox x:ConnectionId='2' x:Name="addTen_Truyen" Text="{Binding Name,Mode=TwoWay}" Style="{StaticResource AutoSuggestBoxTextBoxStyle}" Height="35" Width="450" Grid.Column="0" Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Center" Grid.ColumnSpan="3" Margin="105,0,0,0"/>
-        <TextBlock Text="Nội dung" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="20" FontWeight="Medium" FontStyle="Italic" Grid.Column="0" Grid.Row="5"/>
-        <TextBox x:ConnectionId='3' x:Name="addNoiDung" Text="{Binding Description,Mode=TwoWay}" Style="{StaticResource AutoSuggestBoxTextBoxStyle}" Height="140" Width="450" Grid.Column="0" Grid.Row="5" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.ColumnSpan="3" Margin="105,0,0,0"/>
+        <TextBlock Text="Nội dung" FontFamily="10" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="20" FontWeight="Medium" FontStyle="Italic" Grid.Column="0" Grid.Row="5"/>
+        <TextBox x:ConnectionId='3' x:Name="addNoiDung" Text="{Binding Description,Mode=TwoWay}" Style="{StaticResource AutoSuggestBoxTextBoxStyle}" Height="176" Width="450" Grid.Column="0" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Top" Grid.ColumnSpan="3" Margin="0,65,0,0" Grid.RowSpan="2"/>
         <TextBlock Text="Giá bán" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="20" FontWeight="Medium" FontStyle="Italic" Grid.Column="0" Grid.Row="4"/>
         <TextBox x:ConnectionId='4' x:Name="addGia"  Text="{Binding Price}" Height="35" Width="200" Grid.Column="0" Grid.Row="4" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="105,0,0,0" Grid.ColumnSpan="2" />
         <TextBlock Text="Tác giả" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="20" FontWeight="Medium" FontStyle="Italic" Grid.Column="0" Grid.Row="3"/>
-        <TextBox x:ConnectionId='5' x:Name="addTacGia" Text="{Binding Author,Mode=TwoWay}" Height="35" Width="150" Grid.Column="0" Grid.Row="3" HorizontalAlignment="Left" VerticalAlignment="Center" Grid.ColumnSpan="2" Margin="90,0,0,0"/>
+        <TextBox x:ConnectionId='5' x:Name="addTacGia" Text="{Binding Author,Mode=TwoWay}" Height="35" Width="200" Grid.Column="0" Grid.Row="3" HorizontalAlignment="Left" VerticalAlignment="Center" Grid.ColumnSpan="2" Margin="104,0,0,0"/>
 
         <muxc:ComboBox x:ConnectionId='6' x:Name="cbbListType" PlaceholderText="Thể loại" ItemsSource="{Binding Category}"                                                 
-                       Height="35" Width="200" Grid.Column="2" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center">
+                       Height="35" Width="200" Grid.Column="2" Grid.Row="3" VerticalAlignment="Center" Margin="26,0,0,0">
             <muxc:ComboBox.ItemTemplate>
                 <DataTemplate>
                     <muxc:TextBlock Text="{Binding Name}" Tag="{Binding Name}"></muxc:TextBlock>
@@ -54,12 +54,12 @@
         <TextBlock Text="Số lượng" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="20" FontWeight="Medium" FontStyle="Italic" Grid.Column="2" Grid.Row="4"/>
 
         <TextBox x:ConnectionId='8' x:Name="addSoLuong" Text="{Binding Quantity}" Height="35" Width="133" Grid.Column="2" Grid.Row="4" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="92,0,0,0" />
-        <Button x:ConnectionId='9' x:Name="btnAddImg" Content="Add Img" VerticalAlignment="Bottom"                         Background="Snow" Width="200" Height="40" Grid.Column="3" Grid.Row="5"  />
-        <Image x:ConnectionId='10' Name="avatarImg" Source="{Binding Image,Mode=TwoWay,Converter={StaticResource pathConverter}}" Grid.Column="3" Grid.Row="1"  VerticalAlignment="Center"></Image>
+        <Button x:ConnectionId='9' x:Name="btnAddImg" Content="Add Img" VerticalAlignment="Bottom"                         Background="Snow" Width="200" Height="40" Grid.Column="2" Grid.Row="1" Margin="246,0,0,1" Grid.ColumnSpan="2"  />
+        <Image x:ConnectionId='10' Height="252" Name="avatarImg" Source="{Binding Image,Mode=TwoWay,Converter={StaticResource pathConverter}}" Grid.Column="2" Grid.Row="2"  VerticalAlignment="Top" Grid.ColumnSpan="2" Margin="245,16,274,0" Grid.RowSpan="4"/>
 
-        <Button x:ConnectionId='11' x:Name="btnAddProducImgs" Content="Add Product Image" HorizontalAlignment="Right" VerticalAlignment="Bottom"                                Background="Snow" Width="200" Height="40" Grid.Column="3" Grid.Row="5"  />
+        <Button x:ConnectionId='11' x:Name="btnAddProducImgs" Content="Add Product Image" HorizontalAlignment="Right" VerticalAlignment="Bottom"                                Background="Snow" Width="200" Height="40" Grid.Column="3" Grid.Row="1" Margin="0,0,47,1"  />
 
-        <ListView x:ConnectionId='12' x:Name="lvManyImg" Height="300"  Grid.Column="3" Grid.Row="2" Grid.RowSpan="4" Margin="0,0,0,119">
+        <ListView x:ConnectionId='12' x:Name="lvManyImg"  Grid.Column="3" Grid.Row="2" Grid.RowSpan="5" Margin="169,16,10,9">
             <ListView.ItemsPanel>
                 <ItemsPanelTemplate>
                     <controls:WrapPanel/>

@@ -13,7 +13,7 @@
     <Page.Resources>
         <local:RelativeToAsolutePathConverter x:Key="pathConverter"/>
     </Page.Resources>
-    
+
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="0.75*"/>
@@ -38,32 +38,32 @@
         <TextBlock Text="Giá bán" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="20" FontWeight="Medium" FontStyle="Italic" Grid.Column="0" Grid.Row="4" Grid.ColumnSpan="2"/>
         <TextBox x:ConnectionId='4' x:Name="addGia"  Text="{Binding Price}" Height="35" Width="200" Grid.Column="0" Grid.Row="4" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="105,0,0,0" />
         <TextBlock Text="Tác giả" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="20" FontWeight="Medium" FontStyle="Italic" Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="2"/>
-        <TextBox x:ConnectionId='5' x:Name="addTacGia" Text="{Binding Author,Mode=TwoWay}" Height="35" Width="150" Grid.Column="0" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-        
+        <TextBox x:ConnectionId='5' x:Name="addTacGia" Text="{Binding Author,Mode=TwoWay}" Height="35" Width="200" Grid.Column="0" Grid.Row="3" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="105,0,0,0"/>
+
         <muxc:ComboBox x:ConnectionId='6' x:Name="cbbListType" PlaceholderText="Thể loại" ItemsSource="{Binding Category}"                                                 
-                       Height="35" Width="200" Grid.Column="1" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center">
+                       Height="35" Width="200" Grid.Column="1" Grid.Row="3" VerticalAlignment="Center" Margin="25,0,0,0">
             <muxc:ComboBox.ItemTemplate>
                 <DataTemplate>
                     <muxc:TextBlock Text="{Binding Name}" Tag="{Binding Name}"></muxc:TextBlock>
                 </DataTemplate>
             </muxc:ComboBox.ItemTemplate>
         </muxc:ComboBox>
-        <Button x:ConnectionId='7' x:Name="btnDone" Background="Snow" Content="Done" Grid.Row="5" Grid.Column="0" Height="40" Width="200"                        VerticalAlignment="Bottom" HorizontalAlignment="Stretch" Grid.ColumnSpan="2"/>
-        
-        <Button x:ConnectionId='8' Height="40" Width="100" Content="Import"                            Background="Snow" HorizontalAlignment="Stretch" VerticalAlignment="Bottom" Grid.Column="0" Grid.Row="1"/>
-        <Button x:ConnectionId='9' Height="40" Width="200" Name="Import_Detail_Images" Content="Import Detail Images"                                    Background="Snow" HorizontalAlignment="Stretch" VerticalAlignment="Bottom" Grid.Column="1" Grid.Row="1"/>
+        <Button x:ConnectionId='7' x:Name="btnDone" Background="Snow" Content="Done" Grid.Row="5" Grid.Column="0" Height="40" Width="200"                        VerticalAlignment="Top" HorizontalAlignment="Stretch" Grid.ColumnSpan="2" Margin="230,145,230,0"/>
+
+        <Button x:ConnectionId='8' Height="40" Content="Import"                            Background="Snow" HorizontalAlignment="Stretch" VerticalAlignment="Bottom" Grid.Column="0" Grid.Row="1" Margin="105,0,115,66" Grid.RowSpan="2"/>
+        <Button x:ConnectionId='9' Height="40" Name="Import_Detail_Images" Content="Import Detail Images"                                    Background="Snow" HorizontalAlignment="Stretch" VerticalAlignment="Bottom" Grid.Column="1" Grid.Row="1" Margin="65,0,105,66" Grid.RowSpan="2"/>
 
 
 
         <TextBlock Text="Số lượng" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="20" FontWeight="Medium" FontStyle="Italic" Grid.Column="1" Grid.Row="4"/>
-        
+
         <TextBox x:ConnectionId='10' x:Name="addSoLuong" Text="{Binding Quantity}" Height="35" Width="133" Grid.Column="1" Grid.Row="4" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="92,0,0,0" />
-        <Button x:ConnectionId='11' x:Name="btnAddImg" Content="Add Img" HorizontalAlignment="Left" VerticalAlignment="Bottom"                         Background="Snow" Width="200" Height="40" Grid.Column="2" Grid.Row="5"  />
-        <Image x:ConnectionId='12' Name="avatarImg" Source="{Binding Image,Mode=TwoWay,Converter={StaticResource pathConverter}}" Grid.Column="2" Grid.Row="1"  VerticalAlignment="Center"></Image>
+        <Button x:ConnectionId='11' x:Name="btnAddImg" Content="Add Img" VerticalAlignment="Bottom"                         Background="Snow" Width="155" Height="40" Grid.Column="1" Grid.Row="1" Margin="296,0,0,65" Grid.ColumnSpan="2" Grid.RowSpan="2"  />
+        <Image x:ConnectionId='12' Name="avatarImg" Height="248"  Source="{Binding Image,Mode=TwoWay,Converter={StaticResource pathConverter}}" Grid.Column="1" Grid.Row="2"  VerticalAlignment="Top" Grid.ColumnSpan="2" Margin="262,20,290,0" Grid.RowSpan="4"/>
 
-        <Button x:ConnectionId='13' x:Name="btnAddProducImgs" Content="Add Product Image" HorizontalAlignment="Right" VerticalAlignment="Bottom"                                Background="Snow" Width="200" Height="40" Grid.Column="3" Grid.Row="5"  />
+        <Button x:ConnectionId='13' x:Name="btnAddProducImgs" Content="Add Product Image" HorizontalAlignment="Right" VerticalAlignment="Bottom"                                Background="Snow" Width="172" Height="40" Grid.Column="2" Grid.Row="1" Margin="0,0,48,65" Grid.RowSpan="2"  />
 
-        <ListView x:ConnectionId='14' x:Name="lvManyImg" Height="300"  Grid.Column="2" Grid.Row="2" Grid.RowSpan="2">
+        <ListView x:ConnectionId='14' x:Name="lvManyImg"  Grid.Column="2" Grid.Row="2" Margin="166,20,17,151" Grid.RowSpan="4">
             <ListView.ItemsPanel>
                 <ItemsPanelTemplate>
                     <controls:WrapPanel/>
@@ -72,7 +72,7 @@
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <StackPanel >
-                        <Image Source="{Binding Name, Converter={StaticResource pathConverter}}"  Height="80"></Image>
+                        <Image Source="{Binding image, Converter={StaticResource pathConverter}}" Width="50"  Height="50"></Image>
                     </StackPanel>
                 </DataTemplate>
             </ListView.ItemTemplate>
