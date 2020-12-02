@@ -164,11 +164,10 @@ namespace DoAn1
                             var index = provider::QueryForSQLServer.InsertProduct(product);
                         }
                     }
-                    this.Visibility = Visibility.Collapsed;
+                    var messageDialog2 = await new MessageDialog("Success", "Confirm").ShowAsync();
                 }
                 else
                 {
-                    this.Visibility = Visibility.Collapsed;
                 }
             }
             catch (Exception ex)
@@ -209,12 +208,10 @@ namespace DoAn1
                     provider::QueryForSQLServer.InsertProduct_Image(item);
                     id++;
                 }
-                this.Visibility = Visibility.Collapsed;
                 Frame.GoBack();
             }
             else
             {
-                this.Visibility = Visibility.Collapsed;
                 Frame.GoBack();
             }
         }
@@ -312,14 +309,11 @@ namespace DoAn1
                         Debug.WriteLine(img.id + img.Name + img.ProductId);
                         i++;
                     }
-                    var messageDialog2 = new MessageDialog("Success", "Confirm");
-                    await messageDialog2.ShowAsync();
-                    this.Visibility = Visibility.Collapsed;
+                    var messageDialog2 = await new  MessageDialog("Success", "Confirm").ShowAsync();
                 }
 
                 else
                 {
-                    this.Visibility = Visibility.Collapsed;
                 }
             }
             catch (Exception ex)

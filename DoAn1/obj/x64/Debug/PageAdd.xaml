@@ -63,7 +63,7 @@
 
         <Button x:ConnectionId='13' x:Name="btnAddProducImgs" Content="Add Product Image" HorizontalAlignment="Right" VerticalAlignment="Bottom"                                Background="Snow" Width="172" Height="40" Grid.Column="2" Grid.Row="1" Margin="0,0,48,65" Grid.RowSpan="2"  />
 
-        <ListView x:ConnectionId='14' x:Name="lvManyImg"  Grid.Column="2" Grid.Row="2" Margin="166,20,17,151" Grid.RowSpan="4">
+        <ListView x:ConnectionId='14' x:Name="lvManyImg" ItemsSource="{Binding test,Mode=TwoWay}" Grid.Column="2" Grid.Row="2" Margin="166,20,17,151" Grid.RowSpan="4">
             <ListView.ItemsPanel>
                 <ItemsPanelTemplate>
                     <controls:WrapPanel/>
@@ -72,7 +72,7 @@
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <StackPanel >
-                        <Image Source="{Binding image, Converter={StaticResource pathConverter}}" Width="50"  Height="50"></Image>
+                        <Image Source="{Binding Name,Mode=TwoWay, Converter={StaticResource pathConverter}}" Width="50"  Height="80" Stretch="UniformToFill"></Image>
                     </StackPanel>
                 </DataTemplate>
             </ListView.ItemTemplate>

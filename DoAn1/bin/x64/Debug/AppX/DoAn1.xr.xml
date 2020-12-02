@@ -7,11 +7,10 @@
     <RootPropertyPathName Name="Author" />
     <RootPropertyPathName Name="Quantity" />
     <RootPropertyPathName Name="Description" />
-    <RootPropertyPathName Name="img" />
-    <RootPropertyPathName Name="Price" />
     <RootPropertyPathName Name="Name" />
+    <RootPropertyPathName Name="Price" />
     <RootPropertyPathName Name="Image" />
-    <RootPropertyPathName Name="image" />
+    <RootPropertyPathName Name="test" />
     <RootPropertyPathName Name="Category" />
     <RootPropertyPathName Name="Id" />
   </Roots.PropertyPathNames>
@@ -49,6 +48,7 @@
       <RootProperty Name="HorizontalAlignment" />
       <RootProperty Name="Margin" />
       <RootProperty Name="Name" />
+      <RootProperty Name="Stretch" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.TextBlock">
       <RootProperty Name="Text" />
@@ -72,6 +72,7 @@
       <RootProperty Name="Margin" />
       <RootProperty Name="ItemsPanel" />
       <RootProperty Name="ItemTemplate" />
+      <RootProperty Name="ItemsSource" />
       <RootProperty Name="Background" />
       <RootProperty Name="Height" />
       <RootProperty Name="Width" />
