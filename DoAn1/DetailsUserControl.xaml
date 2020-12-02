@@ -33,7 +33,7 @@
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <StackPanel >
-                        <Image Source="{Binding img, Converter={StaticResource pathConverter}}"  Height="50" Width="50"></Image>
+                        <Image Source="{Binding Name, Converter={StaticResource pathConverter}}"  Height="50" Width="50"></Image>
                     </StackPanel>
                 </DataTemplate>
             </ListView.ItemTemplate>

@@ -29,6 +29,7 @@ namespace DoAn1
     public sealed partial class PageAdd : Page
     {
         Product Product { get; set; }
+        List<Product_Images> test = new List<Product_Images>();
 
         public PageAdd()
         {
@@ -355,7 +356,6 @@ namespace DoAn1
             openPicker.FileTypeFilter.Add(".png");
             //FileData 
             var openFile = await openPicker.PickMultipleFilesAsync();
-            var test = new List<Product_Images>();
 
             if (openFile != null)
             {
@@ -366,8 +366,11 @@ namespace DoAn1
                         Name = item.Path
                     };
                     Product.Product_Images.Add(Product_Images);
+                    test.Add(Product_Images);
                 }
-                lvManyImg.ItemsSource = Product.Product_Images;
+                this.DataContext = Product;
+                lvManyImg.ItemsSource = null;
+                lvManyImg.ItemsSource = test;
 
 
             }
