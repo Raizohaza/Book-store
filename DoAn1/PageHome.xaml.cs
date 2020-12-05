@@ -79,6 +79,9 @@ namespace DoAn1
             
             test_data.ItemsSource = GetProductFromDb();
             cbbListType.ItemsSource = categoriesList;
+
+            var filter = new List<String>() { "A-Z", "Z-A", "Price ↓", "Price ↑" };
+            Filter.ItemsSource = filter;
         }
         #region//back
         protected override void OnNavigatedTo(NavigationEventArgs e)
@@ -267,5 +270,36 @@ namespace DoAn1
 
             }
         }
+
+        private void option_Click(object sender, RoutedEventArgs e)
+        {
+            var input = (FrameworkElement)e.OriginalSource;
+            var products = GetProductFromDb();
+            if (input.DataContext != null)
+            {
+                var choose = input.DataContext.ToString();
+                //first option
+                var empFiltered = products.OrderBy(x => x.Name).ToList();
+
+                switch (choose)
+                {
+                    case "A-Z":
+                        break;
+                    case "Z-A":
+                        empFiltered = products.OrderByDescending(x => x.Name).ToList();
+                        break;
+                    case "Price ↓":
+                        empFiltered = products.OrderByDescending(x => x.Price).ToList();
+                        break;
+                    case "Price ↑":
+                        empFiltered = products.OrderBy(x => x.Price).ToList();
+                        break;
+                    default:
+                        break;
+                }
+                products = new ObservableCollection<Product>(empFiltered);
+                test_data.ItemsSource = products;
+            }
+        }
     }
-}
+}                          

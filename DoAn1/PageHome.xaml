@@ -16,25 +16,37 @@
 
     <Grid x:Name="GridHome">
         <StackPanel>
-            <StackPanel Orientation="Horizontal" Width="1096">
+            <controls:DockPanel Width="1096">
                 <muxc:ComboBox x:Name="cbbListType" PlaceholderText="Thể loại" HorizontalAlignment="Left" ItemsSource="{Binding Category}" RightTapped="cbbListType_RightTapped" Width="100" SelectionChanged="cbbListType_SelectionChanged" VerticalAlignment="Top">
-                <muxc:ComboBox.ContextFlyout>
-                    <MenuFlyout x:Name="cbbCF">
-                        <MenuFlyout.Items>
-                            <MenuFlyoutItem x:Name="cbbEdit"  Text="Edit" Click="cbbEdit_Click"/>
-                            <MenuFlyoutItem x:Name="cbbRemove" Text="Remove"    Click="cbbRemove_Click" />
-                        </MenuFlyout.Items>
-                    </MenuFlyout>
-                </muxc:ComboBox.ContextFlyout>
+                    <muxc:ComboBox.ContextFlyout>
+                        <MenuFlyout x:Name="cbbCF">
+                            <MenuFlyout.Items>
+                                <MenuFlyoutItem x:Name="cbbEdit"  Text="Edit" Click="cbbEdit_Click"/>
+                                <MenuFlyoutItem x:Name="cbbRemove" Text="Remove"    Click="cbbRemove_Click" />
+                            </MenuFlyout.Items>
+                        </MenuFlyout>
+                    </muxc:ComboBox.ContextFlyout>
                     <muxc:ComboBox.ItemTemplate>
                         <DataTemplate>
                             <muxc:TextBlock Text="{Binding Name}" Tag="{Binding Name}" VerticalAlignment="Center" HorizontalAlignment="Center"></muxc:TextBlock>
                         </DataTemplate>
                     </muxc:ComboBox.ItemTemplate>
-
                 </muxc:ComboBox>
-            <muxc:Button Name="addCat" Content="+" Click="addCat_Click" Width="28"/>
-            </StackPanel>
+                <muxc:Button Name="addCat" Content="+" Click="addCat_Click" Width="28"/>
+                <muxc:DropDownButton Content="Filter" x:Name="cbbFillter" HorizontalAlignment="Right"  Width="120" >
+                    <DropDownButton.Flyout>
+                        <Flyout>
+                            <ItemsControl x:Name="Filter" ItemsSource="{Binding filter}">
+                                <ItemsControl.ItemTemplate>
+                                    <DataTemplate>
+                                        <RadioButton Name="option" Click="option_Click" Content="{Binding}" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                                    </DataTemplate>
+                                </ItemsControl.ItemTemplate>
+                            </ItemsControl>
+                        </Flyout>
+                    </DropDownButton.Flyout>
+                </muxc:DropDownButton>
+            </controls:DockPanel>
             <ListView x:Name="test_data" Background="White" Height="716" Width="1100" RightTapped="test_data_RightTapped" SelectionChanged="test_data_SelectionChanged">
                 <ListView.ItemsPanel>
                     <ItemsPanelTemplate>
