@@ -8,7 +8,7 @@
     mc:Ignorable="d"
     xmlns:muxc="using:Windows.UI.Xaml.Controls"
     xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
-    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Height="750" Width="1100">
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Height="600" Width="1100">
 
     <Page.Resources>
         <local:RelativeToAsolutePathConverter x:Key="pathConverter"/>
@@ -47,7 +47,7 @@
                     </DropDownButton.Flyout>
                 </muxc:DropDownButton>
             </controls:DockPanel>
-            <ListView x:Name="test_data" Background="White" Height="716" Width="1100" RightTapped="test_data_RightTapped" SelectionChanged="test_data_SelectionChanged">
+            <ListView x:Name="test_data" Background="White" Height="459" Width="1100" RightTapped="test_data_RightTapped" SelectionChanged="test_data_SelectionChanged">
                 <ListView.ItemsPanel>
                     <ItemsPanelTemplate>
                         <controls:WrapPanel/>
@@ -63,15 +63,22 @@
 
                 <ListView.ItemTemplate>
                     <DataTemplate>
-                        <StackPanel Width="150" Height="150">
-                            <Image Source="{Binding Image, Converter={StaticResource pathConverter}}" VerticalAlignment="Center" HorizontalAlignment="Center"  Height="80" Width="50"/>
-
+                        <StackPanel Width="300" Height="150">
+                            <Image Source="{Binding Image, Converter={StaticResource pathConverter}}" VerticalAlignment="Center" HorizontalAlignment="Center"  Height="100" Width="100"/>
                             <TextBlock Text="{Binding Name}" FontSize="10" TextWrapping="Wrap"  HorizontalTextAlignment="Center" VerticalAlignment="Bottom"  HorizontalAlignment="Center"/>
-
                         </StackPanel>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
+            <TextBlock x:Name="productTotalTb" HorizontalAlignment="Center">
+                <Run Text="Total:"/>
+                <Run Text="{Binding}"/>
+            </TextBlock>
+            <controls:DockPanel HorizontalAlignment="Center">
+                <Button Content="←" Click="PreviousButton_Click" Width="60" Height="30" HorizontalAlignment="Left"/>
+                <TextBlock x:Name="pageInfo" Text="{Binding }" HorizontalAlignment="Center" HorizontalTextAlignment="Center" Width="100"/>
+                <Button Content="→" Click="NextButton_Click" Width="60" Height="30" HorizontalAlignment="Right"/>
+            </controls:DockPanel>
         </StackPanel>
     </Grid>
 </Page>

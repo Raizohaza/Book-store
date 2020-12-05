@@ -31,6 +31,51 @@ namespace DoAn1
     /// </summary>
     public sealed partial class PageHome : Page
     {
+        ObservableCollection<Product> ProductData = new ObservableCollection<Product>();
+
+        //paging
+        private ObservableCollection<Product> displayList = new ObservableCollection<Product>(); //List to be displayed in ListView
+        int pageIndex = -1;
+        int pageSize = 9; //Set the size of the page
+        int totalPage = 1;
+        string CurrentPage;
+
+
+        private void NextButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (pageIndex + 1 <= totalPage)
+            {
+                pageIndex++;
+                var filter = ProductData.Skip(pageIndex * pageSize).Take(pageSize).ToList();
+                displayList = new ObservableCollection<Product>(filter);
+                CurrentPage = (pageIndex + 1).ToString() + "/" + (totalPage + 1).ToString();
+                pageInfo.DataContext = CurrentPage;
+                test_data.ItemsSource = displayList;
+            }
+            
+        }
+
+        private void PreviousButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (pageIndex - 1 >= 0)
+            {
+                pageIndex--;
+                var filter = ProductData.Skip(pageIndex * pageSize).Take(pageSize).ToList();
+                displayList = new ObservableCollection<Product>(filter);
+                CurrentPage = (pageIndex+1).ToString() + "/" + (totalPage + 1).ToString();
+                pageInfo.DataContext = CurrentPage;
+                test_data.ItemsSource = displayList;
+            }
+        }
+
+        private void PagingPage()
+        {
+            pageIndex = -1;
+            totalPage = ProductData.Count() / pageSize;
+            NextButton_Click(null, null);
+            productTotalTb.DataContext = ProductData.Count();
+        }
+
         public ObservableCollection<Product> GetProductFromDb(int catId = 0)
         {
             DataTable data = null;
@@ -76,9 +121,12 @@ namespace DoAn1
         {
             this.InitializeComponent();
             var categoriesList = GetCategoriesFromDb();
-            
-            test_data.ItemsSource = GetProductFromDb();
+
+            ProductData = GetProductFromDb();
+            PagingPage();
             cbbListType.ItemsSource = categoriesList;
+
+            //Call NextButton_Click in page Constructor to show defalut 10 items
 
             var filter = new List<String>() { "A-Z", "Z-A", "Price ↓", "Price ↑" };
             Filter.ItemsSource = filter;
@@ -128,7 +176,8 @@ namespace DoAn1
                 categoriesList.Add(category);
             }
 
-            test_data.ItemsSource = products;
+            ProductData = products;
+            PagingPage();
             cbbListType.ItemsSource = categoriesList;
         }
 
@@ -137,7 +186,8 @@ namespace DoAn1
             cbbListType.SelectedIndex = -1;
             var categoriesList = GetCategoriesFromDb();
             cbbListType.ItemsSource = categoriesList;
-            test_data.ItemsSource = GetProductFromDb();
+            ProductData = GetProductFromDb();
+            PagingPage();
         }
 
         //lay product tu rightapped
@@ -186,8 +236,8 @@ namespace DoAn1
             {
                 Category category1 = (Category)test.SelectedItem;
 
-
-                test_data.ItemsSource = GetProductFromDb(category1.Id);
+                ProductData = GetProductFromDb(category1.Id);
+                PagingPage();
             }
             
         }
@@ -274,32 +324,34 @@ namespace DoAn1
         private void option_Click(object sender, RoutedEventArgs e)
         {
             var input = (FrameworkElement)e.OriginalSource;
-            var products = GetProductFromDb();
             if (input.DataContext != null)
             {
                 var choose = input.DataContext.ToString();
                 //first option
-                var empFiltered = products.OrderBy(x => x.Name).ToList();
+                var empFiltered = ProductData.OrderBy(x => x.Name).ToList();
 
                 switch (choose)
                 {
                     case "A-Z":
                         break;
                     case "Z-A":
-                        empFiltered = products.OrderByDescending(x => x.Name).ToList();
+                        empFiltered = ProductData.OrderByDescending(x => x.Name).ToList();
                         break;
                     case "Price ↓":
-                        empFiltered = products.OrderByDescending(x => x.Price).ToList();
+                        empFiltered = ProductData.OrderByDescending(x => x.Price).ToList();
                         break;
                     case "Price ↑":
-                        empFiltered = products.OrderBy(x => x.Price).ToList();
+                        empFiltered = ProductData.OrderBy(x => x.Price).ToList();
                         break;
                     default:
                         break;
                 }
-                products = new ObservableCollection<Product>(empFiltered);
-                test_data.ItemsSource = products;
+                ProductData = new ObservableCollection<Product>(empFiltered);
+                PagingPage();
             }
         }
+
+        
+        
     }
 }                          
