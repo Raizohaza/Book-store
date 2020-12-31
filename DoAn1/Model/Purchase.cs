@@ -17,19 +17,18 @@ namespace DoAn1
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Purchase()
         {
-            this.OrderDetails = new HashSet<OrderDetail>();
+            this.PurchaseDetails = new HashSet<PurchaseDetail>();
         }
     
-        public int Id { get; set; }
-        public string CustomerTel { get; set; }
-        public System.DateTime CreatedAt { get; set; }
-        public Nullable<System.DateTime> UpdatedAt { get; set; }
-        public Nullable<decimal> Total { get; set; }
-        public string Status { get; set; }
+        public int Purchase_ID { get; set; }
+        public Nullable<int> Total { get; set; }
+        public Nullable<System.DateTime> Created_At { get; set; }
+        public Nullable<int> Status { get; set; }
+        public string Customer_Tel { get; set; }
     
         public virtual Customer Customer { get; set; }
+        public virtual PurchaseStatusEnum PurchaseStatusEnum { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<OrderDetail> OrderDetails { get; set; }
-        public virtual OrderState OrderState { get; set; }
+        public virtual ICollection<PurchaseDetail> PurchaseDetails { get; set; }
     }
 }

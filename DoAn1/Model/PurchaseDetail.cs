@@ -12,18 +12,16 @@ namespace DoAn1
     using System;
     using System.Collections.Generic;
     
-    public partial class OrderDetail
+    public partial class PurchaseDetail
     {
-        public int Id { get; set; }
-        public int OrderId { get; set; }
-        public Nullable<int> ProductId { get; set; }
-        public Nullable<decimal> Price { get; set; }
-        public Nullable<decimal> Quantity { get; set; }
-        public Nullable<decimal> Total { get; set; }
-        public Nullable<System.DateTime> CreatedAt { get; set; }
-        public Nullable<System.DateTime> UpdatedAt { get; set; }
+        public int PurchaseDetail_ID { get; set; }
+        public int Purchase_ID { get; set; }
+        public int Product_ID { get; set; }
+        public int Price { get; set; }
+        public int Quantity { get; set; }
+        public int Total { get; set; }
     
-        public virtual Purchase Purchase { get; set; }
         public virtual Product Product { get; set; }
+        public virtual Purchase Purchase { get; set; }
     }
 }

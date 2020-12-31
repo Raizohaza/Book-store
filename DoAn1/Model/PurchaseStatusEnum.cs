@@ -12,16 +12,17 @@ namespace DoAn1
     using System;
     using System.Collections.Generic;
     
-    public partial class OrderState
+    public partial class PurchaseStatusEnum
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public OrderState()
+        public PurchaseStatusEnum()
         {
             this.Purchases = new HashSet<Purchase>();
         }
     
-        public string Key { get; set; }
+        public string EnumKey { get; set; }
         public int Value { get; set; }
+        public string Description { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Purchase> Purchases { get; set; }

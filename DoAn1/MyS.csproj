@@ -125,13 +125,15 @@
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Model\Account.cs" />
     <Compile Include="Model\Category.cs" />
     <Compile Include="Model\Customer.cs" />
-    <Compile Include="Model\OrderDetail.cs" />
-    <Compile Include="Model\OrderState.cs" />
     <Compile Include="Model\Product.cs" />
     <Compile Include="Model\Product_Images.cs" />
     <Compile Include="Model\Purchase.cs" />
+    <Compile Include="Model\PurchaseDetail.cs" />
+    <Compile Include="Model\PurchaseStatus.cs" />
+    <Compile Include="Model\PurchaseStatusEnum.cs" />
     <Compile Include="muxc\NavigationViewItemSeparator.cs" />
     <Compile Include="PageAdd.xaml.cs">
       <DependentUpon>PageAdd.xaml</DependentUpon>
