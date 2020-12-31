@@ -12,7 +12,7 @@ namespace DoAn1.Provider
 {
     class QueryForSQLServer
     {
-        
+        #region//product     
         public static DataTable GetProducts()
         {
             //const string GetProductsQuery = "sp_GetProducts";
@@ -148,7 +148,9 @@ namespace DoAn1.Provider
             }
             return null;
         }
+        #endregion
 
+        #region//Category
         public static DataTable GetCategory()
         {
             const string GetProductsQuery = "select * from Category ";
@@ -278,7 +280,9 @@ namespace DoAn1.Provider
                 p.DisConnect();
             }
         }
+        #endregion
 
+        #region Product_image
         public static DataTable GetProducts_Image(int id)
         {
             const string GetProductsQuery = "select * from Product_Images where Productid = @id";
@@ -388,5 +392,6 @@ namespace DoAn1.Provider
             }
             return ;
         }
+        #endregion
     }
 }
