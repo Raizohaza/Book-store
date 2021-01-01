@@ -7,63 +7,62 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
     xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
-    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
+    Height="600" Width="1100"
+    Loaded="Page_Loaded">
 
-    <Grid >
-        <controls:DataGrid
-      Grid.Row="1"
-        x:Name="dataGrid"
-        Margin="12"
-        VerticalAlignment="Stretch" HorizontalAlignment="Stretch"
-        HorizontalScrollBarVisibility="Visible"
-        VerticalScrollBarVisibility="Visible"
-        AlternatingRowBackground="Transparent"
-        AlternatingRowForeground="Gray"
-        AreRowDetailsFrozen="False"
-        AreRowGroupHeadersFrozen="True"
-        AutoGenerateColumns="False"
-        CanUserSortColumns="False"
-        CanUserReorderColumns="True"
-        CanUserResizeColumns="True"
-        ColumnHeaderHeight="32"
-        MaxColumnWidth="400"
-        FrozenColumnCount="0"
-        GridLinesVisibility="None"
-        HeadersVisibility="Column"
-        IsReadOnly="False"
-        RowDetailsVisibilityMode="Collapsed"
-        SelectionMode="Extended"
-        RowGroupHeaderPropertyNameAlternative="Range">
-            <controls:DataGrid.Columns>
-                <controls:DataGridTemplateColumn Header="Khách hàng" CanUserSort="True">
-                    <controls:DataGridTemplateColumn.CellTemplate>
-                        <DataTemplate>
-                            <TextBlock Text="{Binding Customer_Name}"></TextBlock>
-                        </DataTemplate>
-                    </controls:DataGridTemplateColumn.CellTemplate>
-                </controls:DataGridTemplateColumn>
-                <controls:DataGridTemplateColumn Header="Số điện thoại" CanUserSort="True">
-                    <controls:DataGridTemplateColumn.CellTemplate>
-                        <DataTemplate>
-                            <TextBlock Text="{Binding Tel}"></TextBlock>
-                        </DataTemplate>
-                    </controls:DataGridTemplateColumn.CellTemplate>
-                </controls:DataGridTemplateColumn>
-                <controls:DataGridTemplateColumn Header="Tổng tiền" CanUserSort="True">
-                    <controls:DataGridTemplateColumn.CellTemplate>
-                        <DataTemplate>
-                            <TextBlock Text="{Binding Total}"></TextBlock>
-                        </DataTemplate>
-                    </controls:DataGridTemplateColumn.CellTemplate>
-                </controls:DataGridTemplateColumn>
-                    <controls:DataGridTemplateColumn Header="Ngày tạo">
-                        <controls:DataGridTemplateColumn.CellTemplate>
-                        <DataTemplate>
-                            <DatePicker SelectedDate="{Binding Created_At, Mode=OneTime}"/>
-                        </DataTemplate>
-                    </controls:DataGridTemplateColumn.CellTemplate>
-                </controls:DataGridTemplateColumn>
-            </controls:DataGrid.Columns>
-        </controls:DataGrid>
-    </Grid>
+    <Page.Resources>
+        <local:RelativeToAsolutePathConverter x:Key="pathConverter"/>
+    </Page.Resources>
+
+    <controls:DockPanel LastChildFill="True">
+        <StackPanel Height="50" controls:DockPanel.Dock="Bottom" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,0,0,50" FlowDirection="LeftToRight">
+            <Button Width="80" Height="35" Content="Thêm" Name="addPurchaseButton" Click="addPurchaseButton_Click" Margin="0, 0, 10, 0"/>
+            <Button Width="80" Height="35" Content="Hủy" Name="cancelButton" Click="cancelButton_Click" Margin="10, 0, 10, 0"/>
+        </StackPanel>
+        <Canvas>
+            <TextBlock Text="Số điện thoại khách hàng:" Canvas.Left="10" Canvas.Top="35"/>
+            <TextBox x:Name="customerTelTextBox"  Width="160" Height="35" Canvas.Left="10" Canvas.Top="56"/>
+            <TextBlock Text="Họ và tên khách hàng:" Canvas.Left="209" Canvas.Top="35"/>
+            <TextBox x:Name="customerNameTextBox"  Width="214" Height="35" Canvas.Left="209" Canvas.Top="56"/>
+
+            <TextBlock x:Name="totalTextBlock" FontSize="30"  Canvas.Left="555" Canvas.Top="450">
+                <Run Text="Total:"/>
+                <Run Text="{Binding}"/>
+            </TextBlock>
+
+            <ListView x:Name="selectedProductsListView" Width="538" Height="379" Canvas.Left="12" Canvas.Top="111">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel>
+                            <TextBlock Text="{Binding Name}"/>
+                            <TextBlock Text="{Binding Quantity}"/>
+                            <TextBlock Text="{Binding Price}"/>
+                            <!--<TextBlock Text="{Binding SubTotal}" Foreground="Blue" FontWeight="Bold"/>-->
+                        </StackPanel>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+            <Button Name="selectButton" Content="Chọn" Width="80" Height="35" Canvas.Left="760" Canvas.Top="56" Click="selectButton_Click">
+
+            </Button>
+
+            <ListView x:Name="productsListView" Width="330" Height="379" Canvas.Left="760" Canvas.Top="111" SelectionChanged="productsListView_SelectionChanged">
+                <ListView.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <controls:WrapPanel/>
+                    </ItemsPanelTemplate>
+                </ListView.ItemsPanel>
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Width="100" Height="150">
+                            <Image Source="{Binding Image, Converter={StaticResource pathConverter}}" VerticalAlignment="Center" HorizontalAlignment="Center"  Height="100" Width="100"/>
+                            <TextBlock Text="{Binding Name}" FontSize="10" TextWrapping="Wrap"  HorizontalTextAlignment="Center" VerticalAlignment="Bottom"  HorizontalAlignment="Center"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </Canvas>
+    </controls:DockPanel>
 </Page>

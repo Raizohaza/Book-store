@@ -22,13 +22,15 @@ namespace DoAn1
 {
     public sealed partial class DetailsUserControl : UserControl
     {
+        Product objProduct { get; set; }
         public DetailsUserControl(Product product)
         {
             if (product !=null)
             {
                 this.InitializeComponent();
-                this.DataContext = product;             
-
+                this.DataContext = product;
+                pageInfo.DataContext = "1";
+                objProduct = product;
                 List<Product_Images> img = new List<Product_Images>();
                 DataTable images = provider::QueryForSQLServer.GetProducts_Image(product.Id);
 
@@ -75,5 +77,32 @@ namespace DoAn1
             this.Visibility = Visibility.Collapsed;
         }
         #endregion
+        int quantity = 1;
+        private void subtractButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (quantity - 1 >=1)
+            {
+                quantity--;
+                pageInfo.DataContext = quantity.ToString();
+            }
+        }
+
+        private void addButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (quantity + 1 <= objProduct.Quantity)
+            {
+                quantity++;
+                pageInfo.DataContext = quantity.ToString();
+            }
+        }
+
+        private void btnBuy_Click(object sender, RoutedEventArgs e)
+        {
+            var _newPurchase = new Purchase()
+            {
+                Created_At = DateTime.Now,
+            };
+        }
+
     }
 }
