@@ -69,10 +69,6 @@ namespace DoAn1
             ProductData = GetProductFromDb();
             productsListView.ItemsSource = ProductData;
         }
-        private void selectButton_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
 
         ObservableCollection<object> list = new ObservableCollection<object>();
         private async void productsListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -138,28 +134,69 @@ namespace DoAn1
 
         private async void addPurchaseButton_Click(object sender, RoutedEventArgs e)
         {
-            var purchase = new Purchase()
+            try
             {
-                Created_At = DateTime.Now,
-                Total = list.Sum((dynamic p) => p.SubTotal as Nullable<decimal>)
-            };
-
-            var _newCustomer = new Customer{ 
-                Tel = customerTelTextBox.Text.ToString(),
-                Customer_Name = customerNameTextBox.Text.ToString()
-            };
-            foreach (dynamic item in list)
-            {
-                purchase.PurchaseDetails.Add(new PurchaseDetail()
+                //Customer
+                var dt = QueryForSQLServer.GetCustomerByTel(customerTelTextBox.Text.ToString());
+                if (dt.Rows.Count == 0)
                 {
-                    Product_ID = item.Product_ID,
-                    Price = item.Unit_Price,
-                    Quantity = item.Quantity,
-                    Total = item.SubTotal
-                });
-            }
+                    var _newCustomer = new Customer
+                    {
+                        Tel = customerTelTextBox.Text.ToString(),
+                        Customer_Name = customerNameTextBox.Text.ToString()
+                    };
+                    QueryForSQLServer.InsertCustomer(_newCustomer);
+                }
+                else
+                {
+                    customerNameTextBox.Text = dt.Rows[0].ItemArray[0].ToString();
+                }
+                
 
-            var messageDialog2 = await new MessageDialog("Success", "Confirm").ShowAsync();
+                //Purchase
+                var purchase = new Purchase()
+                {
+                    Created_At = DateTime.Now,
+                    Total = list.Sum((dynamic p) => p.SubTotal as Nullable<decimal>),
+                    Customer_Tel = customerTelTextBox.Text.ToString(),
+                    Status = 1
+                };
+                var p_id = QueryForSQLServer.InsertPurchase(purchase);
+
+                //PurchaseDetail
+                if (p_id == -1)
+                {
+                    var messageDialog = await new MessageDialog("Failed", "Confirm").ShowAsync();
+                }
+                else
+                {
+                    foreach (dynamic item in list)
+                    {
+                        purchase.PurchaseDetails.Add(new PurchaseDetail()
+                        {
+                            Purchase_ID = p_id,
+                            Product_ID = item.Product_ID,
+                            Price = item.Unit_Price,
+                            Quantity = item.Quantity,
+                            Total = item.SubTotal
+                        });
+                        
+                    }
+                    foreach (dynamic item in purchase.PurchaseDetails)
+                    {
+                        QueryForSQLServer.InsertPurchaseDetail(item);
+                    }
+                }
+                
+
+                var messageDialog2 = await new MessageDialog("Success", "Confirm").ShowAsync();
+            }
+            catch (Exception ex)
+            {
+
+                Debug.WriteLine(ex);
+            }
+            
         }
 
         private void cancelButton_Click(object sender, RoutedEventArgs e)

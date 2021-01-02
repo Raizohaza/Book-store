@@ -56,10 +56,6 @@
                 </ListView.ItemTemplate>
             </ListView>
 
-            <Button Name="selectButton" Content="Chọn" Width="80" Height="35" Canvas.Left="760" Canvas.Top="56" Click="selectButton_Click">
-
-            </Button>
-
             <ListView x:Name="productsListView" Width="330" Height="379" Canvas.Left="760" Canvas.Top="111" SelectionChanged="productsListView_SelectionChanged">
                 <ListView.ItemsPanel>
                     <ItemsPanelTemplate>

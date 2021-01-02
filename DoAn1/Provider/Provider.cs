@@ -74,7 +74,7 @@ namespace DoAn1
                 Connection.Close();
         }
 
-        public int ExcecuteNonQuery(CommandType cmtType, string sqlSQL,
+        public int? ExcecuteNonQuery(CommandType cmtType, string sqlSQL,
                         params SqlParameter[] parameters)
         {
             try
@@ -84,7 +84,8 @@ namespace DoAn1
                 command.CommandType = cmtType;
                 if (parameters != null && parameters.Length > 0)
                     command.Parameters.AddRange(parameters);
-                int nRow = command.ExecuteNonQuery();
+                command.ExecuteNonQuery();
+                int? nRow = command.Parameters["@id"].Value as int?;
                 return nRow;
             }
             catch (SqlException ex)

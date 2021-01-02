@@ -395,11 +395,190 @@ namespace DoAn1
         #endregion
 
         #region PurchaseDetail
+        public static int InsertPurchaseDetail(PurchaseDetail purchaseDetail)
+        {
+            const string Query = "insert into PurchaseDetail(Purchase_ID,Product_ID,Price,Quantity,Total) " +
+                "values(@Purchase_ID, @Product_ID, @Price, @Quantity, @Total)";
+            Provider p = new Provider();
+            int id = -1;
+            try
+            {
+                DataTable dt;
+                p.Connect();
+                dt = p.ExcecuteQuery(CommandType.Text, Query,
+                    new SqlParameter { ParameterName = "@Purchase_ID", Value = purchaseDetail.Purchase_ID },
+                    new SqlParameter { ParameterName = "@Product_ID", Value = purchaseDetail.Product_ID },
+                    new SqlParameter { ParameterName = "@Price", Value = purchaseDetail.Price },
+                    new SqlParameter { ParameterName = "@Quantity", Value = purchaseDetail.Quantity },
+                    new SqlParameter { ParameterName = "@Total", Value = purchaseDetail.Total }
+                    );
 
+                return id;
+            }
+            catch (Exception eSql)
+            {
+                Debug.WriteLine("Exception: " + eSql.Message);
+            }
+            finally
+            {
+                p.DisConnect();
+            }
+            return 0;
+        }
         #endregion
 
         #region Purchase
+        public static DataTable GetPurchase()
+        {
+            const string GetProductsQuery = "select * from Purchase ";
+            DataTable dt = null;
 
+            Provider p = new Provider();
+            var products = new ObservableCollection<Product>();
+            try
+            {
+                p.Connect();
+                dt = p.ExcecuteQuery(CommandType.Text, GetProductsQuery);
+                return dt;
+            }
+            catch (Exception eSql)
+            {
+                Debug.WriteLine("Exception: " + eSql.Message);
+            }
+            finally
+            {
+                p.DisConnect();
+            }
+            return null;
+        }
+
+        public static int InsertPurchase(Purchase purchase)
+        {
+            const string Query = "sp_InsertPurchase";
+            Provider p = new Provider();
+            int? id = -1;
+            try
+            {
+                p.Connect();
+                id = p.ExcecuteNonQuery(CommandType.StoredProcedure, Query,
+                    new SqlParameter { ParameterName = "@Customer_Tel", Value = purchase.Customer_Tel },
+                    new SqlParameter { ParameterName = "@Created_At", Value = purchase.Created_At },
+                    new SqlParameter { ParameterName = "@Total", Value = purchase.Total },
+                    new SqlParameter { ParameterName = "@Status", Value = purchase.Status },
+                    new SqlParameter { ParameterName = "@id", Value = id,Direction = ParameterDirection.Output }
+
+                    );
+                if (id != null)
+                {
+                    return (int)id;
+                }
+                return -1;
+            }
+            catch (Exception eSql)
+            {
+                Debug.WriteLine("Exception: " + eSql.Message);
+            }
+            finally
+            {
+                p.DisConnect();
+            }
+            return -1;
+        }
+        public static void DeletePurchase(string name)
+        {
+            const string Query = "delete Category where cast(name as nvarchar(50)) = @name";
+            Provider p = new Provider();
+            try
+            {
+                p.Connect();
+                p.ExcecuteQuery(CommandType.Text, Query,
+                    new SqlParameter { ParameterName = "@name", Value = name }
+                    );
+            }
+            catch (Exception eSql)
+            {
+                Debug.WriteLine("Exception: " + eSql.Message);
+            }
+            finally
+            {
+                p.DisConnect();
+            }
+        }
+        public static void UpdatePurchase(Category Category)
+        {
+            string Query = "update Category " +
+                "set Name = N'" + Category.Name + "' where id = " + Category.Id;
+
+            Provider p = new Provider();
+            try
+            {
+                p.Connect();
+                p.ExcecuteQuery(CommandType.Text, Query);
+            }
+            catch (Exception eSql)
+            {
+                Debug.WriteLine("Exception: " + eSql.Message);
+            }
+            finally
+            {
+                p.DisConnect();
+            }
+        }
+        #endregion
+
+        #region Customer   
+        public static DataTable GetCustomerByTel(string tel)
+        {
+            const string Query = "select * from Customer where tel = @tel";
+            Provider p = new Provider();
+            DataTable dt=null;
+            try
+            {
+                
+                p.Connect();
+                dt = p.ExcecuteQuery(CommandType.Text, Query,
+                    new SqlParameter { ParameterName = "@tel", Value = tel }
+                    );
+
+                return dt;
+            }
+            catch (Exception eSql)
+            {
+                Debug.WriteLine("Exception: " + eSql.Message);
+            }
+            finally
+            {
+                p.DisConnect();
+            }
+            return dt;
+        }
+        public static int InsertCustomer(Customer customer)
+        {
+            const string Query = "insert into Customer(Customer_Name,Tel) " +
+                "values(@name,@tel)";
+            Provider p = new Provider();
+            int id = -1;
+            try
+            {
+                DataTable dt;
+                p.Connect();
+                dt = p.ExcecuteQuery(CommandType.Text, Query,
+                    new SqlParameter { ParameterName = "@name", Value = customer.Customer_Name },
+                    new SqlParameter { ParameterName = "@Tel", Value = customer.Tel }
+                    );
+
+                return id;
+            }
+            catch (Exception eSql)
+            {
+                Debug.WriteLine("Exception: " + eSql.Message);
+            }
+            finally
+            {
+                p.DisConnect();
+            }
+            return -1;
+        }
         #endregion
     }
 }
