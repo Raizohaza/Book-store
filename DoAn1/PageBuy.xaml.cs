@@ -13,11 +13,11 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
-using provider = DoAn1.Provider;
 using System.Collections.ObjectModel;
 using System.Data;
 using System.Diagnostics;
 using System.ComponentModel;
+using Windows.UI.Popups;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -35,7 +35,7 @@ namespace DoAn1
             DataTable data = null;
             var products = new ObservableCollection<Product>();
 
-            data = provider::QueryForSQLServer.GetProducts();
+            data = QueryForSQLServer.GetProducts();
             foreach (DataRow row in data.Rows)
             {
                 var product = new Product();
@@ -75,14 +75,59 @@ namespace DoAn1
         }
 
         ObservableCollection<object> list = new ObservableCollection<object>();
-        private void productsListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private async void productsListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             try
             {
-                var item = productsListView.SelectedItem as Product;
-                list.Add(item);
-                //totalTextBlock
-                selectedProductsListView.ItemsSource = list;
+                var kt = productsListView.SelectedIndex;
+                if (kt != -1)
+                {
+                    var item = productsListView.SelectedItem as Product;
+
+                    // Kiểm tra sản phẩm đã có sẵn hay chưa
+                    var foundIndex = -1;
+                    for (int i = 0; i < list.Count; i++)
+                    {
+                        dynamic p = list[i];
+                        if (p.Product_ID == item.Id && p.Quantity + 1 <= item.Quantity)
+                        {
+                            var updatedProduct = new
+                            {
+                                Product_ID = item.Id,
+                                Product_Name = item.Name,
+                                SubTotal = (p.Quantity + 1) * p.Unit_Price,
+                                Quantity = p.Quantity + 1,
+                                Unit_Price = p.Unit_Price
+                            };
+                            list.RemoveAt(i);
+                            list.Insert(i, updatedProduct);
+
+                            foundIndex = i; // báo hiệu đã tìm thấy
+                            //break;
+                        }
+                        if (p.Product_ID == item.Id && p.Quantity + 1 > item.Quantity)
+                        {
+                            var messageDialog2 = await new MessageDialog("The product was sold out!", "Confirm").ShowAsync();
+                            foundIndex = i; // báo hiệu đã tìm thấy
+                            break;
+                        }    
+                    }
+
+                    if (foundIndex == -1) // Chưa cập nhật
+                    {
+                        list.Add(new
+                        {
+                            Product_ID = item.Id,
+                            Product_Name = item.Name,
+                            Quantity = 1,
+                            Unit_Price = item.Price,
+                            SubTotal = item.Price
+                        });
+                    }
+                    productsListView.SelectedIndex = -1;
+                    selectedProductsListView.ItemsSource = list;
+                }
+                
             }
             catch (Exception ex)
             {
@@ -91,9 +136,30 @@ namespace DoAn1
             }
         }
 
-        private void addPurchaseButton_Click(object sender, RoutedEventArgs e)
+        private async void addPurchaseButton_Click(object sender, RoutedEventArgs e)
         {
+            var purchase = new Purchase()
+            {
+                Created_At = DateTime.Now,
+                Total = list.Sum((dynamic p) => p.SubTotal as Nullable<decimal>)
+            };
 
+            var _newCustomer = new Customer{ 
+                Tel = customerTelTextBox.Text.ToString(),
+                Customer_Name = customerNameTextBox.Text.ToString()
+            };
+            foreach (dynamic item in list)
+            {
+                purchase.PurchaseDetails.Add(new PurchaseDetail()
+                {
+                    Product_ID = item.Product_ID,
+                    Price = item.Unit_Price,
+                    Quantity = item.Quantity,
+                    Total = item.SubTotal
+                });
+            }
+
+            var messageDialog2 = await new MessageDialog("Success", "Confirm").ShowAsync();
         }
 
         private void cancelButton_Click(object sender, RoutedEventArgs e)

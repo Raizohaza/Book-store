@@ -35,10 +35,22 @@
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <StackPanel>
-                            <TextBlock Text="{Binding Name}"/>
-                            <TextBlock Text="{Binding Quantity}"/>
-                            <TextBlock Text="{Binding Price}"/>
-                            <!--<TextBlock Text="{Binding SubTotal}" Foreground="Blue" FontWeight="Bold"/>-->
+                            <TextBlock >
+                                <Run Text="Name: "/>
+                                <Run Text="{Binding Product_Name}"/>
+                            </TextBlock>
+                            <TextBlock>
+                                <Run Text="Quantity: "/>
+                                <Run Text="{Binding Quantity}"/>
+                            </TextBlock>
+                            <TextBlock >
+                                <Run Text="Unit_Price: "/>
+                                <Run Text="{Binding Unit_Price}"/>
+                            </TextBlock>
+                            <TextBlock >
+                                <Run Text="SubTotal: "/>
+                                <Run Text="{Binding SubTotal}" Foreground="Blue" FontWeight="Bold"/>
+                            </TextBlock>
                         </StackPanel>
                     </DataTemplate>
                 </ListView.ItemTemplate>

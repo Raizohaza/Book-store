@@ -15,7 +15,6 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
-using provider = DoAn1.Provider;
 using muxcs = Microsoft.UI.Xaml.Controls;
 using Windows.UI.Xaml.Media.Animation;
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
@@ -112,7 +111,7 @@ namespace DoAn1
             DataTable data = null;
             var products = new ObservableCollection<Product>();
 
-            data = provider::QueryForSQLServer.GetProducts();
+            data = QueryForSQLServer.GetProducts();
             foreach (DataRow row in data.Rows)
             {
                 var product = new Product();

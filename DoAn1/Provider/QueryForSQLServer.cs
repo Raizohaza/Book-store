@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DoAn1.Provider
+namespace DoAn1
 {
     class QueryForSQLServer
     {
@@ -375,7 +375,7 @@ namespace DoAn1.Provider
             Provider p = new Provider();
             try
             {
-                DataTable dt;
+                //DataTable dt;
                 p.Connect();
 
                 p.ExcecuteQuery(CommandType.Text, Query,

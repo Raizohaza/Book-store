@@ -17,9 +17,9 @@ namespace DoAn1
         public int PurchaseDetail_ID { get; set; }
         public int Purchase_ID { get; set; }
         public int Product_ID { get; set; }
-        public int Price { get; set; }
+        public Nullable<decimal> Price { get; set; }
         public int Quantity { get; set; }
-        public int Total { get; set; }
+        public Nullable<decimal> Total { get; set; }
     
         public virtual Product Product { get; set; }
         public virtual Purchase Purchase { get; set; }

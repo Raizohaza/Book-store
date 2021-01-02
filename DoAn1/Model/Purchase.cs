@@ -21,7 +21,7 @@ namespace DoAn1
         }
     
         public int Purchase_ID { get; set; }
-        public Nullable<int> Total { get; set; }
+        public Nullable<decimal> Total { get; set; }
         public Nullable<System.DateTime> Created_At { get; set; }
         public Nullable<int> Status { get; set; }
         public string Customer_Tel { get; set; }

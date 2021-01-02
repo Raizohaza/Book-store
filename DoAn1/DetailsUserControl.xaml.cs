@@ -14,7 +14,6 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
-using provider = DoAn1.Provider;
 
 // The User Control item template is documented at https://go.microsoft.com/fwlink/?LinkId=234236
 
@@ -32,7 +31,7 @@ namespace DoAn1
                 pageInfo.DataContext = "1";
                 objProduct = product;
                 List<Product_Images> img = new List<Product_Images>();
-                DataTable images = provider::QueryForSQLServer.GetProducts_Image(product.Id);
+                DataTable images = QueryForSQLServer.GetProducts_Image(product.Id);
 
               
               

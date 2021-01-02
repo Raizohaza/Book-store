@@ -20,7 +20,6 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Media.Animation;
 using Windows.UI.Xaml.Navigation;
-using provider = DoAn1.Provider;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -81,7 +80,7 @@ namespace DoAn1
             DataTable data = null;
             var products = new ObservableCollection<Product>();
 
-            data = provider::QueryForSQLServer.GetProducts();
+            data = QueryForSQLServer.GetProducts();
             foreach (DataRow row in data.Rows)
             {
                 var product = new Product();
@@ -109,7 +108,7 @@ namespace DoAn1
         public static ObservableCollection<Category> GetCategoriesFromDb()
         {
             var categoriesList = new ObservableCollection<Category>();
-            DataTable q = provider::QueryForSQLServer.GetCategory();
+            DataTable q = QueryForSQLServer.GetCategory();
             foreach (DataRow row in q.Rows)
             {
                 var category = new Category { Id = (int)row.ItemArray[0], Name = (string)row.ItemArray[1] };
@@ -169,7 +168,7 @@ namespace DoAn1
         {
             this.InitializeComponent();
             var categoriesList = new ObservableCollection<Category>();
-            DataTable q = provider::QueryForSQLServer.GetCategory();
+            DataTable q = QueryForSQLServer.GetCategory();
             foreach (DataRow row in q.Rows)
             {
                 var category = new Category { Id = (int)row.ItemArray[0], Name = (string)row.ItemArray[1] };
@@ -209,14 +208,13 @@ namespace DoAn1
         private void Remove_Click(object sender, RoutedEventArgs e)
         {
             var item = originalSource.DataContext as Product;
-            provider::QueryForSQLServer.DeleteProduct(item.Id);
-
+            QueryForSQLServer.DeleteProduct(item.Id);
+            Refresh();
         }
 
         private void test_data_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             var item = test_data.SelectedItem as Product;
-            var index = test_data.SelectedIndex;
             var screen = new DetailsUserControl(item);
             GridHome.Children.Add(screen);
             //this.Visibility = Visibility.Collapsed;
@@ -245,7 +243,7 @@ namespace DoAn1
         private async void cbbEdit_Click(object sender, RoutedEventArgs e)
         {
             var item = originalSource.DataContext as Category;
-            DataTable dt = provider::QueryForSQLServer.GetCategoryByName(item.Name);
+            DataTable dt = QueryForSQLServer.GetCategoryByName(item.Name);
             int id = (int)dt.Rows[0].ItemArray[0];
             TextBox input = new TextBox()
             {
@@ -267,7 +265,7 @@ namespace DoAn1
                 if (input.Text != "")
                 {
                     var cat = new Category() { Id=item.Id, Name = input.Text };
-                    provider::QueryForSQLServer.UpdateCategory(cat);
+                    QueryForSQLServer.UpdateCategory(cat);
                     await new Windows.UI.Popups.MessageDialog("Updated!").ShowAsync();
                     Refresh();
                 }
@@ -283,7 +281,7 @@ namespace DoAn1
         private void cbbRemove_Click(object sender, RoutedEventArgs e)
         {
             var item = originalSource.DataContext as Category;
-            provider::QueryForSQLServer.DeleteCategory(item.Name);
+            QueryForSQLServer.DeleteCategory(item.Name);
             //reset cat
             
             Refresh();
@@ -311,7 +309,7 @@ namespace DoAn1
                 if (input.Text != "")
                 {
                     var cat = new Category() { Name = input.Text };
-                    provider::QueryForSQLServer.InsertCategory(cat);
+                    QueryForSQLServer.InsertCategory(cat);
                     await new Windows.UI.Popups.MessageDialog("Success!").ShowAsync();
                     Refresh();
                 }

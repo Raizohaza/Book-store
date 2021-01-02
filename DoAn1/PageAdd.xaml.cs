@@ -17,7 +17,6 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
-using provider = DoAn1.Provider;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -97,7 +96,7 @@ namespace DoAn1
                     {
                         Name = tab.Name
                     };
-                    category.Id = provider::QueryForSQLServer.InsertCategory(category);
+                    category.Id = QueryForSQLServer.InsertCategory(category);
 
                     tab.UsedRangeIncludesFormatting = false;
                     var cell = tab.Range[$"C3"];
@@ -158,10 +157,10 @@ namespace DoAn1
                 {
                     foreach (var cat in list)
                     {
-                        cat.Id = provider::QueryForSQLServer.InsertCategory(cat);
+                        cat.Id = QueryForSQLServer.InsertCategory(cat);
                         foreach (var product in cat.Products)
                         {
-                            var index = provider::QueryForSQLServer.InsertProduct(product);
+                            var index = QueryForSQLServer.InsertProduct(product);
                         }
                     }
                     var messageDialog2 = await new MessageDialog("Success", "Confirm").ShowAsync();
@@ -199,13 +198,13 @@ namespace DoAn1
             {
                 Product.Price = Decimal.Parse(addGia.Text);
                 Product.Quantity = int.Parse(addSoLuong.Text);
-                var productid = provider::QueryForSQLServer.InsertProduct(Product);
+                var productid = QueryForSQLServer.InsertProduct(Product);
                 int id = 1;
                 foreach (var item in Product.Product_Images)
                 {
                     item.id = id;
                     item.ProductId = productid;
-                    provider::QueryForSQLServer.InsertProduct_Image(item);
+                    QueryForSQLServer.InsertProduct_Image(item);
                     id++;
                 }
                 Frame.GoBack();
@@ -260,7 +259,7 @@ namespace DoAn1
                         var image = tab.Range[$"B{row}"].Text;
                         var name = tab.Range[$"C{row}"].Text;
 
-                        var ImageId = (int)provider::QueryForSQLServer.GetProductsByImage(image).Rows[0].ItemArray[0];
+                        var ImageId = (int)QueryForSQLServer.GetProductsByImage(image).Rows[0].ItemArray[0];
 
                         var product_image = new Product_Images()
                         {
@@ -295,17 +294,17 @@ namespace DoAn1
                 var result = await messageDialog.ShowAsync();
                 if ((int)result.Id == 0)
                 {
-                    var i = provider::QueryForSQLServer.GetProducts_ImageMaxId(list[0].ProductId) + 1;
+                    var i = QueryForSQLServer.GetProducts_ImageMaxId(list[0].ProductId) + 1;
                     var preProduct = list[0].ProductId;
                     foreach (var img in list)
                     {
                         if (img.ProductId != preProduct)
                         {
-                            i = provider::QueryForSQLServer.GetProducts_ImageMaxId(img.ProductId) + 1;
+                            i = QueryForSQLServer.GetProducts_ImageMaxId(img.ProductId) + 1;
                         }
                         img.id = i;
                         preProduct = img.ProductId;
-                        provider::QueryForSQLServer.InsertProduct_Image(img);
+                        QueryForSQLServer.InsertProduct_Image(img);
                         Debug.WriteLine(img.id + img.Name + img.ProductId);
                         i++;
                     }

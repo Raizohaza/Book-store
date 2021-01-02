@@ -18,7 +18,6 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
-using provider = DoAn1.Provider;
 
 // The User Control item template is documented at https://go.microsoft.com/fwlink/?LinkId=234236
 
@@ -38,7 +37,7 @@ namespace DoAn1
             {
                 //Load Product_Images
                 List<Product_Images> img = new List<Product_Images>();
-                DataTable images = provider::QueryForSQLServer.GetProducts_Image(Product.Id);
+                DataTable images = QueryForSQLServer.GetProducts_Image(Product.Id);
 
                 foreach (DataRow item in images.Rows)
                 {
@@ -140,16 +139,16 @@ namespace DoAn1
             {
                 Product.Price = Decimal.Parse(addGia.Text);
                 Product.Quantity = int.Parse(addSoLuong.Text);
-                provider::QueryForSQLServer.UpdateProduct(Product);
+                QueryForSQLServer.UpdateProduct(Product);
 
                 //delete then insert
-                provider::QueryForSQLServer.DeleteProduct_Image(Product.Id);
+                QueryForSQLServer.DeleteProduct_Image(Product.Id);
                 int id = 1;
                 foreach (var item in Product.Product_Images)
                 {
                     item.id = id;
                     item.ProductId = Product.Id;
-                    provider::QueryForSQLServer.InsertProduct_Image(item);
+                    QueryForSQLServer.InsertProduct_Image(item);
                     id++;
                 }
                 Handler?.Invoke(Product);
