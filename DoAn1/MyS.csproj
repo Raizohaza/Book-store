@@ -141,6 +141,9 @@
     <Compile Include="PageBuy.xaml.cs">
       <DependentUpon>PageBuy.xaml</DependentUpon>
     </Compile>
+    <Compile Include="PageCheckOut.xaml.cs">
+      <DependentUpon>PageCheckOut.xaml</DependentUpon>
+    </Compile>
     <Compile Include="PageFav.xaml.cs">
       <DependentUpon>PageFav.xaml</DependentUpon>
     </Compile>
@@ -192,6 +195,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="PageBuy.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PageCheckOut.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

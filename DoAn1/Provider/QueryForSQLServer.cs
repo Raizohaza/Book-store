@@ -395,6 +395,31 @@ namespace DoAn1
         #endregion
 
         #region PurchaseDetail
+        public static DataTable GetPurchaseDetail(int p_id)
+        {
+            const string GetProductsQuery = "select p.Name,p.Image,pd.Price,pd.Quantity,pd.Total from PurchaseDetail pd join Product p on pd.Product_ID = p.Id" +
+                " where Purchase_ID=@p_id";
+            DataTable dt = null;
+
+            Provider p = new Provider();
+            var products = new ObservableCollection<Product>();
+            try
+            {
+                p.Connect();
+                dt = p.ExcecuteQuery(CommandType.Text, GetProductsQuery,
+                    new SqlParameter { ParameterName = "@p_id" , Value = p_id });
+                return dt;
+            }
+            catch (Exception eSql)
+            {
+                Debug.WriteLine("Exception: " + eSql.Message);
+            }
+            finally
+            {
+                p.DisConnect();
+            }
+            return null;
+        }
         public static int InsertPurchaseDetail(PurchaseDetail purchaseDetail)
         {
             const string Query = "insert into PurchaseDetail(Purchase_ID,Product_ID,Price,Quantity,Total) " +
@@ -430,7 +455,7 @@ namespace DoAn1
         #region Purchase
         public static DataTable GetPurchase()
         {
-            const string GetProductsQuery = "select * from Purchase ";
+            const string GetProductsQuery = "select * from Purchase p join Customer c on p.Customer_Tel = c.Tel";// join PurchaseDetail pd on pd.Purchase_ID = p.Purchase_ID"; p.Purchase_ID,p.Total,Created_At,Customer_Name,Tel
             DataTable dt = null;
 
             Provider p = new Provider();

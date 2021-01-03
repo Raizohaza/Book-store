@@ -73,6 +73,9 @@ namespace DoAn1
                     case "iconBag":
                         CF.Navigate(typeof(PageBuy));
                         break;
+                    case "iconCheckOut":
+                        CF.Navigate(typeof(PageCheckOut));
+                        break;
                 }
             }
         }
