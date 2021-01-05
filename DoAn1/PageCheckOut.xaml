@@ -8,7 +8,7 @@
     mc:Ignorable="d"
     xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
     xmlns:muxc="using:Windows.UI.Xaml.Controls"
-    Height="600" Width="1100"
+    Height="580" Width="1100"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <controls:DockPanel LastChildFill="True">
@@ -31,12 +31,39 @@
         </StackPanel>
         <controls:DockPanel LastChildFill="True">
             <StackPanel Name="purchaseStackPanel" Background="LightGray" controls:DockPanel.Dock="Right" Visibility="Visible" Margin="-477,0,0,0" >
-                <controls:DataGrid Name="DataGridDetailPurchase" Height="543" AutoGenerateColumns="True" VariableSizedWrapGrid.RowSpan="2">
-                </controls:DataGrid>
+                <StackPanel x:Name="CustomerStackPanel">
+                    <controls:DockPanel >
+                        <StackPanel Margin="10" HorizontalAlignment="Left">
+                            <TextBlock Text="Số điện thoại khách hàng:"/>
+                            <TextBox x:Name="customerTelTextBox" Text="{Binding Tel}" IsReadOnly="True" HorizontalAlignment="Left" Width="160" Height="35"/>
+                        </StackPanel>
+                        <StackPanel Margin="10" HorizontalAlignment="Right">
+                            <TextBlock Text="Tên khách hàng:"/>
+                            <TextBox x:Name="customerNameTextBox" Text="{Binding Customer_Name}" HorizontalAlignment="Left" Width="160" Height="35"/>
+                        </StackPanel>
+                    </controls:DockPanel>
+                    <controls:DockPanel  >
+                        <StackPanel Margin="10" HorizontalAlignment="Left">
+                            <TextBlock Text="Địa chỉ khách hàng:"/>
+                            <TextBox x:Name="customerAddressTextBox" Text="{Binding Customer_Address, Mode=TwoWay,UpdateSourceTrigger=Explicit}" HorizontalAlignment="Left" Width="160" Height="35"/>
+                        </StackPanel>
+                        <StackPanel Margin="10" HorizontalAlignment="Right">
+                            <TextBlock Text="Email khách hàng:"/>
+                            <TextBox x:Name="customerEmailTextBox" Text="{Binding Customer_Email, Mode=TwoWay,UpdateSourceTrigger=Explicit}" HorizontalAlignment="Left" Width="160" Height="35"/>
+                        </StackPanel>
+                    </controls:DockPanel>
+                </StackPanel>
+                <controls:DataGrid 
+                    IsReadOnly="False" 
+                    x:Name="DataGridDetailPurchase" 
+                    Height="306" 
+                    AutoGenerateColumns="True" 
+                    VariableSizedWrapGrid.RowSpan="2"
+
+                    />
+                <Button  Name="btnUpdate" Content="Update" Click="btnUpdate_Click" Height="57" Margin="20,0,0,0" Width="99"/>
             </StackPanel>
-            <controls:DataGrid CanUserSortColumns="True"  x:Name="purchaseDataGrid" AutoGenerateColumns="True" SelectionChanged="purchaseDataGrid_SelectionChanged" Margin="0,0,475,10">
-                
-                
+            <controls:DataGrid CanUserSortColumns="True"  x:Name="purchaseDataGrid" AutoGenerateColumns="True" SelectionChanged="purchaseDataGrid_SelectionChanged" Margin="0,0,475,84">
                 <controls:DataGrid.RowStyle>
                     <Style TargetType="controls:DataGridRow">
                         <Setter Property="controls:DataGridRow.ContextFlyout">
@@ -50,8 +77,11 @@
                     </Style>
                 </controls:DataGrid.RowStyle>
             </controls:DataGrid>
-            
-
+            <controls:DockPanel HorizontalAlignment="Left" Height="50" Margin="-273,458,0,32">
+                <Button Content="←" Click="PreviousButton_Click" Width="60" Height="30" HorizontalAlignment="Left"/>
+                <TextBlock x:Name="pageInfo" Text="{Binding }" HorizontalAlignment="Center" HorizontalTextAlignment="Center" Width="100"/>
+                <Button Content="→" Click="NextButton_Click" Width="60" Height="30" HorizontalAlignment="Right"/>
+            </controls:DockPanel>
         </controls:DockPanel>
     </controls:DockPanel>
 </Page>

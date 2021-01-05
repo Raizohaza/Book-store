@@ -4,8 +4,10 @@ using System.Collections.ObjectModel;
 using System.Data;
 using System.Diagnostics;
 using System.Linq;
+using System.Reflection;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml.Data;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -26,6 +28,8 @@ namespace DoAn1
             public PurchaseStatus Status;
         };
         ObservableCollection<object> allPurchase = new ObservableCollection<object>();
+        object customerDetail = new object();
+        public static ObservableCollection<object> collection { get; set; }//editGridDetailPurchase
         void reLoadData()
         {
             var dt = QueryForSQLServer.GetPurchase();
@@ -62,25 +66,72 @@ namespace DoAn1
 
             reLoadData();
         }
+        
+
+        void getCustomer(string tel, bool uneditable = true)
+        {
+            var customerDt = QueryForSQLServer.GetCustomerByTel(tel);
+            foreach (DataRow row in customerDt.Rows)
+            {
+                customerDetail = new
+                {
+                    Customer_Name = row.ItemArray[0],
+                    Tel = row.ItemArray[1],
+                    Customer_Address = row.ItemArray[2],
+                    Customer_Email = row.ItemArray[3]
+                };
+            }
+            CustomerStackPanel.DataContext = customerDetail;
+
+            customerEmailTextBox.IsReadOnly = uneditable;
+            customerNameTextBox.IsReadOnly = uneditable;
+            customerAddressTextBox.IsReadOnly = uneditable;
+        }
 
         private void editPurchase_MenuItem_Click(object sender, RoutedEventArgs e)
         {
             var Selecteditem = (sender as FrameworkElement).DataContext;
-            ObservableCollection<object> allPurchaseDetail = new ObservableCollection<object>();
             int id = (int)Selecteditem?.GetType().GetProperty("Purchase_ID")?.GetValue(Selecteditem, null);
+            DataGridDetailPurchase.AutoGenerateColumns = false;
             var dt = QueryForSQLServer.GetPurchaseDetail(id);
-            foreach (DataRow item in dt.Rows)
+            DataGridDetailPurchase.Columns.Clear();
+
+            //customer
+            string tel = Selecteditem?.GetType().GetProperty("Tel")?.GetValue(Selecteditem, null).ToString();
+            getCustomer(tel,false);
+
+            //DataGridDetailPurchase
+            DataGridDetailPurchase.Columns.Add(new DataGridTextColumn()
             {
-                var _p = new
-                {
-                    Name = item["Name"],
-                    //Price = item["Price"],
-                    Quantity = item["Quantity"],
-                    Total = item["Total"]
-                };
-                allPurchaseDetail.Add(_p);
+                Header = dt.Columns[0].ColumnName,
+                Binding = new Binding { Path = new PropertyPath("[" + 0.ToString() + "]") }
+            });
+
+            DataGridDetailPurchase.Columns.Add(new DataGridTextColumn()
+            {
+                Header = dt.Columns[3].ColumnName,
+                Binding = new Binding { Path = new PropertyPath("[" + 3.ToString() + "]"),
+                UpdateSourceTrigger = UpdateSourceTrigger.PropertyChanged
+                }
+            });
+            DataGridDetailPurchase.Columns[1].IsReadOnly = false;
+            
+
+            DataGridDetailPurchase.Columns.Add(new DataGridTextColumn()
+            {
+                Header = dt.Columns[4].ColumnName,
+                Binding = new Binding { Path = new PropertyPath("[" + 4.ToString() + "]") }
+            });
+
+            collection = new ObservableCollection<object>();
+
+
+            foreach (DataRow row in dt.Rows)
+            {
+                collection.Add(row.ItemArray);
             }
-            DataGridDetailPurchase.ItemsSource = allPurchaseDetail;
+            DataGridDetailPurchase.ItemsSource = collection;
+
         }
 
         private void purchaseDataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -88,9 +139,17 @@ namespace DoAn1
             try
             {
                 var test = (sender as DataGrid).SelectedItem;
+                
                 ObservableCollection<object> allPurchaseDetail = new ObservableCollection<object>();
+                
                 int? id = (int?)test?.GetType().GetProperty("Purchase_ID")?.GetValue(test, null);
+                string tel = test?.GetType().GetProperty("Tel")?.GetValue(test, null).ToString();
 
+                getCustomer(tel);
+
+                #region PurchaseDetail
+                DataGridDetailPurchase.Columns.Clear();
+                DataGridDetailPurchase.AutoGenerateColumns = true;
                 if (id != null)
                 {
                     int index = (int)id;
@@ -114,7 +173,7 @@ namespace DoAn1
                     allPurchaseDetail.Clear();
                     DataGridDetailPurchase.ItemsSource = allPurchaseDetail;
                 }
-                
+                #endregion
             }
             catch (Exception ex)
             {
@@ -271,6 +330,40 @@ namespace DoAn1
                 // Use args.QueryText to determine what to do.
                 purchaseDataGrid.ItemsSource = search(args.QueryText).Item1;
             }
+        }
+
+        private void btnUpdate_Click(object sender, RoutedEventArgs e)
+        {
+            var test = collection;
+            // itemNameTextBox is an instance of a TextBox
+
+            var customerName = customerNameTextBox.Text.ToString();
+            var customerEmail = customerEmailTextBox.Text.ToString();
+            var customerAddress = customerAddressTextBox.Text.ToString();
+            var customerTel = customerTelTextBox.Text.ToString();
+            customerDetail = new
+            {
+                Customer_Name = customerName,
+                Tel = customerTel,
+                Customer_Address = customerAddress,
+                Customer_Email = customerEmail
+            };
+        }
+
+        //paging
+        int pageIndex = -1;
+        int pageSize = 9; //Set the size of the page
+        int totalPage = 1;
+        string CurrentPage;
+
+        private void PreviousButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void NextButton_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
