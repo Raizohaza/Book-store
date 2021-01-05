@@ -18,6 +18,7 @@ using System.Data;
 using System.Diagnostics;
 using System.ComponentModel;
 using Windows.UI.Popups;
+using System.Globalization;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -30,10 +31,12 @@ namespace DoAn1
     {
         ObservableCollection<Product> ProductData = new ObservableCollection<Product>();
         Purchase p = new Purchase();
+        decimal TotalPrice = 0;
         public ObservableCollection<Product> GetProductFromDb(int catId = 0)
         {
             DataTable data = null;
             var products = new ObservableCollection<Product>();
+
 
             data = QueryForSQLServer.GetProducts();
             foreach (DataRow row in data.Rows)
@@ -68,6 +71,7 @@ namespace DoAn1
         {
             ProductData = GetProductFromDb();
             productsListView.ItemsSource = ProductData;
+            totalTextBlock.DataContext = TotalPrice.ToString();
         }
 
         ObservableCollection<object> list = new ObservableCollection<object>();
@@ -97,9 +101,9 @@ namespace DoAn1
                             };
                             list.RemoveAt(i);
                             list.Insert(i, updatedProduct);
-
+                            
                             foundIndex = i; // báo hiệu đã tìm thấy
-                            //break;
+                            break;
                         }
                         if (p.Product_ID == item.Id && p.Quantity + 1 > item.Quantity)
                         {
@@ -122,6 +126,9 @@ namespace DoAn1
                     }
                     productsListView.SelectedIndex = -1;
                     selectedProductsListView.ItemsSource = list;
+                    TotalPrice = list.Sum((dynamic test) => (decimal)test.SubTotal);
+                    totalTextBlock.DataContext = TotalPrice.ToString("F",
+                                                                    CultureInfo.InvariantCulture);
                 }
                 
             }
@@ -159,7 +166,7 @@ namespace DoAn1
                     Created_At = DateTime.Now,
                     Total = list.Sum((dynamic p) => p.SubTotal as Nullable<decimal>),
                     Customer_Tel = customerTelTextBox.Text.ToString(),
-                    Status = 1
+                    Status = PurchaseStatus.New
                 };
                 var p_id = QueryForSQLServer.InsertPurchase(purchase);
 
@@ -202,6 +209,9 @@ namespace DoAn1
         private void cancelButton_Click(object sender, RoutedEventArgs e)
         {
             list.Clear();
+            TotalPrice = 0;
+            totalTextBlock.DataContext = TotalPrice.ToString("F",
+                                                                    CultureInfo.InvariantCulture);
         }
     }
 }

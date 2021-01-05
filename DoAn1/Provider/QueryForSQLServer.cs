@@ -509,15 +509,15 @@ namespace DoAn1
             }
             return -1;
         }
-        public static void DeletePurchase(string name)
+        public static void DeletePurchase(int id)
         {
-            const string Query = "delete Category where cast(name as nvarchar(50)) = @name";
+            const string Query = "delete Purchase where  Purchase_ID = @id";
             Provider p = new Provider();
             try
             {
                 p.Connect();
                 p.ExcecuteQuery(CommandType.Text, Query,
-                    new SqlParameter { ParameterName = "@name", Value = name }
+                    new SqlParameter { ParameterName = "@id", Value = id }
                     );
             }
             catch (Exception eSql)

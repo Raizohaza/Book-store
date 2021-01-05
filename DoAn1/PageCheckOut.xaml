@@ -14,62 +14,43 @@
     <controls:DockPanel LastChildFill="True">
         <StackPanel VerticalAlignment="Center" Orientation="Horizontal" Height="40" controls:DockPanel.Dock="Top">
             <TextBlock Text="Từ ngày:" Height="24" Margin="5, 0, 5, 0"></TextBlock>
-            <muxc:CalendarDatePicker Name="fromDatePicker" Width="150" Height="30" CompositeMode="SourceOver" ></muxc:CalendarDatePicker>
+            <CalendarDatePicker Name="fromDatePicker" Width="150" Height="30" DateChanged="fromDatePicker_DateChanged" ></CalendarDatePicker>
             <TextBlock Text="Đến ngày:" Height="24" Margin="5, 0, 5, 0"></TextBlock>
-            <CalendarDatePicker Name="toDatePicker" Width="150" Height="30" BorderThickness="3"></CalendarDatePicker>
+            <CalendarDatePicker Name="toDatePicker" Width="150" Height="30" DateChanged="toDatePicker_DateChanged"></CalendarDatePicker>
             <TextBlock Text="Trạng thái đơn hàng:" Height="24" Margin="5, 0, 5, 0"></TextBlock>
-            <ComboBox Name="purchaseStatesComboBox" Width="100" Height="30" Margin="5, 0, 5, 0">
+            <ComboBox Name="purchaseStatesComboBox" Width="100" Height="30" Margin="5, 0, 5, 0" SelectionChanged="purchaseStatesComboBox_SelectionChanged">
                 <ComboBox.ItemTemplate>
                     <DataTemplate>
-                        <TextBlock Text="{Binding Key}"></TextBlock>
+                        <TextBlock Text="{Binding }"></TextBlock>
                     </DataTemplate>
                 </ComboBox.ItemTemplate>
             </ComboBox>
+            <Button Name="btnComplexFilter" Content="Complex Filter" Margin="5, 0, 5, 0" Click="btnComplexFilter_Click"/>
+            <muxc:AutoSuggestBox x:Name="SearchBox" FontSize="20" QueryIcon="Find" Width="200" Height="32" PlaceholderText="Search" TextChanged="SearchBox_TextChanged" QuerySubmitted="SearchBox_QuerySubmitted">
+            </muxc:AutoSuggestBox>
         </StackPanel>
         <controls:DockPanel LastChildFill="True">
-            <StackPanel Name="purchaseStackPanel" Background="LightGray" controls:DockPanel.Dock="Right" Visibility="Visible" Margin="-550,0,0,0">
-                <controls:DataGrid Name="DataGridDetailPurchase" Height="300" AutoGenerateColumns="True">
+            <StackPanel Name="purchaseStackPanel" Background="LightGray" controls:DockPanel.Dock="Right" Visibility="Visible" Margin="-477,0,0,0" >
+                <controls:DataGrid Name="DataGridDetailPurchase" Height="543" AutoGenerateColumns="True" VariableSizedWrapGrid.RowSpan="2">
                 </controls:DataGrid>
             </StackPanel>
-            <controls:DataGrid CanUserSortColumns="True"  x:Name="purchaseDataGrid" AutoGenerateColumns="False" SelectionChanged="purchaseDataGrid_SelectionChanged" Margin="0,0,550,0">
-                <controls:DataGrid.Columns>
-                    <controls:DataGridTemplateColumn Header="Khách hàng" CanUserSort="True">
-                        <controls:DataGridTemplateColumn.CellTemplate>
-                            <DataTemplate>
-                                <TextBlock Text="{Binding Customer_Name}"></TextBlock>
-                            </DataTemplate>
-                        </controls:DataGridTemplateColumn.CellTemplate>
-                    </controls:DataGridTemplateColumn>
-                    <controls:DataGridTemplateColumn Header="Số điện thoại" CanUserSort="True">
-                        <controls:DataGridTemplateColumn.CellTemplate>
-                            <DataTemplate>
-                                <TextBlock Text="{Binding Tel}"></TextBlock>
-                            </DataTemplate>
-                        </controls:DataGridTemplateColumn.CellTemplate>
-                    </controls:DataGridTemplateColumn>
-                    <controls:DataGridTemplateColumn Header="Tổng tiền" CanUserSort="True">
-                        <controls:DataGridTemplateColumn.CellTemplate>
-                            <DataTemplate>
-                                <TextBlock Text="{Binding Total}"></TextBlock>
-                            </DataTemplate>
-                        </controls:DataGridTemplateColumn.CellTemplate>
-                    </controls:DataGridTemplateColumn>
-                    <controls:DataGridTemplateColumn Header="Ngày tạo">
-                        <controls:DataGridTemplateColumn.CellTemplate>
-                            <DataTemplate>
-                                <TextBlock Text="{Binding Created_At, Mode=OneTime}"/>
-                            </DataTemplate>
-                        </controls:DataGridTemplateColumn.CellTemplate>
-                    </controls:DataGridTemplateColumn>
-                </controls:DataGrid.Columns>
-
-                <controls:DataGrid.ContextFlyout>
-                    <muxc:MenuFlyout>
-                        <MenuFlyoutItem Text="Edit" Click="editPurchase_MenuItem_Click"/>
-
-                    </muxc:MenuFlyout>
-                </controls:DataGrid.ContextFlyout>
+            <controls:DataGrid CanUserSortColumns="True"  x:Name="purchaseDataGrid" AutoGenerateColumns="True" SelectionChanged="purchaseDataGrid_SelectionChanged" Margin="0,0,475,10">
+                
+                
+                <controls:DataGrid.RowStyle>
+                    <Style TargetType="controls:DataGridRow">
+                        <Setter Property="controls:DataGridRow.ContextFlyout">
+                            <Setter.Value>
+                                <MenuFlyout>
+                                    <MenuFlyoutItem Text="Edit" Click="editPurchase_MenuItem_Click"/>
+                                    <MenuFlyoutItem Text="Delete" Click="deletePurchase_MenuItem_Click"/>
+                                </MenuFlyout>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </controls:DataGrid.RowStyle>
             </controls:DataGrid>
+            
 
         </controls:DockPanel>
     </controls:DockPanel>

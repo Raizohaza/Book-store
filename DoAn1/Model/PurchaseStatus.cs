@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DoAn1
 { 
-    enum PurchaseStatus
+    public enum PurchaseStatus
     {
         All = -1,
         New = 1,

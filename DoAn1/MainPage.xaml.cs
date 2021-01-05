@@ -57,11 +57,12 @@ namespace DoAn1
             else
             {
                 NavigationViewItem item = args.SelectedItem as NavigationViewItem;
-
+                
                 switch (item.Tag.ToString())
                 {
                     case "iconHome":
                         CF.Navigate(typeof(PageHome),null, new EntranceNavigationTransitionInfo());
+                        SearchBox.Visibility = Visibility.Visible;
                         break;
                     case "iconAdd":
                         CF.Navigate(typeof(PageAdd), null, new DrillInNavigationTransitionInfo());
@@ -75,6 +76,7 @@ namespace DoAn1
                         break;
                     case "iconCheckOut":
                         CF.Navigate(typeof(PageCheckOut));
+                        SearchBox.Visibility = Visibility.Collapsed;
                         break;
                 }
             }
