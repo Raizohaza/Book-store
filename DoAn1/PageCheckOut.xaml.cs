@@ -400,12 +400,16 @@ namespace DoAn1
             if (args.ChosenSuggestion != null)
             {
                 // User selected an item from the suggestion list, take an action on it here.
-                purchaseDataGrid.ItemsSource = search(args.ChosenSuggestion.ToString(), 1).Item1;
+                allPurchase = search(args.ChosenSuggestion.ToString(), 1).Item1;
+                purchaseDataGrid.ItemsSource = allPurchase;
+                PagingPage();
             }
             else
             {
                 // Use args.QueryText to determine what to do.
-                purchaseDataGrid.ItemsSource = search(args.QueryText).Item1;
+                allPurchase = search(args.QueryText).Item1;
+                purchaseDataGrid.ItemsSource = allPurchase;
+                PagingPage();
             }
         }
         #endregion
@@ -454,7 +458,7 @@ namespace DoAn1
                         }
                     }
 
-                    if (foundIndex == -1) // Chưa cập nhật
+                    if (foundIndex == -1 && item.Quantity > 0) // Chưa cập nhật
                     {
                         list_product.Add(new
                         {
@@ -465,6 +469,7 @@ namespace DoAn1
                             SubTotal = item.Price                            
                         });
                     }
+
                     productsListView.SelectedIndex = -1;
                 }
 
@@ -509,7 +514,7 @@ namespace DoAn1
                     }
                 }
 
-                if (foundIndex == -1) // Chưa cập nhật
+                if (foundIndex == -1 ) // Chưa cập nhật
                 {
                     var newProduct = new
                     {
@@ -520,7 +525,7 @@ namespace DoAn1
                         SubTotal = item.Quantity * item.Unit_Price
                     };
                     collection.Add(newProduct);
-                }
+                }                
             }
         }
         private async void Confirm_Click(object sender, RoutedEventArgs e)

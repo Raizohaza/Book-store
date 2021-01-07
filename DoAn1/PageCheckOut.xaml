@@ -96,14 +96,18 @@
                 </controls:DockPanel>
             </StackPanel>
         </controls:DockPanel>
-        <RelativePanel x:Name="relativePanel"  Width="400" Margin="-749,5,352,-5">
+        <RelativePanel x:Name="relativePanel"  Width="1100" Margin="-1097,5,0,-5">
             <Popup Name="addItemPopup"
                IsLightDismissEnabled="True"
                RequestedTheme="Dark"              
-               LightDismissOverlayMode="On" controls:DockPanel.Dock="Right">
+               LightDismissOverlayMode="On" controls:DockPanel.Dock="Right"
+               RelativePanel.AlignHorizontalCenterWithPanel="True">
                 <Popup.ChildTransitions>
                     <TransitionCollection>
-                        <PaneThemeTransition Edge="Bottom"/>
+                        <EntranceThemeTransition IsStaggeringEnabled="True" 
+                                 FromVerticalOffset="200" 
+                                 FromHorizontalOffset="0"
+                                                 />
                     </TransitionCollection>
                 </Popup.ChildTransitions>
                 <StackPanel>

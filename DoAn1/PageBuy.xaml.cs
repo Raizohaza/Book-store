@@ -72,6 +72,9 @@ namespace DoAn1
             ProductData = GetProductFromDb();
             productsListView.ItemsSource = ProductData;
             totalTextBlock.DataContext = TotalPrice.ToString();
+
+            var _enumval = Enum.GetValues(typeof(PurchaseStatus)).Cast<PurchaseStatus>();
+            purchaseStatesComboBox.ItemsSource = _enumval.ToList();
         }
 
         ObservableCollection<object> list = new ObservableCollection<object>();
@@ -113,7 +116,7 @@ namespace DoAn1
                         }    
                     }
 
-                    if (foundIndex == -1) // Chưa cập nhật
+                    if (foundIndex == -1 && item.Quantity >0) // Chưa cập nhật
                     {
                         list.Add(new
                         {
@@ -123,6 +126,10 @@ namespace DoAn1
                             Unit_Price = item.Price,
                             SubTotal = item.Price
                         });
+                    }
+                    else
+                    {
+                        var messageDialog2 = await new MessageDialog("The product was sold out!", "Confirm").ShowAsync();
                     }
                     productsListView.SelectedIndex = -1;
                     selectedProductsListView.ItemsSource = list;
@@ -166,7 +173,7 @@ namespace DoAn1
                     Created_At = DateTime.Now,
                     Total = list.Sum((dynamic p) => p.SubTotal as Nullable<decimal>),
                     Customer_Tel = customerTelTextBox.Text.ToString(),
-                    Status = PurchaseStatus.New
+                    Status = (PurchaseStatus)(purchaseStatesComboBox.SelectedIndex + 1)
                 };
                 var p_id = QueryForSQLServer.InsertPurchase(purchase);
 
@@ -174,6 +181,7 @@ namespace DoAn1
                 if (p_id == -1)
                 {
                     var messageDialog = await new MessageDialog("Failed", "Confirm").ShowAsync();
+                    return;
                 }
                 else
                 {
