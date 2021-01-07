@@ -21,8 +21,9 @@
                 <muxc:NavigationViewItem Icon="Home" Content="Trang Chủ" Tag="iconHome" />
                 <muxc:NavigationViewItemSeparator/>
                 <muxc:NavigationViewItem Icon="Add" Content="Thêm Truyện" Tag="iconAdd" />
-                <muxc:NavigationViewItem Icon="Favorite" Content="Yêu Thích" Tag="iconFav"/>
-                <muxc:NavigationViewItem Icon="Shop" Content="Túi" Tag="iconBag" />
+                <muxc:NavigationViewItem Icon="Favorite" Content="Yêu Thích" Tag="iconFav" Visibility="Collapsed"/>
+                <muxc:NavigationViewItem Icon="Shop" Content="Mua hàng " Tag="iconBag" />
+                <muxc:NavigationViewItem Icon="Edit" Content="Thanh toán" Tag="iconCheckOut" />
             </muxc:NavigationView.MenuItems>
             <muxc:NavigationView.AutoSuggestBox>
                 

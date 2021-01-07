@@ -34,7 +34,7 @@
             </muxc:AutoSuggestBox>
         </StackPanel>
         <controls:DockPanel LastChildFill="True">
-            <StackPanel Name="purchaseStackPanel" Background="LightGray" controls:DockPanel.Dock="Right" Visibility="Visible" Width="477" >
+            <StackPanel Name="purchaseStackPanel" Background="Beige" controls:DockPanel.Dock="Right" Visibility="Visible" Width="477" >
                 <StackPanel x:Name="CustomerStackPanel">
                     <controls:DockPanel >
                         <StackPanel Margin="10" HorizontalAlignment="Left">
@@ -75,7 +75,7 @@
                 </Grid>
             </StackPanel>
             <StackPanel Width="620">
-                <controls:DataGrid CanUserSortColumns="True"  x:Name="purchaseDataGrid" AutoGenerateColumns="True" SelectionChanged="purchaseDataGrid_SelectionChanged" Height="454" Width="624">
+                <controls:DataGrid CanUserSortColumns="True" Background="#C0C0C0"  x:Name="purchaseDataGrid" AutoGenerateColumns="True" SelectionChanged="purchaseDataGrid_SelectionChanged" Height="454" Width="624">
                     <controls:DataGrid.RowStyle>
                         <Style TargetType="controls:DataGridRow">
                             <Setter Property="controls:DataGridRow.ContextFlyout">

@@ -40,7 +40,7 @@
                 <Run Text="{Binding}"/>
             </TextBlock>
 
-            <ListView x:Name="selectedProductsListView" Width="538" Height="379" Canvas.Left="12" Canvas.Top="111">
+            <ListView x:Name="selectedProductsListView" Background="LightGray" Width="538" Height="379" Canvas.Left="12" Canvas.Top="111">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <StackPanel>
@@ -65,7 +65,7 @@
                 </ListView.ItemTemplate>
             </ListView>
 
-            <ListView x:Name="productsListView" Width="330" Height="379" Canvas.Left="760" Canvas.Top="111" SelectionChanged="productsListView_SelectionChanged">
+            <ListView x:Name="productsListView" Background="Beige" Width="300" Height="379" Canvas.Left="790" Canvas.Top="111" SelectionChanged="productsListView_SelectionChanged">
                 <ListView.ItemsPanel>
                     <ItemsPanelTemplate>
                         <controls:WrapPanel/>

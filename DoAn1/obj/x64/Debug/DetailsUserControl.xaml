@@ -47,6 +47,12 @@
         <TextBlock x:ConnectionId='10' x:Name="tPrice_Copy2" Text="{Binding Quantity}" Width="439" FontSize="16" HorizontalAlignment="Left" FontStyle="Italic" Margin="408,162,0,561"/>
         <TextBlock x:ConnectionId='11' x:Name="tPrice_Copy3" Width="66" FontSize="16" HorizontalAlignment="Left" FontStyle="Italic" Margin="339,199,0,517"><Run Text="Tác giả:"/><Run Text=" "/></TextBlock>
         <TextBlock x:ConnectionId='12' x:Name="tPrice_Copy4" Text="{Binding Author}" Width="439" FontSize="16" HorizontalAlignment="Left" FontStyle="Italic" Margin="408,199,0,522"/>
+        <controls:DockPanel HorizontalAlignment="Left" Margin="339,-110,0,110" Height="50" Visibility="Collapsed">
+            <Button x:ConnectionId='14' Content="←"                              Width="60" Height="30" HorizontalAlignment="Left"/>
+            <TextBlock x:ConnectionId='15' x:Name="pageInfo" Text="{Binding }" HorizontalAlignment="Center" HorizontalTextAlignment="Center" VerticalAlignment="Center" Width="100"/>
+            <Button x:ConnectionId='16' Content="→"                         Width="60" Height="30" HorizontalAlignment="Right"/>
+        </controls:DockPanel>
+        <Button x:ConnectionId='13' Name="btnBuy" Visibility="Collapsed"                      Content="Buy" Margin="339,303,0,0" VerticalAlignment="Top" Width="80" Height="30" />
     </Grid>
 </UserControl>
 

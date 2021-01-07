@@ -344,6 +344,15 @@
           "lib/uap10.0.16299/Microsoft.Toolkit.Uwp.UI.Controls.dll": {}
         }
       },
+      "Microsoft.Toolkit.Uwp.UI.Controls.DataGrid/6.1.1": {
+        "type": "package",
+        "compile": {
+          "lib/uap10.0.16299/Microsoft.Toolkit.Uwp.UI.Controls.DataGrid.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0.16299/Microsoft.Toolkit.Uwp.UI.Controls.DataGrid.dll": {}
+        }
+      },
       "Microsoft.UI.Xaml/2.4.3": {
         "type": "package",
         "compile": {
@@ -1532,6 +1541,15 @@
         },
         "runtime": {
           "lib/uap10.0.16299/Microsoft.Toolkit.Uwp.UI.Controls.dll": {}
+        }
+      },
+      "Microsoft.Toolkit.Uwp.UI.Controls.DataGrid/6.1.1": {
+        "type": "package",
+        "compile": {
+          "lib/uap10.0.16299/Microsoft.Toolkit.Uwp.UI.Controls.DataGrid.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0.16299/Microsoft.Toolkit.Uwp.UI.Controls.DataGrid.dll": {}
         }
       },
       "Microsoft.UI.Xaml/2.4.3": {
@@ -3075,6 +3093,15 @@
         },
         "runtime": {
           "lib/uap10.0.16299/Microsoft.Toolkit.Uwp.UI.Controls.dll": {}
+        }
+      },
+      "Microsoft.Toolkit.Uwp.UI.Controls.DataGrid/6.1.1": {
+        "type": "package",
+        "compile": {
+          "lib/uap10.0.16299/Microsoft.Toolkit.Uwp.UI.Controls.DataGrid.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0.16299/Microsoft.Toolkit.Uwp.UI.Controls.DataGrid.dll": {}
         }
       },
       "Microsoft.UI.Xaml/2.4.3": {
@@ -4651,6 +4678,15 @@
           "lib/uap10.0.16299/Microsoft.Toolkit.Uwp.UI.Controls.dll": {}
         }
       },
+      "Microsoft.Toolkit.Uwp.UI.Controls.DataGrid/6.1.1": {
+        "type": "package",
+        "compile": {
+          "lib/uap10.0.16299/Microsoft.Toolkit.Uwp.UI.Controls.DataGrid.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0.16299/Microsoft.Toolkit.Uwp.UI.Controls.DataGrid.dll": {}
+        }
+      },
       "Microsoft.UI.Xaml/2.4.3": {
         "type": "package",
         "compile": {
@@ -6225,6 +6261,15 @@
           "lib/uap10.0.16299/Microsoft.Toolkit.Uwp.UI.Controls.dll": {}
         }
       },
+      "Microsoft.Toolkit.Uwp.UI.Controls.DataGrid/6.1.1": {
+        "type": "package",
+        "compile": {
+          "lib/uap10.0.16299/Microsoft.Toolkit.Uwp.UI.Controls.DataGrid.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0.16299/Microsoft.Toolkit.Uwp.UI.Controls.DataGrid.dll": {}
+        }
+      },
       "Microsoft.UI.Xaml/2.4.3": {
         "type": "package",
         "compile": {
@@ -7766,6 +7811,15 @@
         },
         "runtime": {
           "lib/uap10.0.16299/Microsoft.Toolkit.Uwp.UI.Controls.dll": {}
+        }
+      },
+      "Microsoft.Toolkit.Uwp.UI.Controls.DataGrid/6.1.1": {
+        "type": "package",
+        "compile": {
+          "lib/uap10.0.16299/Microsoft.Toolkit.Uwp.UI.Controls.DataGrid.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0.16299/Microsoft.Toolkit.Uwp.UI.Controls.DataGrid.dll": {}
         }
       },
       "Microsoft.UI.Xaml/2.4.3": {
@@ -9342,6 +9396,15 @@
           "lib/uap10.0.16299/Microsoft.Toolkit.Uwp.UI.Controls.dll": {}
         }
       },
+      "Microsoft.Toolkit.Uwp.UI.Controls.DataGrid/6.1.1": {
+        "type": "package",
+        "compile": {
+          "lib/uap10.0.16299/Microsoft.Toolkit.Uwp.UI.Controls.DataGrid.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0.16299/Microsoft.Toolkit.Uwp.UI.Controls.DataGrid.dll": {}
+        }
+      },
       "Microsoft.UI.Xaml/2.4.3": {
         "type": "package",
         "compile": {
@@ -10883,6 +10946,15 @@
         },
         "runtime": {
           "lib/uap10.0.16299/Microsoft.Toolkit.Uwp.UI.Controls.dll": {}
+        }
+      },
+      "Microsoft.Toolkit.Uwp.UI.Controls.DataGrid/6.1.1": {
+        "type": "package",
+        "compile": {
+          "lib/uap10.0.16299/Microsoft.Toolkit.Uwp.UI.Controls.DataGrid.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0.16299/Microsoft.Toolkit.Uwp.UI.Controls.DataGrid.dll": {}
         }
       },
       "Microsoft.UI.Xaml/2.4.3": {
@@ -12735,6 +12807,28 @@
         "tools/VisualStudioToolsManifest.xml"
       ]
     },
+    "Microsoft.Toolkit.Uwp.UI.Controls.DataGrid/6.1.1": {
+      "sha512": "PyFYQtqt8w63FtlKAnoosB/8MWxTVvViS7SlogOe94m4t1D8vGuumSxf8E3Aup10CB7HgYFn3gceMmzuPcTzWw==",
+      "type": "package",
+      "path": "microsoft.toolkit.uwp.ui.controls.datagrid/6.1.1",
+      "hasTools": true,
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/uap10.0.16299/Design/Microsoft.Toolkit.Uwp.UI.Controls.DataGrid.Design.dll",
+        "lib/uap10.0.16299/Design/Microsoft.Toolkit.Uwp.UI.Controls.DataGrid.Design.pdb",
+        "lib/uap10.0.16299/Microsoft.Toolkit.Uwp.UI.Controls.DataGrid.dll",
+        "lib/uap10.0.16299/Microsoft.Toolkit.Uwp.UI.Controls.DataGrid.pdb",
+        "lib/uap10.0.16299/Microsoft.Toolkit.Uwp.UI.Controls.DataGrid.pri",
+        "lib/uap10.0.16299/Microsoft.Toolkit.Uwp.UI.Controls.DataGrid.xml",
+        "lib/uap10.0.16299/Microsoft.Toolkit.Uwp.UI.Controls.DataGrid/DataGrid/DataGrid.xaml",
+        "lib/uap10.0.16299/Microsoft.Toolkit.Uwp.UI.Controls.DataGrid/Microsoft.Toolkit.Uwp.UI.Controls.DataGrid.xr.xml",
+        "lib/uap10.0.16299/Microsoft.Toolkit.Uwp.UI.Controls.DataGrid/Themes/Generic.xaml",
+        "microsoft.toolkit.uwp.ui.controls.datagrid.6.1.1.nupkg.sha512",
+        "microsoft.toolkit.uwp.ui.controls.datagrid.nuspec",
+        "tools/VisualStudioToolsManifest.xml"
+      ]
+    },
     "Microsoft.UI.Xaml/2.4.3": {
       "sha512": "jGFY1bLlAQn88d5377Gis6CyeitbPzaYZpOKdPsgFztzccetElmSB9/2JUVtOFUeZcCjOpKSgFkKPFlMbgBwvg==",
       "type": "package",
@@ -12878,7 +12972,7 @@
       ]
     },
     "NETStandard.Library/2.0.3": {
-      "sha512": "548M6mnBSJWxsIlkQHfbzoYxpiYFXZZSL00p4GHYv8PkiqFBnnT68mW5mGEsA/ch9fDO9GkPgkFQpWiXZN7mAQ==",
+      "sha512": "st47PosZSHrjECdjeIzZQbzivYBJFv6P2nv4cj2ypdI204DO+vZ7l5raGMiX4eXMJ53RfOIg+/s4DHVZ54Nu2A==",
       "type": "package",
       "path": "netstandard.library/2.0.3",
       "files": [
@@ -20072,6 +20166,7 @@
     "UAP,Version=v10.0.17763": [
       "Microsoft.NETCore.UniversalWindowsPlatform >= 6.2.10",
       "Microsoft.Toolkit.Uwp.UI.Controls >= 6.1.1",
+      "Microsoft.Toolkit.Uwp.UI.Controls.DataGrid >= 6.1.1",
       "Microsoft.UI.Xaml >= 2.4.3",
       "Microsoft.Win32.Registry >= 5.0.0",
       "Syncfusion.XlsIO.UWP >= 18.3.0.51"
@@ -20118,6 +20213,10 @@
             "version": "[6.2.10, )"
           },
           "Microsoft.Toolkit.Uwp.UI.Controls": {
+            "target": "Package",
+            "version": "[6.1.1, )"
+          },
+          "Microsoft.Toolkit.Uwp.UI.Controls.DataGrid": {
             "target": "Package",
             "version": "[6.1.1, )"
           },

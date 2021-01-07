@@ -46,13 +46,13 @@ namespace DoAn1
             }
             purchaseDataGrid.ItemsSource = allPurchase;
             PagingPage();
-            list_product.Clear();
+            //list_product.Clear();
         }
 
         #region paging
         private ObservableCollection<object> displayList = new ObservableCollection<object>(); //List to be displayed in ListView
         int pageIndex = 1;
-        int pageSize = 2; //Set the size of the page
+        int pageSize = 4; //Set the size of the page
         int totalPage = 1;
         string CurrentPage;
 
@@ -433,16 +433,31 @@ namespace DoAn1
                     for (int i = 0; i < list_product.Count; i++)
                     {
                         dynamic p = list_product[i];
+                        Debug.WriteLine(item.Id.ToString() + item.Quantity.ToString());
+                        var test = p.Product_ID.ToString() + p.Quantity.ToString();
+                        var test2 = p.Product_ID == item.Id;
+                        var test3 = p.Quantity + 1 <= item.Quantity;
+
+                        if (test2)
+                        {
+                            Debug.WriteLine("true1");
+                        }
+
+                        if (test3)
+                        {
+                            Debug.WriteLine("true2");
+                        }
+
                         if (p.Product_ID == item.Id && p.Quantity + 1 <= item.Quantity)
                         {
+                            
                             var updatedProduct = new
                             {
                                 Product_ID = item.Id,
                                 Product_Name = item.Name,
                                 SubTotal = (p.Quantity + 1) * p.Unit_Price,
                                 Quantity = p.Quantity + 1,
-                                Unit_Price = p.Unit_Price,
-                                PurchaseDetail_ID = p.PurchaseDetail_ID
+                                Unit_Price = p.Unit_Price
                             };
                             list_product.RemoveAt(i);
                             list_product.Insert(i, updatedProduct);
@@ -571,6 +586,7 @@ namespace DoAn1
         {
             addItemPopup.IsOpen = true;
             list_product.Clear();
+            productsListView.SelectedIndex = -1;
         }
         private async void btnUpdate_Click(object sender, RoutedEventArgs e)
         {

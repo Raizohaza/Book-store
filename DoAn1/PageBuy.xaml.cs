@@ -127,7 +127,7 @@ namespace DoAn1
                             SubTotal = item.Price
                         });
                     }
-                    else
+                    else if (foundIndex == -1 && item.Quantity <= 0)
                     {
                         var messageDialog2 = await new MessageDialog("The product was sold out!", "Confirm").ShowAsync();
                     }

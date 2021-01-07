@@ -8,7 +8,7 @@
     mc:Ignorable="d"
     xmlns:muxc="using:Windows.UI.Xaml.Controls"
     xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
-    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Height="750" Width="1100">
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Height="600" Width="1100">
 
     <Page.Resources>
         <local:RelativeToAsolutePathConverter x:Key="pathConverter"/>
@@ -16,26 +16,38 @@
 
     <Grid x:ConnectionId='2' x:Name="GridHome">
         <StackPanel>
-            <StackPanel Orientation="Horizontal" Width="1096">
-                <muxc:ComboBox x:ConnectionId='8' x:Name="cbbListType" PlaceholderText="Thể loại" HorizontalAlignment="Left" ItemsSource="{Binding Category}"                                       Width="100"                                                 VerticalAlignment="Top">
-                <muxc:ComboBox.ContextFlyout>
-                    <MenuFlyout x:ConnectionId='10' x:Name="cbbCF">
-                        <MenuFlyout.Items>
-                            <MenuFlyoutItem x:ConnectionId='11' x:Name="cbbEdit"  Text="Edit"                      />
-                            <MenuFlyoutItem x:ConnectionId='12' x:Name="cbbRemove" Text="Remove"                            />
-                        </MenuFlyout.Items>
-                    </MenuFlyout>
-                </muxc:ComboBox.ContextFlyout>
+            <controls:DockPanel Width="1096">
+                <muxc:ComboBox x:ConnectionId='12' x:Name="cbbListType" PlaceholderText="Thể loại" HorizontalAlignment="Left" ItemsSource="{Binding Category}"                                       Width="100"                                                 VerticalAlignment="Top">
+                    <muxc:ComboBox.ContextFlyout>
+                        <MenuFlyout x:ConnectionId='17' x:Name="cbbCF">
+                            <MenuFlyout.Items>
+                                <MenuFlyoutItem x:ConnectionId='18' x:Name="cbbEdit"  Text="Edit"                      />
+                                <MenuFlyoutItem x:ConnectionId='19' x:Name="cbbRemove" Text="Remove"                            />
+                            </MenuFlyout.Items>
+                        </MenuFlyout>
+                    </muxc:ComboBox.ContextFlyout>
                     <muxc:ComboBox.ItemTemplate>
                         <DataTemplate>
                             <muxc:TextBlock Text="{Binding Name}" Tag="{Binding Name}" VerticalAlignment="Center" HorizontalAlignment="Center"></muxc:TextBlock>
                         </DataTemplate>
                     </muxc:ComboBox.ItemTemplate>
-
                 </muxc:ComboBox>
-            <muxc:Button x:ConnectionId='9' Name="addCat" Content="+"                      Width="28"/>
-            </StackPanel>
-            <ListView x:ConnectionId='3' x:Name="test_data" Background="White" Height="716" Width="1100"                                                                                  >
+                <muxc:Button x:ConnectionId='13' Name="addCat" Content="+"                      Width="28"/>
+                <muxc:DropDownButton x:ConnectionId='14' Content="Filter" x:Name="cbbFillter" HorizontalAlignment="Right"  Width="120" >
+                    <DropDownButton.Flyout>
+                        <Flyout>
+                            <ItemsControl x:ConnectionId='15' x:Name="Filter" ItemsSource="{Binding filter}">
+                                <ItemsControl.ItemTemplate>
+                                    <DataTemplate>
+                                        <RadioButton x:ConnectionId='16' Name="option"                      Content="{Binding}" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                                    </DataTemplate>
+                                </ItemsControl.ItemTemplate>
+                            </ItemsControl>
+                        </Flyout>
+                    </DropDownButton.Flyout>
+                </muxc:DropDownButton>
+            </controls:DockPanel>
+            <ListView x:ConnectionId='3' x:Name="test_data" Background="White" Height="459" Width="1100"                                                                                  >
                 <ListView.ItemsPanel>
                     <ItemsPanelTemplate>
                         <controls:WrapPanel/>
@@ -43,23 +55,30 @@
                 </ListView.ItemsPanel>
 
                 <ListView.ContextFlyout>
-                    <MenuFlyout x:ConnectionId='4' x:Name="allContactsMenuFlyout">
-                        <MenuFlyoutItem x:ConnectionId='5' x:Name="Edit"  Text="Edit"                   />
-                        <MenuFlyoutItem x:ConnectionId='6' x:Name="Remove" Text="Remove"                         />
+                    <MenuFlyout x:ConnectionId='8' x:Name="allContactsMenuFlyout">
+                        <MenuFlyoutItem x:ConnectionId='9' x:Name="Edit"  Text="Edit"                   />
+                        <MenuFlyoutItem x:ConnectionId='10' x:Name="Remove" Text="Remove"                         />
                     </MenuFlyout>
                 </ListView.ContextFlyout>
 
                 <ListView.ItemTemplate>
                     <DataTemplate>
-                        <StackPanel Width="150" Height="150">
-                            <Image Source="{Binding Image, Converter={StaticResource pathConverter}}" VerticalAlignment="Center" HorizontalAlignment="Center"  Height="80" Width="50"/>
-
+                        <StackPanel Width="300" Height="150">
+                            <Image Source="{Binding Image, Converter={StaticResource pathConverter}}" VerticalAlignment="Center" HorizontalAlignment="Center"  Height="100" Width="100"/>
                             <TextBlock Text="{Binding Name}" FontSize="10" TextWrapping="Wrap"  HorizontalTextAlignment="Center" VerticalAlignment="Bottom"  HorizontalAlignment="Center"/>
-
                         </StackPanel>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
+            <TextBlock x:ConnectionId='4' x:Name="productTotalTb" HorizontalAlignment="Center">
+                <Run Text="Total:"/>
+                <Run Text="{Binding}"/>
+            </TextBlock>
+            <controls:DockPanel HorizontalAlignment="Center">
+                <Button x:ConnectionId='5' Content="←"                              Width="60" Height="30" HorizontalAlignment="Left"/>
+                <TextBlock x:ConnectionId='6' x:Name="pageInfo" Text="{Binding }" HorizontalAlignment="Center" HorizontalTextAlignment="Center" Width="100"/>
+                <Button x:ConnectionId='7' Content="→"                          Width="60" Height="30" HorizontalAlignment="Right"/>
+            </controls:DockPanel>
         </StackPanel>
     </Grid>
 </Page>

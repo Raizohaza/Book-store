@@ -8,7 +8,7 @@
     mc:Ignorable="d"
     xmlns:muxc="using:Windows.UI.Xaml.Controls"
     xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
-    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Height="750" Width="1100">
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Height="550" Width="1100">
 
     <UserControl.Resources>
         <local:RelativeToAsolutePathConverter x:Key="pathConverter"/>
@@ -35,7 +35,7 @@
         <TextBlock Text="Tên truyện" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="20" FontWeight="Medium" FontStyle="Italic" Grid.Column="0" Grid.Row="2"/>
         <TextBox x:ConnectionId='2' x:Name="addTen_Truyen" Text="{Binding Name,Mode=TwoWay}" Style="{StaticResource AutoSuggestBoxTextBoxStyle}" Height="35" Width="450" Grid.Column="0" Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Center" Grid.ColumnSpan="3" Margin="105,0,0,0"/>
         <TextBlock Text="Nội dung" FontFamily="10" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="20" FontWeight="Medium" FontStyle="Italic" Grid.Column="0" Grid.Row="5"/>
-        <TextBox x:ConnectionId='3' x:Name="addNoiDung" Text="{Binding Description,Mode=TwoWay}" Style="{StaticResource AutoSuggestBoxTextBoxStyle}" Height="176" Width="450" Grid.Column="0" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Top" Grid.ColumnSpan="3" Margin="0,65,0,0" Grid.RowSpan="2"/>
+        <TextBox x:ConnectionId='3' x:Name="addNoiDung" Text="{Binding Description,Mode=TwoWay}" Style="{StaticResource AutoSuggestBoxTextBoxStyle}" Height="100" Width="450" Grid.Column="0" Grid.Row="5" HorizontalAlignment="Center" VerticalAlignment="Top" Grid.ColumnSpan="3" Margin="0,17,0,0"/>
         <TextBlock Text="Giá bán" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="20" FontWeight="Medium" FontStyle="Italic" Grid.Column="0" Grid.Row="4"/>
         <TextBox x:ConnectionId='4' x:Name="addGia"  Text="{Binding Price}" Height="35" Width="200" Grid.Column="0" Grid.Row="4" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="105,0,0,0" Grid.ColumnSpan="2" />
         <TextBlock Text="Tác giả" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="20" FontWeight="Medium" FontStyle="Italic" Grid.Column="0" Grid.Row="3"/>
