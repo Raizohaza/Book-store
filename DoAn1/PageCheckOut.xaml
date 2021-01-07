@@ -11,6 +11,10 @@
     Height="580" Width="1100"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
+    <Page.Resources>
+        <local:RelativeToAsolutePathConverter x:Key="pathConverter"/>
+    </Page.Resources>
+
     <controls:DockPanel LastChildFill="True">
         <StackPanel VerticalAlignment="Center" Orientation="Horizontal" Height="40" controls:DockPanel.Dock="Top">
             <TextBlock Text="Từ ngày:" Height="24" Margin="5, 0, 5, 0"></TextBlock>
@@ -30,7 +34,7 @@
             </muxc:AutoSuggestBox>
         </StackPanel>
         <controls:DockPanel LastChildFill="True">
-            <StackPanel Name="purchaseStackPanel" Background="LightGray" controls:DockPanel.Dock="Right" Visibility="Visible" Margin="-477,0,0,0" >
+            <StackPanel Name="purchaseStackPanel" Background="LightGray" controls:DockPanel.Dock="Right" Visibility="Visible" Width="477" >
                 <StackPanel x:Name="CustomerStackPanel">
                     <controls:DockPanel >
                         <StackPanel Margin="10" HorizontalAlignment="Left">
@@ -61,27 +65,67 @@
                     VariableSizedWrapGrid.RowSpan="2"
 
                     />
-                <Button  Name="btnUpdate" Content="Update" Click="btnUpdate_Click" Height="57" Margin="20,0,0,0" Width="99"/>
+                <Grid>
+                    <Button  Name="btnAddItem" Visibility="Collapsed" Content="AddItem" Click="btnAddItem_Click" Height="57" Margin="20,0,0,0" Width="80"/>
+                    <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
+                        <Button  Name="btnDeleteItem" Visibility="Collapsed" Content="Delete" Click="btnDeleteItem_Click" Height="57"  Width="80" Margin="0,0,20,0"/>
+                        <Button  Name="btnUpdate" Visibility="Collapsed" Content="Update" Click="btnUpdate_Click" HorizontalAlignment="Right" Height="57"  Width="80"/>
+                    </StackPanel>
+                     <Button  Name="btnDone" Visibility="Collapsed" Content="Done" Click="btnDone_Click" HorizontalAlignment="Right" Height="57" Margin="0,0,20,0" Width="80"/>
+                </Grid>
             </StackPanel>
-            <controls:DataGrid CanUserSortColumns="True"  x:Name="purchaseDataGrid" AutoGenerateColumns="True" SelectionChanged="purchaseDataGrid_SelectionChanged" Margin="0,0,475,84">
-                <controls:DataGrid.RowStyle>
-                    <Style TargetType="controls:DataGridRow">
-                        <Setter Property="controls:DataGridRow.ContextFlyout">
-                            <Setter.Value>
-                                <MenuFlyout>
-                                    <MenuFlyoutItem Text="Edit" Click="editPurchase_MenuItem_Click"/>
-                                    <MenuFlyoutItem Text="Delete" Click="deletePurchase_MenuItem_Click"/>
-                                </MenuFlyout>
-                            </Setter.Value>
-                        </Setter>
-                    </Style>
-                </controls:DataGrid.RowStyle>
-            </controls:DataGrid>
-            <controls:DockPanel HorizontalAlignment="Left" Height="50" Margin="-273,458,0,32">
-                <Button Content="←" Click="PreviousButton_Click" Width="60" Height="30" HorizontalAlignment="Left"/>
-                <TextBlock x:Name="pageInfo" Text="{Binding }" HorizontalAlignment="Center" HorizontalTextAlignment="Center" Width="100"/>
-                <Button Content="→" Click="NextButton_Click" Width="60" Height="30" HorizontalAlignment="Right"/>
-            </controls:DockPanel>
+            <StackPanel Width="620">
+                <controls:DataGrid CanUserSortColumns="True"  x:Name="purchaseDataGrid" AutoGenerateColumns="True" SelectionChanged="purchaseDataGrid_SelectionChanged" Height="454" Width="624">
+                    <controls:DataGrid.RowStyle>
+                        <Style TargetType="controls:DataGridRow">
+                            <Setter Property="controls:DataGridRow.ContextFlyout">
+                                <Setter.Value>
+                                    <MenuFlyout>
+                                        <MenuFlyoutItem Text="Edit" Click="editPurchase_MenuItem_Click"/>
+                                        <MenuFlyoutItem Text="Delete" Click="deletePurchase_MenuItem_Click"/>
+                                    </MenuFlyout>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </controls:DataGrid.RowStyle>
+                </controls:DataGrid>
+                <controls:DockPanel HorizontalAlignment="Center" Height="50" >
+                    <Button Content="←" Click="PreviousButton_Click" Width="60" Height="30" HorizontalAlignment="Left"/>
+                    <TextBlock x:Name="pageInfo" Text="{Binding }" HorizontalAlignment="Center" HorizontalTextAlignment="Center" Width="100"/>
+                    <Button Content="→" Click="NextButton_Click" Width="60" Height="30" HorizontalAlignment="Right"/>
+                </controls:DockPanel>
+            </StackPanel>
         </controls:DockPanel>
+        <RelativePanel x:Name="relativePanel"  Width="400" Margin="-749,5,352,-5">
+            <Popup Name="addItemPopup"
+               IsLightDismissEnabled="True"
+               RequestedTheme="Dark"              
+               LightDismissOverlayMode="On" controls:DockPanel.Dock="Right">
+                <Popup.ChildTransitions>
+                    <TransitionCollection>
+                        <PaneThemeTransition Edge="Bottom"/>
+                    </TransitionCollection>
+                </Popup.ChildTransitions>
+                <StackPanel>
+                    <TextBlock Text="Add new item" FontSize="20"/>
+                    <ListView x:Name="productsListView" VerticalAlignment="Center" HorizontalAlignment="Center" Background="Beige" Width="300" Height="379" SelectionChanged="productsListView_SelectionChanged">
+                        <ListView.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <controls:WrapPanel/>
+                            </ItemsPanelTemplate>
+                        </ListView.ItemsPanel>
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Width="100" Height="150">
+                                    <Image Source="{Binding Image, Converter={StaticResource pathConverter}}" VerticalAlignment="Center" HorizontalAlignment="Center"  Height="100" Width="100"/>
+                                    <TextBlock Text="{Binding Name}" FontSize="10" TextWrapping="Wrap"  HorizontalTextAlignment="Center" VerticalAlignment="Bottom"  HorizontalAlignment="Center"/>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                    <Button Name="Confirm" Content="Confirm" Click="Confirm_Click" />
+                </StackPanel>
+            </Popup>
+        </RelativePanel>
     </controls:DockPanel>
 </Page>

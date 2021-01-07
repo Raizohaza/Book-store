@@ -397,8 +397,7 @@ namespace DoAn1
         #region PurchaseDetail
         public static DataTable GetPurchaseDetail(int p_id)
         {
-            const string GetProductsQuery = "select p.Name,p.Image,pd.Price,pd.Quantity,pd.Total from PurchaseDetail pd join Product p on pd.Product_ID = p.Id" +
-                " where Purchase_ID=@p_id";
+            const string GetProductsQuery = "select pd.Product_ID, p.Name, pd.Quantity, pd.Price, pd.Total, pd.PurchaseDetail_ID from PurchaseDetail pd join Product p on pd.Product_ID = p.Id where Purchase_ID=@p_id";
             DataTable dt = null;
 
             Provider p = new Provider();
@@ -436,6 +435,62 @@ namespace DoAn1
                     new SqlParameter { ParameterName = "@Price", Value = purchaseDetail.Price },
                     new SqlParameter { ParameterName = "@Quantity", Value = purchaseDetail.Quantity },
                     new SqlParameter { ParameterName = "@Total", Value = purchaseDetail.Total }
+                    );
+
+                return id;
+            }
+            catch (Exception eSql)
+            {
+                Debug.WriteLine("Exception: " + eSql.Message);
+            }
+            finally
+            {
+                p.DisConnect();
+            }
+            return 0;
+        }
+
+        public static int UpdatePurchaseDetail(PurchaseDetail purchaseDetail)
+        {
+            const string Query = 
+                "update PurchaseDetail set Quantity = @Quantity, Total = @Total where PurchaseDetail_ID = @PurchaseDetail_ID";
+            Provider p = new Provider();
+            int id = -1;
+            try
+            {
+                DataTable dt;
+                p.Connect();
+                dt = p.ExcecuteQuery(CommandType.Text, Query,
+                    new SqlParameter { ParameterName = "@PurchaseDetail_ID", Value = purchaseDetail.PurchaseDetail_ID },
+                    new SqlParameter { ParameterName = "@Quantity", Value = purchaseDetail.Quantity },
+                    new SqlParameter { ParameterName = "@Total", Value = purchaseDetail.Total }
+                    );
+
+                return id;
+            }
+            catch (Exception eSql)
+            {
+                Debug.WriteLine("Exception: " + eSql.Message);
+            }
+            finally
+            {
+                p.DisConnect();
+            }
+            return 0;
+        }
+
+        public static int DeletePurchaseDetail(int PurchaseDetail_ID)
+        {
+            const string Query =
+                "delete PurchaseDetail where PurchaseDetail_ID = @PurchaseDetail_ID";
+            Provider p = new Provider();
+            int id = -1;
+            try
+            {
+                DataTable dt;
+                p.Connect();
+                dt = p.ExcecuteQuery(CommandType.Text, Query,
+                    new SqlParameter { ParameterName = "@PurchaseDetail_ID", Value = PurchaseDetail_ID }
                     );
 
                 return id;
@@ -603,6 +658,129 @@ namespace DoAn1
                 p.DisConnect();
             }
             return -1;
+        }
+
+        public static int UpdateCustomer(Customer customer)
+        {
+            const string Query = "update Customer set Customer_Name = @name, Address = @Address, Email = @Email where Tel = @Tel";
+            Provider p = new Provider();
+            int id = -1;
+            try
+            {
+                DataTable dt;
+                p.Connect();
+                dt = p.ExcecuteQuery(CommandType.Text, Query,
+                    new SqlParameter { ParameterName = "@name", Value = customer.Customer_Name },
+                    new SqlParameter { ParameterName = "@Tel", Value = customer.Tel },
+                    new SqlParameter { ParameterName = "@Address", Value = customer.Address },
+                    new SqlParameter { ParameterName = "@Email", Value = customer.Email }
+                    );
+
+                return id;
+            }
+            catch (Exception eSql)
+            {
+                Debug.WriteLine("Exception: " + eSql.Message);
+            }
+            finally
+            {
+                p.DisConnect();
+            }
+            return -1;
+        }
+        #endregion
+
+        #region logic
+        public static ObservableCollection<Product> GetProductFromDb(int catId = 0)
+        {
+            DataTable data = null;
+            var products = new ObservableCollection<Product>();
+
+
+            data = QueryForSQLServer.GetProducts();
+            foreach (DataRow row in data.Rows)
+            {
+                var product = new Product();
+                product.Id = (int)row.ItemArray[0];
+                product.CatId = (int)row.ItemArray[1];
+                product.Name = (string)row.ItemArray[2];
+                product.Price = (Decimal)row.ItemArray[3];
+                product.Quantity = (int)row.ItemArray[4];
+                product.Description = (string)row.ItemArray[5];
+                product.Image = (string)row.ItemArray[6];
+                product.Author = (string)row.ItemArray[7];
+                product.Product_Images = new List<Product_Images>();
+                products.Add(product);
+            }
+            if (catId != 0)
+            {
+                var productFillered = from product in products
+                                      where product.CatId == catId
+                                      select product;
+                products = new ObservableCollection<Product>(productFillered);
+            }
+
+            return products;
+        }
+
+        public static void UpdateListPurchaseDetail(ObservableCollection<object> list_Update)
+        {
+            
+            for (int i = 0; i < list_Update.Count; i++)
+            {
+                dynamic p = list_Update[i];
+                Type typeOfDynamic = p.GetType();
+                bool exist = typeOfDynamic.GetProperties().Where(x => x.Name.Equals("PurchaseDetail_ID")).Any();
+                if (exist)
+                {
+                    var update_item = new PurchaseDetail
+                    {
+                        Total = p.Quantity * p.Unit_Price,
+                        Quantity = p.Quantity,
+                        PurchaseDetail_ID = p.PurchaseDetail_ID
+                    };
+                    UpdatePurchaseDetail(update_item);
+                }
+            }
+
+        }
+
+        public static void InsertListPurchaseDetail(ObservableCollection<object> list_New,int current_id = 1)
+        {
+            //List<PurchaseDetail> listPurchaseDetails = new List<PurchaseDetail>();
+            for (int i = 0; i < list_New.Count; i++)
+            {
+                dynamic p = list_New[i];
+                Type typeOfDynamic = p.GetType();
+                bool exist = typeOfDynamic.GetProperties().Where(x => x.Name.Equals("PurchaseDetail_ID")).Any();
+                if (!exist)
+                {
+                    var new_item = new PurchaseDetail
+                    {
+                        Purchase_ID = current_id,
+                        Total = p.SubTotal,
+                        Quantity = p.Quantity,
+                        Product_ID = p.Product_ID,
+                        Price = p.Unit_Price
+                    };
+                    InsertPurchaseDetail(new_item);
+                }
+            }
+
+        }
+
+        public static void DeleteListPurchaseDetail(ObservableCollection<object> list_Delete, int current_id = 1)
+        {
+            for (int i = 0; i < list_Delete.Count; i++)
+            {
+                dynamic p = list_Delete[i];
+                Type typeOfDynamic = p.GetType();
+                bool exist = typeOfDynamic.GetProperties().Where(x => x.Name.Equals("PurchaseDetail_ID")).Any();
+                if (exist)
+                {
+                    DeletePurchaseDetail((int)p.PurchaseDetail_ID);
+                }
+            }
         }
         #endregion
     }
