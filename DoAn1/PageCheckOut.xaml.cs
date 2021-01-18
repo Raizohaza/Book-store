@@ -32,7 +32,7 @@ namespace DoAn1
             //purchase
             foreach (DataRow item in dt.Rows)
             {
-                string formatted = ((DateTime)item["Created_At"]).ToString("dd/MM/yyyy");
+                string formatted = ((DateTime)item["Created_At"]).ToString();
                 var _p = new
                 {
                     Purchase_ID = (int)item["Purchase_ID"],

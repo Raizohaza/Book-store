@@ -691,6 +691,7 @@ namespace DoAn1
         #endregion
 
         #region logic
+        
         public static ObservableCollection<Product> GetProductFromDb(int catId = 0)
         {
             DataTable data = null;
@@ -722,7 +723,6 @@ namespace DoAn1
 
             return products;
         }
-
         public static void UpdateListPurchaseDetail(ObservableCollection<object> list_Update)
         {
             
@@ -782,6 +782,118 @@ namespace DoAn1
                 }
             }
         }
+
+        public static DataTable GetNewestPurchases()
+        {
+            const string GetProductsQuery = "sp_NewPurchase";
+            DataTable dt = null;
+
+            Provider p = new Provider();
+            var products = new ObservableCollection<Product>();
+            try
+            {
+                p.Connect();
+                dt = p.ExcecuteQuery(CommandType.StoredProcedure, GetProductsQuery);
+                return dt;
+            }
+            catch (Exception eSql)
+            {
+                Debug.WriteLine("Exception: " + eSql.Message);
+            }
+            finally
+            {
+                p.DisConnect();
+            }
+            return null;
+        }
+        public static DataTable GetBestSellerPurchases()
+        {
+            const string GetProductsQuery = "sp_BestSellerPurchase";
+            DataTable dt = null;
+
+            Provider p = new Provider();
+            var products = new ObservableCollection<Product>();
+            try
+            {
+                p.Connect();
+                dt = p.ExcecuteQuery(CommandType.StoredProcedure, GetProductsQuery);
+                return dt;
+            }
+            catch (Exception eSql)
+            {
+                Debug.WriteLine("Exception: " + eSql.Message);
+            }
+            finally
+            {
+                p.DisConnect();
+            }
+            return null;
+        }
+
+        public static List<Tuple<int, int>> GetListBestSellerPurchases()
+        {
+            DataTable data = null;
+            var GetListBestSellPurchases = new List<Tuple<int, int>>();
+
+
+            data = GetBestSellerPurchases();
+            foreach (DataRow row in data.Rows)
+            {
+                var _p = new Tuple<int, int>
+                (
+                    (int)row.ItemArray[0],
+                    (int)row.ItemArray[1]
+                );
+                GetListBestSellPurchases.Add(_p);
+            }
+
+            return GetListBestSellPurchases;
+        }
+        public static DataTable GetSumAtMonthPurchase(int Year = 2021)
+        {
+            const string GetProductsQuery = "sp_SumAtMonth @Year";
+            DataTable dt = null;
+
+            Provider p = new Provider();
+            var products = new ObservableCollection<Product>();
+            try
+            {
+                p.Connect();
+                dt = p.ExcecuteQuery(CommandType.Text, GetProductsQuery,
+                    new SqlParameter { ParameterName = "@Year", Value = Year });
+                return dt;
+            }
+            catch (Exception eSql)
+            {
+                Debug.WriteLine("Exception: " + eSql.Message);
+            }
+            finally
+            {
+                p.DisConnect();
+            }
+            return null;
+        }
+        public static List<Tuple<int, decimal>> GetTotalByMonth(int Year)
+        {
+            DataTable data = null;
+            var TotalByMonths = new List<Tuple<int, decimal>>();
+
+
+            data = GetSumAtMonthPurchase(Year);
+            foreach (DataRow row in data.Rows)
+            {
+                var _p = new Tuple<int,decimal> 
+                (
+                    (int)row.ItemArray[0],
+                    (decimal)row.ItemArray[1]
+                );
+                TotalByMonths.Add(_p);
+            }
+
+            return TotalByMonths;
+        }
+
+
         #endregion
     }
 }

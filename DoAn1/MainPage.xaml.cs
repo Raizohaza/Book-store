@@ -78,6 +78,9 @@ namespace DoAn1
                         CF.Navigate(typeof(PageCheckOut));
                         SearchBox.Visibility = Visibility.Collapsed;
                         break;
+                    case "iconAdmin":
+                        CF.Navigate(typeof(PageAdmin), null, new SuppressNavigationTransitionInfo());
+                        break;
                 }
             }
         }
