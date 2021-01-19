@@ -17,55 +17,62 @@
 
     <controls:DockPanel LastChildFill="True">
         <StackPanel Height="50" controls:DockPanel.Dock="Bottom" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,0,0,50" FlowDirection="LeftToRight">
-            <Button x:ConnectionId='11' Width="80" Height="35" Content="Thêm" Name="addPurchaseButton"                                 Margin="0, 0, 10, 0"/>
-            <Button x:ConnectionId='12' Width="80" Height="35" Content="Hủy" Name="cancelButton"                            Margin="10, 0, 10, 0"/>
+            <Button x:ConnectionId='11' Width="80" Height="35" Background="#c1d3e0" Content="Thêm" Name="addPurchaseButton"                                 Margin="0, 0, 10, 0"/>
+            <Button x:ConnectionId='12' Width="80" Height="35" Background="#c1d3e0" Content="Hủy" Name="cancelButton"                            Margin="10, 0, 10, 0"/>
         </StackPanel>
-        <Canvas>
-            <TextBlock Text="Số điện thoại khách hàng:" Canvas.Left="10" Canvas.Top="35"/>
-            <TextBox x:ConnectionId='2' x:Name="customerTelTextBox"  Width="160" Height="35" Canvas.Left="10" Canvas.Top="56"/>
-            <TextBlock Text="Họ và tên khách hàng:" Canvas.Left="209" Canvas.Top="35"/>
+        <Canvas Height="530">
+            <TextBlock Text="Đơn Hàng" FontSize="35" FontWeight="Bold" FontStyle="Italic" Canvas.Left="500" Canvas.Top="1"/>
+            <TextBlock Text="Thêm Truyện:" FontSize="15" FontWeight="Bold" FontStyle="Italic" Canvas.Left="585" Canvas.Top="90"/>
+            <TextBlock Text="Chi tiết:" FontSize="15" FontWeight="Bold" FontStyle="Italic" Canvas.Left="10" Canvas.Top="90"/>
 
-            <TextBox x:ConnectionId='3' x:Name="customerNameTextBox"  Width="214" Height="35" Canvas.Left="209" Canvas.Top="56"/>
+            <TextBox x:ConnectionId='2' x:Name="customerTelTextBox"  Width="145" PlaceholderText="Số điện thoại:" Height="35" Canvas.Left="75" Canvas.Top="72"/>
 
-            <TextBlock Text="Trạng thái đơn hàng:" Canvas.Left="469" Canvas.Top="35"/>
-            <ComboBox x:ConnectionId='4' Name="purchaseStatesComboBox" Width="100" Height="35" Margin="5, 0, 5, 0" Canvas.Left="464" Canvas.Top="53">
+
+            <TextBox x:ConnectionId='3' x:Name="customerNameTextBox"  PlaceholderText="Họ và tên:" Width="170" Height="35" Canvas.Left="225" Canvas.Top="72"/>
+
+
+            <ComboBox x:ConnectionId='4' Name="purchaseStatesComboBox" PlaceholderText="Trạng thái đơn hàng" Width="168" Height="35"  Canvas.Left="400" Canvas.Top="72">
                 <ComboBox.ItemTemplate>
                     <DataTemplate>
                         <TextBlock Text="{Binding }"></TextBlock>
                     </DataTemplate>
                 </ComboBox.ItemTemplate>
             </ComboBox>
-            <TextBlock x:ConnectionId='5' x:Name="totalTextBlock" FontSize="30"  Canvas.Left="555" Canvas.Top="450">
-                <Run Text="Total:"/>
-                <Run Text="{Binding}"/>
+            <TextBlock x:ConnectionId='5' x:Name="totalTextBlock" FontSize="20"  Canvas.Left="15" Canvas.Top="490">
+                <Run Text="Total: " Foreground="#ff0000" FontStyle="Italic"/>
+                <Run Text="{Binding}" Foreground="#ff0000" />
             </TextBlock>
 
-            <ListView x:ConnectionId='6' x:Name="selectedProductsListView" Background="LightGray" Width="538" Height="379" Canvas.Left="12" Canvas.Top="111">
+            <ListView x:ConnectionId='6' x:Name="selectedProductsListView" Background="#deebff" Width="555" Height="379" Canvas.Left="12" Canvas.Top="111">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <StackPanel>
                             <TextBlock >
-                                <Run Text="Name: "/>
-                                <Run Text="{Binding Product_Name}"/>
+                                <Run Text="Name: " FontSize="16" FontWeight="Medium"/>
+                                <Run Text="{Binding Product_Name}" FontWeight="Light" FontStyle="Oblique"/>
                             </TextBlock>
                             <TextBlock>
-                                <Run Text="Quantity: "/>
+                                <Run Text="Quantity: " FontSize="16" FontWeight="Medium"/>
                                 <Run Text="{Binding Quantity}"/>
                             </TextBlock>
                             <TextBlock >
-                                <Run Text="Unit_Price: "/>
+                                <Run Text="Unit_Price: " FontSize="16" FontWeight="Medium"/>
                                 <Run Text="{Binding Unit_Price}"/>
                             </TextBlock>
                             <TextBlock >
-                                <Run Text="SubTotal: "/>
+                                <Run Text="SubTotal: " FontSize="16" FontWeight="Medium"/>
                                 <Run Text="{Binding SubTotal}" Foreground="Blue" FontWeight="Bold"/>
+                            </TextBlock>
+                            <TextBlock >
+                                <Run Text="________________________________________" FontSize="16" FontWeight="Light"/>
+
                             </TextBlock>
                         </StackPanel>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
 
-            <ListView x:ConnectionId='7' x:Name="productsListView" Background="Beige" Width="300" Height="379" Canvas.Left="790" Canvas.Top="111"                                                     >
+            <ListView x:ConnectionId='7' x:Name="productsListView" Background="#deebff" Width="510" Height="379" Canvas.Left="585" Canvas.Top="111"                                                     >
                 <ListView.ItemsPanel>
                     <ItemsPanelTemplate>
                         <controls:WrapPanel/>
@@ -73,7 +80,7 @@
                 </ListView.ItemsPanel>
                 <ListView.ItemTemplate>
                     <DataTemplate>
-                        <StackPanel Width="100" Height="150">
+                        <StackPanel Width="90" Height="150">
                             <Image Source="{Binding Image, Converter={StaticResource pathConverter}}" VerticalAlignment="Center" HorizontalAlignment="Center"  Height="100" Width="100"/>
                             <TextBlock Text="{Binding Name}" FontSize="10" TextWrapping="Wrap"  HorizontalTextAlignment="Center" VerticalAlignment="Bottom"  HorizontalAlignment="Center"/>
                         </StackPanel>

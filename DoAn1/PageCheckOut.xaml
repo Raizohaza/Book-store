@@ -8,7 +8,7 @@
     mc:Ignorable="d"
     xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
     xmlns:muxc="using:Windows.UI.Xaml.Controls"
-    Height="580" Width="1100"
+    Height="600" Width="1100"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Page.Resources>
@@ -21,61 +21,66 @@
             <CalendarDatePicker Name="fromDatePicker" Width="150" Height="30" DateChanged="fromDatePicker_DateChanged" ></CalendarDatePicker>
             <TextBlock Text="Đến ngày:" Height="24" Margin="5, 0, 5, 0"></TextBlock>
             <CalendarDatePicker Name="toDatePicker" Width="150" Height="30" DateChanged="toDatePicker_DateChanged"></CalendarDatePicker>
-            <TextBlock Text="Trạng thái đơn hàng:" Height="24" Margin="5, 0, 5, 0"></TextBlock>
-            <ComboBox Name="purchaseStatesComboBox" Width="100" Height="30" Margin="5, 0, 5, 0" SelectionChanged="purchaseStatesComboBox_SelectionChanged">
+
+            <ComboBox Name="purchaseStatesComboBox" PlaceholderText="Trạng thái đơn hàng" Width="170" Height="33" Margin="10, 5, 5, 0" SelectionChanged="purchaseStatesComboBox_SelectionChanged">
                 <ComboBox.ItemTemplate>
                     <DataTemplate>
                         <TextBlock Text="{Binding }"></TextBlock>
                     </DataTemplate>
                 </ComboBox.ItemTemplate>
             </ComboBox>
-            <Button Name="btnComplexFilter" Content="Complex Filter" Margin="5, 0, 5, 0" Click="btnComplexFilter_Click"/>
-            <muxc:AutoSuggestBox x:Name="SearchBox" FontSize="20" QueryIcon="Find" Width="200" Height="32" PlaceholderText="Search" TextChanged="SearchBox_TextChanged" QuerySubmitted="SearchBox_QuerySubmitted">
+            <Button Name="btnComplexFilter" Background="#c1d3e0" Content="Complex Filter" Margin="0, 0, 5, 0" Click="btnComplexFilter_Click"/>
+            <muxc:AutoSuggestBox x:Name="SearchBox" FontSize="20" QueryIcon="Find" Width="200" Height="32" Margin="70, 5, 5, 0" PlaceholderText="Search" TextChanged="SearchBox_TextChanged" QuerySubmitted="SearchBox_QuerySubmitted" HorizontalAlignment="Right">
             </muxc:AutoSuggestBox>
         </StackPanel>
         <controls:DockPanel LastChildFill="True">
-            <StackPanel Name="purchaseStackPanel" Background="Beige" controls:DockPanel.Dock="Right" Visibility="Visible" Width="477" >
+
+            <StackPanel Name="purchaseStackPanel" controls:DockPanel.Dock="Right" Visibility="Visible" Margin="115,0,0,0" >
                 <StackPanel x:Name="CustomerStackPanel">
+                    <TextBlock Text="Thông tin:" FontWeight="Medium"/>
                     <controls:DockPanel >
-                        <StackPanel Margin="10" HorizontalAlignment="Left">
-                            <TextBlock Text="Số điện thoại khách hàng:"/>
-                            <TextBox x:Name="customerTelTextBox" Text="{Binding Tel}" IsReadOnly="True" HorizontalAlignment="Left" Width="160" Height="35"/>
+                        <StackPanel Margin="10" HorizontalAlignment="Center" Background="White">
+                            <TextBox x:Name="customerNameTextBox" Text="{Binding Customer_Name}" PlaceholderText="Họ và tên:" HorizontalAlignment="Left" Width="160" Height="35"/>
+
                         </StackPanel>
-                        <StackPanel Margin="10" HorizontalAlignment="Right">
-                            <TextBlock Text="Tên khách hàng:"/>
-                            <TextBox x:Name="customerNameTextBox" Text="{Binding Customer_Name}" HorizontalAlignment="Left" Width="160" Height="35"/>
+                        <StackPanel Margin="10" HorizontalAlignment="Right" Background="White">
+                            <TextBox x:Name="customerTelTextBox" Text="{Binding Tel}" PlaceholderText="Số điện thoại:" IsReadOnly="True" HorizontalAlignment="Right" Width="160" Height="35"/>
+
                         </StackPanel>
                     </controls:DockPanel>
                     <controls:DockPanel  >
-                        <StackPanel Margin="10" HorizontalAlignment="Left">
-                            <TextBlock Text="Địa chỉ khách hàng:"/>
-                            <TextBox x:Name="customerAddressTextBox" Text="{Binding Customer_Address, Mode=TwoWay,UpdateSourceTrigger=Explicit}" HorizontalAlignment="Left" Width="160" Height="35"/>
+                        <StackPanel Margin="10" HorizontalAlignment="Center" Background="White">
+
+                            <TextBox x:Name="customerAddressTextBox" PlaceholderText="Địa chỉ:" Text="{Binding Customer_Address, Mode=TwoWay,UpdateSourceTrigger=Explicit}" HorizontalAlignment="Left" Width="160" Height="35"/>
                         </StackPanel>
-                        <StackPanel Margin="10" HorizontalAlignment="Right">
-                            <TextBlock Text="Email khách hàng:"/>
-                            <TextBox x:Name="customerEmailTextBox" Text="{Binding Customer_Email, Mode=TwoWay,UpdateSourceTrigger=Explicit}" HorizontalAlignment="Left" Width="160" Height="35"/>
+                        <StackPanel Margin="10" HorizontalAlignment="Right" Background="White">
+
+                            <TextBox x:Name="customerEmailTextBox" PlaceholderText="Email:" Text="{Binding Customer_Email, Mode=TwoWay,UpdateSourceTrigger=Explicit}" HorizontalAlignment="Left" Width="160" Height="35"/>
                         </StackPanel>
                     </controls:DockPanel>
                 </StackPanel>
                 <controls:DataGrid 
                     IsReadOnly="False" 
                     x:Name="DataGridDetailPurchase" 
-                    Height="306" 
+                    Height="325" 
                     AutoGenerateColumns="True" 
                     VariableSizedWrapGrid.RowSpan="2"
 
                     />
-                <Grid>
+                <Grid Height="100" RenderTransformOrigin="0.5,0.5">
+                    <Grid.RenderTransform>
+                        <CompositeTransform ScaleY="-1"/>
+                    </Grid.RenderTransform>
                     <Button  Name="btnAddItem" Visibility="Collapsed" Content="AddItem" Click="btnAddItem_Click" Height="57" Margin="20,0,0,0" Width="80"/>
                     <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
                         <Button  Name="btnDeleteItem" Visibility="Collapsed" Content="Delete" Click="btnDeleteItem_Click" Height="57"  Width="80" Margin="0,0,20,0"/>
                         <Button  Name="btnUpdate" Visibility="Collapsed" Content="Update" Click="btnUpdate_Click" HorizontalAlignment="Right" Height="57"  Width="80"/>
                     </StackPanel>
-                     <Button  Name="btnDone" Visibility="Collapsed" Content="Done" Click="btnDone_Click" HorizontalAlignment="Right" Height="57" Margin="0,0,20,0" Width="80"/>
+                    <Button  Name="btnDone" Visibility="Collapsed" Content="Done" Click="btnDone_Click" HorizontalAlignment="Right" Height="57" Margin="0,0,20,0" Width="80"/>
                 </Grid>
             </StackPanel>
-            <StackPanel Width="620">
-                <controls:DataGrid CanUserSortColumns="True" Background="#C0C0C0"  x:Name="purchaseDataGrid" AutoGenerateColumns="True" SelectionChanged="purchaseDataGrid_SelectionChanged" Height="454" Width="624">
+            <StackPanel Margin="0,0,-112,0">
+                <controls:DataGrid CanUserSortColumns="True"  Background="#deebff"  x:Name="purchaseDataGrid" AutoGenerateColumns="True" SelectionChanged="purchaseDataGrid_SelectionChanged" Height="454" Width="732">
                     <controls:DataGrid.RowStyle>
                         <Style TargetType="controls:DataGridRow">
                             <Setter Property="controls:DataGridRow.ContextFlyout">
@@ -89,19 +94,23 @@
                         </Style>
                     </controls:DataGrid.RowStyle>
                 </controls:DataGrid>
-                <controls:DockPanel HorizontalAlignment="Center" Height="50" >
-                    <Button Content="←" Click="PreviousButton_Click" Width="60" Height="30" HorizontalAlignment="Left"/>
-                    <TextBlock x:Name="pageInfo" Text="{Binding }" HorizontalAlignment="Center" HorizontalTextAlignment="Center" Width="100"/>
-                    <Button Content="→" Click="NextButton_Click" Width="60" Height="30" HorizontalAlignment="Right"/>
+                <controls:DockPanel HorizontalAlignment="Center" Height="30" >
+                    <Button Content="←" Background="#c1d3e0" Click="PreviousButton_Click" Width="60" Height="30" HorizontalAlignment="Left"/>
+                    <TextBlock x:Name="pageInfo"  Text="{Binding }" HorizontalAlignment="Center" VerticalAlignment="Center" HorizontalTextAlignment="Center" Width="100"/>
+                    <Button Content="→" Click="NextButton_Click" Background="#c1d3e0" Width="60" Height="30" HorizontalAlignment="Right"/>
                 </controls:DockPanel>
             </StackPanel>
         </controls:DockPanel>
-        <RelativePanel x:Name="relativePanel"  Width="1100" Margin="-1097,5,0,-5">
+        <RelativePanel x:Name="relativePanel"  Width="1100" Margin="-1097,-40,0,0">
+            
             <Popup Name="addItemPopup"
                IsLightDismissEnabled="True"
                RequestedTheme="Dark"              
                LightDismissOverlayMode="On" controls:DockPanel.Dock="Right"
-               RelativePanel.AlignHorizontalCenterWithPanel="True">
+               RelativePanel.AlignHorizontalCenterWithPanel="True" Height="244" RenderTransformOrigin="0.5,0.5" Width="399">
+                <Popup.RenderTransform>
+                    <CompositeTransform ScaleX="-1"/>
+                </Popup.RenderTransform>
                 <Popup.ChildTransitions>
                     <TransitionCollection>
                         <EntranceThemeTransition IsStaggeringEnabled="True" 
@@ -111,8 +120,7 @@
                     </TransitionCollection>
                 </Popup.ChildTransitions>
                 <StackPanel>
-                    <TextBlock Text="Add new item" FontSize="20"/>
-                    <ListView x:Name="productsListView" VerticalAlignment="Center" HorizontalAlignment="Center" Background="Beige" Width="300" Height="379" SelectionChanged="productsListView_SelectionChanged">
+                    <ListView x:Name="productsListView" Background="Beige" Width="300" Height="379" SelectionChanged="productsListView_SelectionChanged" RenderTransformOrigin="1.109,0.671">
                         <ListView.ItemsPanel>
                             <ItemsPanelTemplate>
                                 <controls:WrapPanel/>
@@ -127,7 +135,8 @@
                             </DataTemplate>
                         </ListView.ItemTemplate>
                     </ListView>
-                    <Button Name="Confirm" Content="Confirm" Click="Confirm_Click" />
+                    <TextBlock Text="Add new item" FontSize="20"/>
+                    <Button x:Name="Confirm" Content="Confirm" Click="Confirm_Click" />
                 </StackPanel>
             </Popup>
         </RelativePanel>
