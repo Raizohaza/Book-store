@@ -39,11 +39,18 @@ namespace DoAn1
                     new PieSeries()
                     {
                         Values = new ChartValues<decimal> { item.Item2 },
-                        Title = item.Item1.ToString()
+                        Title = item.Item1.ToString(),
+                        DataLabels = true,
+                        
                     }
-                );
+                ) ;
             }
+            PieChartView.LegendLocation = LegendLocation.Bottom;
             PieChartView.DataContext = this;
+
+            var productdt = QueryForSQLServer.GetProductFromDBTwo();
+            DataGridProduct.ItemsSource = productdt;
+
         }
 
 
@@ -52,17 +59,17 @@ namespace DoAn1
         //    this.DataContext = this;
         //}
 
-        private void PieChart_DataClick(object sender, ChartPoint chartPoint)
-        {
-            //var chart = chartPoint.ChartView as PieChart;
-            //foreach (PieSeries pie in chart.Series)
-            //{
-            //    pie.PushOut = 0;
-            //}
+        //private void PieChart_DataClick(object sender, ChartPoint chartPoint)
+        //{
+        //    //var chart = chartPoint.ChartView as PieChart;
+        //    //foreach (PieSeries pie in chart.Series)
+        //    //{
+        //    //    pie.PushOut = 0;
+        //    //}
 
-            //var neo = chartPoint.SeriesView as PieSeries;
-            //neo.PushOut = 30;
-        }
+        //    //var neo = chartPoint.SeriesView as PieSeries;
+        //    //neo.PushOut = 30;
+        //}
 
 
 

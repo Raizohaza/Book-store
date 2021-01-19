@@ -892,6 +892,34 @@ namespace DoAn1
 
             return TotalByMonths;
         }
+        public static ObservableCollection<Product> GetProductFromDBTwo(int catId = 0)
+        {
+            DataTable data = null;
+            var products = new ObservableCollection<Product>();
+
+
+            data = QueryForSQLServer.GetProducts();
+            foreach (DataRow row in data.Rows)
+            {
+                var product = new Product();
+                product.Id = (int)row.ItemArray[0];
+                product.Name = (string)row.ItemArray[2];
+                product.Price = (Decimal)row.ItemArray[3];
+                product.Quantity = (int)row.ItemArray[4];
+
+
+                products.Add(product);
+            }
+            if (catId != 0)
+            {
+                var productFillered = from product in products
+                                      where product.CatId == catId
+                                      select product;
+                products = new ObservableCollection<Product>(productFillered);
+            }
+
+            return products;
+        }
 
 
         #endregion

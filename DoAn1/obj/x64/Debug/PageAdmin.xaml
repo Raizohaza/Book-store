@@ -24,22 +24,26 @@
 
         </muxc:NavigationView>-->
         <ScrollViewer Height="320" Width="500" HorizontalAlignment="Left">
-            <lvc:PieChart Name="PieChartView"  Height="auto" Width="500" >
+            <lvc:PieChart x:ConnectionId='4' Name="PieChartView"  Height="auto" Width="500" >
 
             </lvc:PieChart>
         </ScrollViewer>
-        <controls:DataGrid 
+        <controls:DataGrid x:ConnectionId='2' 
                     IsReadOnly="False" 
                     x:Name="DataGridProduct" 
                     AutoGenerateColumns="False" 
                     VariableSizedWrapGrid.RowSpan="2" Width="800" Height="700" HorizontalAlignment="Right"
                     >
             <controls:DataGrid.Columns>
-        
                 <controls:DataGridTemplateColumn Width="25">
-                   
+                    <controls:DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <RadioButton HorizontalAlignment="Center" GroupName="Trail"/>
+                        </DataTemplate>
+                    </controls:DataGridTemplateColumn.CellTemplate>
                 </controls:DataGridTemplateColumn>
             </controls:DataGrid.Columns>
         </controls:DataGrid>
     </Grid>
 </Page>
+
