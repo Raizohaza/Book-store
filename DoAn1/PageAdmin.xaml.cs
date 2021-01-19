@@ -28,7 +28,7 @@ namespace DoAn1
         public PageAdmin()
         {
             InitializeComponent();
-            var data = QueryForSQLServer.GetTotalByMonth(2020);
+            var data = QueryForSQLServer.GetTotalByMonth(2021);
 
             PieChartView.Series = new SeriesCollection();
 
@@ -51,6 +51,18 @@ namespace DoAn1
             var productdt = QueryForSQLServer.GetProductFromDBTwo();
             DataGridProduct.ItemsSource = productdt;
 
+        }
+
+        private void Done_Button_Click(object sender, RoutedEventArgs e)
+        {
+            PieChartScrollView.Visibility = Visibility.Collapsed;
+            DataGridProduct.Visibility = Visibility.Visible;
+        }
+
+        private void PieChartButton_Click(object sender, RoutedEventArgs e)
+        {
+            PieChartScrollView.Visibility = Visibility.Visible;
+            DataGridProduct.Visibility = Visibility.Collapsed;
         }
 
 

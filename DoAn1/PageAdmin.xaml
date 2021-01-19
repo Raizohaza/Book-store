@@ -9,7 +9,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
     xmlns:lvc="using:LiveCharts.Uwp"
-    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    Background="White" Height="720" Width="1100">
 
     <Grid>
         <!--<muxc:NavigationView x:Name="Menu" PaneDisplayMode="Top" VerticalAlignment="Top" IsBackButtonVisible="Collapsed" SelectionChanged="Menu_SelectionChanged" Loaded="Menu_Loaded">
@@ -23,23 +23,27 @@
             </muxc:NavigationView.MenuItems>
 
         </muxc:NavigationView>-->
-        <ScrollViewer Height="320" Width="500" HorizontalAlignment="Left">
-            <lvc:PieChart Name="PieChartView"  Height="auto" Width="500" >
+        <StackPanel  VerticalAlignment="Top" HorizontalAlignment="Left"  Orientation="Horizontal">
+            <Button x:Name="Done_Button" Content="Done" Click="Done_Button_Click" Background="Wheat" Margin="5"/>
+            <Button x:Name="PieChartButton" Content="PieChartButton" Click="PieChartButton_Click" Background="Wheat" Margin="5"/>
+        </StackPanel>
+        
+        <ScrollViewer Height="500" Width="500" HorizontalAlignment="Left" Name="PieChartScrollView">
+            <StackPanel>
+                <TextBlock Text="Biểu đồ thu  chi" TextWrapping="Wrap" FontSize="24" Height="40" Width="200" VerticalAlignment="Top" HorizontalAlignment="Center"/>
 
-            </lvc:PieChart>
+                <lvc:PieChart Name="PieChartView"  Height="300" Width="300" >
+
+                </lvc:PieChart>
+            </StackPanel>
         </ScrollViewer>
+
         <controls:DataGrid 
                     IsReadOnly="False" 
                     x:Name="DataGridProduct" 
-                    AutoGenerateColumns="False" 
-                    VariableSizedWrapGrid.RowSpan="2" Width="800" Height="700" HorizontalAlignment="Right"
-                    >
-            <controls:DataGrid.Columns>
-        
-                <controls:DataGridTemplateColumn Width="25">
-                   
-                </controls:DataGridTemplateColumn>
-            </controls:DataGrid.Columns>
+                    AutoGenerateColumns="True" 
+                    VariableSizedWrapGrid.RowSpan="2" Width="1100" HorizontalAlignment="Left" VerticalAlignment="Top" Height="650"
+                    Visibility="Collapsed" Margin="0,50,0,0">
         </controls:DataGrid>
     </Grid>
 </Page>
