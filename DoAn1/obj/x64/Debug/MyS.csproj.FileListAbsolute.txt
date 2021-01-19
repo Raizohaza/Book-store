@@ -591,7 +591,6 @@ C:\Users\dung0\Desktop\New folder\DoAn1\bin\x64\Debug\System.Runtime.CompilerSer
 C:\Users\dung0\Desktop\New folder\DoAn1\bin\x64\Debug\Microsoft.Graphics.Canvas.dll
 C:\Users\dung0\Desktop\New folder\DoAn1\bin\x64\Debug\Microsoft.Graphics.Canvas.winmd
 C:\Users\dung0\Desktop\New folder\DoAn1\bin\x64\Debug\Microsoft.UI.Xaml.Markup.winmd
-C:\Users\dung0\Desktop\New folder\DoAn1\obj\x64\Debug\MyS.csprojAssemblyReference.cache
 C:\Users\dung0\Desktop\New folder\DoAn1\obj\x64\Debug\App.g.i.cs
 C:\Users\dung0\Desktop\New folder\DoAn1\obj\x64\Debug\App.g.cs
 C:\Users\dung0\Desktop\New folder\DoAn1\obj\x64\Debug\DetailsUserControl.g.i.cs

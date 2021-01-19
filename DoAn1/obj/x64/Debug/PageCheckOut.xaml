@@ -67,16 +67,16 @@
                     VariableSizedWrapGrid.RowSpan="2"
 
                     />
-                <Grid Height="100" RenderTransformOrigin="0.5,0.5">
+                <Grid Height="106" RenderTransformOrigin="0.5,0.5">
                     <Grid.RenderTransform>
-                        <CompositeTransform ScaleY="-1"/>
+                        <CompositeTransform ScaleY="1"/>
                     </Grid.RenderTransform>
-                    <Button x:ConnectionId='16'  Name="btnAddItem" Visibility="Collapsed" Content="AddItem"                          Height="57" Margin="20,0,0,0" Width="80"/>
+                    <Button x:ConnectionId='16'  Name="btnAddItem" Visibility="Collapsed" Content="AddItem" Background="#c1d3e0"                          Height="40" Margin="5,0,0,0" Width="80"/>
                     <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
-                        <Button x:ConnectionId='18'  Name="btnDeleteItem" Visibility="Collapsed" Content="Delete"                             Height="57"  Width="80" Margin="0,0,20,0"/>
-                        <Button x:ConnectionId='19'  Name="btnUpdate" Visibility="Collapsed" Content="Update"                         HorizontalAlignment="Right" Height="57"  Width="80"/>
+                        <Button x:ConnectionId='18'  Name="btnDeleteItem" Background="#c1d3e0" Visibility="Collapsed" Content="Delete"                             Height="40"  Width="80" Margin="0,0,5,0"/>
+                        <Button x:ConnectionId='19'  Name="btnUpdate" Visibility="Collapsed" Background="#c1d3e0" Content="Update"                         HorizontalAlignment="Right" Height="40"  Width="80"/>
                     </StackPanel>
-                    <Button x:ConnectionId='17'  Name="btnDone" Visibility="Collapsed" Content="Done"                       HorizontalAlignment="Right" Height="57" Margin="0,0,20,0" Width="80"/>
+                    <Button x:ConnectionId='17'  Name="btnDone" Visibility="Collapsed" Content="Done" Background="#c1d3e0"                       HorizontalAlignment="Right" Height="40" Margin="0,0,5,0" Width="80"/>
                 </Grid>
             </StackPanel>
             <StackPanel Margin="0,0,-112,0">
@@ -101,26 +101,30 @@
                 </controls:DockPanel>
             </StackPanel>
         </controls:DockPanel>
-        <RelativePanel x:ConnectionId='2' x:Name="relativePanel"  Width="1100" Margin="-1097,-40,0,0">
-            
+        <RelativePanel x:ConnectionId='2' x:Name="relativePanel" Margin="-1095,0,0,0" UseLayoutRounding="False" d:LayoutRounding="Auto">
+            <RelativePanel.RenderTransform>
+                <CompositeTransform Rotation="-0.043"/>
+            </RelativePanel.RenderTransform>
             <Popup x:ConnectionId='3' Name="addItemPopup"
                IsLightDismissEnabled="True"
                RequestedTheme="Dark"              
-               LightDismissOverlayMode="On" controls:DockPanel.Dock="Right"
-               RelativePanel.AlignHorizontalCenterWithPanel="True" Height="244" RenderTransformOrigin="0.5,0.5" Width="399">
+               LightDismissOverlayMode="On" controls:DockPanel.Dock="Top"
+               RelativePanel.AlignHorizontalCenterWithPanel="True" Height="555"  Width="1096">
                 <Popup.RenderTransform>
-                    <CompositeTransform ScaleX="-1"/>
+                    <CompositeTransform ScaleX="1"/>
                 </Popup.RenderTransform>
                 <Popup.ChildTransitions>
                     <TransitionCollection>
                         <EntranceThemeTransition IsStaggeringEnabled="True" 
-                                 FromVerticalOffset="200" 
+                                 FromVerticalOffset="0" 
                                  FromHorizontalOffset="0"
                                                  />
                     </TransitionCollection>
                 </Popup.ChildTransitions>
-                <StackPanel>
-                    <ListView x:ConnectionId='4' x:Name="productsListView" Background="Beige" Width="300" Height="379"                                                      RenderTransformOrigin="1.109,0.671">
+                <StackPanel Height="555" Width="747" VerticalAlignment="Center" HorizontalAlignment="Center">
+                    <TextBlock Text="Add new item" FontSize="20" FontWeight="Medium" VerticalAlignment="Top" HorizontalAlignment="Center" />
+                    <Button x:ConnectionId='4' x:Name="Confirm" Background="#c1d3e0" Content="Confirm"                       HorizontalAlignment="Right" />
+                    <ListView x:ConnectionId='5' x:Name="productsListView" Background="#deebff" Width="800" Height="528"                                                      HorizontalAlignment="Center">
                         <ListView.ItemsPanel>
                             <ItemsPanelTemplate>
                                 <controls:WrapPanel/>
@@ -135,8 +139,8 @@
                             </DataTemplate>
                         </ListView.ItemTemplate>
                     </ListView>
-                    <TextBlock Text="Add new item" FontSize="20"/>
-                    <Button x:ConnectionId='5' x:Name="Confirm" Content="Confirm"                       />
+                   
+                   
                 </StackPanel>
             </Popup>
         </RelativePanel>
