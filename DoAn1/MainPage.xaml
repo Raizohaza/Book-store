@@ -8,15 +8,15 @@
     xmlns:muxc="using:Windows.UI.Xaml.Controls"
     xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
     mc:Ignorable="d"
-    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Height="800" Width="1100"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Height="635" Width="1100"
     NavigationCacheMode="Enabled">
     <Page.Resources>
         <local:RelativeToAsolutePathConverter x:Key="pathConverter"/>
     </Page.Resources>
 
 
-    <Grid Height="800" Width="1100">
-        <muxc:NavigationView x:Name="Menu" PaneDisplayMode="Top" VerticalAlignment="Top" IsBackButtonVisible="Collapsed" SelectionChanged="Menu_SelectionChanged" Loaded="Menu_Loaded">
+    <Grid Height="635" Width="1100"  Background="#c1d3e0" >
+        <muxc:NavigationView x:Name="Menu"  PaneDisplayMode="Top" VerticalAlignment="Top" IsBackButtonVisible="Collapsed" SelectionChanged="Menu_SelectionChanged" Loaded="Menu_Loaded">
             <muxc:NavigationView.MenuItems>
                 <muxc:NavigationViewItem Icon="Home" Content="Trang Chủ" Tag="iconHome" />
                 <muxc:NavigationViewItemSeparator/>

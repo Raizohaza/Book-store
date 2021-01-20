@@ -8,15 +8,15 @@
     xmlns:muxc="using:Windows.UI.Xaml.Controls"
     xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
     mc:Ignorable="d"
-    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Height="800" Width="1100"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Height="635" Width="1100"
     NavigationCacheMode="Enabled">
     <Page.Resources>
         <local:RelativeToAsolutePathConverter x:Key="pathConverter"/>
     </Page.Resources>
 
 
-    <Grid Height="800" Width="1100">
-        <muxc:NavigationView x:ConnectionId='2' x:Name="Menu" PaneDisplayMode="Top" VerticalAlignment="Top" IsBackButtonVisible="Collapsed"                                                              >
+    <Grid Height="635" Width="1100"  Background="#c1d3e0" >
+        <muxc:NavigationView x:ConnectionId='2' x:Name="Menu"  PaneDisplayMode="Top" VerticalAlignment="Top" IsBackButtonVisible="Collapsed"                                                              >
             <muxc:NavigationView.MenuItems>
                 <muxc:NavigationViewItem Icon="Home" Content="Trang Chủ" Tag="iconHome" />
                 <muxc:NavigationViewItemSeparator/>
@@ -24,6 +24,7 @@
                 <muxc:NavigationViewItem Icon="Favorite" Content="Yêu Thích" Tag="iconFav" Visibility="Collapsed"/>
                 <muxc:NavigationViewItem Icon="Shop" Content="Mua hàng " Tag="iconBag" />
                 <muxc:NavigationViewItem Icon="Edit" Content="Thanh toán" Tag="iconCheckOut" />
+                <muxc:NavigationViewItem Icon="Admin" Content="Admin" Tag="iconAdmin" />
             </muxc:NavigationView.MenuItems>
             <muxc:NavigationView.AutoSuggestBox>
                 

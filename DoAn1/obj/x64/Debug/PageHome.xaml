@@ -16,8 +16,8 @@
 
     <Grid x:ConnectionId='2' x:Name="GridHome">
         <StackPanel>
-            <controls:DockPanel Width="1096">
-                <muxc:ComboBox x:ConnectionId='12' x:Name="cbbListType" PlaceholderText="Thể loại" HorizontalAlignment="Left" ItemsSource="{Binding Category}"                                       Width="100"                                                 VerticalAlignment="Top">
+            <controls:DockPanel Width="1096" Height="35">
+                <muxc:ComboBox x:ConnectionId='12' x:Name="cbbListType" PlaceholderText="Thể loại" HorizontalAlignment="Left" ItemsSource="{Binding Category}"                                       Width="130"                                                 VerticalAlignment="Top">
                     <muxc:ComboBox.ContextFlyout>
                         <MenuFlyout x:ConnectionId='17' x:Name="cbbCF">
                             <MenuFlyout.Items>
@@ -32,8 +32,8 @@
                         </DataTemplate>
                     </muxc:ComboBox.ItemTemplate>
                 </muxc:ComboBox>
-                <muxc:Button x:ConnectionId='13' Name="addCat" Content="+"                      Width="28"/>
-                <muxc:DropDownButton x:ConnectionId='14' Content="Filter" x:Name="cbbFillter" HorizontalAlignment="Right"  Width="120" >
+                <muxc:Button x:ConnectionId='13' Name="addCat" Content="+"  Background="#c1d3e0"                       Width="32" Height="32" VerticalAlignment="Top"/>
+                <muxc:DropDownButton x:ConnectionId='14' Content="Filter"  Background="#c1d3e0"  x:Name="cbbFillter" HorizontalAlignment="Right"  Width="120" >
                     <DropDownButton.Flyout>
                         <Flyout>
                             <ItemsControl x:ConnectionId='15' x:Name="Filter" ItemsSource="{Binding filter}">
@@ -47,7 +47,7 @@
                     </DropDownButton.Flyout>
                 </muxc:DropDownButton>
             </controls:DockPanel>
-            <ListView x:ConnectionId='3' x:Name="test_data" Background="White" Height="459" Width="1100"                                                                                  >
+            <ListView x:ConnectionId='3' x:Name="test_data" Height="500" Width="1100"                                                                                  >
                 <ListView.ItemsPanel>
                     <ItemsPanelTemplate>
                         <controls:WrapPanel/>
@@ -63,7 +63,7 @@
 
                 <ListView.ItemTemplate>
                     <DataTemplate>
-                        <StackPanel Width="300" Height="150">
+                        <StackPanel Width="300" Height="150" Background="White">
                             <Image Source="{Binding Image, Converter={StaticResource pathConverter}}" VerticalAlignment="Center" HorizontalAlignment="Center"  Height="100" Width="100"/>
                             <TextBlock Text="{Binding Name}" FontSize="10" TextWrapping="Wrap"  HorizontalTextAlignment="Center" VerticalAlignment="Bottom"  HorizontalAlignment="Center"/>
                         </StackPanel>
@@ -75,9 +75,9 @@
                 <Run Text="{Binding}"/>
             </TextBlock>
             <controls:DockPanel HorizontalAlignment="Center">
-                <Button x:ConnectionId='5' Content="←"                              Width="60" Height="30" HorizontalAlignment="Left"/>
+                <Button x:ConnectionId='5' Content="←"                              Width="60" Height="30" HorizontalAlignment="Left"  Background="#c1d3e0" />
                 <TextBlock x:ConnectionId='6' x:Name="pageInfo" Text="{Binding }" HorizontalAlignment="Center" HorizontalTextAlignment="Center" Width="100"/>
-                <Button x:ConnectionId='7' Content="→"                          Width="60" Height="30" HorizontalAlignment="Right"/>
+                <Button x:ConnectionId='7' Content="→"                           Background="#c1d3e0"  Width="60" Height="30" HorizontalAlignment="Right"/>
             </controls:DockPanel>
         </StackPanel>
     </Grid>

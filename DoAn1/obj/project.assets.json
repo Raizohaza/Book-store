@@ -26,6 +26,29 @@
           "lib/uap10.0/ColorCode.UWP.dll": {}
         }
       },
+      "LiveCharts/0.8.0": {
+        "type": "package",
+        "compile": {
+          "lib/portable-net40+sl5+win8+wp8+wpa81/LiveCharts.dll": {}
+        },
+        "runtime": {
+          "lib/portable-net40+sl5+win8+wp8+wpa81/LiveCharts.dll": {}
+        }
+      },
+      "LiveCharts.Uwp/0.8.0": {
+        "type": "package",
+        "dependencies": {
+          "LiveCharts": "0.8.0",
+          "Microsoft.NETCore.UniversalWindowsPlatform": "5.2.2",
+          "Microsoft.Xaml.Behaviors.Uwp.Managed": "2.0.0"
+        },
+        "compile": {
+          "lib/uap10.0/LiveCharts.Uwp.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/LiveCharts.Uwp.dll": {}
+        }
+      },
       "Microsoft.CSharp/4.3.0": {
         "type": "package",
         "dependencies": {
@@ -1222,6 +1245,29 @@
         },
         "runtime": {
           "lib/uap10.0/ColorCode.UWP.dll": {}
+        }
+      },
+      "LiveCharts/0.8.0": {
+        "type": "package",
+        "compile": {
+          "lib/portable-net40+sl5+win8+wp8+wpa81/LiveCharts.dll": {}
+        },
+        "runtime": {
+          "lib/portable-net40+sl5+win8+wp8+wpa81/LiveCharts.dll": {}
+        }
+      },
+      "LiveCharts.Uwp/0.8.0": {
+        "type": "package",
+        "dependencies": {
+          "LiveCharts": "0.8.0",
+          "Microsoft.NETCore.UniversalWindowsPlatform": "5.2.2",
+          "Microsoft.Xaml.Behaviors.Uwp.Managed": "2.0.0"
+        },
+        "compile": {
+          "lib/uap10.0/LiveCharts.Uwp.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/LiveCharts.Uwp.dll": {}
         }
       },
       "Microsoft.CSharp/4.3.0": {
@@ -2774,6 +2820,29 @@
         },
         "runtime": {
           "lib/uap10.0/ColorCode.UWP.dll": {}
+        }
+      },
+      "LiveCharts/0.8.0": {
+        "type": "package",
+        "compile": {
+          "lib/portable-net40+sl5+win8+wp8+wpa81/LiveCharts.dll": {}
+        },
+        "runtime": {
+          "lib/portable-net40+sl5+win8+wp8+wpa81/LiveCharts.dll": {}
+        }
+      },
+      "LiveCharts.Uwp/0.8.0": {
+        "type": "package",
+        "dependencies": {
+          "LiveCharts": "0.8.0",
+          "Microsoft.NETCore.UniversalWindowsPlatform": "5.2.2",
+          "Microsoft.Xaml.Behaviors.Uwp.Managed": "2.0.0"
+        },
+        "compile": {
+          "lib/uap10.0/LiveCharts.Uwp.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/LiveCharts.Uwp.dll": {}
         }
       },
       "Microsoft.CSharp/4.3.0": {
@@ -4359,6 +4428,29 @@
           "lib/uap10.0/ColorCode.UWP.dll": {}
         }
       },
+      "LiveCharts/0.8.0": {
+        "type": "package",
+        "compile": {
+          "lib/portable-net40+sl5+win8+wp8+wpa81/LiveCharts.dll": {}
+        },
+        "runtime": {
+          "lib/portable-net40+sl5+win8+wp8+wpa81/LiveCharts.dll": {}
+        }
+      },
+      "LiveCharts.Uwp/0.8.0": {
+        "type": "package",
+        "dependencies": {
+          "LiveCharts": "0.8.0",
+          "Microsoft.NETCore.UniversalWindowsPlatform": "5.2.2",
+          "Microsoft.Xaml.Behaviors.Uwp.Managed": "2.0.0"
+        },
+        "compile": {
+          "lib/uap10.0/LiveCharts.Uwp.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/LiveCharts.Uwp.dll": {}
+        }
+      },
       "Microsoft.CSharp/4.3.0": {
         "type": "package",
         "dependencies": {
@@ -5942,6 +6034,29 @@
           "lib/uap10.0/ColorCode.UWP.dll": {}
         }
       },
+      "LiveCharts/0.8.0": {
+        "type": "package",
+        "compile": {
+          "lib/portable-net40+sl5+win8+wp8+wpa81/LiveCharts.dll": {}
+        },
+        "runtime": {
+          "lib/portable-net40+sl5+win8+wp8+wpa81/LiveCharts.dll": {}
+        }
+      },
+      "LiveCharts.Uwp/0.8.0": {
+        "type": "package",
+        "dependencies": {
+          "LiveCharts": "0.8.0",
+          "Microsoft.NETCore.UniversalWindowsPlatform": "5.2.2",
+          "Microsoft.Xaml.Behaviors.Uwp.Managed": "2.0.0"
+        },
+        "compile": {
+          "lib/uap10.0/LiveCharts.Uwp.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/LiveCharts.Uwp.dll": {}
+        }
+      },
       "Microsoft.CSharp/4.3.0": {
         "type": "package",
         "dependencies": {
@@ -7492,6 +7607,29 @@
         },
         "runtime": {
           "lib/uap10.0/ColorCode.UWP.dll": {}
+        }
+      },
+      "LiveCharts/0.8.0": {
+        "type": "package",
+        "compile": {
+          "lib/portable-net40+sl5+win8+wp8+wpa81/LiveCharts.dll": {}
+        },
+        "runtime": {
+          "lib/portable-net40+sl5+win8+wp8+wpa81/LiveCharts.dll": {}
+        }
+      },
+      "LiveCharts.Uwp/0.8.0": {
+        "type": "package",
+        "dependencies": {
+          "LiveCharts": "0.8.0",
+          "Microsoft.NETCore.UniversalWindowsPlatform": "5.2.2",
+          "Microsoft.Xaml.Behaviors.Uwp.Managed": "2.0.0"
+        },
+        "compile": {
+          "lib/uap10.0/LiveCharts.Uwp.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/LiveCharts.Uwp.dll": {}
         }
       },
       "Microsoft.CSharp/4.3.0": {
@@ -9077,6 +9215,29 @@
           "lib/uap10.0/ColorCode.UWP.dll": {}
         }
       },
+      "LiveCharts/0.8.0": {
+        "type": "package",
+        "compile": {
+          "lib/portable-net40+sl5+win8+wp8+wpa81/LiveCharts.dll": {}
+        },
+        "runtime": {
+          "lib/portable-net40+sl5+win8+wp8+wpa81/LiveCharts.dll": {}
+        }
+      },
+      "LiveCharts.Uwp/0.8.0": {
+        "type": "package",
+        "dependencies": {
+          "LiveCharts": "0.8.0",
+          "Microsoft.NETCore.UniversalWindowsPlatform": "5.2.2",
+          "Microsoft.Xaml.Behaviors.Uwp.Managed": "2.0.0"
+        },
+        "compile": {
+          "lib/uap10.0/LiveCharts.Uwp.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/LiveCharts.Uwp.dll": {}
+        }
+      },
       "Microsoft.CSharp/4.3.0": {
         "type": "package",
         "dependencies": {
@@ -10627,6 +10788,29 @@
         },
         "runtime": {
           "lib/uap10.0/ColorCode.UWP.dll": {}
+        }
+      },
+      "LiveCharts/0.8.0": {
+        "type": "package",
+        "compile": {
+          "lib/portable-net40+sl5+win8+wp8+wpa81/LiveCharts.dll": {}
+        },
+        "runtime": {
+          "lib/portable-net40+sl5+win8+wp8+wpa81/LiveCharts.dll": {}
+        }
+      },
+      "LiveCharts.Uwp/0.8.0": {
+        "type": "package",
+        "dependencies": {
+          "LiveCharts": "0.8.0",
+          "Microsoft.NETCore.UniversalWindowsPlatform": "5.2.2",
+          "Microsoft.Xaml.Behaviors.Uwp.Managed": "2.0.0"
+        },
+        "compile": {
+          "lib/uap10.0/LiveCharts.Uwp.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/LiveCharts.Uwp.dll": {}
         }
       },
       "Microsoft.CSharp/4.3.0": {
@@ -12214,6 +12398,46 @@
         "lib/uap10.0/ColorCode.UWP.dll",
         "lib/uap10.0/ColorCode.UWP.pdb",
         "lib/uap10.0/ColorCode.UWP.pri"
+      ]
+    },
+    "LiveCharts/0.8.0": {
+      "sha512": "Ak+ayWj4jtaiHcXuvOXP+ogjghd44XUr5VB4wzKqS6ACosgj27ymr8jmRXRPxXXaXzwesvdSNXslCWOLFurfuw==",
+      "type": "package",
+      "path": "livecharts/0.8.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net40/LiveCharts.XML",
+        "lib/net40/Livecharts.dll",
+        "lib/net40/Livecharts.pdb",
+        "lib/portable-net40+sl5+win8+wp8+wpa81/LiveCharts.XML",
+        "lib/portable-net40+sl5+win8+wp8+wpa81/LiveCharts.dll",
+        "lib/portable-net40+sl5+win8+wp8+wpa81/LiveCharts.pdb",
+        "livecharts.0.8.0.nupkg.sha512",
+        "livecharts.nuspec",
+        "readme.txt"
+      ]
+    },
+    "LiveCharts.Uwp/0.8.0": {
+      "sha512": "Jla7J35r8PE5ULjufwM5O5rFNseemAJAdT2plRlkht/U50pNzuux44zZ6iEgHlI8alccSaTkMd0NKmrksBcZpQ==",
+      "type": "package",
+      "path": "livecharts.uwp/0.8.0",
+      "hasTools": true,
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/uap10.0/LiveCharts.Uwp.XML",
+        "lib/uap10.0/LiveCharts.Uwp.dll",
+        "lib/uap10.0/LiveCharts.Uwp.pdb",
+        "lib/uap10.0/LiveCharts.Uwp.pri",
+        "lib/uap10.0/LiveCharts.Uwp/DefaultGeoMapTooltip.xaml",
+        "lib/uap10.0/LiveCharts.Uwp/DefaultLegend.xaml",
+        "lib/uap10.0/LiveCharts.Uwp/DefaultTooltip.xaml",
+        "lib/uap10.0/LiveCharts.Uwp/HeatColorRange.xaml",
+        "lib/uap10.0/LiveCharts.Uwp/LiveCharts.Uwp.xr.xml",
+        "livecharts.uwp.0.8.0.nupkg.sha512",
+        "livecharts.uwp.nuspec",
+        "tools/install.ps1"
       ]
     },
     "Microsoft.CSharp/4.3.0": {
@@ -20164,6 +20388,7 @@
   },
   "projectFileDependencyGroups": {
     "UAP,Version=v10.0.17763": [
+      "LiveCharts.Uwp >= 0.8.0",
       "Microsoft.NETCore.UniversalWindowsPlatform >= 6.2.10",
       "Microsoft.Toolkit.Uwp.UI.Controls >= 6.1.1",
       "Microsoft.Toolkit.Uwp.UI.Controls.DataGrid >= 6.1.1",
@@ -20173,30 +20398,31 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Admin\\.nuget\\packages\\": {},
+    "C:\\Users\\dung0\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft SDKs\\UWPNuGetPackages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Admin\\Desktop\\DoAn1\\DoAn1\\MyS.csproj",
+      "projectUniqueName": "C:\\Users\\dung0\\Desktop\\New folder\\DoAn1\\MyS.csproj",
       "projectName": "MyS",
-      "projectPath": "C:\\Users\\Admin\\Desktop\\DoAn1\\DoAn1\\MyS.csproj",
-      "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Admin\\Desktop\\DoAn1\\DoAn1\\obj\\",
+      "projectPath": "C:\\Users\\dung0\\Desktop\\New folder\\DoAn1\\MyS.csproj",
+      "packagesPath": "C:\\Users\\dung0\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\dung0\\Desktop\\New folder\\DoAn1\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft SDKs\\UWPNuGetPackages\\"
       ],
       "configFilePaths": [
-        "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\dung0\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "uap10.0.17763"
       ],
       "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -20208,6 +20434,10 @@
     "frameworks": {
       "uap10.0.17763": {
         "dependencies": {
+          "LiveCharts.Uwp": {
+            "target": "Package",
+            "version": "[0.8.0, )"
+          },
           "Microsoft.NETCore.UniversalWindowsPlatform": {
             "target": "Package",
             "version": "[6.2.10, )"

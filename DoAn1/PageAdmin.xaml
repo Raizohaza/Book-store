@@ -9,7 +9,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
     xmlns:lvc="using:LiveCharts.Uwp"
-    Background="White" Height="720" Width="1100">
+    Background="#e6f7ff" Height="600" Width="1100">
 
     <Grid>
         <!--<muxc:NavigationView x:Name="Menu" PaneDisplayMode="Top" VerticalAlignment="Top" IsBackButtonVisible="Collapsed" SelectionChanged="Menu_SelectionChanged" Loaded="Menu_Loaded">
@@ -24,15 +24,15 @@
 
         </muxc:NavigationView>-->
         <StackPanel  VerticalAlignment="Top" HorizontalAlignment="Left"  Orientation="Horizontal">
-            <Button x:Name="Done_Button" Content="Done" Click="Done_Button_Click" Background="Wheat" Margin="5"/>
-            <Button x:Name="PieChartButton" Content="PieChartButton" Click="PieChartButton_Click" Background="Wheat" Margin="5"/>
+            <Button x:Name="Done_Button" Content="Done" Click="Done_Button_Click" Background="#c1d3e0" Margin="5"/>
+            <Button x:Name="PieChartButton" Content="PieChartButton" Click="PieChartButton_Click" Background="#c1d3e0" Margin="5"/>
         </StackPanel>
         
-        <ScrollViewer Height="500" Width="500" HorizontalAlignment="Left" Name="PieChartScrollView">
+        <ScrollViewer Height="500" Width="1000" HorizontalAlignment="Center"  Name="PieChartScrollView">
             <StackPanel>
-                <TextBlock Text="Biểu đồ thu  chi" TextWrapping="Wrap" FontSize="24" Height="40" Width="200" VerticalAlignment="Top" HorizontalAlignment="Center"/>
+                <TextBlock Text="Thu chi:" TextWrapping="Wrap" FontWeight="Medium" FontSize="30" Height="40" Width="200" VerticalAlignment="Top" HorizontalAlignment="Left"/>
 
-                <lvc:PieChart Name="PieChartView"  Height="300" Width="300" >
+                <lvc:PieChart Name="PieChartView"  Height="450" Width="800" >
 
                 </lvc:PieChart>
             </StackPanel>

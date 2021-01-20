@@ -486,7 +486,9 @@ namespace DoAn1
                     }
 
                     productsListView.SelectedIndex = -1;
+                    
                 }
+                
 
             }
             catch (Exception ex)
