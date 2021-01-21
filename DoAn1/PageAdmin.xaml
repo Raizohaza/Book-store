@@ -24,19 +24,69 @@
 
         </muxc:NavigationView>-->
         <StackPanel  VerticalAlignment="Top" HorizontalAlignment="Left"  Orientation="Horizontal">
+            <TextBlock Text="Từ ngày:" Height="24" Margin="5, 0, 5, 0"></TextBlock>
+            <CalendarDatePicker Name="fromDatePicker" Width="150" Height="30" DateChanged="fromDatePicker_DateChanged" ></CalendarDatePicker>
+            <TextBlock Text="Đến ngày:" Height="24" Margin="5, 0, 5, 0"></TextBlock>
+            <CalendarDatePicker Name="toDatePicker" Width="150" Height="30" DateChanged="toDatePicker_DateChanged"></CalendarDatePicker>
+
             <Button x:Name="Done_Button" Content="Done" Click="Done_Button_Click" Background="#c1d3e0" Margin="5"/>
+
             <Button x:Name="PieChartButton" Content="PieChartButton" Click="PieChartButton_Click" Background="#c1d3e0" Margin="5"/>
+            <Button x:Name="ColumChartButton" Content="ColumChartButton" Click="ColumChartButton_CLick" Background="#c1d3e0" Margin="5"/>
+
         </StackPanel>
-        
-        <ScrollViewer Height="500" Width="1000" HorizontalAlignment="Center"  Name="PieChartScrollView">
+        <ScrollViewer Width="529" Visibility="Collapsed" HorizontalAlignment="Left"  Name="PieChartScrollView" Margin="21,65,0,65">
             <StackPanel>
                 <TextBlock Text="Thu chi:" TextWrapping="Wrap" FontWeight="Medium" FontSize="30" Height="40" Width="200" VerticalAlignment="Top" HorizontalAlignment="Left"/>
 
-                <lvc:PieChart Name="PieChartView"  Height="450" Width="800" >
+                <lvc:PieChart Name="PieChartView"  Height="405" Width="441" >
 
                 </lvc:PieChart>
             </StackPanel>
         </ScrollViewer>
+        
+        <ScrollViewer HorizontalAlignment="Left"  Name="ColumChartScrollView" Visibility="Collapsed" Margin="21,65,0,65" Width="529">
+                <StackPanel>
+                    <TextBlock Text="Các mặt hàng bán chạy" TextWrapping="Wrap" FontWeight="Medium" FontSize="30" Height="40" Width="200" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+                <lvc:CartesianChart Name="ColumChartView"  Height="405" Width="441">
+                </lvc:CartesianChart>
+            </StackPanel>
+            
+        </ScrollViewer>
+        <ScrollViewer HorizontalAlignment="Left"  Name="LineChartScrollView" Visibility="Visible" Margin="21,65,0,65" Width="529">
+            <StackPanel>
+                
+                <TextBlock Text="Biểu đồ đường" TextWrapping="Wrap" FontWeight="Medium" FontSize="30" Height="40" Width="200" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+                <lvc:CartesianChart Name="LineChartView"  Height="405" Width="441">
+                    <!--<lvc:CartesianChart.AxisX>
+                        <lvc:Axis Name="LineChartViewX" Title="Month" Labels="{Binding Labels}"></lvc:Axis>
+                    </lvc:CartesianChart.AxisX>-->
+                </lvc:CartesianChart>
+            </StackPanel>
+
+        </ScrollViewer>
+        <!--<d3:Chart Name="Plotter"
+                  Grid.Row="1"
+                  Margin="0,0,25,0"
+                  FontFamily="Sitka Subheading"
+                  BottomTitle="Ngày"
+                  LeftTitle="Tiền"
+                  Background="Transparent">
+            <d:Chart.LegendContent>
+                <d:LegendItemsPanel>
+                    <d:LegendItemsPanel.Resources>
+                        <DataTemplate x:Key="InteractiveDataDisplay.WPF.LineGraph">
+                            <StackPanel Orientation="Horizontal">
+                                <CheckBox IsChecked="{Binding Path=Visibility, Converter={StaticResource VisibilityToCheckedConverter}, Mode=TwoWay}"/>
+                                <Line Width="15" Height="15" X1="0" Y1="0" X2="15" Y2="15" Stroke="{Binding Path=Stroke}" StrokeThickness="2"/>
+                                <TextBlock Margin="5,0,0,0" Text="{Binding Path=Description}"/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </d:LegendItemsPanel.Resources>
+                </d:LegendItemsPanel>
+            </d:Chart.LegendContent>
+            <Grid Name="Lines"/>
+        </d3:Chart>-->
 
         <controls:DataGrid 
                     IsReadOnly="False" 

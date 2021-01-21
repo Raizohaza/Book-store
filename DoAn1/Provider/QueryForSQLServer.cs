@@ -900,16 +900,69 @@ namespace DoAn1
             data = QueryForSQLServer.GetProducts();
             foreach (DataRow row in data.Rows)
             {
+                string kt = "";
+                if ((int)row.ItemArray[4] <= 0)
+                    kt = "Het hang";
+
+                else if ((int)row.ItemArray[4] < 5)
+                    kt = "Sap het hang";
+                else kt = "Con hang";
+
                 var product = new
                 {
                     Id = (int)row.ItemArray[0],
                     Name = (string)row.ItemArray[2],
                     Price = (Decimal)row.ItemArray[3],
-                    Quantity = (int)row.ItemArray[4]
+                    Quantity = (int)row.ItemArray[4],
+                    Status = kt
                 };
                 products.Add(product);
             }
             return products;
+        }
+
+        public static DataTable BestSellerPurchasePrice()
+        {
+            const string GetProductsQuery = "sp_BestSellerPurchasePrice";
+            DataTable dt = null;
+
+            Provider p = new Provider();
+            var products = new ObservableCollection<Product>();
+            try
+            {
+                p.Connect();
+                dt = p.ExcecuteQuery(CommandType.StoredProcedure, GetProductsQuery);
+                return dt;
+            }
+            catch (Exception eSql)
+            {
+                Debug.WriteLine("Exception: " + eSql.Message);
+            }
+            finally
+            {
+                p.DisConnect();
+            }
+            return null;
+        }
+
+        public static List<Tuple<int, int>> GetListBestSellerPurchasePrice()
+        {
+            DataTable data = null;
+            var GetListBestSellerPurchasePrice = new List<Tuple<int, int>>();
+
+
+            data = BestSellerPurchasePrice();
+            foreach (DataRow row in data.Rows)
+            {
+                var _p = new Tuple<int, int>
+                (
+                    (int)row.ItemArray[0],
+                    (int)row.ItemArray[1]
+                );
+                GetListBestSellerPurchasePrice.Add(_p);
+            }
+
+            return GetListBestSellerPurchasePrice;
         }
         #endregion
     }
