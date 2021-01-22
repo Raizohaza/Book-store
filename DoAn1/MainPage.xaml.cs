@@ -53,6 +53,10 @@ namespace DoAn1
                 {
                     iconAdmin.Visibility = Visibility.Collapsed;
                 }
+                else
+                {
+                    iconAdmin.Visibility = Visibility.Visible;
+                }
             }
         }
         private void Menu_Loaded(object sender, RoutedEventArgs e)

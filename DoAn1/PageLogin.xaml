@@ -13,7 +13,7 @@
             <ColumnDefinition Width="auto"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-        <RelativePanel Grid.Column="0" Background="Red">
+        <RelativePanel Grid.Column="0" Background="LightBlue">
             <Image Source="anh/logo.jpg" MaxHeight="200" Margin="50" RelativePanel.AlignTopWithPanel="True" RelativePanel.AlignVerticalCenterWithPanel="True"/>
             <TextBlock FontSize="20" RelativePanel.AlignHorizontalCenterWithPanel="True" RelativePanel.AlignVerticalCenterWithPanel="True" Text="Login to New World"/>
 
