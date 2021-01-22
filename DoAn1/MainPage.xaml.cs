@@ -42,6 +42,19 @@ namespace DoAn1
             this.NavigationCacheMode = NavigationCacheMode.Enabled;
             CF.Navigate(typeof(PageHome));
         }
+
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            if (e.Parameter as Account != null)
+            {
+                var products = new Account();
+                products = (e.Parameter as Account);
+                if (products.username != "admin")
+                {
+                    iconAdmin.Visibility = Visibility.Collapsed;
+                }
+            }
+        }
         private void Menu_Loaded(object sender, RoutedEventArgs e)
         {
             Menu.SelectedItem = Menu.MenuItems[0];
@@ -53,6 +66,8 @@ namespace DoAn1
             if (args.IsSettingsSelected == true)
             {
                 // neu co setting gi cho app thi code o day
+                Frame rootFrame = Window.Current.Content as Frame;
+                rootFrame.Navigate(typeof(PageLogin));
             }
             else
             {

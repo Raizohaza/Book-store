@@ -24,12 +24,13 @@
                 <muxc:NavigationViewItem Icon="Favorite" Content="Yêu Thích" Tag="iconFav" Visibility="Collapsed"/>
                 <muxc:NavigationViewItem Icon="Shop" Content="Mua hàng " Tag="iconBag" />
                 <muxc:NavigationViewItem Icon="Edit" Content="Thanh toán" Tag="iconCheckOut" />
-                <muxc:NavigationViewItem Icon="Admin" Content="Admin" Tag="iconAdmin" />
+                <muxc:NavigationViewItem Icon="Admin" Content="Admin" Tag="iconAdmin" Name="iconAdmin"/>
             </muxc:NavigationView.MenuItems>
             <muxc:NavigationView.AutoSuggestBox>
                 
                 <AutoSuggestBox x:Name="SearchBox" FontSize="20" QueryIcon="Find" Width="200" Height="32" PlaceholderText="Search" TextChanged="NavViewSearchBox_TextChanged" SuggestionChosen="SearchBox_SuggestionChosen" QuerySubmitted="SearchBox_QuerySubmitted"/>
             </muxc:NavigationView.AutoSuggestBox>
+            
             <ScrollViewer Height="600">
                 <Frame x:Name="CF"/>
             </ScrollViewer>

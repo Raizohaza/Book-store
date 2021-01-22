@@ -41,18 +41,44 @@ namespace DoAn1
         public Provider()
         {
             var strComputerName = GetDataSources();
-            if (strComputerName[0].Contains("\\MSSQLSERVER"))
+
+            var loginName = PageLogin.acc.username;
+            var pwd = PageLogin.acc.password;
+            if (loginName == "admin")
             {
-                string ServerName = Environment.MachineName;
-                ConnectionString = $"Data Source={ServerName};Initial Catalog=MyStore;Integrated Security=True";
+                if (strComputerName[0].Contains("\\MSSQLSERVER"))
+                {
+                    string ServerName = Environment.MachineName;
+                    ConnectionString = $"Data Source={ServerName};Initial Catalog=MyStore;Integrated Security=True";
+                }
+                else
+                {
+                    ConnectionString = $"Data Source={strComputerName[0]};Initial Catalog=MyStore;Integrated Security=True";
+                }
             }
             else
             {
-                ConnectionString = $"Data Source={strComputerName[0]};Initial Catalog=MyStore;Integrated Security=True";
+                var buider = new SqlConnectionStringBuilder();
+                buider.InitialCatalog = "MyStore";
+                buider.UserID = loginName;
+                buider.Password = pwd;
+
+                if (strComputerName[0].Contains("\\MSSQLSERVER"))
+                {
+                    string ServerName = Environment.MachineName;
+                    buider.DataSource = ServerName;
+                    ConnectionString = $"{buider}";
+                }
+                else
+                {
+                    buider.DataSource = strComputerName[0];
+                    ConnectionString = $"{buider}";
+                }
             }
+            
         }
         SqlConnection Connection { get; set; }
-        public void Connect()
+        public bool Connect()
         {
             try
             {
@@ -61,11 +87,15 @@ namespace DoAn1
                 if (Connection != null && Connection.State != ConnectionState.Closed)
                     Connection.Close();
                 Connection.Open();
+                return true;
             }
             catch (SqlException ex)
             {
-                throw ex;
+                return false;
+
             }
+            return false;
+
         }
 
         public void DisConnect()

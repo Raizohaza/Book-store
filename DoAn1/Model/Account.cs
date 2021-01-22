@@ -16,5 +16,6 @@ namespace DoAn1
     {
         public string username { get; set; }
         public string rolename { get; set; }
+        public string password { get; set; }
     }
 }
