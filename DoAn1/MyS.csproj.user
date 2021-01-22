@@ -6,5 +6,13 @@
   </PropertyGroup>
   <PropertyGroup>
     <ProjectView>ProjectFiles</ProjectView>
+    <Source>C:\Users\Admin\source\repos\DoAn1\DoAn1\anh\mainlogo.png</Source>
+    <SmallTileSource>C:\Users\Admin\source\repos\DoAn1\DoAn1\anh\mainlogo.png</SmallTileSource>
+    <MediumTileSource>C:\Users\Admin\source\repos\DoAn1\DoAn1\anh\mainlogo.png</MediumTileSource>
+    <WideTileSource>C:\Users\Admin\source\repos\DoAn1\DoAn1\anh\mainlogo.png</WideTileSource>
+    <LargeTileSource>C:\Users\Admin\source\repos\DoAn1\DoAn1\anh\mainlogo.png</LargeTileSource>
+    <AppIconSource>C:\Users\Admin\source\repos\DoAn1\DoAn1\anh\mainlogo.png</AppIconSource>
+    <SplashScreenSource>C:\Users\Admin\source\repos\DoAn1\DoAn1\anh\mainlogo.png</SplashScreenSource>
+    <PackageLogoSource>C:\Users\Admin\source\repos\DoAn1\DoAn1\anh\mainlogo.png</PackageLogoSource>
   </PropertyGroup>
 </Project>
