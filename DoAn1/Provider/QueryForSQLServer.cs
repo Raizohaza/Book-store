@@ -5,8 +5,6 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Diagnostics;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DoAn1
 {
@@ -36,6 +34,30 @@ namespace DoAn1
                 p.DisConnect();
             }
             return null;
+        }
+
+        public static DataTable GetProductById(int pid)
+        {
+            const string GetProductsQuery = "select Name from Product where id = @id";
+            DataTable dt = null;
+
+            Provider p = new Provider();
+            var products = new ObservableCollection<Product>();
+            try
+            {
+                p.Connect();
+                dt = p.ExcecuteQuery(CommandType.Text, GetProductsQuery,
+                    new SqlParameter { ParameterName = "@id", Value = pid });
+            }
+            catch (Exception eSql)
+            {
+                Debug.WriteLine("Exception: " + eSql.Message);
+            }
+            finally
+            {
+                p.DisConnect();
+            }
+            return dt;
         }
 
         public static DataTable GetProductsByImage(string image)
@@ -126,9 +148,9 @@ namespace DoAn1
         public static DataTable UpdateProduct(Product product)
         {
             string Query = "update Product " +
-                "set CatId = "+ product.CatId + ",Author = N'" + product.Author + "',Name = N'" + product.Name + 
-                "',Price = " + product.Price + ",Quantity=" + product.Quantity + ",Description=N'" + product.Description + "',Image='" + product.Image+ "' " +
-                "where Id = " + product.Id ;
+                "set CatId = " + product.CatId + ",Author = N'" + product.Author + "',Name = N'" + product.Name +
+                "',Price = " + product.Price + ",Quantity=" + product.Quantity + ",Description=N'" + product.Description + "',Image='" + product.Image + "' " +
+                "where Id = " + product.Id;
             DataTable dt = null;
             Provider p = new Provider();
             var products = new ObservableCollection<Product>();
@@ -213,9 +235,9 @@ namespace DoAn1
                 dt = p.ExcecuteQuery(CommandType.Text, "select * from Category where cast(name as nvarchar(50))= @name",
                     new SqlParameter { ParameterName = "@name", Value = product.Name }
                     );
-                if(dt.Rows.Count !=0)
+                if (dt.Rows.Count != 0)
                     id = (int)dt.Rows[0].ItemArray[0];
-                if(id == -1)
+                if (id == -1)
                 {
                     p.ExcecuteQuery(CommandType.Text, Query,
                         new SqlParameter { ParameterName = "@name", Value = product.Name }
@@ -225,9 +247,9 @@ namespace DoAn1
                     );
                     if (dt.Rows.Count != 0)
                         id = (int)dt.Rows[0].ItemArray[0];
-                }   
-                    
-                
+                }
+
+
                 return id;
             }
             catch (Exception eSql)
@@ -263,8 +285,8 @@ namespace DoAn1
         public static void UpdateCategory(Category Category)
         {
             string Query = "update Category " +
-                "set Name = N'" + Category.Name+"' where id = "+ Category.Id ;
-             
+                "set Name = N'" + Category.Name + "' where id = " + Category.Id;
+
             Provider p = new Provider();
             try
             {
@@ -323,7 +345,7 @@ namespace DoAn1
                 {
                     return 0;
                 }
-                index = (int) dt.Rows[0][0];
+                index = (int)dt.Rows[0][0];
                 return index;
             }
             catch (Exception eSql)
@@ -390,7 +412,7 @@ namespace DoAn1
             {
                 p.DisConnect();
             }
-            return ;
+            return;
         }
         #endregion
 
@@ -406,7 +428,7 @@ namespace DoAn1
             {
                 p.Connect();
                 dt = p.ExcecuteQuery(CommandType.Text, GetProductsQuery,
-                    new SqlParameter { ParameterName = "@p_id" , Value = p_id });
+                    new SqlParameter { ParameterName = "@p_id", Value = p_id });
                 return dt;
             }
             catch (Exception eSql)
@@ -452,7 +474,7 @@ namespace DoAn1
 
         public static int UpdatePurchaseDetail(PurchaseDetail purchaseDetail)
         {
-            const string Query = 
+            const string Query =
                 "update PurchaseDetail set Quantity = @Quantity, Total = @Total where PurchaseDetail_ID = @PurchaseDetail_ID";
             Provider p = new Provider();
             int id = -1;
@@ -545,7 +567,7 @@ namespace DoAn1
                     new SqlParameter { ParameterName = "@Created_At", Value = purchase.Created_At },
                     new SqlParameter { ParameterName = "@Total", Value = purchase.Total },
                     new SqlParameter { ParameterName = "@Status", Value = purchase.Status },
-                    new SqlParameter { ParameterName = "@id", Value = id,Direction = ParameterDirection.Output }
+                    new SqlParameter { ParameterName = "@id", Value = id, Direction = ParameterDirection.Output }
 
                     );
                 if (id != null)
@@ -611,10 +633,10 @@ namespace DoAn1
         {
             const string Query = "select * from Customer where tel = @tel";
             Provider p = new Provider();
-            DataTable dt=null;
+            DataTable dt = null;
             try
             {
-                
+
                 p.Connect();
                 dt = p.ExcecuteQuery(CommandType.Text, Query,
                     new SqlParameter { ParameterName = "@tel", Value = tel }
@@ -691,7 +713,7 @@ namespace DoAn1
         #endregion
 
         #region logic
-        
+
         public static ObservableCollection<Product> GetProductFromDb(int catId = 0)
         {
             DataTable data = null;
@@ -725,7 +747,7 @@ namespace DoAn1
         }
         public static void UpdateListPurchaseDetail(ObservableCollection<object> list_Update)
         {
-            
+
             for (int i = 0; i < list_Update.Count; i++)
             {
                 dynamic p = list_Update[i];
@@ -745,7 +767,7 @@ namespace DoAn1
 
         }
 
-        public static void InsertListPurchaseDetail(ObservableCollection<object> list_New,int current_id = 1)
+        public static void InsertListPurchaseDetail(ObservableCollection<object> list_New, int current_id = 1)
         {
             //List<PurchaseDetail> listPurchaseDetails = new List<PurchaseDetail>();
             for (int i = 0; i < list_New.Count; i++)
@@ -830,18 +852,21 @@ namespace DoAn1
             return null;
         }
 
-        public static List<Tuple<int, int>> GetListBestSellerPurchases()
+        public static List<Tuple<string, int>> GetListBestSellerPurchases()
         {
             DataTable data = null;
-            var GetListBestSellPurchases = new List<Tuple<int, int>>();
+            var GetListBestSellPurchases = new List<Tuple<string, int>>();
 
 
             data = GetBestSellerPurchases();
             foreach (DataRow row in data.Rows)
             {
-                var _p = new Tuple<int, int>
+                var productName = GetProductById((int)row.ItemArray[0]);
+                string productName2 = (string)productName.Rows[0].ItemArray[0];
+
+                var _p = new Tuple<string, int>
                 (
-                    (int)row.ItemArray[0],
+                    productName2,
                     (int)row.ItemArray[1]
                 );
                 GetListBestSellPurchases.Add(_p);
@@ -882,7 +907,7 @@ namespace DoAn1
             data = GetSumAtMonthPurchase(Year);
             foreach (DataRow row in data.Rows)
             {
-                var _p = new Tuple<int,decimal> 
+                var _p = new Tuple<int, decimal>
                 (
                     (int)row.ItemArray[0],
                     (decimal)row.ItemArray[1]
@@ -902,11 +927,11 @@ namespace DoAn1
             {
                 string kt = "";
                 if ((int)row.ItemArray[4] <= 0)
-                    kt = "Het hang";
+                    kt = "Hết hàng";
 
                 else if ((int)row.ItemArray[4] < 5)
-                    kt = "Sap het hang";
-                else kt = "Con hang";
+                    kt = "Sắp hết hàng";
+                else kt = "Còn hàng";
 
                 var product = new
                 {

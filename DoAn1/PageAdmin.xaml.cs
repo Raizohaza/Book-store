@@ -29,33 +29,33 @@ namespace DoAn1
         {
             InitializeComponent();
             //ngay thang nam
-            fromDatePicker.Date = DateTime.Today.AddMonths(-12).Date;
-            toDatePicker.Date = DateTime.Today.AddMonths(-1).Date;
+            fromDatePicker.Date = new DateTime(2021, 1, 1).Date;
+            toDatePicker.Date = new DateTime(2021, 12, 31).Date;
 
             data = new List<Tuple<int, decimal>>();
-            data = QueryForSQLServer.GetTotalByMonth(2020);
+            data = QueryForSQLServer.GetTotalByMonth(2021);
 
             var dataSeller = QueryForSQLServer.GetListBestSellerPurchases();
 
-            string []Labels = new []{ "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul","Aug","Sep","Oct","Nov","Dec" };
-            //LineChartViewX.DataContext = Labels;
-            PieChartView.Series = new SeriesCollection();
+            //string []Labels = new []{ "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul","Aug","Sep","Oct","Nov","Dec" };
+            ////LineChartViewX.DataContext = Labels;
+            //PieChartView.Series = new SeriesCollection();
 
-            foreach (var item in data)
-            {
-                var tmp = new PieSeries() { Values = new ChartValues<decimal>() { item.Item2 }, Title = item.Item1.ToString() };
-                PieChartView.Series.Add(
-                    new PieSeries()
-                    {
-                        Values = new ChartValues<decimal> { item.Item2 },
-                        Title = item.Item1.ToString(),
-                        DataLabels = true,
-                        
-                    }
-                ) ;
-            }
-            PieChartView.LegendLocation = LegendLocation.Bottom;
-            PieChartView.DataContext = this;
+            //foreach (var item in data)
+            //{
+            //    if (item.Item2 != 0)
+            //        PieChartView.Series.Add(
+            //        new PieSeries()
+            //        {
+            //            Values = new ChartValues<decimal> { item.Item2 },
+            //            Title = item.Item1.ToString(),
+            //            DataLabels = true,
+
+            //        }
+            //    ) ;
+            //}
+            //PieChartView.LegendLocation = LegendLocation.Bottom;
+            //PieChartView.DataContext = this;
 
             var productdt = QueryForSQLServer.GetProductFromDBTwo();
             DataGridProduct.ItemsSource = productdt;
@@ -64,7 +64,7 @@ namespace DoAn1
 
             foreach (var item in dataSeller)
             {
-                var tmp = new ColumnSeries() { Values = new ChartValues<decimal>() { item.Item2 }, Title = item.Item1.ToString() };
+
                 ColumChartView.Series.Add(
                     new ColumnSeries()
                     {
@@ -75,190 +75,217 @@ namespace DoAn1
                     }
                 );
             }
+            
             ColumChartView.LegendLocation = LegendLocation.Bottom;
             ColumChartView.DataContext = this;
 
-            var linedata = new List<decimal>(); 
-            foreach(var item in data)
-            {
-                linedata.Add(item.Item2);
-            }    
-            LineChartView.Series.Add(
-                new LineSeries()
+            //var linedata = new List<decimal>(); 
+            //foreach(var item in data)
+            //{
+            //    linedata.Add(item.Item2);
+            //}    
+            //LineChartView.Series.Add(
+            //    new LineSeries()
 
-                {
-                    Values = new ChartValues<decimal> { linedata[0] },
-                    Title = "cc",
-                    LineSmoothness = 0, //0: straight lines, 1: really smooth lines
-                    DataLabels = true,
+            //    {
+            //        Values = new ChartValues<decimal> { linedata[0] },
+            //        Title = "Doanh thu theo năm",
+            //        LineSmoothness = 0, //0: straight lines, 1: really smooth lines
+            //        DataLabels = true,
                         
 
-                }
-            );
-            for (int i = 1; i < linedata.Count(); i++)
-            {
-                LineChartView.Series[0].Values.Add(linedata[i]);
-            }
-            LineChartView.LegendLocation = LegendLocation.Bottom;
-            LineChartView.AxisX.Add(
-                new Axis
-                {
-                    MinValue = 0,
-                    Labels = Labels
-                }
-                );
-            LineChartView.AxisY.Add(
-                new Axis
-                {
-                    MinValue = 0,
-                }
-                );
-            LineChartView.DataContext = this;
+            //    }
+            //);
+            //for (int i = 1; i < linedata.Count(); i++)
+            //{
+            //    LineChartView.Series[0].Values.Add(linedata[i]);
+            //}
+            //LineChartView.LegendLocation = LegendLocation.Bottom;
+            //LineChartView.AxisX.Add(
+            //    new Axis
+            //    {
+            //        MinValue = 0,
+            //        Labels = Labels
+            //    }
+            //    );
+            //LineChartView.AxisY.Add(
+            //    new Axis
+            //    {
+            //        MinValue = 0,
+            //    }
+            //    );
+            //LineChartView.DataContext = this;
 
         }
 
         private void Done_Button_Click(object sender, RoutedEventArgs e)
         {
             PieChartScrollView.Visibility = Visibility.Collapsed;
-
+            ColumChartScrollView.Visibility = Visibility.Collapsed;
+            LineChartScrollView.Visibility = Visibility.Collapsed;
             DataGridProduct.Visibility = Visibility.Visible;
+
+            DateStackPanel.Visibility = Visibility.Collapsed;
         }
 
         private void PieChartButton_Click(object sender, RoutedEventArgs e)
         {
             PieChartScrollView.Visibility = Visibility.Visible;
+            ColumChartScrollView.Visibility = Visibility.Collapsed;
+            LineChartScrollView.Visibility = Visibility.Collapsed;
             DataGridProduct.Visibility = Visibility.Collapsed;
+
+            DateStackPanel.Visibility = Visibility.Visible;
         }
 
         private void ColumChartButton_CLick(object sender, RoutedEventArgs e)
         {
+            PieChartScrollView.Visibility = Visibility.Collapsed;
             ColumChartScrollView.Visibility = Visibility.Visible;
+            LineChartScrollView.Visibility = Visibility.Collapsed;
             DataGridProduct.Visibility = Visibility.Collapsed;
+
+            DateStackPanel.Visibility = Visibility.Collapsed;
+        }
+
+        private void LineChartButton_Click(object sender, RoutedEventArgs e)
+        {
+            PieChartScrollView.Visibility = Visibility.Collapsed;
+            ColumChartScrollView.Visibility = Visibility.Collapsed;
+            LineChartScrollView.Visibility = Visibility.Visible;
+            DataGridProduct.Visibility = Visibility.Collapsed;
+
+            DateStackPanel.Visibility = Visibility.Visible;
         }
         void FillByDate(DateTimeOffset? fromDate, DateTimeOffset? toDate)
         {
-            if(data != null)
+
+            data = new List<Tuple<int, decimal>>();
+            data = QueryForSQLServer.GetTotalByMonth(2021);
+            var list = data.ToList();
+            if (fromDate != null && toDate != null)
             {
-                data = QueryForSQLServer.GetTotalByMonth(2020);
-                var list = data.ToList();
-                if (fromDate != null && toDate != null)
+                data = new List<Tuple<int, decimal>>();
+                for (int i = 0; i < list.Count(); i++)
                 {
-                    data = new List<Tuple<int, decimal>>();
-                    for (int i = 0; i < list.Count(); i++)
+                    var Created_At = list[i].Item1.ToString();
+                    var dateMonth = int.Parse(Created_At);
+                    var fromDateMonth = int.Parse(fromDate?.ToString("MM"));
+                    var toDateMonth = int.Parse(toDate?.ToString("MM"));
+                    if (fromDateMonth <= dateMonth && dateMonth <= toDateMonth)
                     {
-                        var Created_At = list[i].Item1.ToString();
-                        var dateMonth = int.Parse(Created_At);
-                        var fromDateMonth = int.Parse(fromDate?.ToString("MM"));
-                        var toDateMonth = int.Parse(toDate?.ToString("MM"));
-                        if (fromDateMonth <= dateMonth && dateMonth <= toDateMonth )
-                        {
-                            data.Add(list[i]);
-                        }
+                        data.Add(list[i]);
                     }
-                    PieChartView.Series = new SeriesCollection();
+                }
+                PieChartView.Series = new SeriesCollection();
 
-                    foreach (var item in data)
-                    {
-                        var tmp = new PieSeries() { Values = new ChartValues<decimal>() { item.Item2 }, Title = item.Item1.ToString() };
+                var enum2 = from num in data
+                            orderby num.Item2 descending
+                            select num;
+
+                foreach (var item in enum2)
+                {
+
+                    if (item.Item2 != 0)
                         PieChartView.Series.Add(
-                            new PieSeries()
-                            {
-                                Values = new ChartValues<decimal> { item.Item2 },
-                                Title = item.Item1.ToString(),
-                                DataLabels = true,
-
-                            }
-                        );
-                    }
-                    PieChartView.LegendLocation = LegendLocation.Bottom;
-                    PieChartView.DataContext = this;
-
-                    LineChartView.Series = new SeriesCollection();
-                    var linedata = new List<decimal>();
-                    string[] Labels = new[] { "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec" };
-                    var fromDateMonth2 = int.Parse(fromDate?.ToString("MM"));
-                    switch (fromDateMonth2)
-                    {
-                        case 1:
-                            Labels = new[] { "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec" };
-                            break;
-                        case 2:
-                            Labels = new[] { "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec" };
-                            break;
-                        case 3:
-                            Labels = new[] { "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec" };
-                            break;
-                        case 4:
-                            Labels = new[] { "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec" };
-                            break;
-                        case 5:
-                            Labels = new[] { "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec" };
-                            break;
-                        case 6:
-                            
-                            Labels = new[] { "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec" };
-                            break;                   
-                        case 7:
-                            Labels = new[] { "Jul", "Aug", "Sep", "Oct", "Nov", "Dec" };
-                            break;
-                        case 8:
-                            Labels = new[] { "Aug", "Sep", "Oct", "Nov", "Dec" };
-                            break;
-                        case 9:
-                            Labels = new[] { "Sep", "Oct", "Nov", "Dec" };
-                            break;
-                        case 10:
-                            Labels = new[] { "Oct", "Nov", "Dec" };
-                            break;
-                        case 11:
-                            Labels = new[] { "Nov", "Dec" };
-                            break;
-                        case 12:
-                            Labels = new[] { "Dec" };
-                            break;
-                        default:
-                            break;
-                    }
-                    foreach (var item in data)
-                    {
-                        linedata.Add(item.Item2);
-                    }
-                    LineChartView.Series.Add(
-                        new LineSeries()
-
+                        new PieSeries()
                         {
-                            Values = new ChartValues<decimal> { linedata[0] },
-                            Title = "cc",
-                            LineSmoothness = 0, //0: straight lines, 1: really smooth lines
+                            Values = new ChartValues<decimal> { item.Item2 },
+                            Title = item.Item1.ToString(),
                             DataLabels = true,
-
 
                         }
                     );
-                    for (int i = 1; i < linedata.Count(); i++)
-                    {
-                        LineChartView.Series[0].Values.Add(linedata[i]);
-                    }
-                    LineChartView.LegendLocation = LegendLocation.Bottom;
-                    LineChartView.AxisX.Clear();
-                    LineChartView.AxisY.Clear();
-                    LineChartView.AxisX.Add(
-                        new Axis
-                        {
-                            MinValue = 0,
-                            Labels = Labels,
-                        }
-                        );
-                    LineChartView.AxisY.Add(
-                        new Axis
-                        {
-                            MinValue = 0,
-                        }
-                        );
-                    LineChartView.DataContext = this;
                 }
-            }    
-            
+                PieChartView.LegendLocation = LegendLocation.Bottom;
+                PieChartView.DataContext = this;
+
+                LineChartView.Series = new SeriesCollection();
+                var linedata = new List<decimal>();
+                string[] Labels = new[] { "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec" };
+                var fromDateMonth2 = int.Parse(fromDate?.ToString("MM"));
+                switch (fromDateMonth2)
+                {
+                    case 1:
+                        Labels = new[] { "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec" };
+                        break;
+                    case 2:
+                        Labels = new[] { "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec" };
+                        break;
+                    case 3:
+                        Labels = new[] { "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec" };
+                        break;
+                    case 4:
+                        Labels = new[] { "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec" };
+                        break;
+                    case 5:
+                        Labels = new[] { "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec" };
+                        break;
+                    case 6:
+
+                        Labels = new[] { "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec" };
+                        break;
+                    case 7:
+                        Labels = new[] { "Jul", "Aug", "Sep", "Oct", "Nov", "Dec" };
+                        break;
+                    case 8:
+                        Labels = new[] { "Aug", "Sep", "Oct", "Nov", "Dec" };
+                        break;
+                    case 9:
+                        Labels = new[] { "Sep", "Oct", "Nov", "Dec" };
+                        break;
+                    case 10:
+                        Labels = new[] { "Oct", "Nov", "Dec" };
+                        break;
+                    case 11:
+                        Labels = new[] { "Nov", "Dec" };
+                        break;
+                    case 12:
+                        Labels = new[] { "Dec" };
+                        break;
+                    default:
+                        break;
+                }
+                foreach (var item in data)
+                {
+                    linedata.Add(item.Item2);
+                }
+                LineChartView.Series.Add(
+                    new LineSeries()
+
+                    {
+                        Values = new ChartValues<decimal> { linedata[0] },
+                        Title = "Doanh thu theo năm",
+                        LineSmoothness = 1, //0: straight lines, 1: really smooth lines
+                            DataLabels = true,
+
+
+                    }
+                );
+                for (int i = 1; i < linedata.Count(); i++)
+                {
+                    LineChartView.Series[0].Values.Add(linedata[i]);
+                }
+                LineChartView.LegendLocation = LegendLocation.Bottom;
+                LineChartView.AxisX.Clear();
+                LineChartView.AxisY.Clear();
+                LineChartView.AxisX.Add(
+                    new Axis
+                    {
+                        MinValue = 0,
+                        Labels = Labels,
+                    }
+                    );
+                LineChartView.AxisY.Add(
+                    new Axis
+                    {
+                        MinValue = 0,
+                    }
+                    );
+                LineChartView.DataContext = this;
+            }
+
+
         }
         private void fromDatePicker_DateChanged(CalendarDatePicker sender, CalendarDatePickerDateChangedEventArgs args)
         {
@@ -270,8 +297,13 @@ namespace DoAn1
 
         private void toDatePicker_DateChanged(CalendarDatePicker sender, CalendarDatePickerDateChangedEventArgs args)
         {
+            var fromDate = fromDatePicker.Date;
+            var toDate = toDatePicker.Date;
 
+            FillByDate(fromDate, toDate);
         }
+
+        
 
 
         //private void UserControl_Initialized_2(object sender, EventArgs e)

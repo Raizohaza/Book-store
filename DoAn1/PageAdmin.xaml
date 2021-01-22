@@ -12,87 +12,54 @@
     Background="#e6f7ff" Height="600" Width="1100">
 
     <Grid>
-        <!--<muxc:NavigationView x:Name="Menu" PaneDisplayMode="Top" VerticalAlignment="Top" IsBackButtonVisible="Collapsed" SelectionChanged="Menu_SelectionChanged" Loaded="Menu_Loaded">
-            <muxc:NavigationView.MenuItems>
-                <muxc:NavigationViewItem Icon="Manage" Content="Biểu Đồ Doanh thu" Tag="iconManage" />
-                <muxc:NavigationViewItemSeparator/>
-                <muxc:NavigationViewItem Icon="List" Content="List Top Seller" Tag="iconList" />
-                -->
-        <!--<muxc:NavigationViewItem Icon="List" Content="Các mặt hàng bán chạy" Tag="iconListTwo" Visibility="Collapsed"/>-->
-        <!--
-            </muxc:NavigationView.MenuItems>
-
-        </muxc:NavigationView>-->
-        <StackPanel  VerticalAlignment="Top" HorizontalAlignment="Left"  Orientation="Horizontal">
+        <StackPanel x:Name="DateStackPanel"  VerticalAlignment="Top" HorizontalAlignment="Left"  Orientation="Horizontal">
             <TextBlock Text="Từ ngày:" Height="24" Margin="5, 0, 5, 0"></TextBlock>
             <CalendarDatePicker Name="fromDatePicker" Width="150" Height="30" DateChanged="fromDatePicker_DateChanged" ></CalendarDatePicker>
             <TextBlock Text="Đến ngày:" Height="24" Margin="5, 0, 5, 0"></TextBlock>
             <CalendarDatePicker Name="toDatePicker" Width="150" Height="30" DateChanged="toDatePicker_DateChanged"></CalendarDatePicker>
+        </StackPanel>
+        <StackPanel  VerticalAlignment="Top" HorizontalAlignment="Right"  Orientation="Horizontal">
 
-            <Button x:Name="Done_Button" Content="Done" Click="Done_Button_Click" Background="#c1d3e0" Margin="5"/>
+            <Button x:Name="Done_Button" Content="Product" Click="Done_Button_Click" Background="#c1d3e0" Margin="5"/>
 
-            <Button x:Name="PieChartButton" Content="PieChartButton" Click="PieChartButton_Click" Background="#c1d3e0" Margin="5"/>
-            <Button x:Name="ColumChartButton" Content="ColumChartButton" Click="ColumChartButton_CLick" Background="#c1d3e0" Margin="5"/>
+            <Button x:Name="PieChartButton" Content="Pie Chart" Click="PieChartButton_Click" Background="#c1d3e0" Margin="5"/>
+            <Button x:Name="ColumChartButton" Content="Colum Chart" Click="ColumChartButton_CLick" Background="#c1d3e0" Margin="5"/>
+            <Button x:Name="LineChartButton" Content="Line Chart" Click="LineChartButton_Click" Background="#c1d3e0" Margin="5"/>
 
         </StackPanel>
-        <ScrollViewer Width="529" Visibility="Collapsed" HorizontalAlignment="Left"  Name="PieChartScrollView" Margin="21,65,0,65">
+        <ScrollViewer Width="1000" Visibility="Collapsed" HorizontalAlignment="Left"  Name="PieChartScrollView" Margin="21,65,0,65">
             <StackPanel>
-                <TextBlock Text="Thu chi:" TextWrapping="Wrap" FontWeight="Medium" FontSize="30" Height="40" Width="200" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+                <TextBlock Text="Tỉ lệ thu chi theo từng tháng trong năm" TextWrapping="Wrap" FontWeight="Medium" FontSize="30" Height="40" Width="auto" VerticalAlignment="Top" HorizontalAlignment="Left"/>
 
-                <lvc:PieChart Name="PieChartView"  Height="405" Width="441" >
+                <lvc:PieChart Name="PieChartView"  Height="405" Width="900" >
 
                 </lvc:PieChart>
             </StackPanel>
         </ScrollViewer>
-        
-        <ScrollViewer HorizontalAlignment="Left"  Name="ColumChartScrollView" Visibility="Collapsed" Margin="21,65,0,65" Width="529">
-                <StackPanel>
-                    <TextBlock Text="Các mặt hàng bán chạy" TextWrapping="Wrap" FontWeight="Medium" FontSize="30" Height="40" Width="200" VerticalAlignment="Top" HorizontalAlignment="Left"/>
-                <lvc:CartesianChart Name="ColumChartView"  Height="405" Width="441">
-                </lvc:CartesianChart>
-            </StackPanel>
-            
-        </ScrollViewer>
-        <ScrollViewer HorizontalAlignment="Left"  Name="LineChartScrollView" Visibility="Visible" Margin="21,65,0,65" Width="529">
+
+        <ScrollViewer HorizontalAlignment="Left"  Name="ColumChartScrollView" Visibility="Collapsed" Margin="21,65,0,65" Width="1000">
             <StackPanel>
-                
-                <TextBlock Text="Biểu đồ đường" TextWrapping="Wrap" FontWeight="Medium" FontSize="30" Height="40" Width="200" VerticalAlignment="Top" HorizontalAlignment="Left"/>
-                <lvc:CartesianChart Name="LineChartView"  Height="405" Width="441">
-                    <!--<lvc:CartesianChart.AxisX>
-                        <lvc:Axis Name="LineChartViewX" Title="Month" Labels="{Binding Labels}"></lvc:Axis>
-                    </lvc:CartesianChart.AxisX>-->
+                <TextBlock Text="Các mặt hàng bán chạy" TextWrapping="Wrap" FontWeight="Medium" FontSize="30" Height="40" Width="auto" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+                <lvc:CartesianChart Name="ColumChartView"  Height="405" Width="900">
                 </lvc:CartesianChart>
             </StackPanel>
 
         </ScrollViewer>
-        <!--<d3:Chart Name="Plotter"
-                  Grid.Row="1"
-                  Margin="0,0,25,0"
-                  FontFamily="Sitka Subheading"
-                  BottomTitle="Ngày"
-                  LeftTitle="Tiền"
-                  Background="Transparent">
-            <d:Chart.LegendContent>
-                <d:LegendItemsPanel>
-                    <d:LegendItemsPanel.Resources>
-                        <DataTemplate x:Key="InteractiveDataDisplay.WPF.LineGraph">
-                            <StackPanel Orientation="Horizontal">
-                                <CheckBox IsChecked="{Binding Path=Visibility, Converter={StaticResource VisibilityToCheckedConverter}, Mode=TwoWay}"/>
-                                <Line Width="15" Height="15" X1="0" Y1="0" X2="15" Y2="15" Stroke="{Binding Path=Stroke}" StrokeThickness="2"/>
-                                <TextBlock Margin="5,0,0,0" Text="{Binding Path=Description}"/>
-                            </StackPanel>
-                        </DataTemplate>
-                    </d:LegendItemsPanel.Resources>
-                </d:LegendItemsPanel>
-            </d:Chart.LegendContent>
-            <Grid Name="Lines"/>
-        </d3:Chart>-->
+        
+        <ScrollViewer HorizontalAlignment="Center"  Name="LineChartScrollView" Visibility="Visible" Margin="0,65,0,65" Width="1000">
+            <StackPanel>
+                <TextBlock Text="Doanh thu theo năm" FontWeight="Medium" FontSize="30" Height="40" Width="auto" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+                <lvc:CartesianChart Name="LineChartView"  Height="405" Width="900">
+
+                </lvc:CartesianChart>
+            </StackPanel>
+        </ScrollViewer>
 
         <controls:DataGrid 
                     IsReadOnly="False" 
                     x:Name="DataGridProduct" 
                     AutoGenerateColumns="True" 
-                    VariableSizedWrapGrid.RowSpan="2" Width="1100" HorizontalAlignment="Left" VerticalAlignment="Top" Height="650"
+                    VariableSizedWrapGrid.RowSpan="2" Width="1100" HorizontalAlignment="Left" VerticalAlignment="Top" Height="550"
                     Visibility="Collapsed" Margin="0,50,0,0">
         </controls:DataGrid>
     </Grid>
